@@ -25,14 +25,14 @@
                     </tr>
                 </table>
                 <h5>أولًا: الأعمال المنفذة</h5>
-                <table class="table table-sm table-bordered">
-                    <thead><tr>
+                <table class="table table-sm table-bordered" style="font-size:11px">
+                    <thead style="background:#0B3C5D;color:#fff"><tr>
                         <th style="width:34%">البند</th><th>الوحدة</th><th class="text-end">كمية العقد</th>
                         <th class="text-end">السابق</th><th class="text-end">الحالي</th><th class="text-end">التراكمي</th>
                         <th class="text-end">الفئة</th><th class="text-end">قيمة الحالي</th><th class="text-end">نسبة الإنجاز</th>
                     </tr></thead>
                     <tbody>
-                        <t t-foreach="o.line_ids" t-as="l">
+                        <t t-foreach="o.line_ids.filtered(lambda x: x.cumulative_qty)" t-as="l">
                             <tr>
                                 <td><span t-out="l.product_id.with_context(lang='ar_001').name"/></td>
                                 <td><span t-out="l.product_uom_id.name"/></td>
