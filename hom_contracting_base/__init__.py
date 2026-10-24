@@ -25,10 +25,11 @@ def post_init_hook(env):
         for rec in Model.search([]):
             vals = {}
             for src, dst in present.items():
+                ftype = Model._fields[src].type
                 value = rec[src]
-                if Model._fields[src].type == "many2one":
+                if ftype == "many2one":
                     value = value.id
-                if value not in (False, None):
-                    vals[dst] = value
+                if ftype in ("float", "integer", "monetary", "boolean") or value:
+                    vals[dst] = value or (0.0 if ftype != "boolean" else False)
             if vals:
                 rec.write(vals)
