@@ -82,15 +82,34 @@ class HomControlTower(models.AbstractModel):
             total += sign * sum(lines.mapped("price_subtotal"))
         return total
 
+    _SETTLED = ("in_payment", "paid")
+
     def _collections(self, moves):
-        """(date, amount) of every settlement on the receivable/payable lines of the given moves."""
+        """(date, amount) of the money received/paid on the given invoices.
+
+        Reconciled settlements come from the partial reconciliations; payments registered without a journal
+        entry (Odoo 18+ "in payment" flow, waiting for the bank statement) come from account.payment.
+        """
+        env = self.sudo().env
+        moves = moves.filtered(lambda m: m.state == "posted")
         out = []
-        for move in moves.filtered(lambda m: m.state == "posted"):
+        for move in moves:
             for line in move.line_ids.filtered(
                     lambda l: l.account_id.account_type in ("asset_receivable", "liability_payable")):
                 for partial in line.matched_credit_ids | line.matched_debit_ids:
                     out.append((partial.max_date, partial.amount))
+        if moves and "invoice_ids" in env["account.payment"]._fields:
+            pays = env["account.payment"].search([("invoice_ids", "in", moves.ids), ("move_id", "=", False),
+                                                  ("state", "not in", ("draft", "canceled", "rejected"))])
+            for pay in pays:
+                linked = pay.invoice_ids & moves
+                total = sum(linked.mapped("amount_total")) or 1.0
+                for inv in linked:
+                    out.append((pay.date, pay.amount * inv.amount_total / total))
         return out
+
+    def _open_amount(self, moves):
+        return sum(m.amount_residual_signed for m in moves if m.state == "posted" and m.payment_state not in self._SETTLED)
 
     # ------------------------------------------------------------------
     # Projects
@@ -101,8 +120,8 @@ class HomControlTower(models.AbstractModel):
         contract = order.amount_untaxed
         figures = project._hom_contract_figures() if project and hasattr(project, "_hom_contract_figures") else {}
         invoices = order.invoice_ids.filtered(lambda m: m.state == "posted" and m.move_type in ("out_invoice", "out_refund"))
-        collected = sum(invoices.mapped(lambda m: (m.amount_total_signed - m.amount_residual_signed)))
-        ar_open = sum(invoices.mapped("amount_residual_signed"))
+        collected = sum(a for _d, a in self._collections(invoices))
+        ar_open = self._open_amount(invoices)
         margin = figures.get("margin")
         status = "on_track" if margin is None or margin >= 15 else ("at_risk" if margin >= 5 else "off_track")
         # time elapsed
@@ -235,7 +254,8 @@ class HomControlTower(models.AbstractModel):
     def _aging(self, move_types, today):
         env = self.sudo().env
         moves = env["account.move"].search([("move_type", "in", move_types), ("state", "=", "posted"),
-                                            ("amount_residual", "!=", 0), ("company_id", "=", self.env.company.id)])
+                                            ("amount_residual", "!=", 0), ("company_id", "=", self.env.company.id),
+                                            ("payment_state", "not in", self._SETTLED)])
         names = ["not_due", "d30", "d60", "d90", "d90p"]
         b = dict.fromkeys(names, 0.0)
         for m in moves:
@@ -254,6 +274,10 @@ class HomControlTower(models.AbstractModel):
         for j in journals:
             acc = j.default_account_id
             bal = sum(env["account.move.line"].search([("account_id", "=", acc.id), ("parent_state", "=", "posted")]).mapped("balance")) if acc else 0.0
+            # payments registered without journal entry, waiting for the bank statement
+            pending = env["account.payment"].search([("journal_id", "=", j.id), ("move_id", "=", False),
+                                                     ("state", "not in", ("draft", "canceled", "rejected"))])
+            bal += sum(p.amount if p.payment_type == "inbound" else -p.amount for p in pending)
             cash.append({"name": j.name, "type": j.type, "balance": bal})
         G = env["hom.bank.guarantee"].search([("state", "in", ("active", "extended", "expired"))], order="expiry_date")
         guarantees = [{
@@ -364,7 +388,8 @@ class HomControlTower(models.AbstractModel):
         add("warning", _("Variation orders waiting for approval"), len(V),
             _act(_("Variation orders"), "hom.variation.order", [("id", "in", V.ids)]), sum(V.mapped("amount_total")))
         D = env["account.move"].search([("move_type", "=", "out_invoice"), ("state", "=", "posted"),
-                                        ("amount_residual", ">", 0), ("invoice_date_due", "<", today)])
+                                        ("amount_residual", ">", 0), ("invoice_date_due", "<", today),
+                                        ("payment_state", "not in", self._SETTLED)])
         add("danger", _("Overdue customer invoices"), len(D),
             _act(_("Overdue invoices"), "account.move", [("id", "in", D.ids)]), sum(D.mapped("amount_residual")))
         if "helpdesk.ticket" in env:
@@ -398,10 +423,12 @@ class HomControlTower(models.AbstractModel):
             return self.env["ir.actions.act_window"]._for_xml_id(mapping[kind][0])
         if kind == "receivables":
             return _act(_("Open receivables"), "account.move",
-                        [("move_type", "=", "out_invoice"), ("state", "=", "posted"), ("amount_residual", "!=", 0)])
+                        [("move_type", "=", "out_invoice"), ("state", "=", "posted"), ("amount_residual", "!=", 0),
+                         ("payment_state", "not in", self._SETTLED)])
         if kind == "payables":
             return _act(_("Open payables"), "account.move",
-                        [("move_type", "=", "in_invoice"), ("state", "=", "posted"), ("amount_residual", "!=", 0)])
+                        [("move_type", "=", "in_invoice"), ("state", "=", "posted"), ("amount_residual", "!=", 0),
+                         ("payment_state", "not in", self._SETTLED)])
         if kind == "tickets" and "helpdesk.ticket" in self.env:
             return _act(_("Open tickets"), "helpdesk.ticket", [("stage_id.fold", "=", False)], ("list", "kanban", "form"))
         if kind == "project" and res_id:
