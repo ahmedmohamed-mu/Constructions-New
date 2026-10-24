@@ -73,13 +73,21 @@ class HomSubcontractCertificate(models.Model):
             cert.line_ids._compute_previous_qty()
             cert.state = "submitted"
 
+    def _check_can_approve(self):
+        user = self.env.user
+        if not (self.env.is_superuser() or user.has_group("purchase.group_purchase_manager")
+                or user.has_group("project.group_project_manager")):
+            raise UserError(_("Only a project manager or a purchase manager can approve a subcontractor certificate."))
+
     def action_approve(self):
+        self._check_can_approve()
         for cert in self.filtered(lambda c: c.state == "submitted"):
-            for line in cert.line_ids:
+            for line in cert.line_ids.sudo():
                 pol = line.purchase_line_id
                 if pol.qty_received_method == "manual":
                     pol.qty_received = line.cumulative_qty
             cert.state = "approved"
+            cert.message_post(body=_("Approved by %s; received quantities updated on the subcontract.", self.env.user.name))
             buyer = cert.purchase_order_id.user_id
             if buyer:
                 cert.activity_schedule("mail.mail_activity_data_todo", user_id=buyer.id,
@@ -138,13 +146,14 @@ class HomSubcontractCertificate(models.Model):
         for cert in self:
             if cert.state != "approved":
                 raise UserError(_("Only approved certificates can be billed."))
-            order = cert.purchase_order_id.with_context(default_move_type="in_invoice")
+            # Accountants may not have Purchase rights: prepare values as superuser, create as the user.
+            order = cert.sudo().purchase_order_id.with_context(default_move_type="in_invoice")
             vals = order._prepare_invoice()
             vals.update({
                 "invoice_date": cert.date,
                 "ref": cert.name,
                 "hom_sub_certificate_id": cert.id,
-                "invoice_line_ids": cert._prepare_bill_lines(),
+                "invoice_line_ids": cert.sudo()._prepare_bill_lines(),
             })
             move = self.env["account.move"].create(vals)
             cert.write({"bill_id": move.id, "state": "billed"})

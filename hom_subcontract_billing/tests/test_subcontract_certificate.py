@@ -62,3 +62,15 @@ class TestSubcontractCertificate(AccountTestInvoicingCommon):
         ret_line = bill.invoice_line_ids.filtered(lambda l: l.product_id == self.env.company.hom_retention_sub_product_id)
         self.assertEqual(ret_line.account_id, self.ret_acc)
         self.assertEqual(self.po.order_line[0].qty_invoiced, 30)
+
+    def test_report_and_site_engineer(self):
+        from odoo.tests import new_test_user
+        engineer = new_test_user(self.env, "site.eng2", groups="project.group_project_user")
+        cert = self.env["hom.subcontract.certificate"].with_user(engineer).create({"purchase_order_id": self.po.id})
+        cert.action_load_items()
+        cert.line_ids[0].cumulative_qty = 5
+        cert.action_submit()
+        cert.sudo().action_approve()
+        html = self.env["ir.actions.report"]._render_qweb_html(
+            "hom_subcontract_billing.report_subcontract_certificate", cert.ids)[0]
+        self.assertIn(b"5.00", html)

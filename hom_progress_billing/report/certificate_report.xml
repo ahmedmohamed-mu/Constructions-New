@@ -42,7 +42,7 @@
                                 <td class="text-end"><span t-out="l.cumulative_qty" t-options="F"/></td>
                                 <td class="text-end"><span t-out="l.price_unit" t-options="F"/></td>
                                 <td class="text-end"><span t-out="l.amount_current" t-options="M"/></td>
-                                <td class="text-end"><span t-out="'%.1f%%' % l.progress_pct"/></td>
+                                <td class="text-end"><span t-out="round(l.progress_pct, 1)"/> %</td>
                             </tr>
                         </t>
                         <tr class="fw-bold"><td colspan="7">إجمالي الأعمال الحالية</td><td class="text-end"><span t-out="o.amount_current" t-options="M"/></td><td/></tr>
@@ -54,7 +54,7 @@
                     <tr><td>محتجز ضمان الأعمال (<span t-out="'%g' % o.retention_pct"/>%)</td><td class="text-end"><span t-out="o.amount_retention" t-options="M"/></td></tr>
                     <tr class="fw-bold"><td>الصافي قبل الضريبة</td><td class="text-end"><span t-out="o.amount_net" t-options="M"/></td></tr>
                     <tr><td>إجمالي الأعمال التراكمية حتى تاريخه</td><td class="text-end"><span t-out="o.amount_cumulative" t-options="M"/></td></tr>
-                    <tr><td>نسبة إنجاز العقد</td><td class="text-end"><span t-out="'%.1f%%' % o.progress_pct"/></td></tr>
+                    <tr><td>نسبة إنجاز العقد</td><td class="text-end"><span t-out="round(o.progress_pct, 1)"/> %</td></tr>
                 </table>
                 <div class="row mt-5 text-center">
                     <div class="col-3">مهندس الموقع<br/><br/>..............</div>

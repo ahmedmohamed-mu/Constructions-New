@@ -91,3 +91,24 @@ class TestProgressCertificate(AccountTestInvoicingCommon):
         with self.assertRaises(Exception):
             cert.line_ids[0].cumulative_qty = 101
             cert.line_ids[0].flush_recordset()
+
+    def test_personas_and_report(self):
+        from odoo.tests import new_test_user
+        engineer = new_test_user(self.env, "site.eng", groups="project.group_project_user")
+        pm = new_test_user(self.env, "pm.user", groups="project.group_project_manager")
+        accountant = new_test_user(self.env, "acc.user", groups="account.group_account_invoice")
+        Cert = self.env["hom.progress.certificate"]
+        cert = Cert.with_user(engineer).create({"sale_order_id": self.so.id})
+        cert.action_load_boq()
+        cert.line_ids[0].cumulative_qty = 10
+        cert.action_submit()
+        with self.assertRaises(Exception):
+            cert.action_approve()
+        cert.with_user(pm).action_approve()
+        self.assertEqual(cert.state, "approved")
+        cert.with_user(accountant).action_create_invoice()
+        self.assertEqual(cert.state, "invoiced")
+        self.assertTrue(cert.invoice_id)
+        html = self.env["ir.actions.report"]._render_qweb_html(
+            "hom_progress_billing.report_progress_certificate", cert.ids)[0]
+        self.assertIn(b"10.0", html)

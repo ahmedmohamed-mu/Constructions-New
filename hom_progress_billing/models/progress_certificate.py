@@ -117,13 +117,21 @@ class HomProgressCertificate(models.Model):
             if cert.consultant_id:
                 cert.message_post(body=_("Submitted to the consultant %s for review.", cert.consultant_id.name))
 
+    def _check_can_approve(self):
+        user = self.env.user
+        if not (self.env.is_superuser() or user.has_group("sales_team.group_sale_manager")
+                or user.has_group("project.group_project_manager")):
+            raise UserError(_("Only a project manager or a sales manager can approve a progress certificate."))
+
     def action_approve(self):
+        self._check_can_approve()
         for cert in self.filtered(lambda c: c.state == "submitted"):
-            for line in cert.line_ids:
+            for line in cert.line_ids.sudo():
                 sol = line.sale_line_id
                 if sol.qty_delivered_method == "manual":
                     sol.qty_delivered = line.cumulative_qty
             cert.state = "approved"
+            cert.message_post(body=_("Approved by %s; delivered quantities updated on the contract.", self.env.user.name))
             accountant = cert.company_id.hom_certificate_accountant_id
             if accountant:
                 cert.activity_schedule(
@@ -180,12 +188,13 @@ class HomProgressCertificate(models.Model):
         for cert in self:
             if cert.state != "approved":
                 raise UserError(_("Only approved certificates can be invoiced."))
-            vals = cert.sale_order_id._prepare_invoice()
+            # Accountants may not have Sales rights: prepare values as superuser, create as the user.
+            vals = cert.sudo().sale_order_id._prepare_invoice()
             vals.update({
                 "invoice_date": cert.date,
                 "ref": cert.name,
                 "hom_certificate_id": cert.id,
-                "invoice_line_ids": cert._prepare_invoice_lines(),
+                "invoice_line_ids": cert.sudo()._prepare_invoice_lines(),
             })
             move = self.env["account.move"].with_context(default_move_type="out_invoice").create(vals)
             cert.write({"invoice_id": move.id, "state": "invoiced"})

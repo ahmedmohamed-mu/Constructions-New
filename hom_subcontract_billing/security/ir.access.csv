@@ -4,3 +4,7 @@ access_hom_subcert_purchase_manager,hom sub certificate purchase manager,hom.sub
 access_hom_subcert_invoice,hom sub certificate invoicing,hom.subcontract.certificate,account.group_account_invoice,ru,
 access_hom_subcert_line_purchase_user,hom sub certificate line purchase user,hom.subcontract.certificate.line,purchase.group_purchase_user,crud,
 access_hom_subcert_line_invoice,hom sub certificate line invoicing,hom.subcontract.certificate.line,account.group_account_invoice,r,
+access_hom_subcert_project_user,hom sub certificate site engineer,hom.subcontract.certificate,project.group_project_user,cru,
+access_hom_subcert_line_project_user,hom sub certificate line site engineer,hom.subcontract.certificate.line,project.group_project_user,crud,
+access_hom_site_read_subcontract,site engineers read subcontracts,purchase.order,project.group_project_user,r,"[('hom_is_subcontract', '=', True)]"
+access_hom_site_read_subcontract_line,site engineers read subcontract items,purchase.order.line,project.group_project_user,r,"[('order_id.hom_is_subcontract', '=', True)]"
