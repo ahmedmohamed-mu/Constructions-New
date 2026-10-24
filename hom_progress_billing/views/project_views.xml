@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="edit_project_hom_certificates" model="ir.ui.view">
+        <field name="name">project.project.form.hom.certificates</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_hom_certificates" type="object" class="oe_stat_button" icon="fa-file-text-o"
+                        invisible="not hom_certificate_count" groups="sales_team.group_sale_salesman">
+                    <field name="hom_certificate_count" widget="statinfo" string="Certificates"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hom_progress_certificate_form" model="ir.ui.view">
+        <field name="name">hom.progress.certificate.form</field>
+        <field name="model">hom.progress.certificate</field>
+        <field name="arch" type="xml">
+            <form string="Progress Certificate">
+                <header>
+                    <button name="action_load_boq" type="object" string="Load BOQ" invisible="state != 'draft'"/>
+                    <button name="action_submit" type="object" string="Submit to Consultant" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_approve" type="object" string="Approve" class="btn-primary" invisible="state != 'submitted'"
+                            groups="sales_team.group_sale_manager,project.group_project_manager"/>
+                    <button name="action_create_invoice" type="object" string="Create Invoice" class="btn-primary" invisible="state != 'approved'"
+                            groups="account.group_account_invoice"/>
+                    <button name="action_reset_draft" type="object" string="Reset to Draft" invisible="state not in ('submitted', 'approved', 'cancel')"/>
+                    <button name="action_cancel" type="object" string="Cancel" invisible="state in ('invoiced', 'cancel')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,submitted,approved,invoiced"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_invoice" type="object" class="oe_stat_button" icon="fa-pencil-square-o" invisible="not invoice_id">
+                            <div class="o_stat_info"><span class="o_stat_text">Invoice</span><field name="invoice_payment_state" widget="badge"/></div>
+                        </button>
+                    </div>
+                    <widget name="web_ribbon" title="Invoiced" invisible="state != 'invoiced'"/>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group string="Contract">
+                            <field name="sale_order_id" readonly="state != 'draft'" options="{'no_create': True}"/>
+                            <field name="partner_id"/>
+                            <field name="consultant_id"/>
+                            <field name="project_id"/>
+                            <field name="company_id" invisible="1"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                        <group string="Certificate">
+                            <field name="number" invisible="not number"/>
+                            <field name="date" readonly="state not in ('draft', 'submitted')"/>
+                            <field name="period_end" readonly="state not in ('draft', 'submitted')"/>
+                            <field name="user_id" widget="many2one_avatar_user"/>
+                            <field name="progress_pct" widget="progressbar"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Measured Work (BOQ)" name="lines">
+                            <field name="line_ids" readonly="state != 'draft'">
+                                <list editable="bottom" create="0" decoration-muted="current_qty == 0" decoration-bf="current_qty != 0">
+                                    <field name="sequence" column_invisible="1"/>
+                                    <field name="sale_line_id" column_invisible="1"/>
+                                    <field name="currency_id" column_invisible="1"/>
+                                    <field name="product_id" readonly="1"/>
+                                    <field name="name" optional="hide"/>
+                                    <field name="product_uom_id" string="Unit"/>
+                                    <field name="contract_qty" digits="[16,2]"/>
+                                    <field name="previous_qty" digits="[16,2]" readonly="1"/>
+                                    <field name="current_qty" digits="[16,2]"/>
+                                    <field name="cumulative_qty" digits="[16,2]" class="fw-bold"/>
+                                    <field name="price_unit" digits="[16,2]"/>
+                                    <field name="amount_current" sum="Total"/>
+                                    <field name="amount_cumulative" sum="Total" optional="show"/>
+                                    <field name="progress_pct" widget="progressbar" optional="show"/>
+                                </list>
+                            </field>
+                            <group class="oe_subtotal_footer">
+                                <field name="amount_current"/>
+                                <field name="amount_advance_recovery"/>
+                                <field name="amount_retention"/>
+                                <field name="amount_net" class="oe_subtotal_footer_separator"/>
+                                <field name="amount_cumulative"/>
+                            </group>
+                        </page>
+                        <page string="Notes" name="notes">
+                            <field name="note" placeholder="Consultant comments, measurement notes..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="hom_progress_certificate_list" model="ir.ui.view">
+        <field name="name">hom.progress.certificate.list</field>
+        <field name="model">hom.progress.certificate</field>
+        <field name="arch" type="xml">
+            <list decoration-info="state == 'submitted'" decoration-success="state == 'invoiced'" decoration-muted="state == 'cancel'">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="partner_id"/>
+                <field name="project_id" optional="show"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="amount_current" sum="Total"/>
+                <field name="amount_retention" sum="Total" optional="show"/>
+                <field name="amount_net" sum="Total"/>
+                <field name="progress_pct" widget="progressbar" optional="show"/>
+                <field name="state" widget="badge" decoration-info="state == 'submitted'" decoration-success="state in ('approved', 'invoiced')"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="hom_progress_certificate_search" model="ir.ui.view">
+        <field name="name">hom.progress.certificate.search</field>
+        <field name="model">hom.progress.certificate</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="sale_order_id"/>
+                <field name="partner_id"/>
+                <field name="project_id"/>
+                <filter name="to_approve" string="Waiting Consultant" domain="[('state', '=', 'submitted')]"/>
+                <filter name="to_invoice" string="To Invoice" domain="[('state', '=', 'approved')]"/>
+                <separator/>
+                <filter name="group_project" string="Project" context="{'group_by': 'project_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_hom_progress_certificate" model="ir.actions.act_window">
+        <field name="name">Progress Certificates</field>
+        <field name="res_model">hom.progress.certificate</field>
+        <field name="view_mode">list,form,pivot,graph</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create the first progress certificate (مستخلص)</p>
+            <p>Pick a contract, load its BOQ and enter the cumulative quantities measured on site.</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_hom_certificates_sale" name="Progress Certificates" parent="sale.sale_order_menu"
+              action="action_hom_progress_certificate" sequence="15"/>
+    <menuitem id="menu_hom_certificates_account" name="Progress Certificates" parent="account.menu_finance_receivables"
+              action="action_hom_progress_certificate" sequence="5"/>
+</odoo>

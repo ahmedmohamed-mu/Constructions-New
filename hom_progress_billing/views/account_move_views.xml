@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_move_form_hom_certificate" model="ir.ui.view">
+        <field name="name">account.move.form.hom.certificate</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@id='header_right_group']" position="inside">
+                <field name="hom_certificate_id" invisible="not hom_certificate_id"/>
+            </xpath>
+            <xpath expr="//field[@name='invoice_line_ids']//list//field[@name='quantity']" position="before">
+                <field name="hom_previous_qty" string="Prev." optional="hide" digits="[16,2]" column_invisible="not parent.hom_certificate_id"/>
+            </xpath>
+            <xpath expr="//field[@name='invoice_line_ids']//list//field[@name='quantity']" position="after">
+                <field name="hom_cumulative_qty" string="Cum." optional="hide" digits="[16,2]" column_invisible="not parent.hom_certificate_id"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="res_config_settings_view_form_hom_accountant" model="ir.ui.view">
+        <field name="name">res.config.settings.hom.accountant</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="hom_contracting_base.res_config_settings_view_form_hom"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@name='hom_contracting']" position="inside">
+                <setting string="Certificates accountant" help="Gets a to-do when a certificate is approved">
+                    <field name="hom_certificate_accountant_id"/>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>

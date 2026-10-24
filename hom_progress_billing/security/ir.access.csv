@@ -1,0 +1,8 @@
+id,name,model_id,group_id/id,operation,domain
+access_hom_cert_salesman,hom certificate salesman,hom.progress.certificate,sales_team.group_sale_salesman,cru,
+access_hom_cert_manager,hom certificate manager,hom.progress.certificate,sales_team.group_sale_manager,crud,
+access_hom_cert_invoice,hom certificate invoicing,hom.progress.certificate,account.group_account_invoice,ru,
+access_hom_cert_project,hom certificate project,hom.progress.certificate,project.group_project_user,r,
+access_hom_cert_line_salesman,hom certificate line salesman,hom.progress.certificate.line,sales_team.group_sale_salesman,crud,
+access_hom_cert_line_invoice,hom certificate line invoicing,hom.progress.certificate.line,account.group_account_invoice,r,
+access_hom_cert_line_project,hom certificate line project,hom.progress.certificate.line,project.group_project_user,r,
