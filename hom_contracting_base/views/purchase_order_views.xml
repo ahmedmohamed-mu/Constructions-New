@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="purchase_order_form_hom_subcontract" model="ir.ui.view">
+        <field name="name">purchase.order.form.hom.subcontract</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_ref']" position="after">
+                <field name="hom_is_subcontract"/>
+                <field name="hom_advance_amount" invisible="not hom_is_subcontract"/>
+                <label for="hom_advance_recovery_pct" invisible="not hom_is_subcontract"/>
+                <div class="o_row" invisible="not hom_is_subcontract">
+                    <field name="hom_advance_recovery_pct" class="oe_inline"/> % <span class="text-muted">/ Retention</span>
+                    <field name="hom_retention_pct" class="oe_inline"/> %
+                </div>
+            </xpath>
+        </field>
+    </record>
+    <record id="purchase_order_search_hom" model="ir.ui.view">
+        <field name="name">purchase.order.search.hom</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.view_purchase_order_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='my_purchases']" position="after">
+                <filter string="Subcontracts" name="hom_subcontracts" domain="[('hom_is_subcontract', '=', True)]"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

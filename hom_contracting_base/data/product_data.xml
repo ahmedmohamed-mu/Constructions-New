@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <!-- Default contracting products; accounts are set per company in Accounting (balance-sheet accounts). -->
+    <record id="product_retention_owner" model="product.product">
+        <field name="name">محتجز ضمان أعمال (عميل)</field>
+        <field name="default_code">HOM-RET-C</field>
+        <field name="type">service</field>
+        <field name="sale_ok" eval="True"/>
+        <field name="purchase_ok" eval="False"/>
+        <field name="list_price">0</field>
+        <field name="taxes_id" eval="[(5, 0, 0)]"/>
+    </record>
+    <record id="product_retention_sub" model="product.product">
+        <field name="name">محتجز ضمان مقاول باطن</field>
+        <field name="default_code">HOM-RET-S</field>
+        <field name="type">service</field>
+        <field name="sale_ok" eval="False"/>
+        <field name="purchase_ok" eval="True"/>
+        <field name="supplier_taxes_id" eval="[(5, 0, 0)]"/>
+    </record>
+    <record id="product_sub_advance" model="product.product">
+        <field name="name">دفعة مقدمة مقاول باطن</field>
+        <field name="default_code">HOM-ADV-S</field>
+        <field name="type">service</field>
+        <field name="sale_ok" eval="False"/>
+        <field name="purchase_ok" eval="True"/>
+    </record>
+    <record id="product_sub_advance_recovery" model="product.product">
+        <field name="name">استرداد دفعة مقدمة مقاول باطن</field>
+        <field name="default_code">HOM-ADVR-S</field>
+        <field name="type">service</field>
+        <field name="sale_ok" eval="False"/>
+        <field name="purchase_ok" eval="True"/>
+    </record>
+    <record id="base.main_company" model="res.company">
+        <field name="hom_retention_owner_product_id" ref="product_retention_owner"/>
+        <field name="hom_retention_sub_product_id" ref="product_retention_sub"/>
+        <field name="hom_sub_advance_product_id" ref="product_sub_advance"/>
+        <field name="hom_sub_advance_recovery_product_id" ref="product_sub_advance_recovery"/>
+    </record>
+</odoo>

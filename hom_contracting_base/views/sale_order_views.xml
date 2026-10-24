@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form_hom_contract" model="ir.ui.view">
+        <field name="name">sale.order.form.hom.contract</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='order_details']" position="inside">
+                <field name="hom_project_type"/>
+                <field name="hom_consultant_id" invisible="hom_project_type != 'contracting'"/>
+                <label for="hom_advance_pct" invisible="hom_project_type != 'contracting'"/>
+                <div class="o_row" invisible="hom_project_type != 'contracting'">
+                    <field name="hom_advance_pct" class="oe_inline"/> % <span class="text-muted">/ Retention</span>
+                    <field name="hom_retention_pct" class="oe_inline"/> %
+                </div>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_sales_order_filter_hom" model="ir.ui.view">
+        <field name="name">sale.order.search.hom</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='my_sale_orders_filter']" position="after">
+                <filter string="Contracting" name="hom_contracting" domain="[('hom_project_type', '=', 'contracting')]"/>
+                <filter string="Facility Management" name="hom_fm" domain="[('hom_project_type', '=', 'fm')]"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
