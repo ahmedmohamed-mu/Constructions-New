@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+<t t-name="hom_control_tower.ControlTower">
+<div class="o_action o_hom_ct h-100 overflow-auto">
+    <!-- ============ Header band ============ -->
+    <div class="ct-hero">
+        <div class="ct-hero-top">
+            <div class="ct-brand">
+                <div class="ct-logo"><i class="oi" data-icon="business"/></div>
+                <div>
+                    <div class="ct-title">Control Tower</div>
+                    <div class="ct-sub" t-if="this.state.data">
+                        <t t-out="this.state.data.company"/> · <t t-out="this.date(this.state.data.today)"/>
+                    </div>
+                </div>
+            </div>
+            <button class="ct-refresh" t-on-click="() => this.load()" title="Refresh">
+                <i t-attf-class="oi {{ this.state.loading ? 'ct-spin' : '' }}" data-icon="refresh"/>
+            </button>
+        </div>
+        <div class="ct-tabs">
+            <t t-foreach="this.tabs" t-as="tab" t-key="tab.key">
+                <button t-attf-class="ct-tab {{ this.state.tab === tab.key ? 'active' : '' }}" t-on-click="() => this.setTab(tab.key)">
+                    <i class="oi" t-att-data-icon="tab.icon"/> <t t-out="tab.label"/>
+                </button>
+            </t>
+        </div>
+    </div>
+
+    <div class="ct-body" t-if="this.state.data">
+        <t t-set="d" t-value="this.state.data"/>
+
+        <!-- ================================================= EXECUTIVE -->
+        <t t-if="this.state.tab === 'executive'">
+            <t t-set="k" t-value="d.executive.kpi"/>
+            <div class="ct-kpis">
+                <div class="ct-kpi ct-click" t-on-click="() => this.open('contracts')">
+                    <div class="ct-kpi-label"><i class="oi" data-icon="description"/> Contract portfolio</div>
+                    <div class="ct-kpi-value"><bdi t-out="this.short(k.contract)"/> <small t-out="this.cur"/></div>
+                    <div class="ct-kpi-foot"><t t-out="k.projects"/> running contracts</div>
+                </div>
+                <div class="ct-kpi ct-click" t-on-click="() => this.open('certificates')">
+                    <div class="ct-kpi-label"><i class="oi" data-icon="task_alt"/> Certified to date</div>
+                    <div class="ct-kpi-value"><bdi t-out="this.short(k.certified)"/> <small t-out="this.cur"/></div>
+                    <div class="ct-meter"><span t-attf-style="width: {{ this.clamp(k.certified_pct) }}%"/></div>
+                    <div class="ct-kpi-foot"><bdi t-out="this.pct(k.certified_pct)"/> of the portfolio</div>
+                </div>
+                <div class="ct-kpi">
+                    <div class="ct-kpi-label"><i class="oi" data-icon="receipt_long"/> Work invoiced</div>
+                    <div class="ct-kpi-value"><bdi t-out="this.short(k.invoiced)"/> <small t-out="this.cur"/></div>
+                    <div class="ct-kpi-foot">Advance to recover <b><bdi t-out="this.short(k.advance_outstanding)"/></b></div>
+                </div>
+                <div class="ct-kpi">
+                    <div class="ct-kpi-label"><i class="oi" data-icon="payments"/> Collected</div>
+                    <div class="ct-kpi-value"><bdi t-out="this.short(k.collected)"/> <small t-out="this.cur"/></div>
+                    <div class="ct-kpi-foot">Including the advance payment</div>
+                </div>
+                <div class="ct-kpi ct-click" t-on-click="() => this.open('receivables')">
+                    <div class="ct-kpi-label"><i class="oi" data-icon="hourglass_top"/> Receivables</div>
+                    <div class="ct-kpi-value"><bdi t-out="this.short(k.ar_open)"/> <small t-out="this.cur"/></div>
+                    <div class="ct-kpi-foot">Retention to collect <b><bdi t-out="this.short(k.retention)"/></b></div>
+                </div>
+                <div t-attf-class="ct-kpi ct-kpi-accent {{ k.margin === null ? '' : (k.margin &lt; 5 ? 'is-bad' : (k.margin &lt; 15 ? 'is-warn' : 'is-good')) }}">
+                    <div class="ct-kpi-label"><i class="oi" data-icon="show_chart"/> Expected margin</div>
+                    <div class="ct-kpi-value"><bdi t-out="this.pct(k.margin)"/></div>
+                    <div class="ct-kpi-foot">EAC <b><bdi t-out="this.short(k.eac)"/></b> · actual cost <b><bdi t-out="this.short(k.actual_cost)"/></b></div>
+                </div>
+            </div>
+
+            <div class="ct-grid ct-grid-8-4">
+                <div class="ct-card">
+                    <div class="ct-card-head">
+                        <h3>Certified · Invoiced · Collected</h3>
+                        <div class="ct-legend">
+                            <span><i class="ct-dot ct-c1"/>Certified</span>
+                            <span><i class="ct-dot ct-c2"/>Invoiced</span>
+                            <span><i class="ct-dot ct-c3"/>Collected</span>
+                        </div>
+                    </div>
+                    <t t-set="ch" t-value="this.chart"/>
+                    <div t-if="ch.empty" class="ct-empty">No certificates yet</div>
+                    <svg t-else="" class="ct-chart" t-attf-viewBox="0 0 {{ ch.W }} {{ ch.H }}" preserveAspectRatio="xMidYMid meet">
+                        <t t-foreach="ch.grid" t-as="g" t-key="g.key">
+                            <line class="ct-gridline" t-att-x1="ch.padL" t-att-x2="ch.W" t-att-y1="g.y" t-att-y2="g.y"/>
+                            <text class="ct-axis" x="0" t-att-y="g.y + 4" t-out="g.text"/>
+                        </t>
+                        <t t-foreach="ch.bars" t-as="b" t-key="b.key">
+                            <rect t-att-class="b.cls" t-att-x="b.x" t-att-y="b.y" t-att-width="b.w" t-att-height="b.h" rx="3"><title t-out="b.title"/></rect>
+                        </t>
+                        <t t-foreach="ch.labels" t-as="l" t-key="l.key">
+                            <text class="ct-axis" t-att-x="l.x" t-att-y="l.y" text-anchor="middle" t-out="l.text"/>
+                        </t>
+                    </svg>
+                </div>
+                <div class="ct-card">
+                    <div class="ct-card-head"><h3><i class="oi" data-icon="notifications"/> Needs attention</h3>
+                        <span class="ct-chip" t-out="d.alerts.length"/></div>
+                    <div t-if="!d.alerts.length" class="ct-empty"><i class="oi text-success" data-icon="check_circle"/> All clear</div>
+                    <t t-foreach="d.alerts" t-as="a" t-key="a_index">
+                        <div t-attf-class="ct-alert ct-{{ a.level }}" t-on-click="() => this.openAlert(a)">
+                            <div class="ct-alert-count" t-out="a.count"/>
+                            <div class="ct-alert-text">
+                                <div t-out="a.text"/>
+                                <small t-if="a.amount"><bdi t-out="this.short(a.amount)"/> <t t-out="this.cur"/></small>
+                            </div>
+                            <i class="oi ct-rtl-flip" data-icon="chevron_right"/>
+                        </div>
+                    </t>
+                </div>
+            </div>
+
+            <div class="ct-card">
+                <div class="ct-card-head"><h3><i class="oi" data-icon="view_list"/> Project portfolio</h3>
+                    <span class="ct-muted">Certified progress vs. time elapsed</span></div>
+                <table class="ct-table">
+                    <thead><tr>
+                        <th>Project</th><th>Owner</th><th class="text-end">Contract</th>
+                        <th style="width:24%">Progress</th><th class="text-end">Invoiced</th>
+                        <th class="text-end">Collected</th><th class="text-end">Margin</th><th>Status</th>
+                    </tr></thead>
+                    <tbody>
+                        <tr t-foreach="d.projects" t-as="p" t-key="p.id" class="ct-click" t-on-click="() => this.open('contract', p.id)">
+                            <td><b t-out="p.name"/><div class="ct-muted" t-out="p.pm"/></td>
+                            <td t-out="p.partner"/>
+                            <td class="text-end"><bdi t-out="this.short(p.contract)"/></td>
+                            <td>
+                                <div class="ct-progress">
+                                    <span class="ct-progress-bar" t-attf-style="width: {{ this.clamp(p.certified_pct) }}%"/>
+                                    <span t-if="p.elapsed_pct !== null" class="ct-progress-time" t-attf-style="inset-inline-start: {{ this.clamp(p.elapsed_pct) }}%" title="Time elapsed"/>
+                                </div>
+                                <small class="ct-muted"><bdi t-out="this.pct(p.certified_pct)"/> certified<t t-if="p.elapsed_pct !== null"> · <bdi t-out="this.pct(p.elapsed_pct)"/> time</t></small>
+                            </td>
+                            <td class="text-end" t-out="this.short(p.invoiced)"/>
+                            <td class="text-end" t-out="this.short(p.collected)"/>
+                            <td class="text-end"><b><bdi t-out="this.pct(p.margin)"/></b></td>
+                            <td><span t-attf-class="ct-pill ct-{{ p.status }}" t-out="this.statusLabel(p.status)"/></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="ct-minis">
+                <div class="ct-mini"><span>Open pipeline</span><b><bdi t-out="this.short(k.pipeline)"/> <small t-out="this.cur"/></b></div>
+                <div class="ct-mini ct-click" t-on-click="() => this.open('subcontracts')"><span>Subcontract commitments</span><b><bdi t-out="this.short(k.sub_committed)"/> <small t-out="this.cur"/></b></div>
+                <div class="ct-mini ct-click" t-on-click="() => this.open('guarantees')"><span>Guarantees issued</span><b><bdi t-out="this.short(k.guarantees_issued)"/> <small t-out="this.cur"/></b></div>
+                <div class="ct-mini"><span>Advance to recover</span><b><bdi t-out="this.short(k.advance_outstanding)"/> <small t-out="this.cur"/></b></div>
+                <div class="ct-mini"><span>Retention to collect</span><b><bdi t-out="this.short(k.retention)"/> <small t-out="this.cur"/></b></div>
+            </div>
+        </t>
+
+        <!-- ================================================= PROJECTS -->
+        <t t-if="this.state.tab === 'projects'">
+            <div t-if="!d.projects.length" class="ct-card ct-empty">No running contract</div>
+            <t t-if="d.projects.length">
+                <div class="ct-switch" t-if="d.projects.length > 1">
+                    <t t-foreach="d.projects" t-as="p" t-key="p.id">
+                        <button t-attf-class="ct-tab-sm {{ this.currentProject.id === p.id ? 'active' : '' }}" t-on-click="() => this.selectProject(p_index)" t-out="p.name"/>
+                    </t>
+                </div>
+                <t t-set="p" t-value="this.currentProject"/>
+                <div class="ct-card ct-project-head">
+                    <div>
+                        <h2 t-out="p.name"/>
+                        <div class="ct-muted"><t t-out="p.partner"/> · <t t-out="p.order"/>
+                            <t t-if="p.consultant"> · Consultant: <t t-out="p.consultant"/></t>
+                            <t t-if="p.pm"> · PM: <t t-out="p.pm"/></t></div>
+                        <div class="ct-muted" t-if="p.date_start"><i class="oi" data-icon="calendar_today"/> <t t-out="this.date(p.date_start)"/> → <t t-out="this.date(p.date_end)"/></div>
+                    </div>
+                    <div class="ct-head-actions">
+                        <span t-attf-class="ct-pill ct-{{ p.status }}" t-out="this.statusLabel(p.status)"/>
+                        <button class="ct-btn" t-on-click="() => this.open('contract', p.id)"><i class="oi" data-icon="description"/> Contract</button>
+                        <button class="ct-btn" t-if="p.project_id" t-on-click="() => this.open('project', p.project_id)"><i class="oi" data-icon="task_alt"/> Project</button>
+                    </div>
+                </div>
+
+                <div class="ct-grid ct-grid-4-8">
+                    <div class="ct-card">
+                        <div class="ct-card-head"><h3>Progress</h3></div>
+                        <div class="ct-gauge-row">
+                            <div class="ct-gauge-label">Certified</div>
+                            <div class="ct-progress lg"><span class="ct-progress-bar" t-attf-style="width: {{ this.clamp(p.certified_pct) }}%"/></div>
+                            <b><bdi t-out="this.pct(p.certified_pct)"/></b>
+                        </div>
+                        <div class="ct-gauge-row" t-if="p.elapsed_pct !== null">
+                            <div class="ct-gauge-label">Time elapsed</div>
+                            <div class="ct-progress lg"><span class="ct-progress-bar ct-time" t-attf-style="width: {{ this.clamp(p.elapsed_pct) }}%"/></div>
+                            <b><bdi t-out="this.pct(p.elapsed_pct)"/></b>
+                        </div>
+                        <div class="ct-figures">
+                            <div><span>Contract</span><b><bdi t-out="this.short(p.contract)"/></b></div>
+                            <div><span>Certified</span><b><bdi t-out="this.short(p.certified)"/></b></div>
+                            <div><span>Invoiced</span><b><bdi t-out="this.short(p.invoiced)"/></b></div>
+                            <div><span>Collected</span><b><bdi t-out="this.short(p.collected)"/></b></div>
+                            <div><span>Actual cost</span><b><bdi t-out="this.short(p.actual_cost)"/></b></div>
+                            <div><span>Estimate to complete</span><b><bdi t-out="this.short(p.etc)"/></b></div>
+                            <div><span>Cost at completion</span><b><bdi t-out="this.short(p.eac)"/></b></div>
+                            <div class="ct-strong"><span>Expected margin</span><b><bdi t-out="this.pct(p.margin)"/></b></div>
+                        </div>
+                    </div>
+                    <div class="ct-card">
+                        <div class="ct-card-head"><h3>Cost budget by trade</h3>
+                            <div class="ct-legend">
+                                <span><i class="ct-dot ct-b0"/>Budget</span>
+                                <span><i class="ct-dot ct-c1"/>Committed</span>
+                                <span><i class="ct-dot ct-c2"/>Actual</span>
+                            </div>
+                        </div>
+                        <div t-if="!p.budget.length" class="ct-empty">No confirmed budget for this project</div>
+                        <t t-set="bmax" t-value="this.budgetMax(p.budget)"/>
+                        <div t-foreach="p.budget" t-as="b" t-key="b.trade" class="ct-budget-row">
+                            <div class="ct-budget-label"><b t-out="b.trade"/>
+                                <small t-attf-class="{{ b.committed &gt; b.budget ? 'text-danger fw-bold' : 'ct-muted' }}">
+                                    <bdi t-out="this.short(b.committed)"/> / <bdi t-out="this.short(b.budget)"/>
+                                </small></div>
+                            <div class="ct-budget-track">
+                                <span class="ct-b0" t-attf-style="width: {{ b.budget / bmax * 100 }}%"/>
+                                <span class="ct-c1 ct-thin" t-attf-style="width: {{ b.committed / bmax * 100 }}%"/>
+                                <span class="ct-c2 ct-thinner" t-attf-style="width: {{ b.achieved / bmax * 100 }}%"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ct-grid ct-grid-8-4">
+                    <div class="ct-card">
+                        <div class="ct-card-head"><h3><i class="oi" data-icon="groups"/> Subcontractors (back-to-back)</h3></div>
+                        <div t-if="!p.subcontracts.length" class="ct-empty">No subcontract linked to this project</div>
+                        <table class="ct-table" t-if="p.subcontracts.length">
+                            <thead><tr><th>Subcontractor</th><th class="text-end">Value</th><th style="width:30%">Progress vs owner</th>
+                                <th class="text-end">Advance left</th><th class="text-end">Retention</th></tr></thead>
+                            <tbody>
+                                <tr t-foreach="p.subcontracts" t-as="s" t-key="s.id">
+                                    <td><b t-out="s.partner"/><div class="ct-muted" t-out="s.name"/></td>
+                                    <td class="text-end" t-out="this.short(s.amount)"/>
+                                    <td>
+                                        <div class="ct-progress">
+                                            <span t-attf-class="ct-progress-bar {{ s.warning ? 'ct-bad' : '' }}" t-attf-style="width: {{ this.clamp(s.progress) }}%"/>
+                                            <span class="ct-progress-time" t-attf-style="inset-inline-start: {{ this.clamp(p.certified_pct) }}%" title="Owner certified"/>
+                                        </div>
+                                        <small t-attf-class="{{ s.warning ? 'text-danger fw-bold' : 'ct-muted' }}">
+                                            <i t-if="s.warning" class="oi" data-icon="warning"/> <bdi t-out="this.pct(s.progress)"/> vs <bdi t-out="this.pct(p.certified_pct)"/></small>
+                                    </td>
+                                    <td class="text-end" t-out="this.short(s.advance_remaining)"/>
+                                    <td class="text-end" t-out="this.short(s.retention)"/>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="ct-card">
+                        <div class="ct-card-head"><h3><i class="oi" data-icon="location_on"/> Site &amp; changes</h3></div>
+                        <div class="ct-stat ct-click" t-on-click="() => this.open('measurements')"><span>Measurements to certify</span><b t-out="p.open_measurements"/></div>
+                        <div class="ct-stat ct-click" t-on-click="() => this.open('certificates')"><span>Certificates with consultant</span><b t-out="p.waiting_consultant"/></div>
+                        <div class="ct-stat ct-click" t-on-click="() => this.open('variations')"><span>Variation orders</span><b><t t-out="p.vo_count"/> <small t-if="p.vo_pending" class="text-warning">(<t t-out="p.vo_pending"/> pending)</small></b></div>
+                        <div class="ct-stat"><span>Approved variations</span><b><bdi t-out="this.short(p.vo_amount)"/> <small t-out="this.cur"/></b></div>
+                        <div class="ct-stat"><span>Blocked site reports</span><b t-attf-class="{{ p.blocked_reports ? 'text-danger' : '' }}" t-out="p.blocked_reports"/></div>
+                        <div class="ct-stat"><span>Advance to recover</span><b><bdi t-out="this.short(p.advance_outstanding)"/></b></div>
+                        <div class="ct-stat"><span>Retention to collect</span><b><bdi t-out="this.short(p.retention)"/></b></div>
+                    </div>
+                </div>
+            </t>
+        </t>
+
+        <!-- ================================================= FINANCE -->
+        <t t-if="this.state.tab === 'finance'">
+            <t t-set="f" t-value="d.finance"/>
+            <div class="ct-kpis">
+                <div class="ct-kpi"><div class="ct-kpi-label"><i class="oi" data-icon="account_balance"/> Cash &amp; banks</div>
+                    <div class="ct-kpi-value"><bdi t-out="this.short(f.cash_total)"/> <small t-out="this.cur"/></div>
+                    <div class="ct-kpi-foot"><t t-out="f.cash.length"/> journals</div></div>
+                <div class="ct-kpi ct-click" t-on-click="() => this.open('receivables')"><div class="ct-kpi-label"><i class="oi" data-icon="south_west"/> Receivables</div>
+                    <div class="ct-kpi-value"><bdi t-out="this.short(f.ar.total)"/> <small t-out="this.cur"/></div>
+                    <div t-attf-class="ct-kpi-foot {{ f.ar.overdue ? 'text-danger' : '' }}">Overdue <b><bdi t-out="this.short(f.ar.overdue)"/></b></div></div>
+                <div class="ct-kpi ct-click" t-on-click="() => this.open('payables')"><div class="ct-kpi-label"><i class="oi" data-icon="north_east"/> Payables</div>
+                    <div class="ct-kpi-value"><bdi t-out="this.short(f.ap.total)"/> <small t-out="this.cur"/></div>
+                    <div class="ct-kpi-foot">Overdue <b><bdi t-out="this.short(f.ap.overdue)"/></b></div></div>
+                <div class="ct-kpi ct-click" t-on-click="() => this.open('guarantees')"><div class="ct-kpi-label"><i class="oi" data-icon="security"/> Guarantees issued</div>
+                    <div class="ct-kpi-value"><bdi t-out="this.short(f.guarantees_issued)"/> <small t-out="this.cur"/></div>
+                    <div class="ct-kpi-foot">Cash margin blocked <b><bdi t-out="this.short(f.cash_margin)"/></b></div></div>
+                <div class="ct-kpi"><div class="ct-kpi-label"><i class="oi" data-icon="lock"/> Retention</div>
+                    <div class="ct-kpi-value"><bdi t-out="this.short(f.retention_owner)"/> <small t-out="this.cur"/></div>
+                    <div class="ct-kpi-foot">To pay subcontractors <b><bdi t-out="this.short(f.retention_subs)"/></b></div></div>
+                <div class="ct-kpi"><div class="ct-kpi-label"><i class="oi" data-icon="sync_alt"/> Advances</div>
+                    <div class="ct-kpi-value"><bdi t-out="this.short(f.advance_owner)"/> <small t-out="this.cur"/></div>
+                    <div class="ct-kpi-foot">Owner to recover · subs <b><bdi t-out="this.short(f.advance_subs)"/></b></div></div>
+            </div>
+
+            <div class="ct-grid ct-grid-6-6">
+                <t t-foreach="this.agingKinds" t-as="ag" t-key="ag[0]">
+                    <div class="ct-card">
+                        <div class="ct-card-head"><h3 t-if="ag[0] === 'ar'">Receivables aging</h3><h3 t-else="">Payables aging</h3>
+                            <b><bdi t-out="this.short(f[ag[0]].total)"/> <small t-out="this.cur"/></b></div>
+                        <div class="ct-stack">
+                            <t t-foreach="this.agingBars(f[ag[0]])" t-as="seg" t-key="seg.key">
+                                <span t-if="seg.value" t-att-class="seg.cls" t-attf-style="width: {{ seg.width }}%" t-att-title="seg.label"/>
+                            </t>
+                        </div>
+                        <div class="ct-aging-legend">
+                            <t t-foreach="this.agingBars(f[ag[0]])" t-as="seg" t-key="seg.key">
+                                <div><i t-attf-class="ct-dot {{ seg.cls }}"/><span t-out="seg.label"/><b><bdi t-out="this.short(seg.value)"/></b></div>
+                            </t>
+                        </div>
+                    </div>
+                </t>
+            </div>
+
+            <div class="ct-grid ct-grid-8-4">
+                <div class="ct-card">
+                    <div class="ct-card-head"><h3><i class="oi" data-icon="security"/> Letters of guarantee</h3>
+                        <button class="ct-btn" t-on-click="() => this.open('guarantees')">Open register</button></div>
+                    <div t-if="!f.guarantees.length" class="ct-empty">No running guarantee</div>
+                    <table class="ct-table" t-if="f.guarantees.length">
+                        <thead><tr><th>Number</th><th>Type</th><th>Counterparty</th><th>Bank</th><th class="text-end">Amount</th><th>Expiry</th></tr></thead>
+                        <tbody>
+                            <tr t-foreach="f.guarantees" t-as="g" t-key="g.id">
+                                <td><b t-out="g.name"/><div class="ct-muted"><t t-if="g.direction === 'issued'">Issued</t><t t-else="">Received</t></div></td>
+                                <td t-out="g.type"/>
+                                <td t-out="g.partner"/>
+                                <td t-out="g.bank"/>
+                                <td class="text-end" t-out="this.short(g.amount)"/>
+                                <td><span t-attf-class="ct-pill {{ g.days &lt; 0 ? 'ct-off_track' : (g.days &lt;= 30 ? 'ct-at_risk' : 'ct-on_track') }}">
+                                    <t t-out="this.date(g.expiry)"/> · <t t-out="g.days"/>d</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="ct-card">
+                    <div class="ct-card-head"><h3>Exposure by bank</h3></div>
+                    <t t-set="bk" t-value="this.maxOf(f.banks, 'amount')"/>
+                    <div t-foreach="f.banks" t-as="b" t-key="b.bank" class="ct-budget-row">
+                        <div class="ct-budget-label"><b t-out="b.bank"/><small class="ct-muted" t-out="this.short(b.amount)"/></div>
+                        <div class="ct-budget-track"><span class="ct-c1" t-attf-style="width: {{ b.amount / bk * 100 }}%"/></div>
+                    </div>
+                    <div class="ct-card-head mt-3"><h3><i class="oi" data-icon="work"/> Open custody</h3></div>
+                    <div t-if="!f.custody.length" class="ct-empty">No open custody</div>
+                    <div t-foreach="f.custody" t-as="c" t-key="c.employee" class="ct-stat"><span t-out="c.employee"/><b><bdi t-out="this.num(c.balance)"/> <small t-out="this.cur"/></b></div>
+                    <div class="ct-card-head mt-3"><h3>Cash &amp; banks</h3></div>
+                    <div t-foreach="f.cash" t-as="c" t-key="c.name" class="ct-stat"><span><i class="oi" t-att-data-icon="c.type === 'cash' ? 'payments' : 'account_balance'"/> <t t-out="c.name"/></span><b><bdi t-out="this.short(c.balance)"/></b></div>
+                </div>
+            </div>
+        </t>
+
+        <!-- ================================================= FM -->
+        <t t-if="this.state.tab === 'fm'">
+            <t t-set="m" t-value="d.fm"/>
+            <div class="ct-kpis">
+                <div class="ct-kpi"><div class="ct-kpi-label"><i class="oi" data-icon="handshake"/> Maintenance contracts</div>
+                    <div class="ct-kpi-value" t-out="m.contracts"/>
+                    <div class="ct-kpi-foot">Monthly recurring <b><bdi t-out="this.short(m.mrr)"/> <t t-out="this.cur"/></b></div></div>
+                <t t-if="m.available">
+                    <div class="ct-kpi ct-click" t-on-click="() => this.open('tickets')"><div class="ct-kpi-label"><i class="oi" data-icon="confirmation_number"/> Open tickets</div>
+                        <div class="ct-kpi-value" t-out="m.open"/>
+                        <div class="ct-kpi-foot"><t t-out="m.closed"/> solved</div></div>
+                    <div t-attf-class="ct-kpi ct-kpi-accent {{ m.sla_pct &lt; 80 ? 'is-bad' : (m.sla_pct &lt; 95 ? 'is-warn' : 'is-good') }}">
+                        <div class="ct-kpi-label"><i class="oi" data-icon="schedule"/> SLA compliance</div>
+                        <div class="ct-kpi-value" t-out="this.pct(m.sla_pct)"/>
+                        <div class="ct-kpi-foot"><t t-out="m.late"/> tickets out of SLA</div></div>
+                </t>
+            </div>
+            <div class="ct-grid ct-grid-8-4" t-if="m.available">
+                <div class="ct-card">
+                    <div class="ct-card-head"><h3><i class="oi" data-icon="confirmation_number"/> Open tickets by SLA deadline</h3></div>
+                    <div t-if="!m.tickets.length" class="ct-empty"><i class="oi text-success" data-icon="check_circle"/> No open ticket</div>
+                    <table class="ct-table" t-if="m.tickets.length">
+                        <thead><tr><th>Ticket</th><th>Client</th><th>Technician</th><th>Priority</th><th>Stage</th><th class="text-end">SLA</th></tr></thead>
+                        <tbody>
+                            <tr t-foreach="m.tickets" t-as="t" t-key="t.id">
+                                <td><b t-out="t.name"/></td><td t-out="t.partner"/><td t-out="t.user"/>
+                                <td t-out="t.priority"/><td t-out="t.stage"/>
+                                <td class="text-end"><span t-if="t.hours_left !== null" t-attf-class="ct-pill {{ t.hours_left &lt; 0 ? 'ct-off_track' : (t.hours_left &lt;= 4 ? 'ct-at_risk' : 'ct-on_track') }}">
+                                    <bdi t-out="this.num(t.hours_left, 1)"/> h</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="ct-card">
+                    <div class="ct-card-head"><h3>Open by priority</h3></div>
+                    <t t-set="pm" t-value="this.maxOf(m.by_priority, 'count')"/>
+                    <div t-foreach="m.by_priority" t-as="x" t-key="x_index" class="ct-budget-row">
+                        <div class="ct-budget-label"><b t-out="x.priority"/><small class="ct-muted" t-out="x.count"/></div>
+                        <div class="ct-budget-track"><span class="ct-c2" t-attf-style="width: {{ x.count / pm * 100 }}%"/></div>
+                    </div>
+                    <div class="ct-card-head mt-3"><h3>Clients</h3></div>
+                    <div t-foreach="m.clients" t-as="c" t-key="c.order" class="ct-stat"><span t-out="c.name"/><b><bdi t-out="this.short(c.monthly)"/> <small>/ month</small></b></div>
+                </div>
+            </div>
+        </t>
+    </div>
+    <div class="ct-body" t-elif="this.state.loading"><div class="ct-empty"><i class="oi ct-spin" data-icon="progress_activity"/></div></div>
+</div>
+</t>
+
+</templates>
