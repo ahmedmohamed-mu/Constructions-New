@@ -7,6 +7,9 @@
         <field name="arch" type="xml">
             <xpath expr="//app[@name='account']" position="inside">
                 <block title="Contracting (Progress Certificates)" name="hom_contracting">
+                    <setting string="Top management" help="Receives budget overrun and margin alerts (usually the CEO)">
+                        <field name="hom_management_user_id"/>
+                    </setting>
                     <setting string="Owner retention" help="Line withheld on owner certificates">
                         <field name="hom_retention_owner_product_id"/>
                     </setting>

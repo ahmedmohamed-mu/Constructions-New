@@ -8,3 +8,6 @@ access_hom_cert_line_invoice,hom certificate line invoicing,hom.progress.certifi
 access_hom_cert_line_project,hom certificate line project,hom.progress.certificate.line,project.group_project_user,crud,
 access_hom_site_read_contract,site engineers read contracting orders,sale.order,project.group_project_user,r,"[('hom_project_type', '=', 'contracting')]"
 access_hom_site_read_contract_line,site engineers read contracting BOQ,sale.order.line,project.group_project_user,r,"[('order_id.hom_project_type', '=', 'contracting')]"
+access_hom_measure_project,site measurements engineers,hom.site.measurement,project.group_project_user,crud,
+access_hom_measure_salesman,site measurements sales,hom.site.measurement,sales_team.group_sale_salesman,crud,
+access_hom_measure_invoice,site measurements accounting,hom.site.measurement,account.group_account_invoice,r,

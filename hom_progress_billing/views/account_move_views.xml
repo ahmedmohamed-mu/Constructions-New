@@ -25,6 +25,9 @@
                 <setting string="Certificates accountant" help="Gets a to-do when a certificate is approved">
                     <field name="hom_certificate_accountant_id"/>
                 </setting>
+                <setting string="Monthly certificate day" help="Draft certificates are prepared automatically on this day">
+                    <field name="hom_certificate_day"/>
+                </setting>
             </xpath>
         </field>
     </record>

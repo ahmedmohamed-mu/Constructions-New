@@ -5,6 +5,11 @@
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_hom_release_retention" type="object" string="Release Retention"
+                        invisible="hom_project_type != 'contracting' or state != 'sale' or hom_retention_balance &lt;= 0"
+                        groups="account.group_account_invoice"/>
+            </xpath>
             <xpath expr="//group[@name='order_details']" position="inside">
                 <field name="hom_project_type"/>
                 <field name="hom_consultant_id" invisible="hom_project_type != 'contracting'"/>
@@ -13,6 +18,8 @@
                     <field name="hom_advance_pct" class="oe_inline"/> % <span class="text-muted">/ Retention</span>
                     <field name="hom_retention_pct" class="oe_inline"/> %
                 </div>
+                <field name="hom_retention_balance" invisible="hom_project_type != 'contracting' or not hom_retention_held"/>
+                <field name="hom_retention_held" invisible="1"/>
             </xpath>
         </field>
     </record>

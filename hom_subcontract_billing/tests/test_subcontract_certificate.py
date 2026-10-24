@@ -74,3 +74,19 @@ class TestSubcontractCertificate(AccountTestInvoicingCommon):
         html = self.env["ir.actions.report"]._render_qweb_html(
             "hom_subcontract_billing.report_subcontract_certificate", cert.ids)[0]
         self.assertIn(b"5.00", html)
+
+    def test_back_to_back_warning(self):
+        analytic = self.env["account.analytic.account"].create(
+            {"name": "Proj", "plan_id": self.env["account.analytic.plan"].search([], limit=1).id})
+        project = self.env["project.project"].sudo().create({"name": "Proj", "account_id": analytic.id,
+                                                      "user_id": self.env.user.id})
+        self.po.order_line.analytic_distribution = {str(analytic.id): 100}
+        cert = self.env["hom.subcontract.certificate"].create({"purchase_order_id": self.po.id})
+        cert.action_load_items()
+        cert.line_ids[0].cumulative_qty = 120
+        self.assertEqual(cert.project_id, project)
+        expected = "hom.progress.certificate" in self.env
+        self.assertEqual(cert.back_to_back_warning, expected)
+        cert.action_submit()
+        if expected:
+            self.assertTrue(cert.activity_ids)

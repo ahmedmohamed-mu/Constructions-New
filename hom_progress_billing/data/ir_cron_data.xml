@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="cron_monthly_certificate_drafts" model="ir.cron">
+        <field name="name">Contracting: prepare monthly progress certificates</field>
+        <field name="model_id" ref="model_hom_progress_certificate"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_monthly_drafts()</field>
+        <field name="user_id" ref="base.user_root"/>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+    </record>
+    <record id="cron_weekly_project_update" model="ir.cron">
+        <field name="name">Contracting: weekly project status update</field>
+        <field name="model_id" ref="project.model_project_project"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_weekly_update()</field>
+        <field name="user_id" ref="base.user_root"/>
+        <field name="interval_number">1</field>
+        <field name="interval_type">weeks</field>
+    </record>
+</odoo>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hom_bank_guarantee_form" model="ir.ui.view">
+        <field name="name">hom.bank.guarantee.form</field>
+        <field name="model">hom.bank.guarantee</field>
+        <field name="arch" type="xml">
+            <form string="Letter of Guarantee">
+                <header>
+                    <button name="action_extend" type="object" string="Mark Extended" invisible="state not in ('active', 'expired')"/>
+                    <button name="action_release" type="object" string="Release" class="btn-primary" invisible="state == 'released'"/>
+                    <button name="action_refresh_amount" type="object" string="Refresh Amount" invisible="guarantee_type != 'advance' or state == 'released'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="active,extended,released"/>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Expired" bg_color="text-bg-danger" invisible="state != 'expired'"/>
+                    <widget name="web_ribbon" title="Released" bg_color="text-bg-success" invisible="state != 'released'"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="e.g. LG-2026-0147"/></h1>
+                    </div>
+                    <group>
+                        <group string="Guarantee">
+                            <field name="direction" widget="radio"/>
+                            <field name="guarantee_type"/>
+                            <field name="partner_id"/>
+                            <field name="bank_name"/>
+                            <field name="sale_order_id" invisible="direction != 'issued'"/>
+                            <field name="purchase_order_id" invisible="direction != 'received'"/>
+                        </group>
+                        <group string="Amounts &amp; Dates">
+                            <field name="currency_id" invisible="1"/>
+                            <field name="company_id" invisible="1"/>
+                            <field name="amount"/>
+                            <field name="amount_current" invisible="guarantee_type != 'advance'"/>
+                            <field name="issue_date"/>
+                            <field name="expiry_date" decoration-danger="days_to_expiry &lt; 30"/>
+                            <field name="days_to_expiry" invisible="state == 'released'"/>
+                            <field name="reminder_days"/>
+                            <field name="responsible_id" widget="many2one_avatar_user"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Bank Costs" name="costs">
+                            <group>
+                                <field name="commission_pct"/>
+                                <field name="cash_margin"/>
+                            </group>
+                        </page>
+                        <page string="Notes" name="notes">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="hom_bank_guarantee_list" model="ir.ui.view">
+        <field name="name">hom.bank.guarantee.list</field>
+        <field name="model">hom.bank.guarantee</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="state == 'expired' or (days_to_expiry &lt; 30 and state in ('active', 'extended'))"
+                  decoration-muted="state == 'released'">
+                <field name="name"/>
+                <field name="direction" optional="show"/>
+                <field name="guarantee_type"/>
+                <field name="partner_id"/>
+                <field name="bank_name" optional="show"/>
+                <field name="sale_order_id" optional="hide"/>
+                <field name="purchase_order_id" optional="hide"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="amount" sum="Total"/>
+                <field name="amount_current" sum="Total"/>
+                <field name="expiry_date"/>
+                <field name="days_to_expiry"/>
+                <field name="state" widget="badge" decoration-success="state == 'active'" decoration-danger="state == 'expired'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="hom_bank_guarantee_kanban" model="ir.ui.view">
+        <field name="name">hom.bank.guarantee.kanban</field>
+        <field name="model">hom.bank.guarantee</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="guarantee_type">
+                <field name="state"/>
+                <field name="days_to_expiry"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="name" class="fw-bold"/>
+                        <field name="partner_id" class="text-muted small"/>
+                        <div><field name="amount_current" widget="monetary"/> <field name="currency_id" invisible="1"/></div>
+                        <div t-attf-class="small #{record.days_to_expiry.raw_value &lt; 30 ? 'text-danger' : ''}">
+                            <i class="fa fa-calendar me-1"/><field name="expiry_date"/>
+                        </div>
+                        <footer><field name="state" widget="badge" class="ms-auto"/></footer>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="hom_bank_guarantee_search" model="ir.ui.view">
+        <field name="name">hom.bank.guarantee.search</field>
+        <field name="model">hom.bank.guarantee</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="bank_name"/>
+                <filter name="running" string="Running" domain="[('state', 'in', ('active', 'extended'))]"/>
+                <filter name="expiring" string="Expiring in 30 days"
+                        domain="[('state', 'in', ('active', 'extended')), ('expiry_date', '&lt;=', (context_today() + relativedelta(days=30)).strftime('%Y-%m-%d'))]"/>
+                <separator/>
+                <filter name="issued" string="Issued by us" domain="[('direction', '=', 'issued')]"/>
+                <filter name="received" string="Received" domain="[('direction', '=', 'received')]"/>
+                <separator/>
+                <filter name="group_bank" string="Bank" context="{'group_by': 'bank_name'}"/>
+                <filter name="group_type" string="Type" context="{'group_by': 'guarantee_type'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_hom_bank_guarantee" model="ir.actions.act_window">
+        <field name="name">Letters of Guarantee</field>
+        <field name="res_model">hom.bank.guarantee</field>
+        <field name="view_mode">list,kanban,form,pivot</field>
+        <field name="context">{'search_default_running': 1}</field>
+    </record>
+
+    <menuitem id="menu_hom_guarantees_account" name="Letters of Guarantee" parent="account.menu_finance_entries"
+              action="action_hom_bank_guarantee" sequence="90"/>
+    <menuitem id="menu_hom_guarantees_sale" name="Letters of Guarantee" parent="sale.sale_order_menu"
+              action="action_hom_bank_guarantee" sequence="17"/>
+</odoo>

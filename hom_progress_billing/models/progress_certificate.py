@@ -42,6 +42,12 @@ class HomProgressCertificate(models.Model):
     amount_net = fields.Monetary(string="Net (before VAT)", compute="_compute_amounts", store=True)
     progress_pct = fields.Float(string="Contract Progress %", compute="_compute_amounts", store=True, aggregator="avg")
     note = fields.Html()
+    measurement_ids = fields.One2many("hom.site.measurement", "certificate_id", string="Site Measurements")
+    measurement_count = fields.Integer(compute="_compute_measurement_count")
+
+    def _compute_measurement_count(self):
+        for cert in self:
+            cert.measurement_count = len(cert.measurement_ids)
 
     @api.depends("sale_order_id")
     def _compute_project_id(self):
@@ -100,6 +106,41 @@ class HomProgressCertificate(models.Model):
                 "sale_line_id": l.id,
                 "cumulative_qty": Line._previous_for(l, Line),
             }) for l in lines]
+            cert._apply_measurements()
+
+    def _apply_measurements(self):
+        """Pull open site measurements into the certificate: cumulative = previous + measured."""
+        Measurement = self.env["hom.site.measurement"].sudo()
+        for cert in self.filtered(lambda c: c.state == "draft"):
+            domain = [("sale_line_id", "in", cert.line_ids.sale_line_id.ids),
+                      "|", ("certificate_id", "=", False), ("certificate_id.state", "=", "cancel")]
+            if cert.period_end:
+                domain.append(("date", "<=", cert.period_end))
+            Measurement.search(domain).write({"certificate_id": cert.id})
+            capped = []
+            for line in cert.line_ids:
+                measured = sum(cert.measurement_ids.filtered(lambda m: m.sale_line_id == line.sale_line_id).mapped("quantity"))
+                if not measured:
+                    continue
+                qty = line.previous_qty + measured
+                if line.contract_qty and qty > line.contract_qty:
+                    capped.append(line.product_id.display_name)
+                    qty = line.contract_qty
+                line.cumulative_qty = qty
+            if capped:
+                cert.message_post(body=_("Measured quantities exceed the contract for: %s. Capped to the contract "
+                                         "quantity; issue a variation order for the extra work.", ", ".join(capped)))
+
+    def action_load_measurements(self):
+        self._apply_measurements()
+
+    def action_view_measurements(self):
+        self.ensure_one()
+        return {
+            "type": "ir.actions.act_window", "name": _("Site Measurements"),
+            "res_model": "hom.site.measurement", "view_mode": "list,form",
+            "domain": [("certificate_id", "=", self.id)],
+        }
 
     def action_submit(self):
         for cert in self:
@@ -150,6 +191,7 @@ class HomProgressCertificate(models.Model):
             if cert.invoice_id and cert.invoice_id.state == "posted":
                 raise UserError(_("The invoice of this certificate is posted."))
             cert.state = "cancel"
+            cert.measurement_ids.sudo().write({"certificate_id": False})
 
     def _prepare_invoice_lines(self):
         self.ensure_one()
@@ -201,6 +243,27 @@ class HomProgressCertificate(models.Model):
             cert.activity_feedback(["mail.mail_activity_data_todo"])
             moves |= move
         return moves._get_records_action(name=_("Certificate Invoice")) if moves else True
+
+    @api.model
+    def _cron_monthly_drafts(self):
+        """Create the monthly draft certificate of every running contract (on the configured day)."""
+        today = fields.Date.context_today(self)
+        orders = self.env["sale.order"].search([("state", "=", "sale"), ("hom_project_type", "=", "contracting")])
+        for order in orders:
+            if today.day != (order.company_id.hom_certificate_day or 25):
+                continue
+            if self.search_count([("sale_order_id", "=", order.id), ("state", "in", ("draft", "submitted"))]):
+                continue
+            cert = self.create({"sale_order_id": order.id, "date": today, "period_end": today})
+            cert.action_load_boq()
+            project = cert.project_id
+            responsible = project.user_id or order.user_id
+            if responsible:
+                cert.activity_schedule(
+                    "mail.mail_activity_data_todo", user_id=responsible.id,
+                    summary=_("Monthly progress certificate - %s", order.name),
+                    note=_("Draft prepared automatically from the site measurements. Review the quantities "
+                           "with the consultant, then submit."))
 
     def action_view_invoice(self):
         self.ensure_one()

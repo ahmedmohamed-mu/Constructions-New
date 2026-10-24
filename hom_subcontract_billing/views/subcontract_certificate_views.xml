@@ -16,6 +16,11 @@
                     <button name="action_cancel" type="object" string="Cancel" invisible="state in ('billed', 'cancel')"/>
                     <field name="state" widget="statusbar" statusbar_visible="draft,submitted,approved,billed"/>
                 </header>
+                <div class="alert alert-warning mb-0" role="alert" invisible="not back_to_back_warning or state in ('billed', 'cancel')">
+                    <strong>Back-to-back:</strong> subcontract progress <field name="sub_progress_pct" widget="float" digits="[3,1]" class="d-inline"/>% is ahead of the owner's certified
+                    <field name="owner_progress_pct" widget="float" digits="[3,1]" class="d-inline"/>% on <field name="project_id" class="d-inline" readonly="1"/>.
+                </div>
+                <field name="back_to_back_warning" invisible="1"/>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
                         <button name="action_view_bill" type="object" class="oe_stat_button" icon="fa-pencil-square-o" invisible="not bill_id">

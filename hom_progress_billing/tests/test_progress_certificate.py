@@ -112,3 +112,42 @@ class TestProgressCertificate(AccountTestInvoicingCommon):
         html = self.env["ir.actions.report"]._render_qweb_html(
             "hom_progress_billing.report_progress_certificate", cert.ids)[0]
         self.assertIn(b"10.0", html)
+
+    def test_site_measurements_feed_certificate(self):
+        sol_a = self.so.order_line.filtered(lambda l: l.product_id == self.item_a)
+        M = self.env["hom.site.measurement"]
+        m1 = M.create({"sale_line_id": sol_a.id, "quantity": 12, "date": "2026-11-10"})
+        M.create({"sale_line_id": sol_a.id, "quantity": 8, "date": "2026-11-20"})
+        cert = self.env["hom.progress.certificate"].create({"sale_order_id": self.so.id})
+        cert.action_load_boq()
+        line_a = cert.line_ids.filtered(lambda l: l.sale_line_id == sol_a)
+        self.assertEqual(line_a.cumulative_qty, 20)
+        self.assertEqual(m1.state, "in_certificate")
+        cert.action_submit()
+        cert.action_approve()
+        self.assertEqual(m1.state, "certified")
+        with self.assertRaises(Exception):
+            m1.quantity = 1
+        # next certificate only takes new measurements
+        M.create({"sale_line_id": sol_a.id, "quantity": 5})
+        cert2 = self.env["hom.progress.certificate"].create({"sale_order_id": self.so.id})
+        cert2.action_load_boq()
+        self.assertEqual(cert2.line_ids.filtered(lambda l: l.sale_line_id == sol_a).cumulative_qty, 25)
+
+    def test_monthly_cron_and_weekly_update(self):
+        from datetime import date
+        self.env.company.hom_certificate_day = date.today().day
+        Cert = self.env["hom.progress.certificate"]
+        before = Cert.search_count([("sale_order_id", "=", self.so.id)])
+        Cert._cron_monthly_drafts()
+        self.assertEqual(Cert.search_count([("sale_order_id", "=", self.so.id)]), before + 1)
+        Cert._cron_monthly_drafts()  # no duplicate while a draft exists
+        self.assertEqual(Cert.search_count([("sale_order_id", "=", self.so.id)]), before + 1)
+        project = self.env["project.project"].create({"name": "P", "sale_line_id": self.so.order_line[0].id,
+                                                      "hom_estimate_to_complete": 100000})
+        project.account_id = self.env["account.analytic.account"].create(
+            {"name": "P", "plan_id": self.env["account.analytic.plan"].search([], limit=1).id})
+        self.env["project.project"]._cron_weekly_update()
+        update = self.env["project.update"].search([("project_id", "=", project.id)])
+        self.assertTrue(update)
+        self.assertEqual(update.status, "on_track")

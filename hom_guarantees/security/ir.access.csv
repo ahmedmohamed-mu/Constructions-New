@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_hom_guarantee_account,guarantees accounting,hom.bank.guarantee,account.group_account_invoice,crud,
+access_hom_guarantee_sale,guarantees sales,hom.bank.guarantee,sales_team.group_sale_salesman,r,
+access_hom_guarantee_purchase,guarantees purchase,hom.bank.guarantee,purchase.group_purchase_user,r,

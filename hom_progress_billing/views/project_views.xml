@@ -13,4 +13,14 @@
             </xpath>
         </field>
     </record>
+    <record id="edit_project_hom_etc" model="ir.ui.view">
+        <field name="name">project.project.form.hom.etc</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="hom_estimate_to_complete" groups="project.group_project_manager"/>
+            </xpath>
+        </field>
+    </record>
 </odoo>

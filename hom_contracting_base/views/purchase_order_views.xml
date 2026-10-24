@@ -5,6 +5,16 @@
         <field name="model">purchase.order</field>
         <field name="inherit_id" ref="purchase.purchase_order_form"/>
         <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_hom_release_retention" type="object" string="Release Retention"
+                        invisible="not hom_is_subcontract or state != 'purchase' or hom_retention_balance &lt;= 0"
+                        groups="account.group_account_invoice"/>
+            </xpath>
+            <xpath expr="//sheet" position="before">
+                <div class="alert alert-warning mb-0" role="alert" invisible="not hom_budget_warning">
+                    <strong>Budget overrun:</strong> <field name="hom_budget_warning" readonly="1" class="d-inline"/>
+                </div>
+            </xpath>
             <xpath expr="//field[@name='partner_ref']" position="after">
                 <field name="hom_is_subcontract"/>
                 <field name="hom_advance_amount" invisible="not hom_is_subcontract"/>
@@ -13,6 +23,8 @@
                     <field name="hom_advance_recovery_pct" class="oe_inline"/> % <span class="text-muted">/ Retention</span>
                     <field name="hom_retention_pct" class="oe_inline"/> %
                 </div>
+                <field name="hom_retention_balance" invisible="not hom_is_subcontract or not hom_retention_held"/>
+                <field name="hom_retention_held" invisible="1"/>
             </xpath>
         </field>
     </record>

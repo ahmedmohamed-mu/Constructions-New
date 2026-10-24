@@ -18,3 +18,6 @@ class ResCompany(models.Model):
     hom_sub_advance_recovery_product_id = fields.Many2one(
         "product.product", string="Subcontractor Advance Recovery Product",
         help="Negative line on subcontractor certificates recovering the advance (same account as the advance).")
+    hom_management_user_id = fields.Many2one(
+        "res.users", string="Top Management",
+        help="Receives contracting alerts (budget overrun, margin risk), usually the CEO.")

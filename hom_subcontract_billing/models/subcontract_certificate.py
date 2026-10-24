@@ -37,6 +37,34 @@ class HomSubcontractCertificate(models.Model):
     amount_advance_recovery = fields.Monetary(string="Advance Recovery", compute="_compute_amounts", store=True)
     amount_retention = fields.Monetary(string="Retention", compute="_compute_amounts", store=True)
     amount_net = fields.Monetary(string="Net (before VAT)", compute="_compute_amounts", store=True)
+    project_id = fields.Many2one("project.project", compute="_compute_back_to_back", store=True)
+    sub_progress_pct = fields.Float(string="Subcontract Progress %", compute="_compute_back_to_back", store=True)
+    owner_progress_pct = fields.Float(string="Owner Certified %", compute="_compute_back_to_back", store=True,
+                                      help="Progress certified by the owner on the same project (latest approved certificate).")
+    back_to_back_warning = fields.Boolean(compute="_compute_back_to_back", store=True)
+
+    @api.depends("line_ids.amount_cumulative", "purchase_order_id")
+    def _compute_back_to_back(self):
+        Project = self.env["project.project"].sudo()
+        OwnerCert = self.env.get("hom.progress.certificate")
+        tolerance = 5.0
+        for cert in self:
+            accounts = set()
+            for pol in cert.purchase_order_id.order_line:
+                for key in (pol.analytic_distribution or {}):
+                    accounts.update(int(a) for a in str(key).split(","))
+            project = Project.search([("account_id", "in", list(accounts))], limit=1) if accounts else Project
+            cert.project_id = project
+            total = cert.purchase_order_id.amount_untaxed
+            cert.sub_progress_pct = (cert.amount_cumulative / total * 100.0) if total else 0.0
+            owner = 0.0
+            if OwnerCert is not None and project:
+                last = OwnerCert.sudo().search([("project_id", "=", project.id), ("state", "in", ("approved", "invoiced"))],
+                                               order="number desc", limit=1)
+                owner = last.progress_pct if last else 0.0
+            cert.owner_progress_pct = owner
+            cert.back_to_back_warning = bool(project) and OwnerCert is not None and \
+                cert.sub_progress_pct > owner + tolerance
 
     @api.depends("line_ids.amount_current", "line_ids.amount_cumulative", "recovery_pct", "retention_pct")
     def _compute_amounts(self):
@@ -72,6 +100,19 @@ class HomSubcontractCertificate(models.Model):
                 cert.name = _("%(po)s - Sub. Certificate %(n)s", po=cert.purchase_order_id.name, n=cert.number)
             cert.line_ids._compute_previous_qty()
             cert.state = "submitted"
+            if cert.back_to_back_warning:
+                cert._hom_notify_back_to_back()
+
+    def _hom_notify_back_to_back(self):
+        self.ensure_one()
+        note = _("Subcontractor certified %(s).1f%% of the subcontract while the owner certified only %(o).1f%% "
+                 "of the project: paying ahead of the owner's certificate puts cash and margin at risk.",
+                 s=self.sub_progress_pct, o=self.owner_progress_pct)
+        self.message_post(body=note)
+        users = (self.project_id.user_id | self.company_id.hom_management_user_id)
+        for user in users:
+            self.activity_schedule("mail.mail_activity_data_warning", user_id=user.id,
+                                   summary=_("Back-to-back check: %s", self.name), note=note)
 
     def _check_can_approve(self):
         user = self.env.user

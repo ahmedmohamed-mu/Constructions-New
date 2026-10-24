@@ -7,6 +7,7 @@
             <form string="Progress Certificate">
                 <header>
                     <button name="action_load_boq" type="object" string="Load BOQ" invisible="state != 'draft'"/>
+                    <button name="action_load_measurements" type="object" string="Pull Site Measurements" invisible="state != 'draft'"/>
                     <button name="action_submit" type="object" string="Submit to Consultant" class="btn-primary" invisible="state != 'draft'"/>
                     <button name="action_approve" type="object" string="Approve" class="btn-primary" invisible="state != 'submitted'"
                             groups="sales_team.group_sale_manager,project.group_project_manager"/>
@@ -18,6 +19,9 @@
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
+                        <button name="action_view_measurements" type="object" class="oe_stat_button" icon="fa-map-marker" invisible="not measurement_count">
+                            <field name="measurement_count" widget="statinfo" string="Measurements"/>
+                        </button>
                         <button name="action_view_invoice" type="object" class="oe_stat_button" icon="fa-pencil-square-o" invisible="not invoice_id">
                             <div class="o_stat_info"><span class="o_stat_text">Invoice</span><field name="invoice_payment_state" widget="badge"/></div>
                         </button>

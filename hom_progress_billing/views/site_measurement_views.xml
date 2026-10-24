@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hom_site_measurement_list" model="ir.ui.view">
+        <field name="name">hom.site.measurement.list</field>
+        <field name="model">hom.site.measurement</field>
+        <field name="arch" type="xml">
+            <list editable="top" decoration-muted="state == 'certified'" decoration-info="state == 'in_certificate'">
+                <field name="date"/>
+                <field name="sale_line_id" options="{'no_create': True}" readonly="state == 'certified'"/>
+                <field name="product_uom_id" string="Unit"/>
+                <field name="quantity" sum="Total" readonly="state == 'certified'"/>
+                <field name="location" optional="show"/>
+                <field name="user_id" widget="many2one_avatar_user" optional="show"/>
+                <field name="project_id" optional="hide"/>
+                <field name="note" optional="hide"/>
+                <field name="certificate_id" optional="show"/>
+                <field name="state" widget="badge" decoration-success="state == 'certified'" decoration-info="state == 'in_certificate'"/>
+            </list>
+        </field>
+    </record>
+    <record id="hom_site_measurement_form" model="ir.ui.view">
+        <field name="name">hom.site.measurement.form</field>
+        <field name="model">hom.site.measurement</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="date"/>
+                            <field name="sale_line_id" options="{'no_create': True}"/>
+                            <field name="sale_order_id"/>
+                            <field name="project_id"/>
+                        </group>
+                        <group>
+                            <label for="quantity"/>
+                            <div class="o_row"><field name="quantity"/><field name="product_uom_id"/></div>
+                            <field name="location"/>
+                            <field name="user_id" widget="many2one_avatar_user"/>
+                            <field name="certificate_id"/>
+                            <field name="state" widget="badge"/>
+                        </group>
+                    </group>
+                    <field name="note" placeholder="Notes..."/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="hom_site_measurement_search" model="ir.ui.view">
+        <field name="name">hom.site.measurement.search</field>
+        <field name="model">hom.site.measurement</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="sale_line_id"/>
+                <field name="project_id"/>
+                <field name="user_id"/>
+                <filter name="open" string="Not certified" domain="[('state', '=', 'open')]"/>
+                <filter name="this_month" string="This Month" domain="[('date', '&gt;=', (context_today() + relativedelta(day=1)).strftime('%Y-%m-%d'))]"/>
+                <separator/>
+                <filter name="group_project" string="Project" context="{'group_by': 'project_id'}"/>
+                <filter name="group_item" string="BOQ Item" context="{'group_by': 'sale_line_id'}"/>
+                <filter name="group_date" string="Day" context="{'group_by': 'date:day'}"/>
+            </search>
+        </field>
+    </record>
+    <record id="action_hom_site_measurement" model="ir.actions.act_window">
+        <field name="name">Site Measurements</field>
+        <field name="res_model">hom.site.measurement</field>
+        <field name="view_mode">list,form,pivot,graph</field>
+        <field name="context">{'search_default_open': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Record what was executed on site today</p>
+            <p>Pick the BOQ item and the executed quantity. Open measurements are pulled into the next progress certificate automatically.</p>
+        </field>
+    </record>
+    <menuitem id="menu_hom_site_measurement_project" name="Site Measurements" parent="project.menu_main_pm"
+              action="action_hom_site_measurement" sequence="4"/>
+    <menuitem id="menu_hom_site_measurement_sale" name="Site Measurements" parent="sale.sale_order_menu"
+              action="action_hom_site_measurement" sequence="14"/>
+</odoo>
