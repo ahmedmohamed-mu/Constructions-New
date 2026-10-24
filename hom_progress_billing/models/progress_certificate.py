@@ -1,6 +1,6 @@
 from odoo import Command, _, api, fields, models
 from odoo.exceptions import UserError, ValidationError
-from odoo.tools import float_compare, float_is_zero
+from odoo.tools import float_compare, float_is_zero, float_round
 
 
 class HomProgressCertificate(models.Model):
@@ -61,7 +61,8 @@ class HomProgressCertificate(models.Model):
             current = sum(cert.line_ids.mapped("amount_current"))
             cert.amount_current = current
             cert.amount_cumulative = sum(cert.line_ids.mapped("amount_cumulative"))
-            cert.amount_advance_recovery = -min(current * cert.advance_pct / 100.0, cert._remaining_advance())
+            cert.amount_advance_recovery = -sum(cert.currency_id.round(qty * dp.price_unit)
+                                                for dp, qty in cert._recovery_plan(current)) if cert.currency_id else 0.0
             cert.amount_retention = -cert.currency_id.round(current * cert.retention_pct / 100.0) if cert.currency_id else 0.0
             cert.amount_net = current + cert.amount_advance_recovery + cert.amount_retention
             contract = cert.sale_order_id.amount_untaxed
@@ -85,6 +86,27 @@ class HomProgressCertificate(models.Model):
             if move.state == "posted" or aml.quantity < 0:
                 qty += sign * aml.quantity
         return max(qty, 0.0)
+
+    def _recovery_plan(self, amount_current):
+        """[(down-payment line, quantity)] recovered by this certificate.
+
+        Quantities are rounded to the unit precision up front, so the certificate and its invoice show the
+        very same recovery amount.
+        """
+        self.ensure_one()
+        to_recover = min(amount_current * self.advance_pct / 100.0, self._remaining_advance())
+        digits = self.env["decimal.precision"].precision_get("Product Unit")
+        plan = []
+        for dp in self._downpayment_lines():
+            if to_recover <= 0 or dp.price_unit <= 0:
+                continue
+            qty = float_round(min(to_recover / dp.price_unit, self._dp_remaining_qty(dp, self.invoice_id or None)),
+                              precision_digits=digits)
+            if qty <= 0:
+                continue
+            plan.append((dp, qty))
+            to_recover -= qty * dp.price_unit
+        return plan
 
     def _remaining_advance(self):
         self.ensure_one()
@@ -202,14 +224,7 @@ class HomProgressCertificate(models.Model):
             vals.update({"hom_previous_qty": line.previous_qty, "hom_cumulative_qty": line.cumulative_qty})
             cmds.append(Command.create(vals))
             seq += 1
-        to_recover = min(self.amount_current * self.advance_pct / 100.0, self._remaining_advance())
-        for dp in self._downpayment_lines():
-            if to_recover <= 0 or dp.price_unit <= 0:
-                continue
-            qty = min(to_recover / dp.price_unit, self._dp_remaining_qty(dp, self.invoice_id or None))
-            if qty <= 0:
-                continue
-            to_recover -= qty * dp.price_unit
+        for dp, qty in self._recovery_plan(self.amount_current):
             cmds.append(Command.create(dp._prepare_invoice_line(quantity=-qty, sequence=900)))
         retention = self.company_id.hom_retention_owner_product_id
         if self.retention_pct and self.amount_current:
