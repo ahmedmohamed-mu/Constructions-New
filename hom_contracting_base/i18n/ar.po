@@ -1,0 +1,465 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hom_contracting_base
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: ar\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5);\n"
+
+#. module: hom_contracting_base
+#: model_terms:ir.ui.view,arch_db:hom_contracting_base.purchase_order_form_hom_subcontract
+#: model_terms:ir.ui.view,arch_db:hom_contracting_base.view_order_form_hom_contract
+msgid "% <span class=\"text-muted\">/ Retention</span>"
+msgstr "% <span class=\"text-muted\">/ المحتجز</span>"
+
+#. module: hom_contracting_base
+#. odoo-python
+#: code:addons/hom_contracting_base/models/purchase_order.py:0
+msgid "%(line)s: committed %(c)s > budget %(b)s (+%(p).1f%%)"
+msgstr "%(line)s: الملتزم به %(c)s > الموازنة %(b)s (+%(p).1f%%)"
+
+#. module: hom_contracting_base
+#: model_terms:ir.ui.view,arch_db:hom_contracting_base.purchase_order_form_hom_subcontract
+msgid "<strong>Budget overrun:</strong>"
+msgstr "<strong>تجاوز الموازنة:</strong>"
+
+#. module: hom_contracting_base
+#. odoo-python
+#: code:addons/hom_contracting_base/models/purchase_order.py:0
+msgid "A draft retention release bill already exists."
+msgstr "توجد فاتورة مورد مسودة لصرف المحتجز بالفعل."
+
+#. module: hom_contracting_base
+#. odoo-python
+#: code:addons/hom_contracting_base/models/sale_order.py:0
+msgid "A draft retention release invoice already exists."
+msgstr "توجد فاتورة عميل مسودة لصرف المحتجز بالفعل."
+
+#. module: hom_contracting_base
+#: model:ir.model.fields,field_description:hom_contracting_base.field_sale_order__hom_advance_pct
+msgid "Advance %"
+msgstr "نسبة الدفعة المقدمة %"
+
+#. module: hom_contracting_base
+#: model:ir.model.fields,field_description:hom_contracting_base.field_purchase_order__hom_advance_amount
+msgid "Advance Amount"
+msgstr "قيمة الدفعة المقدمة"
+
+#. module: hom_contracting_base
+#: model:ir.model.fields,field_description:hom_contracting_base.field_purchase_order__hom_advance_recovery_pct
+msgid "Advance Recovery %"
+msgstr "نسبة استرداد الدفعة %"
+
+#. module: hom_contracting_base
+#: model_terms:ir.ui.view,arch_db:hom_contracting_base.res_config_settings_view_form_hom
+msgid "Advance bill and its recovery"
+msgstr "فاتورة الدفعة المقدمة واستردادها"
+
+#. module: hom_contracting_base
+#: model:ir.model.fields,help:hom_contracting_base.field_sale_order__hom_advance_pct
+msgid "Advance payment recovered pro-rata from each progress certificate."
+msgstr "الدفعة المقدمة تُسترد بالتناسب من كل مستخلص."
+
+#. module: hom_contracting_base
+#. odoo-python
+#: code:addons/hom_contracting_base/models/purchase_order.py:0
+msgid "Budget overrun after confirming this order:"
+msgstr "تجاوز في الموازنة بعد تأكيد هذا الأمر:"
+
+#. module: hom_contracting_base
+#. odoo-python
+#: code:addons/hom_contracting_base/models/purchase_order.py:0
+msgid "Budget overrun on %s"
+msgstr "تجاوز موازنة على %s"
+
+#. module: hom_contracting_base
+#: model:ir.ui.menu,name:hom_contracting_base.menu_hom_billing_top
+msgid "Certificates"
+msgstr "المستخلصات"
+
+#. module: hom_contracting_base
+#: model:ir.model,name:hom_contracting_base.model_res_company
+msgid "Company"
+msgstr "الشركة"
+
+#. module: hom_contracting_base
+#: model:ir.model,name:hom_contracting_base.model_res_config_settings
+msgid "Config Settings"
+msgstr "إعدادات التهيئة"
+
+#. module: hom_contracting_base
+#: model:ir.ui.menu,name:hom_contracting_base.menu_hom_config
+msgid "Configuration"
+msgstr "الإعدادات"
+
+#. module: hom_contracting_base
+#: model:ir.model.fields,field_description:hom_contracting_base.field_sale_order__hom_consultant_id
+msgid "Consultant"
+msgstr "الاستشاري"
+
+#. module: hom_contracting_base
+#: model:ir.module.module,summary:base.module_hom_contracting_base
+msgid "Contract terms on sales/purchase orders and contracting accounts (advance, retention)."
+msgstr "شروط التعاقد على أوامر البيع والشراء وحسابات المقاولات (الدفعة المقدمة والمحتجز)."
+
+#. module: hom_contracting_base
+#: model:ir.ui.menu,name:hom_contracting_base.menu_hom_root
+#: model_terms:ir.ui.view,arch_db:hom_contracting_base.view_sales_order_filter_hom
+msgid "Contracting"
+msgstr "المقاولات"
+
+#. module: hom_contracting_base
+#: model_terms:ir.ui.view,arch_db:hom_contracting_base.res_config_settings_view_form_hom
+msgid "Contracting (Progress Certificates)"
+msgstr "المقاولات (المستخلصات)"
+
+#. module: hom_contracting_base
+#: model:ir.model.fields.selection,name:hom_contracting_base.selection__sale_order__hom_project_type__contracting
+msgid "Contracting / مقاولات"
+msgstr "مقاولات"
+
+#. module: hom_contracting_base
+#: model:ir.actions.act_window,name:hom_contracting_base.action_hom_contracts
+#: model:ir.ui.menu,name:hom_contracting_base.menu_hom_contracts_top
+msgid "Contracts"
+msgstr "العقود"
+
+#. module: hom_contracting_base
+#: model:ir.model.fields,field_description:hom_contracting_base.field_account_move_line__hom_cumulative_qty
+msgid "Cumulative Qty"
+msgstr "الكمية التراكمية"
+
+#. module: hom_contracting_base
+#: model:ir.model.fields,field_description:hom_contracting_base.field_account_move__display_name
+#: model:ir.model.fields,field_description:hom_contracting_base.field_account_move_line__display_name
+#: model:ir.model.fields,field_description:hom_contracting_base.field_purchase_order__display_name
+#: model:ir.model.fields,field_description:hom_contracting_base.field_res_company__display_name
+#: model:ir.model.fields,field_description:hom_contracting_base.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:hom_contracting_base.field_sale_order__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: hom_contracting_base
+#: model_terms:ir.ui.view,arch_db:hom_contracting_base.view_sales_order_filter_hom
+msgid "Facility Management"
+msgstr "إدارة المرافق"
+
+#. module: hom_contracting_base
+#: model:ir.model.fields.selection,name:hom_contracting_base.selection__sale_order__hom_project_type__fm
+msgid "Facility Management / صيانة"
+msgstr "إدارة مرافق / صيانة"
+
+#. module: hom_contracting_base
+#: model:ir.ui.menu,name:hom_contracting_base.menu_hom_finance_top
+msgid "Finance"
+msgstr "المالية"
+
+#. module: hom_contracting_base
+#: model:ir.module.module,shortdesc:base.module_hom_contracting_base
+msgid "H.O.M Contracting - Base"
+msgstr "H.O.M مقاولات - الأساس"
+
+#. module: hom_contracting_base
+#: model:ir.model.fields,field_description:hom_contracting_base.field_purchase_order__hom_budget_warning
+msgid "Hom Budget Warning"
+msgstr "تنبيه الموازنة"
+
+#. module: hom_contracting_base
+#: model:ir.model.fields,field_description:hom_contracting_base.field_account_move__id
+#: model:ir.model.fields,field_description:hom_contracting_base.field_account_move_line__id
+#: model:ir.model.fields,field_description:hom_contracting_base.field_purchase_order__id
+#: model:ir.model.fields,field_description:hom_contracting_base.field_res_company__id
+#: model:ir.model.fields,field_description:hom_contracting_base.field_res_config_settings__id
+#: model:ir.model.fields,field_description:hom_contracting_base.field_sale_order__id
+msgid "ID"
+msgstr "المعرّف"
+
+#. module: hom_contracting_base
+#: model:ir.model,name:hom_contracting_base.model_account_move
+msgid "Journal Entry"
+msgstr "قيد اليومية"
+
+#. module: hom_contracting_base
+#: model:ir.model,name:hom_contracting_base.model_account_move_line
+msgid "Journal Item"
+msgstr "بند اليومية"
+
+#. module: hom_contracting_base
+#: model_terms:ir.ui.view,arch_db:hom_contracting_base.res_config_settings_view_form_hom
+msgid "Line withheld on owner certificates"
+msgstr "بند يُخصم من مستخلصات المالك"
+
+#. module: hom_contracting_base
+#: model_terms:ir.ui.view,arch_db:hom_contracting_base.res_config_settings_view_form_hom
+msgid "Line withheld on subcontractor certificates"
+msgstr "بند يُخصم من مستخلصات مقاولي الباطن"
+
+#. module: hom_contracting_base
+#: model:ir.model.fields,help:hom_contracting_base.field_res_company__hom_retention_owner_product_id
+#: model:ir.model.fields,help:hom_contracting_base.field_res_config_settings__hom_retention_owner_product_id
+msgid "Negative line added to owner certificates; its income account should be the retention receivable (balance sheet), e.g. 102020."
+msgstr "بند سالب يضاف لمستخلصات المالك؛ حساب الإيراد له يكون محتجزات لدى العملاء (ميزانية) مثل 102020."
+
+#. module: hom_contracting_base
+#: model:ir.model.fields,help:hom_contracting_base.field_res_company__hom_retention_sub_product_id
+#: model:ir.model.fields,help:hom_contracting_base.field_res_config_settings__hom_retention_sub_product_id
+msgid "Negative line added to subcontractor certificates; its expense account should be the retention payable (balance sheet), e.g. 201031."
+msgstr "بند سالب يضاف لمستخلصات مقاولي الباطن؛ حساب المصروف له يكون محتجزات مقاولي الباطن (ميزانية) مثل 201031."
+
+#. module: hom_contracting_base
+#: model:ir.model.fields,help:hom_contracting_base.field_res_company__hom_sub_advance_recovery_product_id
+#: model:ir.model.fields,help:hom_contracting_base.field_res_config_settings__hom_sub_advance_recovery_product_id
+msgid "Negative line on subcontractor certificates recovering the advance (same account as the advance)."
+msgstr "بند سالب في مستخلصات مقاولي الباطن لاسترداد الدفعة المقدمة (نفس حساب الدفعة)."
+
+#. module: hom_contracting_base
+#: model_terms:ir.actions.act_window,help:hom_contracting_base.action_hom_contracts
+msgid "No contract yet"
+msgstr "لا توجد عقود بعد"
+
+#. module: hom_contracting_base
+#: model:ir.ui.menu,name:hom_contracting_base.menu_hom_contracts
+msgid "Owner Contracts"
+msgstr "عقود المالك"
+
+#. module: hom_contracting_base
+#: model:ir.model.fields,field_description:hom_contracting_base.field_res_company__hom_retention_owner_product_id
+#: model:ir.model.fields,field_description:hom_contracting_base.field_res_config_settings__hom_retention_owner_product_id
+msgid "Owner Retention Product"
+msgstr "منتج محتجز المالك"
+
+#. module: hom_contracting_base
+#: model_terms:ir.ui.view,arch_db:hom_contracting_base.res_config_settings_view_form_hom
+msgid "Owner retention"
+msgstr "محتجز المالك"
+
+#. module: hom_contracting_base
+#: model:ir.model.fields,field_description:hom_contracting_base.field_account_move_line__hom_previous_qty
+msgid "Previous Qty"
+msgstr "الكمية السابقة"
+
+#. module: hom_contracting_base
+#: model:ir.model.fields,field_description:hom_contracting_base.field_sale_order__hom_project_type
+msgid "Project Type"
+msgstr "نوع المشروع"
+
+#. module: hom_contracting_base
+#: model:ir.model,name:hom_contracting_base.model_purchase_order
+msgid "Purchase Order"
+msgstr "أمر الشراء"
+
+#. module: hom_contracting_base
+#: model:ir.model.fields,help:hom_contracting_base.field_account_move_line__hom_previous_qty
+msgid "Quantity certified before this certificate."
+msgstr "الكمية المعتمدة قبل هذا المستخلص."
+
+#. module: hom_contracting_base
+#: model:ir.model.fields,help:hom_contracting_base.field_account_move_line__hom_cumulative_qty
+msgid "Quantity certified to date, including this certificate."
+msgstr "الكمية المعتمدة حتى تاريخه شاملة هذا المستخلص."
+
+#. module: hom_contracting_base
+#: model_terms:ir.ui.view,arch_db:hom_contracting_base.res_config_settings_view_form_hom
+msgid "Receives budget overrun and margin alerts (usually the CEO)"
+msgstr "يستلم تنبيهات تجاوز الموازنة والهامش (غالبًا الرئيس التنفيذي)"
+
+#. module: hom_contracting_base
+#: model:ir.model.fields,help:hom_contracting_base.field_res_company__hom_management_user_id
+#: model:ir.model.fields,help:hom_contracting_base.field_res_config_settings__hom_management_user_id
+msgid "Receives contracting alerts (budget overrun, margin risk), usually the CEO."
+msgstr "يستلم تنبيهات المقاولات (تجاوز الموازنة، خطر الهامش)، غالبًا الرئيس التنفيذي."
+
+#. module: hom_contracting_base
+#: model_terms:ir.ui.view,arch_db:hom_contracting_base.purchase_order_form_hom_subcontract
+#: model_terms:ir.ui.view,arch_db:hom_contracting_base.view_order_form_hom_contract
+msgid "Release Retention"
+msgstr "صرف المحتجز"
+
+#. module: hom_contracting_base
+#. odoo-python
+#: code:addons/hom_contracting_base/models/purchase_order.py:0
+#: code:addons/hom_contracting_base/models/sale_order.py:0
+msgid "Release of retention - %s"
+msgstr "صرف المحتجز - %s"
+
+#. module: hom_contracting_base
+#: model:ir.model.fields,field_description:hom_contracting_base.field_purchase_order__hom_retention_pct
+#: model:ir.model.fields,field_description:hom_contracting_base.field_sale_order__hom_retention_pct
+msgid "Retention %"
+msgstr "نسبة المحتجز %"
+
+#. module: hom_contracting_base
+#: model:ir.model.fields,field_description:hom_contracting_base.field_purchase_order__hom_retention_held
+#: model:ir.model.fields,field_description:hom_contracting_base.field_sale_order__hom_retention_held
+msgid "Retention Held"
+msgstr "المحتجز المستقطع"
+
+#. module: hom_contracting_base
+#: model:ir.model.fields,field_description:hom_contracting_base.field_account_bank_statement_line__hom_retention_order_id
+#: model:ir.model.fields,field_description:hom_contracting_base.field_account_move__hom_retention_order_id
+msgid "Retention Release of"
+msgstr "صرف محتجز العقد"
+
+#. module: hom_contracting_base
+#: model:ir.model.fields,field_description:hom_contracting_base.field_account_bank_statement_line__hom_retention_purchase_id
+#: model:ir.model.fields,field_description:hom_contracting_base.field_account_move__hom_retention_purchase_id
+msgid "Retention Release of Subcontract"
+msgstr "صرف محتجز عقد الباطن"
+
+#. module: hom_contracting_base
+#: model:ir.model.fields,field_description:hom_contracting_base.field_purchase_order__hom_retention_released
+#: model:ir.model.fields,field_description:hom_contracting_base.field_sale_order__hom_retention_released
+msgid "Retention Released"
+msgstr "المحتجز المصروف"
+
+#. module: hom_contracting_base
+#: model:ir.model.fields,field_description:hom_contracting_base.field_purchase_order__hom_retention_release_ids
+#: model:ir.model.fields,field_description:hom_contracting_base.field_sale_order__hom_retention_release_ids
+msgid "Retention Releases"
+msgstr "صرف المحتجزات"
+
+#. module: hom_contracting_base
+#. odoo-python
+#: code:addons/hom_contracting_base/models/purchase_order.py:0
+#: code:addons/hom_contracting_base/models/sale_order.py:0
+msgid "Retention release - %s"
+msgstr "صرف المحتجز - %s"
+
+#. module: hom_contracting_base
+#. odoo-python
+#: code:addons/hom_contracting_base/models/purchase_order.py:0
+msgid "Retention release bill %s prepared."
+msgstr "تم تجهيز فاتورة صرف المحتجز %s."
+
+#. module: hom_contracting_base
+#. odoo-python
+#: code:addons/hom_contracting_base/models/sale_order.py:0
+msgid "Retention release invoice %s prepared."
+msgstr "تم تجهيز فاتورة صرف المحتجز %s."
+
+#. module: hom_contracting_base
+#: model:ir.model.fields,field_description:hom_contracting_base.field_sale_order__hom_retention_balance
+msgid "Retention to Collect"
+msgstr "محتجز مستحق التحصيل"
+
+#. module: hom_contracting_base
+#: model:ir.model.fields,field_description:hom_contracting_base.field_purchase_order__hom_retention_balance
+msgid "Retention to Pay"
+msgstr "محتجز مستحق الصرف"
+
+#. module: hom_contracting_base
+#: model:ir.model.fields,help:hom_contracting_base.field_sale_order__hom_retention_pct
+msgid "Retention withheld from each progress certificate."
+msgstr "نسبة تُحتجز من كل مستخلص."
+
+#. module: hom_contracting_base
+#: model:ir.model,name:hom_contracting_base.model_sale_order
+msgid "Sales Order"
+msgstr "أمر البيع"
+
+#. module: hom_contracting_base
+#: model:ir.ui.menu,name:hom_contracting_base.menu_hom_site_top
+msgid "Site"
+msgstr "الموقع"
+
+#. module: hom_contracting_base
+#: model:ir.model.fields,field_description:hom_contracting_base.field_purchase_order__hom_is_subcontract
+msgid "Subcontract"
+msgstr "عقد الباطن"
+
+#. module: hom_contracting_base
+#: model:ir.model.fields,field_description:hom_contracting_base.field_res_company__hom_sub_advance_product_id
+#: model:ir.model.fields,field_description:hom_contracting_base.field_res_config_settings__hom_sub_advance_product_id
+msgid "Subcontractor Advance Product"
+msgstr "منتج الدفعة المقدمة لمقاول الباطن"
+
+#. module: hom_contracting_base
+#: model:ir.model.fields,field_description:hom_contracting_base.field_res_company__hom_sub_advance_recovery_product_id
+#: model:ir.model.fields,field_description:hom_contracting_base.field_res_config_settings__hom_sub_advance_recovery_product_id
+msgid "Subcontractor Advance Recovery Product"
+msgstr "منتج استرداد الدفعة المقدمة لمقاول الباطن"
+
+#. module: hom_contracting_base
+#: model:ir.model.fields,field_description:hom_contracting_base.field_res_company__hom_retention_sub_product_id
+#: model:ir.model.fields,field_description:hom_contracting_base.field_res_config_settings__hom_retention_sub_product_id
+msgid "Subcontractor Retention Product"
+msgstr "منتج محتجز مقاول الباطن"
+
+#. module: hom_contracting_base
+#: model_terms:ir.ui.view,arch_db:hom_contracting_base.res_config_settings_view_form_hom
+msgid "Subcontractor advance"
+msgstr "الدفعة المقدمة لمقاول الباطن"
+
+#. module: hom_contracting_base
+#: model_terms:ir.ui.view,arch_db:hom_contracting_base.res_config_settings_view_form_hom
+msgid "Subcontractor retention"
+msgstr "محتجز مقاول الباطن"
+
+#. module: hom_contracting_base
+#: model:ir.actions.act_window,name:hom_contracting_base.action_hom_subcontracts
+#: model:ir.ui.menu,name:hom_contracting_base.menu_hom_subcontracts
+#: model_terms:ir.ui.view,arch_db:hom_contracting_base.purchase_order_search_hom
+msgid "Subcontracts"
+msgstr "عقود الباطن"
+
+#. module: hom_contracting_base
+#. odoo-python
+#: code:addons/hom_contracting_base/models/purchase_order.py:0
+msgid "There is no retention left to pay on this subcontract."
+msgstr "لا يوجد محتجز متبقٍ للصرف على عقد الباطن هذا."
+
+#. module: hom_contracting_base
+#. odoo-python
+#: code:addons/hom_contracting_base/models/sale_order.py:0
+msgid "There is no retention left to release on this contract."
+msgstr "لا يوجد محتجز متبقٍ للتحصيل على هذا العقد."
+
+#. module: hom_contracting_base
+#: model:ir.model.fields,field_description:hom_contracting_base.field_res_company__hom_management_user_id
+#: model:ir.model.fields,field_description:hom_contracting_base.field_res_config_settings__hom_management_user_id
+msgid "Top Management"
+msgstr "الإدارة العليا"
+
+#. module: hom_contracting_base
+#: model_terms:ir.ui.view,arch_db:hom_contracting_base.res_config_settings_view_form_hom
+msgid "Top management"
+msgstr "الإدارة العليا"
+
+#. module: hom_contracting_base
+#: model:ir.model.fields,help:hom_contracting_base.field_res_company__hom_sub_advance_product_id
+#: model:ir.model.fields,help:hom_contracting_base.field_res_config_settings__hom_sub_advance_product_id
+msgid "Used for the subcontractor advance bill; account = advances to subcontractors, e.g. 102021."
+msgstr "يستخدم في فاتورة الدفعة المقدمة لمقاول الباطن؛ الحساب = دفعات مقدمة لمقاولي الباطن مثل 102021."
+
+#. module: hom_contracting_base
+#: model_terms:ir.actions.act_window,help:hom_contracting_base.action_hom_contracts
+msgid "Won tenders become contracts here: BOQ, advance %, retention % and the consultant."
+msgstr "المناقصات اللي اترست بتتحول لعقود هنا: المقايسة، نسبة الدفعة المقدمة، المحتجز والاستشاري."
+
+#. module: hom_contracting_base
+#: model:product.template,name:hom_contracting_base.product_sub_advance_recovery_product_template
+msgid "استرداد دفعة مقدمة مقاول باطن"
+msgstr ""
+
+#. module: hom_contracting_base
+#: model:product.template,name:hom_contracting_base.product_sub_advance_product_template
+msgid "دفعة مقدمة مقاول باطن"
+msgstr ""
+
+#. module: hom_contracting_base
+#: model:product.template,name:hom_contracting_base.product_retention_owner_product_template
+msgid "محتجز ضمان أعمال (عميل)"
+msgstr ""
+
+#. module: hom_contracting_base
+#: model:product.template,name:hom_contracting_base.product_retention_sub_product_template
+msgid "محتجز ضمان مقاول باطن"
+msgstr ""

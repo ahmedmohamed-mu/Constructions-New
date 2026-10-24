@@ -112,6 +112,8 @@
         <field name="view_mode">list,form,pivot</field>
     </record>
 
+    <menuitem id="menu_hom_sub_certificates_root" name="Subcontractor Certificates" parent="hom_contracting_base.menu_hom_billing_top"
+              action="action_hom_subcontract_certificate" sequence="20"/>
     <menuitem id="menu_hom_sub_certificates_purchase" name="Subcontractor Certificates" parent="purchase.menu_procurement_management"
               action="action_hom_subcontract_certificate" sequence="20"/>
     <menuitem id="menu_hom_sub_certificates_account" name="Subcontractor Certificates" parent="account.menu_finance_payables"

@@ -10,6 +10,45 @@
                         invisible="hom_project_type != 'contracting' or state != 'sale'">
                     <field name="hom_certificate_count" widget="statinfo" string="Certificates"/>
                 </button>
+                <button name="action_hom_measurements" type="object" class="oe_stat_button" icon="fa-map-marker"
+                        invisible="hom_project_type != 'contracting' or state != 'sale'">
+                    <field name="hom_open_measurement_count" widget="statinfo" string="To Certify"/>
+                </button>
+            </xpath>
+            <xpath expr="//notebook/page[@name='order_lines']" position="after">
+                <page string="Contract Control" name="hom_contract_control"
+                      invisible="hom_project_type != 'contracting' or state != 'sale'">
+                    <div class="row g-3 mb-3">
+                        <div class="col-lg-3 col-6">
+                            <div class="card h-100 border-0 bg-100"><div class="card-body">
+                                <div class="text-muted small">Contract value</div>
+                                <div class="fs-4 fw-bold"><field name="amount_untaxed" readonly="1"/></div>
+                            </div></div>
+                        </div>
+                        <div class="col-lg-3 col-6">
+                            <div class="card h-100 border-0 bg-100"><div class="card-body">
+                                <div class="text-muted small">Certified to date</div>
+                                <div class="fs-4 fw-bold"><field name="hom_certified_amount"/></div>
+                                <field name="hom_certified_pct" widget="progressbar"/>
+                            </div></div>
+                        </div>
+                        <div class="col-lg-3 col-6">
+                            <div class="card h-100 border-0 bg-100"><div class="card-body">
+                                <div class="text-muted small">Advance to recover</div>
+                                <div class="fs-4 fw-bold"><field name="hom_advance_outstanding"/></div>
+                                <div class="small text-muted">of <field name="hom_advance_received" class="d-inline"/></div>
+                            </div></div>
+                        </div>
+                        <div class="col-lg-3 col-6">
+                            <div class="card h-100 border-0 bg-100"><div class="card-body">
+                                <div class="text-muted small">Retention to collect</div>
+                                <div class="fs-4 fw-bold"><field name="hom_retention_balance"/></div>
+                                <div class="small text-muted">Released at handover</div>
+                            </div></div>
+                        </div>
+                    </div>
+                    <field name="hom_certificate_ids" readonly="1" context="{'list_view_ref': 'hom_progress_billing.hom_progress_certificate_list'}"/>
+                </page>
             </xpath>
         </field>
     </record>

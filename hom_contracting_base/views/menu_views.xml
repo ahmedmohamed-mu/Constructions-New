@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- One place for the whole contracting cycle: contract -> site -> certificates -> subcontracts -> guarantees -->
+    <menuitem id="menu_hom_root" name="Contracting" sequence="12"
+              web_icon="hom_contracting_base,static/description/icon.png"/>
+
+    <record id="action_hom_contracts" model="ir.actions.act_window">
+        <field name="name">Contracts</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_mode">list,kanban,form,pivot,graph</field>
+        <field name="domain">[('hom_project_type', '=', 'contracting')]</field>
+        <field name="context">{'default_hom_project_type': 'contracting', 'search_default_sales': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No contract yet</p>
+            <p>Won tenders become contracts here: BOQ, advance %, retention % and the consultant.</p>
+        </field>
+    </record>
+    <record id="action_hom_subcontracts" model="ir.actions.act_window">
+        <field name="name">Subcontracts</field>
+        <field name="res_model">purchase.order</field>
+        <field name="view_mode">list,kanban,form,pivot</field>
+        <field name="domain">[('hom_is_subcontract', '=', True)]</field>
+        <field name="context">{'default_hom_is_subcontract': True}</field>
+    </record>
+
+    <menuitem id="menu_hom_contracts_top" name="Contracts" parent="menu_hom_root" sequence="10"/>
+    <menuitem id="menu_hom_contracts" name="Owner Contracts" parent="menu_hom_contracts_top" sequence="10"
+              action="action_hom_contracts" groups="sales_team.group_sale_salesman"/>
+    <menuitem id="menu_hom_subcontracts" name="Subcontracts" parent="menu_hom_contracts_top" sequence="20"
+              action="action_hom_subcontracts" groups="purchase.group_purchase_user"/>
+    <menuitem id="menu_hom_site_top" name="Site" parent="menu_hom_root" sequence="20"/>
+    <menuitem id="menu_hom_billing_top" name="Certificates" parent="menu_hom_root" sequence="30"/>
+    <menuitem id="menu_hom_finance_top" name="Finance" parent="menu_hom_root" sequence="40"/>
+    <menuitem id="menu_hom_config" name="Configuration" parent="menu_hom_root" sequence="90"
+              action="account.action_account_config" groups="base.group_system"/>
+</odoo>

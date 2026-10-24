@@ -42,8 +42,14 @@ class ProjectProject(models.Model):
         contract = order.amount_untaxed if order else 0.0
         eac = actual_cost + (self.hom_estimate_to_complete or 0.0)
         margin = ((contract - eac) / contract * 100.0) if contract and self.hom_estimate_to_complete else None
-        invoiced = sum(order.invoice_ids.filtered(lambda m: m.state == "posted" and m.move_type == "out_invoice")
-                       .mapped("amount_untaxed")) if order else 0.0
+        invoiced = 0.0
+        if order:
+            retention = order.company_id.hom_retention_owner_product_id
+            for move in order.invoice_ids.filtered(lambda m: m.state == "posted"):
+                sign = -1 if move.move_type == "out_refund" else 1
+                work = move.invoice_line_ids.filtered(
+                    lambda l: l.display_type == "product" and not l.is_downpayment and l.product_id != retention)
+                invoiced += sign * sum(work.mapped("price_subtotal"))
         return {
             "order": order, "contract": contract, "certified": certs.amount_cumulative if certs else 0.0,
             "progress": certs.progress_pct if certs else 0.0, "invoiced": invoiced,
@@ -69,7 +75,7 @@ class ProjectProject(models.Model):
             rows = [
                 (_("Contract value"), fmt(f["contract"])),
                 (_("Certified to date"), fmt(f["certified"])),
-                (_("Invoiced"), fmt(f["invoiced"])),
+                (_("Work invoiced"), fmt(f["invoiced"])),
                 (_("Actual cost"), fmt(f["actual_cost"])),
                 (_("Estimate to complete"), fmt(f["etc"])),
                 (_("Expected margin"), ("%.1f %%" % margin) if margin is not None else "-"),

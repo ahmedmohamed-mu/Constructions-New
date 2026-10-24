@@ -1,0 +1,843 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hom_subcontract_billing
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: ar\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5);\n"
+
+#. module: hom_subcontract_billing
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.hom_subcontract_certificate_form
+msgid "% is ahead of the owner's certified"
+msgstr "% متقدمة على ما اعتمده المالك"
+
+#. module: hom_subcontract_billing
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.hom_subcontract_certificate_form
+msgid "% on"
+msgstr "% في"
+
+#. module: hom_subcontract_billing
+#. odoo-python
+#: code:addons/hom_subcontract_billing/models/subcontract_certificate.py:0
+msgid "%(po)s - Sub. Certificate %(n)s"
+msgstr "%(po)s - مستخلص مقاول %(n)s"
+
+#. module: hom_subcontract_billing
+#: model:ir.actions.report,print_report_name:hom_subcontract_billing.action_report_subcontract_certificate
+msgid "'مستخلص مقاول - %s' % (object.name)"
+msgstr ""
+
+#. module: hom_subcontract_billing
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.hom_subcontract_certificate_form
+msgid "<span class=\"o_stat_text\">Bill</span>"
+msgstr "<span class=\"o_stat_text\">الفاتورة</span>"
+
+#. module: hom_subcontract_billing
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.hom_subcontract_certificate_form
+msgid "<strong>Back-to-back:</strong> subcontract progress"
+msgstr "<strong>Back-to-back:</strong> نسبة إنجاز مقاول الباطن"
+
+#. module: hom_subcontract_billing
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.report_subcontract_certificate
+msgid "<strong>المقاول:</strong>"
+msgstr ""
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__message_needaction
+msgid "Action Needed"
+msgstr "إجراء مطلوب"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__activity_ids
+msgid "Activities"
+msgstr "الأنشطة"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "زخرفة استثناء النشاط"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__activity_plans_ids
+msgid "Activity Plans"
+msgstr "خطط الأنشطة"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__activity_state
+msgid "Activity State"
+msgstr "حالة النشاط"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "أيقونة نوع النشاط"
+
+#. module: hom_subcontract_billing
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.purchase_order_form_hom_sub_billing
+msgid "Advance Bill"
+msgstr "فاتورة الدفعة المقدمة"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_purchase_order__hom_advance_bill_ids
+msgid "Advance Bills"
+msgstr "فواتير الدفعة المقدمة"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__amount_advance_recovery
+msgid "Advance Recovery"
+msgstr "استرداد الدفعة المقدمة"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__recovery_pct
+msgid "Advance Recovery %"
+msgstr "نسبة استرداد الدفعة %"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_account_bank_statement_line__hom_advance_order_id
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_account_move__hom_advance_order_id
+msgid "Advance of Subcontract"
+msgstr "دفعة مقدمة لعقد الباطن"
+
+#. module: hom_subcontract_billing
+#. odoo-python
+#: code:addons/hom_subcontract_billing/models/purchase_order.py:0
+msgid "Advance payment - %s"
+msgstr "دفعة مقدمة - %s"
+
+#. module: hom_subcontract_billing
+#. odoo-python
+#: code:addons/hom_subcontract_billing/models/subcontract_certificate.py:0
+msgid "Advance recovery %(pct)s%% - %(po)s"
+msgstr "استرداد دفعة مقدمة %(pct)s%% - %(po)s"
+
+#. module: hom_subcontract_billing
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.purchase_order_form_hom_sub_billing
+msgid "Advance to Recover"
+msgstr "الدفعة المقدمة المتبقية للاسترداد"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate_line__amount_cumulative
+msgid "Amount Cumulative"
+msgstr "القيمة التراكمية"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate_line__amount_current
+msgid "Amount Current"
+msgstr "القيمة الحالية"
+
+#. module: hom_subcontract_billing
+#. odoo-python
+#: code:addons/hom_subcontract_billing/models/purchase_order.py:0
+msgid "An advance bill already exists for this subcontract."
+msgstr "توجد فاتورة دفعة مقدمة لعقد الباطن هذا بالفعل."
+
+#. module: hom_subcontract_billing
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.hom_subcontract_certificate_form
+msgid "Approve"
+msgstr "اعتماد"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields.selection,name:hom_subcontract_billing.selection__hom_subcontract_certificate__state__approved
+msgid "Approved"
+msgstr "معتمد"
+
+#. module: hom_subcontract_billing
+#. odoo-python
+#: code:addons/hom_subcontract_billing/models/subcontract_certificate.py:0
+msgid "Approved by %s; received quantities updated on the subcontract."
+msgstr "اعتمده %s؛ وتم تحديث الكميات المستلمة على عقد الباطن."
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__message_attachment_count
+msgid "Attachment Count"
+msgstr "عدد المرفقات"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__back_to_back_warning
+msgid "Back To Back Warning"
+msgstr "تنبيه Back-to-back"
+
+#. module: hom_subcontract_billing
+#. odoo-python
+#: code:addons/hom_subcontract_billing/models/subcontract_certificate.py:0
+msgid "Back-to-back check: %s"
+msgstr "مراجعة Back-to-back: %s"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__bill_id
+msgid "Bill"
+msgstr "الفاتورة"
+
+#. module: hom_subcontract_billing
+#. odoo-python
+#: code:addons/hom_subcontract_billing/models/subcontract_certificate.py:0
+msgid "Bill subcontractor certificate %s"
+msgstr "فوترة مستخلص المقاول %s"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields.selection,name:hom_subcontract_billing.selection__hom_subcontract_certificate__state__billed
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.hom_subcontract_certificate_form
+msgid "Billed"
+msgstr "مفوتر"
+
+#. module: hom_subcontract_billing
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.hom_subcontract_certificate_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: hom_subcontract_billing
+#. odoo-python
+#: code:addons/hom_subcontract_billing/models/subcontract_certificate.py:0
+msgid "Cancel the bill before resetting the certificate."
+msgstr "ألغِ فاتورة المورد قبل إعادة المستخلص لمسودة."
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields.selection,name:hom_subcontract_billing.selection__hom_subcontract_certificate__state__cancel
+msgid "Cancelled"
+msgstr "ملغي"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate_line__certificate_id
+msgid "Certificate"
+msgstr "المستخلص"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__number
+msgid "Certificate No."
+msgstr "رقم المستخلص"
+
+#. module: hom_subcontract_billing
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.purchase_order_form_hom_sub_billing
+msgid "Certificates"
+msgstr "المستخلصات"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate_line__contract_qty
+msgid "Contract Qty"
+msgstr "كمية العقد"
+
+#. module: hom_subcontract_billing
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.hom_subcontract_certificate_form
+msgid "Create Bill"
+msgstr "إنشاء فاتورة المورد"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__create_uid
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate_line__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__create_date
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate_line__create_date
+msgid "Created on"
+msgstr "تاريخ الإنشاء"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate_line__cumulative_qty
+msgid "Cumulative Qty"
+msgstr "الكمية التراكمية"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__amount_cumulative
+msgid "Cumulative Work"
+msgstr "الأعمال التراكمية"
+
+#. module: hom_subcontract_billing
+#. odoo-python
+#: code:addons/hom_subcontract_billing/models/subcontract_certificate.py:0
+msgid "Cumulative quantity of %s cannot be lower than the previous certificate."
+msgstr "الكمية التراكمية لـ %s لا يمكن أن تقل عن المستخلص السابق."
+
+#. module: hom_subcontract_billing
+#. odoo-python
+#: code:addons/hom_subcontract_billing/models/subcontract_certificate.py:0
+msgid "Cumulative quantity of %s exceeds the subcontract quantity."
+msgstr "الكمية التراكمية لـ %s تتجاوز كمية عقد الباطن."
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__currency_id
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate_line__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_account_move__display_name
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__display_name
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate_line__display_name
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_purchase_order__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields.selection,name:hom_subcontract_billing.selection__hom_subcontract_certificate__state__draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__message_follower_ids
+msgid "Followers"
+msgstr "المتابعون"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "المتابعون (الشركاء)"
+
+#. module: hom_subcontract_billing
+#: model:ir.module.module,shortdesc:base.module_hom_subcontract_billing
+msgid "H.O.M Contracting - Subcontractor Certificates"
+msgstr "H.O.M مقاولات - مستخلصات مقاولي الباطن"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__has_message
+msgid "Has Message"
+msgstr "يحتوي على رسالة"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_purchase_order__hom_advance_billed
+msgid "Hom Advance Billed"
+msgstr "الدفعة المقدمة المفوترة"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_purchase_order__hom_advance_recovered
+msgid "Hom Advance Recovered"
+msgstr "الدفعة المقدمة المستردة"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_purchase_order__hom_advance_remaining
+msgid "Hom Advance Remaining"
+msgstr "الدفعة المقدمة المتبقية"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_purchase_order__hom_sub_certificate_ids
+msgid "Hom Sub Certificate"
+msgstr "مستخلص مقاول"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_purchase_order__hom_sub_certificate_count
+msgid "Hom Sub Certificate Count"
+msgstr "عدد مستخلصات المقاول"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_account_move__id
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__id
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate_line__id
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_purchase_order__id
+msgid "ID"
+msgstr "المعرّف"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__activity_exception_icon
+msgid "Icon"
+msgstr "الأيقونة"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,help:hom_subcontract_billing.field_hom_subcontract_certificate__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "الأيقونة للإشارة إلى نشاط استثنائي."
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,help:hom_subcontract_billing.field_hom_subcontract_certificate__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "إذا كان محددًا، فهناك رسائل جديدة تحتاج لرؤيتها."
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,help:hom_subcontract_billing.field_hom_subcontract_certificate__message_has_error
+#: model:ir.model.fields,help:hom_subcontract_billing.field_hom_subcontract_certificate__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "إذا كان محددًا، فقد حدث خطأ في تسليم بعض الرسائل."
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__message_is_follower
+msgid "Is Follower"
+msgstr "متابع"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate_line__purchase_line_id
+msgid "Item"
+msgstr "البند"
+
+#. module: hom_subcontract_billing
+#. odoo-python
+#: code:addons/hom_subcontract_billing/models/subcontract_certificate.py:0
+msgid "Items can only be loaded on a draft certificate."
+msgstr "لا يمكن تحميل البنود إلا على مستخلص مسودة."
+
+#. module: hom_subcontract_billing
+#: model:ir.model,name:hom_subcontract_billing.model_account_move
+msgid "Journal Entry"
+msgstr "قيد اليومية"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__write_uid
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate_line__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__write_date
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate_line__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__line_ids
+msgid "Line"
+msgstr "البند"
+
+#. module: hom_subcontract_billing
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.hom_subcontract_certificate_form
+msgid "Load Items"
+msgstr "تحميل البنود"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,help:hom_subcontract_billing.field_hom_subcontract_certificate__activity_type_icon
+msgid "Material Symbols icon e.g. checklist"
+msgstr "أيقونة Material Symbols مثل checklist"
+
+#. module: hom_subcontract_billing
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.hom_subcontract_certificate_form
+msgid "Measured Work"
+msgstr "الأعمال المحصورة"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__message_has_error
+msgid "Message Delivery error"
+msgstr "خطأ في تسليم الرسائل"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__message_ids
+msgid "Messages"
+msgstr "الرسائل"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "موعد نشاطي النهائي"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__amount_net
+msgid "Net (before VAT)"
+msgstr "الصافي (قبل الضريبة)"
+
+#. module: hom_subcontract_billing
+#. odoo-python
+#: code:addons/hom_subcontract_billing/models/subcontract_certificate.py:0
+msgid "New"
+msgstr "جديد"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "الموعد النهائي للنشاط التالي"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__activity_summary
+msgid "Next Activity Summary"
+msgstr "ملخص النشاط التالي"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__activity_type_id
+msgid "Next Activity Type"
+msgstr "نوع النشاط التالي"
+
+#. module: hom_subcontract_billing
+#. odoo-python
+#: code:addons/hom_subcontract_billing/models/subcontract_certificate.py:0
+msgid "Nothing measured in this certificate."
+msgstr "لا توجد كميات محصورة في هذا المستخلص."
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__message_needaction_counter
+msgid "Number of Actions"
+msgstr "عدد الإجراءات"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__message_has_error_counter
+msgid "Number of errors"
+msgstr "عدد الأخطاء"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,help:hom_subcontract_billing.field_hom_subcontract_certificate__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "عدد الرسائل التي تتطلب إجراء"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,help:hom_subcontract_billing.field_hom_subcontract_certificate__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "عدد الرسائل الحادث بها خطأ في التسليم"
+
+#. module: hom_subcontract_billing
+#. odoo-python
+#: code:addons/hom_subcontract_billing/models/subcontract_certificate.py:0
+msgid "Only a project manager or a purchase manager can approve a subcontractor certificate."
+msgstr "اعتماد مستخلص المقاول لمدير المشروع أو مدير المشتريات فقط."
+
+#. module: hom_subcontract_billing
+#. odoo-python
+#: code:addons/hom_subcontract_billing/models/subcontract_certificate.py:0
+msgid "Only approved certificates can be billed."
+msgstr "لا يمكن فوترة إلا المستخلصات المعتمدة."
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__owner_progress_pct
+msgid "Owner Certified %"
+msgstr "نسبة اعتماد المالك %"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__bill_payment_state
+msgid "Payment Status"
+msgstr "حالة السداد"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate_line__previous_qty
+msgid "Previous Qty"
+msgstr "الكمية السابقة"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate_line__product_id
+msgid "Product"
+msgstr "المنتج"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate_line__progress_pct
+msgid "Progress %"
+msgstr "نسبة الإنجاز %"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,help:hom_subcontract_billing.field_hom_subcontract_certificate__owner_progress_pct
+msgid "Progress certified by the owner on the same project (latest approved certificate)."
+msgstr "نسبة الإنجاز التي اعتمدها المالك على نفس المشروع (آخر مستخلص معتمد)."
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__project_id
+msgid "Project"
+msgstr "المشروع"
+
+#. module: hom_subcontract_billing
+#: model:ir.model,name:hom_subcontract_billing.model_purchase_order
+msgid "Purchase Order"
+msgstr "أمر الشراء"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__rating_ids
+msgid "Ratings"
+msgstr "التقييمات"
+
+#. module: hom_subcontract_billing
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.hom_subcontract_certificate_form
+msgid "Reset to Draft"
+msgstr "إعادة لمسودة"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__activity_user_id
+msgid "Responsible User"
+msgstr "المستخدم المسؤول"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__amount_retention
+msgid "Retention"
+msgstr "المحتجز"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__retention_pct
+msgid "Retention %"
+msgstr "نسبة المحتجز %"
+
+#. module: hom_subcontract_billing
+#. odoo-python
+#: code:addons/hom_subcontract_billing/models/subcontract_certificate.py:0
+msgid "Retention %(pct)s%% - %(po)s"
+msgstr "محتجز %(pct)s%% - %(po)s"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "خطأ في تسليم الرسائل النصية"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate_line__sequence
+msgid "Sequence"
+msgstr "التسلسل"
+
+#. module: hom_subcontract_billing
+#. odoo-python
+#: code:addons/hom_subcontract_billing/models/purchase_order.py:0
+msgid "Set the advance amount on the subcontract first."
+msgstr "حدد قيمة الدفعة المقدمة على عقد الباطن أولًا."
+
+#. module: hom_subcontract_billing
+#. odoo-python
+#: code:addons/hom_subcontract_billing/models/subcontract_certificate.py:0
+msgid "Set the advance recovery product in Accounting settings (Contracting)."
+msgstr "حدد منتج استرداد الدفعة المقدمة من إعدادات المحاسبة (المقاولات)."
+
+#. module: hom_subcontract_billing
+#. odoo-python
+#: code:addons/hom_subcontract_billing/models/purchase_order.py:0
+msgid "Set the subcontractor advance product in Accounting settings (Contracting)."
+msgstr "حدد منتج الدفعة المقدمة لمقاول الباطن من إعدادات المحاسبة (المقاولات)."
+
+#. module: hom_subcontract_billing
+#. odoo-python
+#: code:addons/hom_subcontract_billing/models/subcontract_certificate.py:0
+msgid "Set the subcontractor retention product in Accounting settings (Contracting)."
+msgstr "حدد منتج محتجز مقاول الباطن من إعدادات المحاسبة (المقاولات)."
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__user_id
+msgid "Site Engineer"
+msgstr "مهندس الموقع"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__state
+msgid "State"
+msgstr "الحالة"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,help:hom_subcontract_billing.field_hom_subcontract_certificate__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"الحالة على أساس الأنشطة\n"
+"متأخرة: تاريخ الاستحقاق مر\n"
+"اليوم: تاريخ النشاط هو اليوم\n"
+"مخطط: أنشطة مستقبلية."
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__purchase_order_id
+msgid "Subcontract"
+msgstr "عقد الباطن"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__sub_progress_pct
+msgid "Subcontract Progress %"
+msgstr "نسبة إنجاز عقد الباطن %"
+
+#. module: hom_subcontract_billing
+#: model:ir.module.module,summary:base.module_hom_subcontract_billing
+msgid "Subcontract advance bills and subcontractor progress certificates (مستخلصات مقاولي الباطن) with advance recovery and retention, billed from the subcontract purchase order."
+msgstr "فواتير الدفعة المقدمة ومستخلصات مقاولي الباطن مع استرداد الدفعة والمحتجز، تُفوتر من أمر شراء عقد الباطن."
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__partner_id
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.hom_subcontract_certificate_search
+msgid "Subcontractor"
+msgstr "مقاول الباطن"
+
+#. module: hom_subcontract_billing
+#. odoo-python
+#: code:addons/hom_subcontract_billing/models/subcontract_certificate.py:0
+msgid "Subcontractor Bill"
+msgstr "فاتورة مقاول الباطن"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_account_bank_statement_line__hom_sub_certificate_id
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_account_move__hom_sub_certificate_id
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.hom_subcontract_certificate_form
+msgid "Subcontractor Certificate"
+msgstr "مستخلص مقاول"
+
+#. module: hom_subcontract_billing
+#: model:ir.actions.report,name:hom_subcontract_billing.action_report_subcontract_certificate
+msgid "Subcontractor Certificate (مستخلص مقاول)"
+msgstr "مستخلص مقاول باطن"
+
+#. module: hom_subcontract_billing
+#: model:ir.model,name:hom_subcontract_billing.model_hom_subcontract_certificate_line
+msgid "Subcontractor Certificate Line"
+msgstr "بند مستخلص مقاول"
+
+#. module: hom_subcontract_billing
+#: model:ir.actions.act_window,name:hom_subcontract_billing.action_hom_subcontract_certificate
+#: model:ir.ui.menu,name:hom_subcontract_billing.menu_hom_sub_certificates_account
+#: model:ir.ui.menu,name:hom_subcontract_billing.menu_hom_sub_certificates_purchase
+#: model:ir.ui.menu,name:hom_subcontract_billing.menu_hom_sub_certificates_root
+msgid "Subcontractor Certificates"
+msgstr "مستخلصات مقاولي الباطن"
+
+#. module: hom_subcontract_billing
+#: model:ir.model,name:hom_subcontract_billing.model_hom_subcontract_certificate
+msgid "Subcontractor Progress Certificate"
+msgstr "مستخلص مقاول باطن"
+
+#. module: hom_subcontract_billing
+#. odoo-python
+#: code:addons/hom_subcontract_billing/models/subcontract_certificate.py:0
+msgid "Subcontractor certified %(s).1f%% of the subcontract while the owner certified only %(o).1f%% of the project: paying ahead of the owner's certificate puts cash and margin at risk."
+msgstr "مقاول الباطن اعتُمد له %(s).1f%% من عقده بينما اعتمد المالك %(o).1f%% فقط من المشروع: الصرف قبل اعتماد المالك يعرّض السيولة والهامش للخطر."
+
+#. module: hom_subcontract_billing
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.hom_subcontract_certificate_form
+msgid "Submit"
+msgstr "تقديم"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields.selection,name:hom_subcontract_billing.selection__hom_subcontract_certificate__state__submitted
+msgid "Submitted"
+msgstr "مقدَّم"
+
+#. module: hom_subcontract_billing
+#. odoo-python
+#: code:addons/hom_subcontract_billing/models/subcontract_certificate.py:0
+msgid "The bill of this certificate is posted."
+msgstr "فاتورة هذا المستخلص مُرحّلة."
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate_line__current_qty
+msgid "This Certificate"
+msgstr "هذا المستخلص"
+
+#. module: hom_subcontract_billing
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.hom_subcontract_certificate_search
+msgid "To Approve"
+msgstr "بانتظار الاعتماد"
+
+#. module: hom_subcontract_billing
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.hom_subcontract_certificate_search
+msgid "To Bill"
+msgstr "جاهز للفوترة"
+
+#. module: hom_subcontract_billing
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.hom_subcontract_certificate_form
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.hom_subcontract_certificate_list
+msgid "Total"
+msgstr "الإجمالي"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,help:hom_subcontract_billing.field_hom_subcontract_certificate__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "نوع النشاط الاستثنائي في السجل."
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate_line__product_uom_id
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.hom_subcontract_certificate_form
+msgid "Unit"
+msgstr "الوحدة"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate_line__price_unit
+msgid "Unit Price"
+msgstr "سعر الوحدة"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__amount_current
+msgid "Work this Certificate"
+msgstr "أعمال هذا المستخلص"
+
+#. module: hom_subcontract_billing
+#: model:ir.model.fields,help:hom_subcontract_billing.field_hom_subcontract_certificate__partner_id
+msgid "You can find a vendor by its Name, TIN, Email or Internal Reference."
+msgstr "يمكنك البحث عن المورد بالاسم أو الرقم الضريبي أو البريد أو المرجع الداخلي."
+
+#. module: hom_subcontract_billing
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.report_subcontract_certificate
+msgid "إجمالي الأعمال الحالية"
+msgstr ""
+
+#. module: hom_subcontract_billing
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.report_subcontract_certificate
+msgid "استرداد الدفعة المقدمة ("
+msgstr ""
+
+#. module: hom_subcontract_billing
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.report_subcontract_certificate
+msgid "البند"
+msgstr ""
+
+#. module: hom_subcontract_billing
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.report_subcontract_certificate
+msgid "التراكمي"
+msgstr ""
+
+#. module: hom_subcontract_billing
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.report_subcontract_certificate
+msgid "الحالي"
+msgstr ""
+
+#. module: hom_subcontract_billing
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.report_subcontract_certificate
+msgid "السابق"
+msgstr ""
+
+#. module: hom_subcontract_billing
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.report_subcontract_certificate
+msgid "الصافي قبل الضريبة"
+msgstr ""
+
+#. module: hom_subcontract_billing
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.report_subcontract_certificate
+msgid "الفئة"
+msgstr ""
+
+#. module: hom_subcontract_billing
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.report_subcontract_certificate
+msgid "المقاول<br/><br/>.............."
+msgstr ""
+
+#. module: hom_subcontract_billing
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.report_subcontract_certificate
+msgid "الوحدة"
+msgstr ""
+
+#. module: hom_subcontract_billing
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.report_subcontract_certificate
+msgid "قيمة الحالي"
+msgstr ""
+
+#. module: hom_subcontract_billing
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.report_subcontract_certificate
+msgid "محتجز ضمان ("
+msgstr ""
+
+#. module: hom_subcontract_billing
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.report_subcontract_certificate
+msgid "مدير المشروع<br/><br/>.............."
+msgstr ""
+
+#. module: hom_subcontract_billing
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.report_subcontract_certificate
+msgid "مستخلص مقاول باطن رقم"
+msgstr ""
+
+#. module: hom_subcontract_billing
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.report_subcontract_certificate
+msgid "مهندس الموقع<br/><br/>.............."
+msgstr ""
+
+#. module: hom_subcontract_billing
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.report_subcontract_certificate
+msgid "— <strong>التاريخ:</strong>"
+msgstr ""
+
+#. module: hom_subcontract_billing
+#: model_terms:ir.ui.view,arch_db:hom_subcontract_billing.report_subcontract_certificate
+msgid "— <strong>العقد:</strong>"
+msgstr ""

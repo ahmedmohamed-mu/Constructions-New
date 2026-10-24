@@ -72,6 +72,8 @@
             <p>Pick the BOQ item and the executed quantity. Open measurements are pulled into the next progress certificate automatically.</p>
         </field>
     </record>
+    <menuitem id="menu_hom_site_measurement_root" name="Site Measurements" parent="hom_contracting_base.menu_hom_site_top"
+              action="action_hom_site_measurement" sequence="10"/>
     <menuitem id="menu_hom_site_measurement_project" name="Site Measurements" parent="project.menu_main_pm"
               action="action_hom_site_measurement" sequence="4"/>
     <menuitem id="menu_hom_site_measurement_sale" name="Site Measurements" parent="sale.sale_order_menu"

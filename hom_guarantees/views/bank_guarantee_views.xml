@@ -129,6 +129,8 @@
         <field name="context">{'search_default_running': 1}</field>
     </record>
 
+    <menuitem id="menu_hom_guarantees_root" name="Letters of Guarantee" parent="hom_contracting_base.menu_hom_finance_top"
+              action="action_hom_bank_guarantee" sequence="10"/>
     <menuitem id="menu_hom_guarantees_account" name="Letters of Guarantee" parent="account.menu_finance_entries"
               action="action_hom_bank_guarantee" sequence="90"/>
     <menuitem id="menu_hom_guarantees_sale" name="Letters of Guarantee" parent="sale.sale_order_menu"

@@ -1,0 +1,540 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hom_guarantees
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: ar\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5);\n"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__message_needaction
+msgid "Action Needed"
+msgstr "إجراء مطلوب"
+
+#. module: hom_guarantees
+#: model:ir.model.fields.selection,name:hom_guarantees.selection__hom_bank_guarantee__state__active
+msgid "Active"
+msgstr "نشط"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__activity_ids
+msgid "Activities"
+msgstr "الأنشطة"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "زخرفة استثناء النشاط"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__activity_plans_ids
+msgid "Activity Plans"
+msgstr "خطط الأنشطة"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__activity_state
+msgid "Activity State"
+msgstr "حالة النشاط"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "أيقونة نوع النشاط"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,help:hom_guarantees.field_hom_bank_guarantee__amount_current
+msgid "Advance guarantees reduce automatically as the advance is recovered."
+msgstr "خطابات ضمان الدفعة المقدمة تقل تلقائيًا مع استرداد الدفعة."
+
+#. module: hom_guarantees
+#: model:ir.model.fields.selection,name:hom_guarantees.selection__hom_bank_guarantee__guarantee_type__advance
+msgid "Advance payment / دفعة مقدمة"
+msgstr "دفعة مقدمة"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,help:hom_guarantees.field_hom_bank_guarantee__reminder_days
+msgid "Alert this many days before expiry."
+msgstr "التنبيه قبل الانتهاء بعدد الأيام دي."
+
+#. module: hom_guarantees
+#. odoo-python
+#: code:addons/hom_guarantees/models/bank_guarantee.py:0
+msgid "Amount %(a)s with %(b)s: %(act)s."
+msgstr "المبلغ %(a)s لدى %(b)s: %(act)s."
+
+#. module: hom_guarantees
+#: model_terms:ir.ui.view,arch_db:hom_guarantees.hom_bank_guarantee_form
+msgid "Amounts & Dates"
+msgstr "المبالغ والتواريخ"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__message_attachment_count
+msgid "Attachment Count"
+msgstr "عدد المرفقات"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__bank_name
+#: model_terms:ir.ui.view,arch_db:hom_guarantees.hom_bank_guarantee_search
+msgid "Bank"
+msgstr "البنك"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__commission_pct
+msgid "Bank Commission %"
+msgstr "عمولة البنك %"
+
+#. module: hom_guarantees
+#: model_terms:ir.ui.view,arch_db:hom_guarantees.hom_bank_guarantee_form
+msgid "Bank Costs"
+msgstr "تكاليف البنك"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__partner_id
+msgid "Beneficiary / Counterparty"
+msgstr "المستفيد / الطرف الآخر"
+
+#. module: hom_guarantees
+#: model:ir.model.fields.selection,name:hom_guarantees.selection__hom_bank_guarantee__guarantee_type__bid
+msgid "Bid bond / ابتدائي"
+msgstr "ابتدائي (عطاء)"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__cash_margin
+msgid "Cash Margin"
+msgstr "الغطاء النقدي"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,help:hom_guarantees.field_hom_bank_guarantee__cash_margin
+msgid "Cash blocked by the bank against this guarantee."
+msgstr "النقدية المحجوزة لدى البنك مقابل هذا الخطاب."
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__sale_order_id
+msgid "Contract"
+msgstr "العقد"
+
+#. module: hom_guarantees
+#: model:ir.actions.server,name:hom_guarantees.cron_guarantee_expiry_ir_actions_server
+msgid "Contracting: bank guarantee expiry alerts"
+msgstr "المقاولات: تنبيهات انتهاء خطابات الضمان"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__create_date
+msgid "Created on"
+msgstr "تاريخ الإنشاء"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__amount_current
+msgid "Current Amount"
+msgstr "القيمة الحالية"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__days_to_expiry
+msgid "Days To Expiry"
+msgstr "أيام حتى الانتهاء"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__direction
+msgid "Direction"
+msgstr "الاتجاه"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__display_name
+#: model:ir.model.fields,field_description:hom_guarantees.field_purchase_order__display_name
+#: model:ir.model.fields,field_description:hom_guarantees.field_sale_order__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: hom_guarantees
+#: model:ir.model.fields.selection,name:hom_guarantees.selection__hom_bank_guarantee__state__expired
+#: model_terms:ir.ui.view,arch_db:hom_guarantees.hom_bank_guarantee_form
+msgid "Expired"
+msgstr "منتهي"
+
+#. module: hom_guarantees
+#: model_terms:ir.ui.view,arch_db:hom_guarantees.hom_bank_guarantee_search
+msgid "Expiring in 30 days"
+msgstr "ينتهي خلال 30 يوم"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__expiry_date
+msgid "Expiry Date"
+msgstr "تاريخ الانتهاء"
+
+#. module: hom_guarantees
+#: model:ir.model.fields.selection,name:hom_guarantees.selection__hom_bank_guarantee__state__extended
+msgid "Extended"
+msgstr "مُجدد"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__message_follower_ids
+msgid "Followers"
+msgstr "المتابعون"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "المتابعون (الشركاء)"
+
+#. module: hom_guarantees
+#: model_terms:ir.ui.view,arch_db:hom_guarantees.hom_bank_guarantee_form
+msgid "Guarantee"
+msgstr "خطاب الضمان"
+
+#. module: hom_guarantees
+#. odoo-python
+#: code:addons/hom_guarantees/models/bank_guarantee.py:0
+msgid "Guarantee %(n)s expires on %(d)s"
+msgstr "خطاب الضمان %(n)s ينتهي في %(d)s"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__name
+msgid "Guarantee No."
+msgstr "رقم الخطاب"
+
+#. module: hom_guarantees
+#. odoo-python
+#: code:addons/hom_guarantees/models/bank_guarantee.py:0
+msgid "Guarantee expired on %s."
+msgstr "انتهى خطاب الضمان في %s."
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_purchase_order__hom_guarantee_ids
+#: model:ir.model.fields,field_description:hom_guarantees.field_sale_order__hom_guarantee_ids
+#: model_terms:ir.ui.view,arch_db:hom_guarantees.purchase_order_form_hom_guarantees
+#: model_terms:ir.ui.view,arch_db:hom_guarantees.view_order_form_hom_guarantees
+msgid "Guarantees"
+msgstr "خطابات الضمان"
+
+#. module: hom_guarantees
+#: model:ir.module.module,shortdesc:base.module_hom_guarantees
+msgid "H.O.M Contracting - Bank Guarantees"
+msgstr "H.O.M مقاولات - خطابات الضمان"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__has_message
+msgid "Has Message"
+msgstr "يحتوي على رسالة"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_purchase_order__hom_guarantee_count
+#: model:ir.model.fields,field_description:hom_guarantees.field_sale_order__hom_guarantee_count
+msgid "Hom Guarantee Count"
+msgstr "عدد خطابات الضمان"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__id
+#: model:ir.model.fields,field_description:hom_guarantees.field_purchase_order__id
+#: model:ir.model.fields,field_description:hom_guarantees.field_sale_order__id
+msgid "ID"
+msgstr "المعرّف"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__activity_exception_icon
+msgid "Icon"
+msgstr "الأيقونة"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,help:hom_guarantees.field_hom_bank_guarantee__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "الأيقونة للإشارة إلى نشاط استثنائي."
+
+#. module: hom_guarantees
+#: model:ir.model.fields,help:hom_guarantees.field_hom_bank_guarantee__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "إذا كان محددًا، فهناك رسائل جديدة تحتاج لرؤيتها."
+
+#. module: hom_guarantees
+#: model:ir.model.fields,help:hom_guarantees.field_hom_bank_guarantee__message_has_error
+#: model:ir.model.fields,help:hom_guarantees.field_hom_bank_guarantee__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "إذا كان محددًا، فقد حدث خطأ في تسليم بعض الرسائل."
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__message_is_follower
+msgid "Is Follower"
+msgstr "متابع"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__issue_date
+msgid "Issue Date"
+msgstr "تاريخ الإصدار"
+
+#. module: hom_guarantees
+#: model_terms:ir.ui.view,arch_db:hom_guarantees.hom_bank_guarantee_search
+msgid "Issued by us"
+msgstr "صادر منا"
+
+#. module: hom_guarantees
+#: model:ir.model.fields.selection,name:hom_guarantees.selection__hom_bank_guarantee__direction__issued
+msgid "Issued by us (to an owner)"
+msgstr "صادر منا (لصالح المالك)"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: hom_guarantees
+#: model:ir.model,name:hom_guarantees.model_hom_bank_guarantee
+#: model_terms:ir.ui.view,arch_db:hom_guarantees.hom_bank_guarantee_form
+msgid "Letter of Guarantee"
+msgstr "خطاب ضمان"
+
+#. module: hom_guarantees
+#: model:ir.actions.act_window,name:hom_guarantees.action_hom_bank_guarantee
+#: model:ir.ui.menu,name:hom_guarantees.menu_hom_guarantees_account
+#: model:ir.ui.menu,name:hom_guarantees.menu_hom_guarantees_root
+#: model:ir.ui.menu,name:hom_guarantees.menu_hom_guarantees_sale
+msgid "Letters of Guarantee"
+msgstr "خطابات الضمان"
+
+#. module: hom_guarantees
+#: model:ir.module.module,summary:base.module_hom_guarantees
+msgid "Letters of guarantee (خطابات الضمان): bid, advance payment, performance and retention bonds issued for owners or received from subcontractors, with expiry alerts and advance reduction."
+msgstr "خطابات الضمان: ابتدائي، دفعة مقدمة، نهائي وبديل محتجز، صادرة للملاك أو واردة من مقاولي الباطن، مع تنبيهات الانتهاء وتخفيض خطاب الدفعة المقدمة."
+
+#. module: hom_guarantees
+#: model_terms:ir.ui.view,arch_db:hom_guarantees.hom_bank_guarantee_form
+msgid "Mark Extended"
+msgstr "تم التجديد"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,help:hom_guarantees.field_hom_bank_guarantee__activity_type_icon
+msgid "Material Symbols icon e.g. checklist"
+msgstr "أيقونة Material Symbols مثل checklist"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__message_has_error
+msgid "Message Delivery error"
+msgstr "خطأ في تسليم الرسائل"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__message_ids
+msgid "Messages"
+msgstr "الرسائل"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "موعد نشاطي النهائي"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "الموعد النهائي للنشاط التالي"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__activity_summary
+msgid "Next Activity Summary"
+msgstr "ملخص النشاط التالي"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__activity_type_id
+msgid "Next Activity Type"
+msgstr "نوع النشاط التالي"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__note
+msgid "Note"
+msgstr "ملاحظة"
+
+#. module: hom_guarantees
+#: model_terms:ir.ui.view,arch_db:hom_guarantees.hom_bank_guarantee_form
+msgid "Notes"
+msgstr "ملاحظات"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__message_needaction_counter
+msgid "Number of Actions"
+msgstr "عدد الإجراءات"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__message_has_error_counter
+msgid "Number of errors"
+msgstr "عدد الأخطاء"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,help:hom_guarantees.field_hom_bank_guarantee__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "عدد الرسائل التي تتطلب إجراء"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,help:hom_guarantees.field_hom_bank_guarantee__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "عدد الرسائل الحادث بها خطأ في التسليم"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__amount
+msgid "Original Amount"
+msgstr "القيمة الأصلية"
+
+#. module: hom_guarantees
+#: model:ir.model.fields.selection,name:hom_guarantees.selection__hom_bank_guarantee__guarantee_type__other
+msgid "Other"
+msgstr "أخرى"
+
+#. module: hom_guarantees
+#: model:ir.model.fields.selection,name:hom_guarantees.selection__hom_bank_guarantee__guarantee_type__performance
+msgid "Performance / نهائي"
+msgstr "نهائي (حسن التنفيذ)"
+
+#. module: hom_guarantees
+#: model:ir.model,name:hom_guarantees.model_purchase_order
+msgid "Purchase Order"
+msgstr "أمر الشراء"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__rating_ids
+msgid "Ratings"
+msgstr "التقييمات"
+
+#. module: hom_guarantees
+#: model_terms:ir.ui.view,arch_db:hom_guarantees.hom_bank_guarantee_search
+msgid "Received"
+msgstr "وارد"
+
+#. module: hom_guarantees
+#: model:ir.model.fields.selection,name:hom_guarantees.selection__hom_bank_guarantee__direction__received
+msgid "Received (from a subcontractor / supplier)"
+msgstr "وارد (من مقاول باطن / مورد)"
+
+#. module: hom_guarantees
+#: model_terms:ir.ui.view,arch_db:hom_guarantees.hom_bank_guarantee_form
+msgid "Refresh Amount"
+msgstr "تحديث القيمة"
+
+#. module: hom_guarantees
+#: model_terms:ir.ui.view,arch_db:hom_guarantees.hom_bank_guarantee_form
+msgid "Release"
+msgstr "إفراج"
+
+#. module: hom_guarantees
+#: model:ir.model.fields.selection,name:hom_guarantees.selection__hom_bank_guarantee__state__released
+#: model_terms:ir.ui.view,arch_db:hom_guarantees.hom_bank_guarantee_form
+msgid "Released"
+msgstr "مُفرج عنه"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__reminder_days
+msgid "Reminder Days"
+msgstr "أيام التنبيه"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__responsible_id
+msgid "Responsible"
+msgstr "المسؤول"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__activity_user_id
+msgid "Responsible User"
+msgstr "المستخدم المسؤول"
+
+#. module: hom_guarantees
+#: model:ir.model.fields.selection,name:hom_guarantees.selection__hom_bank_guarantee__guarantee_type__retention
+msgid "Retention / بديل محتجز"
+msgstr "بديل محتجز"
+
+#. module: hom_guarantees
+#: model_terms:ir.ui.view,arch_db:hom_guarantees.hom_bank_guarantee_search
+msgid "Running"
+msgstr "سارية"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "خطأ في تسليم الرسائل النصية"
+
+#. module: hom_guarantees
+#: model:ir.model,name:hom_guarantees.model_sale_order
+msgid "Sales Order"
+msgstr "أمر البيع"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__state
+msgid "State"
+msgstr "الحالة"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,help:hom_guarantees.field_hom_bank_guarantee__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"الحالة على أساس الأنشطة\n"
+"متأخرة: تاريخ الاستحقاق مر\n"
+"اليوم: تاريخ النشاط هو اليوم\n"
+"مخطط: أنشطة مستقبلية."
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__purchase_order_id
+msgid "Subcontract"
+msgstr "عقد الباطن"
+
+#. module: hom_guarantees
+#: model_terms:ir.ui.view,arch_db:hom_guarantees.hom_bank_guarantee_list
+msgid "Total"
+msgstr "الإجمالي"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__guarantee_type
+#: model_terms:ir.ui.view,arch_db:hom_guarantees.hom_bank_guarantee_search
+msgid "Type"
+msgstr "النوع"
+
+#. module: hom_guarantees
+#: model:ir.model.fields,help:hom_guarantees.field_hom_bank_guarantee__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "نوع النشاط الاستثنائي في السجل."
+
+#. module: hom_guarantees
+#: model:ir.model.fields,help:hom_guarantees.field_hom_bank_guarantee__commission_pct
+msgid "Yearly commission, for cost tracking."
+msgstr "العمولة السنوية لمتابعة التكلفة."
+
+#. module: hom_guarantees
+#. odoo-python
+#: code:addons/hom_guarantees/models/bank_guarantee.py:0
+msgid "ask the subcontractor to extend it, or liquidate it before expiry"
+msgstr "اطلب من مقاول الباطن تجديده أو قم بتسييله قبل الانتهاء"
+
+#. module: hom_guarantees
+#: model_terms:ir.ui.view,arch_db:hom_guarantees.hom_bank_guarantee_form
+msgid "e.g. LG-2026-0147"
+msgstr "مثال: LG-2026-0147"
+
+#. module: hom_guarantees
+#. odoo-python
+#: code:addons/hom_guarantees/models/bank_guarantee.py:0
+msgid "extend it with the bank or ask the beneficiary to release it"
+msgstr "جدده مع البنك أو اطلب من المستفيد الإفراج عنه"

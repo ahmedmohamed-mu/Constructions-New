@@ -115,6 +115,8 @@
         <field name="view_mode">list,form</field>
     </record>
 
+    <menuitem id="menu_hom_variation_orders_root" name="Variation Orders" parent="hom_contracting_base.menu_hom_contracts_top"
+              action="action_hom_variation_order" sequence="30"/>
     <menuitem id="menu_hom_variation_orders" name="Variation Orders" parent="sale.sale_order_menu"
               action="action_hom_variation_order" sequence="16"/>
 

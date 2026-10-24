@@ -69,6 +69,10 @@ class TestProgressCertificate(AccountTestInvoicingCommon):
         self.assertEqual(dp_line.account_id, self.dp_account)
         inv1.action_post()
         self.assertEqual(sol_a.qty_invoiced, 30)
+        self.so.invalidate_recordset()
+        self.assertAlmostEqual(self.so.hom_certified_amount, 50000)
+        self.assertAlmostEqual(self.so.hom_advance_received, 50000)
+        self.assertAlmostEqual(self.so.hom_advance_outstanding, 37500)
 
         cert2 = self._certificate(100, 50)
         line_a = cert2.line_ids.filtered(lambda l: l.product_id == self.item_a)

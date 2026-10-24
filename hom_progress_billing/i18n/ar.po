@@ -1,0 +1,1193 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hom_progress_billing
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: ar\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5);\n"
+
+#. module: hom_progress_billing
+#. odoo-python
+#: code:addons/hom_progress_billing/models/progress_certificate.py:0
+msgid "%(so)s - Certificate %(n)s"
+msgstr "%(so)s - مستخلص %(n)s"
+
+#. module: hom_progress_billing
+#. odoo-python
+#: code:addons/hom_progress_billing/models/project_project.py:0
+msgid "%.1f %%"
+msgstr "%.1f %%"
+
+#. module: hom_progress_billing
+#: model:ir.actions.report,print_report_name:hom_progress_billing.action_report_progress_certificate
+msgid "'مستخلص - %s' % (object.name)"
+msgstr ""
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.hom_progress_certificate_form
+msgid "<span class=\"o_stat_text\">Invoice</span>"
+msgstr "<span class=\"o_stat_text\">الفاتورة</span>"
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.hom_progress_certificate_kanban
+msgid "<span class=\"small text-muted\">Net</span>"
+msgstr "<span class=\"small text-muted\">الصافي</span>"
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.report_progress_certificate_document
+msgid "<strong>الاستشاري:</strong>"
+msgstr ""
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.report_progress_certificate_document
+msgid "<strong>التاريخ:</strong>"
+msgstr ""
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.report_progress_certificate_document
+msgid "<strong>العقد:</strong>"
+msgstr ""
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.report_progress_certificate_document
+msgid "<strong>صاحب العمل:</strong>"
+msgstr ""
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__message_needaction
+msgid "Action Needed"
+msgstr "إجراء مطلوب"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__activity_ids
+msgid "Activities"
+msgstr "الأنشطة"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "زخرفة استثناء النشاط"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__activity_plans_ids
+msgid "Activity Plans"
+msgstr "خطط الأنشطة"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__activity_state
+msgid "Activity State"
+msgstr "حالة النشاط"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "أيقونة نوع النشاط"
+
+#. module: hom_progress_billing
+#. odoo-python
+#: code:addons/hom_progress_billing/models/project_project.py:0
+msgid "Actual cost"
+msgstr "التكلفة الفعلية"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__advance_pct
+msgid "Advance %"
+msgstr "نسبة الدفعة المقدمة %"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_sale_order__hom_advance_received
+msgid "Advance Invoiced"
+msgstr "الدفعة المقدمة المفوترة"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__amount_advance_recovery
+msgid "Advance Recovery"
+msgstr "استرداد الدفعة المقدمة"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,help:hom_progress_billing.field_hom_progress_certificate__advance_pct
+msgid "Advance payment recovered pro-rata from each progress certificate."
+msgstr "الدفعة المقدمة تُسترد بالتناسب من كل مستخلص."
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_sale_order__hom_advance_outstanding
+msgid "Advance to Recover"
+msgstr "الدفعة المقدمة المتبقية للاسترداد"
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.view_order_form_hom_certificates
+msgid "Advance to recover"
+msgstr "دفعة مقدمة متبقية للاسترداد"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate_line__amount_cumulative
+msgid "Amount Cumulative"
+msgstr "القيمة التراكمية"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate_line__amount_current
+msgid "Amount Current"
+msgstr "القيمة الحالية"
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.hom_progress_certificate_form
+msgid "Approve"
+msgstr "اعتماد"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields.selection,name:hom_progress_billing.selection__hom_progress_certificate__state__approved
+msgid "Approved"
+msgstr "معتمد"
+
+#. module: hom_progress_billing
+#. odoo-python
+#: code:addons/hom_progress_billing/models/progress_certificate.py:0
+msgid "Approved by %s; delivered quantities updated on the contract."
+msgstr "اعتمده %s؛ وتم تحديث الكميات المنفذة على العقد."
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__message_attachment_count
+msgid "Attachment Count"
+msgstr "عدد المرفقات"
+
+#. module: hom_progress_billing
+#. odoo-python
+#: code:addons/hom_progress_billing/models/project_project.py:0
+msgid "Automatic weekly update (certificates, invoices and analytic costs)."
+msgstr "تحديث أسبوعي تلقائي (المستخلصات والفواتير والتكاليف التحليلية)."
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate_line__sale_line_id
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_site_measurement__sale_line_id
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.hom_site_measurement_search
+msgid "BOQ Item"
+msgstr "بند المقايسة"
+
+#. module: hom_progress_billing
+#. odoo-python
+#: code:addons/hom_progress_billing/models/progress_certificate.py:0
+msgid "BOQ lines can only be loaded on a draft certificate."
+msgstr "لا يمكن تحميل بنود المقايسة إلا على مستخلص مسودة."
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.hom_progress_certificate_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: hom_progress_billing
+#. odoo-python
+#: code:addons/hom_progress_billing/models/progress_certificate.py:0
+msgid "Cancel the invoice before resetting the certificate."
+msgstr "ألغِ الفاتورة قبل إعادة المستخلص لمسودة."
+
+#. module: hom_progress_billing
+#: model:ir.model.fields.selection,name:hom_progress_billing.selection__hom_progress_certificate__state__cancel
+msgid "Cancelled"
+msgstr "ملغي"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate_line__certificate_id
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_site_measurement__certificate_id
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.hom_progress_certificate_form
+msgid "Certificate"
+msgstr "المستخلص"
+
+#. module: hom_progress_billing
+#. odoo-python
+#: code:addons/hom_progress_billing/models/progress_certificate.py:0
+msgid "Certificate Invoice"
+msgstr "فاتورة المستخلص"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__number
+msgid "Certificate No."
+msgstr "رقم المستخلص"
+
+#. module: hom_progress_billing
+#. odoo-python
+#: code:addons/hom_progress_billing/models/progress_certificate.py:0
+msgid "Certificate approved by the consultant: create and post the customer invoice."
+msgstr "الاستشاري اعتمد المستخلص: أنشئ فاتورة العميل ورحّلها."
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.edit_project_hom_certificates
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.view_order_form_hom_certificates
+msgid "Certificates"
+msgstr "المستخلصات"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_res_company__hom_certificate_accountant_id
+#: model:ir.model.fields,field_description:hom_progress_billing.field_res_config_settings__hom_certificate_accountant_id
+msgid "Certificates Accountant"
+msgstr "محاسب المستخلصات"
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.res_config_settings_view_form_hom_accountant
+msgid "Certificates accountant"
+msgstr "محاسب المستخلصات"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields.selection,name:hom_progress_billing.selection__hom_site_measurement__state__certified
+msgid "Certified"
+msgstr "تم اعتماده"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_sale_order__hom_certified_pct
+msgid "Certified %"
+msgstr "نسبة الاعتماد %"
+
+#. module: hom_progress_billing
+#. odoo-python
+#: code:addons/hom_progress_billing/models/site_measurement.py:0
+msgid "Certified measurements cannot be deleted."
+msgstr "لا يمكن حذف حصر معتمد."
+
+#. module: hom_progress_billing
+#. odoo-python
+#: code:addons/hom_progress_billing/models/site_measurement.py:0
+msgid "Certified measurements cannot be modified."
+msgstr "لا يمكن تعديل حصر معتمد."
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_sale_order__hom_certified_amount
+msgid "Certified to Date"
+msgstr "المعتمد حتى تاريخه"
+
+#. module: hom_progress_billing
+#. odoo-python
+#: code:addons/hom_progress_billing/models/project_project.py:0
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.view_order_form_hom_certificates
+msgid "Certified to date"
+msgstr "المعتمد حتى تاريخه"
+
+#. module: hom_progress_billing
+#: model:ir.model,name:hom_progress_billing.model_res_company
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__company_id
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_site_measurement__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: hom_progress_billing
+#: model:ir.model,name:hom_progress_billing.model_res_config_settings
+msgid "Config Settings"
+msgstr "إعدادات التهيئة"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__consultant_id
+msgid "Consultant"
+msgstr "الاستشاري"
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.hom_progress_certificate_form
+msgid "Consultant comments, measurement notes..."
+msgstr "ملاحظات الاستشاري، ملاحظات الحصر..."
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__sale_order_id
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_site_measurement__sale_order_id
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.hom_progress_certificate_form
+msgid "Contract"
+msgstr "العقد"
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.view_order_form_hom_certificates
+msgid "Contract Control"
+msgstr "رقابة العقد"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__progress_pct
+msgid "Contract Progress %"
+msgstr "نسبة إنجاز العقد %"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate_line__contract_qty
+msgid "Contract Qty"
+msgstr "كمية العقد"
+
+#. module: hom_progress_billing
+#. odoo-python
+#: code:addons/hom_progress_billing/models/project_project.py:0
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.view_order_form_hom_certificates
+msgid "Contract value"
+msgstr "قيمة العقد"
+
+#. module: hom_progress_billing
+#: model:ir.actions.server,name:hom_progress_billing.cron_monthly_certificate_drafts_ir_actions_server
+msgid "Contracting: prepare monthly progress certificates"
+msgstr "المقاولات: تجهيز المستخلصات الشهرية"
+
+#. module: hom_progress_billing
+#: model:ir.actions.server,name:hom_progress_billing.cron_weekly_project_update_ir_actions_server
+msgid "Contracting: weekly project status update"
+msgstr "المقاولات: تحديث أسبوعي لحالة المشروع"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,help:hom_progress_billing.field_project_project__hom_estimate_to_complete
+msgid "Cost still expected to finish the project; used for the expected margin (EAC = actual cost + ETC)."
+msgstr "التكلفة المتوقعة لاستكمال المشروع؛ تُستخدم لحساب الهامش المتوقع (التكلفة عند الإنجاز = الفعلية + المتبقية)."
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.hom_progress_certificate_form
+msgid "Create Invoice"
+msgstr "إنشاء الفاتورة"
+
+#. module: hom_progress_billing
+#: model_terms:ir.actions.act_window,help:hom_progress_billing.action_hom_progress_certificate
+msgid "Create the first progress certificate (مستخلص)"
+msgstr "أنشئ أول مستخلص"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__create_uid
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate_line__create_uid
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_site_measurement__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__create_date
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate_line__create_date
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_site_measurement__create_date
+msgid "Created on"
+msgstr "تاريخ الإنشاء"
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.view_move_form_hom_certificate
+msgid "Cum."
+msgstr "تراكمي"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate_line__cumulative_qty
+msgid "Cumulative Qty"
+msgstr "الكمية التراكمية"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__amount_cumulative
+msgid "Cumulative Work"
+msgstr "الأعمال التراكمية"
+
+#. module: hom_progress_billing
+#. odoo-python
+#: code:addons/hom_progress_billing/models/progress_certificate.py:0
+msgid "Cumulative quantity of %s cannot be lower than the previous certificate."
+msgstr "الكمية التراكمية لـ %s لا يمكن أن تقل عن المستخلص السابق."
+
+#. module: hom_progress_billing
+#. odoo-python
+#: code:addons/hom_progress_billing/models/progress_certificate.py:0
+msgid "Cumulative quantity of %s exceeds the contract quantity; issue a variation order first."
+msgstr "الكمية التراكمية لـ %s تتجاوز كمية العقد؛ أصدر أمر تغيير أولًا."
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__currency_id
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate_line__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__date
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_site_measurement__date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.hom_site_measurement_search
+msgid "Day"
+msgstr "اليوم"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,help:hom_progress_billing.field_res_company__hom_certificate_day
+#: model:ir.model.fields,help:hom_progress_billing.field_res_config_settings__hom_certificate_day
+msgid "Day of the month on which draft certificates are prepared."
+msgstr "يوم الشهر الذي تُجهَّز فيه المستخلصات المسودة."
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate_line__name
+msgid "Description"
+msgstr "الوصف"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_account_move__display_name
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__display_name
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate_line__display_name
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_site_measurement__display_name
+#: model:ir.model.fields,field_description:hom_progress_billing.field_project_project__display_name
+#: model:ir.model.fields,field_description:hom_progress_billing.field_res_company__display_name
+#: model:ir.model.fields,field_description:hom_progress_billing.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:hom_progress_billing.field_sale_order__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields.selection,name:hom_progress_billing.selection__hom_progress_certificate__state__draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.res_config_settings_view_form_hom_accountant
+msgid "Draft certificates are prepared automatically on this day"
+msgstr "تُجهَّز المستخلصات المسودة تلقائيًا في هذا اليوم"
+
+#. module: hom_progress_billing
+#. odoo-python
+#: code:addons/hom_progress_billing/models/progress_certificate.py:0
+msgid "Draft prepared automatically from the site measurements. Review the quantities with the consultant, then submit."
+msgstr "مسودة جُهزت تلقائيًا من حصر الموقع. راجع الكميات مع الاستشاري ثم قدّم المستخلص."
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_project_project__hom_estimate_to_complete
+msgid "Estimate to Complete (ETC)"
+msgstr "التكلفة المتبقية للإنجاز (ETC)"
+
+#. module: hom_progress_billing
+#. odoo-python
+#: code:addons/hom_progress_billing/models/project_project.py:0
+msgid "Estimate to complete"
+msgstr "التكلفة المتبقية للإنجاز"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_site_measurement__quantity
+msgid "Executed Qty"
+msgstr "الكمية المنفذة"
+
+#. module: hom_progress_billing
+#. odoo-python
+#: code:addons/hom_progress_billing/models/project_project.py:0
+msgid "Expected margin"
+msgstr "الهامش المتوقع"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__message_follower_ids
+msgid "Followers"
+msgstr "المتابعون"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "المتابعون (الشركاء)"
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.res_config_settings_view_form_hom_accountant
+msgid "Gets a to-do when a certificate is approved"
+msgstr "يستلم مهمة عند اعتماد المستخلص"
+
+#. module: hom_progress_billing
+#: model:ir.module.module,shortdesc:base.module_hom_progress_billing
+msgid "H.O.M Contracting - Owner Progress Certificates"
+msgstr "H.O.M مقاولات - مستخلصات المالك"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__has_message
+msgid "Has Message"
+msgstr "يحتوي على رسالة"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_project_project__hom_certificate_count
+#: model:ir.model.fields,field_description:hom_progress_billing.field_sale_order__hom_certificate_count
+msgid "Hom Certificate Count"
+msgstr "عدد المستخلصات"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_account_move__id
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__id
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate_line__id
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_site_measurement__id
+#: model:ir.model.fields,field_description:hom_progress_billing.field_project_project__id
+#: model:ir.model.fields,field_description:hom_progress_billing.field_res_company__id
+#: model:ir.model.fields,field_description:hom_progress_billing.field_res_config_settings__id
+#: model:ir.model.fields,field_description:hom_progress_billing.field_sale_order__id
+msgid "ID"
+msgstr "المعرّف"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__activity_exception_icon
+msgid "Icon"
+msgstr "الأيقونة"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,help:hom_progress_billing.field_hom_progress_certificate__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "الأيقونة للإشارة إلى نشاط استثنائي."
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,help:hom_progress_billing.field_hom_progress_certificate__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "إذا كان محددًا، فهناك رسائل جديدة تحتاج لرؤيتها."
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,help:hom_progress_billing.field_hom_progress_certificate__message_has_error
+#: model:ir.model.fields,help:hom_progress_billing.field_hom_progress_certificate__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "إذا كان محددًا، فقد حدث خطأ في تسليم بعض الرسائل."
+
+#. module: hom_progress_billing
+#: model:ir.model.fields.selection,name:hom_progress_billing.selection__hom_site_measurement__state__in_certificate
+msgid "In certificate"
+msgstr "في مستخلص"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__invoice_id
+msgid "Invoice"
+msgstr "الفاتورة"
+
+#. module: hom_progress_billing
+#. odoo-python
+#: code:addons/hom_progress_billing/models/progress_certificate.py:0
+msgid "Invoice certificate %s"
+msgstr "فوترة المستخلص %s"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields.selection,name:hom_progress_billing.selection__hom_progress_certificate__state__invoiced
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.hom_progress_certificate_form
+msgid "Invoiced"
+msgstr "مفوتر"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__message_is_follower
+msgid "Is Follower"
+msgstr "متابع"
+
+#. module: hom_progress_billing
+#: model:ir.model,name:hom_progress_billing.model_account_move
+msgid "Journal Entry"
+msgstr "قيد اليومية"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__write_uid
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate_line__write_uid
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_site_measurement__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__write_date
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate_line__write_date
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_site_measurement__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__line_ids
+msgid "Line"
+msgstr "البند"
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.hom_progress_certificate_form
+msgid "Load BOQ"
+msgstr "تحميل المقايسة"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_site_measurement__location
+msgid "Location / Zone"
+msgstr "الموقع / المنطقة"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,help:hom_progress_billing.field_hom_progress_certificate__activity_type_icon
+msgid "Material Symbols icon e.g. checklist"
+msgstr "أيقونة Material Symbols مثل checklist"
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.hom_progress_certificate_form
+msgid "Measured Work (BOQ)"
+msgstr "الأعمال المحصورة (المقايسة)"
+
+#. module: hom_progress_billing
+#. odoo-python
+#: code:addons/hom_progress_billing/models/progress_certificate.py:0
+msgid "Measured quantities exceed the contract for: %s. Capped to the contract quantity; issue a variation order for the extra work."
+msgstr "الكميات المحصورة تتجاوز العقد في: %s. تم تحديدها بكمية العقد؛ أصدر أمر تغيير للأعمال الزائدة."
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__measurement_count
+msgid "Measurement Count"
+msgstr "عدد الحصر"
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.hom_progress_certificate_form
+msgid "Measurements"
+msgstr "الحصر"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__message_has_error
+msgid "Message Delivery error"
+msgstr "خطأ في تسليم الرسائل"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__message_ids
+msgid "Messages"
+msgstr "الرسائل"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_res_company__hom_certificate_day
+#: model:ir.model.fields,field_description:hom_progress_billing.field_res_config_settings__hom_certificate_day
+msgid "Monthly Certificate Day"
+msgstr "يوم المستخلص الشهري"
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.res_config_settings_view_form_hom_accountant
+msgid "Monthly certificate day"
+msgstr "يوم المستخلص الشهري"
+
+#. module: hom_progress_billing
+#. odoo-python
+#: code:addons/hom_progress_billing/models/progress_certificate.py:0
+msgid "Monthly progress certificate - %s"
+msgstr "المستخلص الشهري - %s"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "موعد نشاطي النهائي"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__amount_net
+msgid "Net (before VAT)"
+msgstr "الصافي (قبل الضريبة)"
+
+#. module: hom_progress_billing
+#. odoo-python
+#: code:addons/hom_progress_billing/models/progress_certificate.py:0
+msgid "New"
+msgstr "جديد"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "الموعد النهائي للنشاط التالي"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__activity_summary
+msgid "Next Activity Summary"
+msgstr "ملخص النشاط التالي"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__activity_type_id
+msgid "Next Activity Type"
+msgstr "نوع النشاط التالي"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields.selection,name:hom_progress_billing.selection__hom_site_measurement__state__open
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.hom_site_measurement_search
+msgid "Not certified"
+msgstr "لم يُعتمد"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__note
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_site_measurement__note
+msgid "Note"
+msgstr "ملاحظة"
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.hom_progress_certificate_form
+msgid "Notes"
+msgstr "ملاحظات"
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.hom_site_measurement_form
+msgid "Notes..."
+msgstr "ملاحظات..."
+
+#. module: hom_progress_billing
+#. odoo-python
+#: code:addons/hom_progress_billing/models/progress_certificate.py:0
+msgid "Nothing measured in this certificate."
+msgstr "لا توجد كميات محصورة في هذا المستخلص."
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__message_needaction_counter
+msgid "Number of Actions"
+msgstr "عدد الإجراءات"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__message_has_error_counter
+msgid "Number of errors"
+msgstr "عدد الأخطاء"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,help:hom_progress_billing.field_hom_progress_certificate__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "عدد الرسائل التي تتطلب إجراء"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,help:hom_progress_billing.field_hom_progress_certificate__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "عدد الرسائل الحادث بها خطأ في التسليم"
+
+#. module: hom_progress_billing
+#. odoo-python
+#: code:addons/hom_progress_billing/models/progress_certificate.py:0
+msgid "Only a project manager or a sales manager can approve a progress certificate."
+msgstr "اعتماد المستخلص لمدير المشروع أو مدير المبيعات فقط."
+
+#. module: hom_progress_billing
+#. odoo-python
+#: code:addons/hom_progress_billing/models/progress_certificate.py:0
+msgid "Only approved certificates can be invoiced."
+msgstr "لا يمكن فوترة إلا المستخلصات المعتمدة."
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__partner_id
+msgid "Owner"
+msgstr "صاحب العمل"
+
+#. module: hom_progress_billing
+#: model:ir.ui.menu,name:hom_progress_billing.menu_hom_certificates_root
+msgid "Owner Certificates"
+msgstr "مستخلصات المالك"
+
+#. module: hom_progress_billing
+#: model:ir.model,name:hom_progress_billing.model_hom_progress_certificate
+msgid "Owner Progress Certificate"
+msgstr "مستخلص المالك"
+
+#. module: hom_progress_billing
+#: model:ir.model,name:hom_progress_billing.model_hom_progress_certificate_line
+msgid "Owner Progress Certificate Line"
+msgstr "بند مستخلص المالك"
+
+#. module: hom_progress_billing
+#: model:ir.module.module,summary:base.module_hom_progress_billing
+msgid "Owner progress certificates (مستخلصات المالك) on sales contracts: cumulative BOQ measurement, consultant approval, invoicing with advance recovery and retention."
+msgstr "مستخلصات المالك على عقود البيع: حصر تراكمي للمقايسة، اعتماد الاستشاري، وفوترة مع استرداد الدفعة المقدمة والمحتجز."
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__invoice_payment_state
+msgid "Payment Status"
+msgstr "حالة السداد"
+
+#. module: hom_progress_billing
+#: model_terms:ir.actions.act_window,help:hom_progress_billing.action_hom_progress_certificate
+msgid "Pick a contract, load its BOQ and enter the cumulative quantities measured on site."
+msgstr "اختر العقد، حمّل المقايسة وأدخل الكميات التراكمية المحصورة بالموقع."
+
+#. module: hom_progress_billing
+#: model_terms:ir.actions.act_window,help:hom_progress_billing.action_hom_site_measurement
+msgid "Pick the BOQ item and the executed quantity. Open measurements are pulled into the next progress certificate automatically."
+msgstr "اختر بند المقايسة والكمية المنفذة. الحصر المفتوح يُسحب تلقائيًا في المستخلص التالي."
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__user_id
+msgid "Prepared by"
+msgstr "أعده"
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.view_move_form_hom_certificate
+msgid "Prev."
+msgstr "سابق"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate_line__previous_qty
+msgid "Previous Qty"
+msgstr "الكمية السابقة"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate_line__product_id
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_site_measurement__product_id
+msgid "Product"
+msgstr "المنتج"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate_line__progress_pct
+msgid "Progress %"
+msgstr "نسبة الإنجاز %"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_account_bank_statement_line__hom_certificate_id
+#: model:ir.model.fields,field_description:hom_progress_billing.field_account_move__hom_certificate_id
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.hom_progress_certificate_form
+msgid "Progress Certificate"
+msgstr "المستخلص"
+
+#. module: hom_progress_billing
+#: model:ir.actions.report,name:hom_progress_billing.action_report_progress_certificate
+msgid "Progress Certificate (مستخلص جاري)"
+msgstr "مستخلص جاري"
+
+#. module: hom_progress_billing
+#: model:ir.actions.act_window,name:hom_progress_billing.action_hom_progress_certificate
+#: model:ir.model.fields,field_description:hom_progress_billing.field_sale_order__hom_certificate_ids
+#: model:ir.ui.menu,name:hom_progress_billing.menu_hom_certificates_account
+#: model:ir.ui.menu,name:hom_progress_billing.menu_hom_certificates_sale
+msgid "Progress Certificates"
+msgstr "المستخلصات"
+
+#. module: hom_progress_billing
+#: model:ir.model,name:hom_progress_billing.model_project_project
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__project_id
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_site_measurement__project_id
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.hom_progress_certificate_search
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.hom_site_measurement_search
+msgid "Project"
+msgstr "المشروع"
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.hom_progress_certificate_form
+msgid "Pull Site Measurements"
+msgstr "سحب حصر الموقع"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__rating_ids
+msgid "Ratings"
+msgstr "التقييمات"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,help:hom_progress_billing.field_res_company__hom_certificate_accountant_id
+#: model:ir.model.fields,help:hom_progress_billing.field_res_config_settings__hom_certificate_accountant_id
+msgid "Receives a to-do when a progress certificate is approved."
+msgstr "يستلم مهمة عند اعتماد مستخلص."
+
+#. module: hom_progress_billing
+#: model_terms:ir.actions.act_window,help:hom_progress_billing.action_hom_site_measurement
+msgid "Record what was executed on site today"
+msgstr "سجّل اللي اتنفذ في الموقع النهارده"
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.view_order_form_hom_certificates
+msgid "Released at handover"
+msgstr "يُصرف عند التسليم"
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.hom_progress_certificate_form
+msgid "Reset to Draft"
+msgstr "إعادة لمسودة"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__activity_user_id
+msgid "Responsible User"
+msgstr "المستخدم المسؤول"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__amount_retention
+msgid "Retention"
+msgstr "المحتجز"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__retention_pct
+msgid "Retention %"
+msgstr "نسبة المحتجز %"
+
+#. module: hom_progress_billing
+#. odoo-python
+#: code:addons/hom_progress_billing/models/progress_certificate.py:0
+msgid "Retention %(pct)s%% - %(cert)s"
+msgstr "محتجز %(pct)s%% - %(cert)s"
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.view_order_form_hom_certificates
+msgid "Retention to collect"
+msgstr "محتجز مستحق التحصيل"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,help:hom_progress_billing.field_hom_progress_certificate__retention_pct
+msgid "Retention withheld from each progress certificate."
+msgstr "نسبة تُحتجز من كل مستخلص."
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "خطأ في تسليم الرسائل النصية"
+
+#. module: hom_progress_billing
+#: model:ir.model,name:hom_progress_billing.model_sale_order
+msgid "Sales Order"
+msgstr "أمر البيع"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate_line__sequence
+msgid "Sequence"
+msgstr "التسلسل"
+
+#. module: hom_progress_billing
+#. odoo-python
+#: code:addons/hom_progress_billing/models/progress_certificate.py:0
+msgid "Set the owner retention product in Accounting settings (Contracting)."
+msgstr "حدد منتج محتجز المالك من إعدادات المحاسبة (المقاولات)."
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_site_measurement__user_id
+msgid "Site Engineer"
+msgstr "مهندس الموقع"
+
+#. module: hom_progress_billing
+#: model:ir.model,name:hom_progress_billing.model_hom_site_measurement
+msgid "Site Measurement"
+msgstr "حصر الموقع"
+
+#. module: hom_progress_billing
+#. odoo-python
+#: code:addons/hom_progress_billing/models/progress_certificate.py:0
+#: code:addons/hom_progress_billing/models/sale_order.py:0
+#: model:ir.actions.act_window,name:hom_progress_billing.action_hom_site_measurement
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__measurement_ids
+#: model:ir.ui.menu,name:hom_progress_billing.menu_hom_site_measurement_project
+#: model:ir.ui.menu,name:hom_progress_billing.menu_hom_site_measurement_root
+#: model:ir.ui.menu,name:hom_progress_billing.menu_hom_site_measurement_sale
+msgid "Site Measurements"
+msgstr "حصر الموقع"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__state
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate_line__state
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_site_measurement__state
+msgid "State"
+msgstr "الحالة"
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.hom_progress_certificate_search
+msgid "Status"
+msgstr "الحالة"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,help:hom_progress_billing.field_hom_progress_certificate__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"الحالة على أساس الأنشطة\n"
+"متأخرة: تاريخ الاستحقاق مر\n"
+"اليوم: تاريخ النشاط هو اليوم\n"
+"مخطط: أنشطة مستقبلية."
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.hom_progress_certificate_form
+msgid "Submit to Consultant"
+msgstr "تقديم للاستشاري"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields.selection,name:hom_progress_billing.selection__hom_progress_certificate__state__submitted
+msgid "Submitted to Consultant"
+msgstr "مقدَّم للاستشاري"
+
+#. module: hom_progress_billing
+#. odoo-python
+#: code:addons/hom_progress_billing/models/progress_certificate.py:0
+msgid "Submitted to the consultant %s for review."
+msgstr "تم تقديمه للاستشاري %s للمراجعة."
+
+#. module: hom_progress_billing
+#. odoo-python
+#: code:addons/hom_progress_billing/models/progress_certificate.py:0
+msgid "The invoice of this certificate is posted."
+msgstr "فاتورة هذا المستخلص مُرحّلة."
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate_line__current_qty
+msgid "This Certificate"
+msgstr "هذا المستخلص"
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.hom_site_measurement_search
+msgid "This Month"
+msgstr "هذا الشهر"
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.view_order_form_hom_certificates
+msgid "To Certify"
+msgstr "لم يُعتمد بعد"
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.hom_progress_certificate_search
+msgid "To Invoice"
+msgstr "جاهز للفوترة"
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.hom_progress_certificate_form
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.hom_progress_certificate_list
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.hom_site_measurement_list
+msgid "Total"
+msgstr "الإجمالي"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,help:hom_progress_billing.field_hom_progress_certificate_line__cumulative_qty
+msgid "Total quantity executed to date (as measured with the consultant)."
+msgstr "إجمالي الكمية المنفذة حتى تاريخه (حسب الحصر مع الاستشاري)."
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,help:hom_progress_billing.field_hom_progress_certificate__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "نوع النشاط الاستثنائي في السجل."
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_sale_order__hom_open_measurement_count
+msgid "Uncertified Measurements"
+msgstr "حصر غير معتمد"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate_line__product_uom_id
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_site_measurement__product_uom_id
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.hom_progress_certificate_form
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.hom_site_measurement_list
+msgid "Unit"
+msgstr "الوحدة"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate_line__price_unit
+msgid "Unit Price"
+msgstr "سعر الوحدة"
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.hom_progress_certificate_search
+msgid "Waiting Consultant"
+msgstr "بانتظار الاستشاري"
+
+#. module: hom_progress_billing
+#. odoo-python
+#: code:addons/hom_progress_billing/models/project_project.py:0
+msgid "Weekly update %s"
+msgstr "تحديث أسبوعي %s"
+
+#. module: hom_progress_billing
+#. odoo-python
+#: code:addons/hom_progress_billing/models/project_project.py:0
+msgid "Work invoiced"
+msgstr "الأعمال المفوترة"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__period_end
+msgid "Work measured until"
+msgstr "الأعمال محصورة حتى"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__amount_current
+msgid "Work this Certificate"
+msgstr "أعمال هذا المستخلص"
+
+#. module: hom_progress_billing
+#. odoo-python
+#: code:addons/hom_progress_billing/models/progress_certificate.py:0
+msgid "certificate_id"
+msgstr "المستخلص"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,help:hom_progress_billing.field_hom_site_measurement__location
+msgid "e.g. Ground floor - zone B"
+msgstr "مثال: الدور الأرضي - المنطقة B"
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.view_order_form_hom_certificates
+msgid "of"
+msgstr "من"
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.report_progress_certificate_document
+msgid "أولًا: الأعمال المنفذة"
+msgstr ""
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.report_progress_certificate_document
+msgid "إجمالي الأعمال التراكمية حتى تاريخه"
+msgstr ""
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.report_progress_certificate_document
+msgid "إجمالي الأعمال الحالية"
+msgstr ""
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.report_progress_certificate_document
+msgid "استرداد الدفعة المقدمة ("
+msgstr ""
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.report_progress_certificate_document
+msgid "اعتماد الاستشاري<br/><br/>.............."
+msgstr ""
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.report_progress_certificate_document
+msgid "اعتماد صاحب العمل<br/><br/>.............."
+msgstr ""
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.report_progress_certificate_document
+msgid "البند"
+msgstr ""
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.report_progress_certificate_document
+msgid "التراكمي"
+msgstr ""
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.report_progress_certificate_document
+msgid "الحالي"
+msgstr ""
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.report_progress_certificate_document
+msgid "السابق"
+msgstr ""
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.report_progress_certificate_document
+msgid "الصافي قبل الضريبة"
+msgstr ""
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.report_progress_certificate_document
+msgid "الفئة"
+msgstr ""
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.report_progress_certificate_document
+msgid "الوحدة"
+msgstr ""
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.report_progress_certificate_document
+msgid "ثانيًا: الخصومات التعاقدية"
+msgstr ""
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.report_progress_certificate_document
+msgid "قيمة الحالي"
+msgstr ""
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.report_progress_certificate_document
+msgid "كمية العقد"
+msgstr ""
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.report_progress_certificate_document
+msgid "محتجز ضمان الأعمال ("
+msgstr ""
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.report_progress_certificate_document
+msgid "مدير المشروع<br/><br/>.............."
+msgstr ""
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.report_progress_certificate_document
+msgid "مستخلص جاري رقم"
+msgstr ""
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.report_progress_certificate_document
+msgid "مهندس الموقع<br/><br/>.............."
+msgstr ""
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.report_progress_certificate_document
+msgid "نسبة إنجاز العقد"
+msgstr ""
+
+#. module: hom_progress_billing
+#: model_terms:ir.ui.view,arch_db:hom_progress_billing.report_progress_certificate_document
+msgid "نسبة الإنجاز"
+msgstr ""

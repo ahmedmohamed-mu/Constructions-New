@@ -104,6 +104,31 @@
         </field>
     </record>
 
+    <record id="hom_progress_certificate_kanban" model="ir.ui.view">
+        <field name="name">hom.progress.certificate.kanban</field>
+        <field name="model">hom.progress.certificate</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" quick_create="false" group_create="false" records_draggable="false">
+                <field name="currency_id"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="name" class="fw-bold"/>
+                        <field name="partner_id" class="text-muted small"/>
+                        <div class="d-flex justify-content-between mt-1">
+                            <span class="small text-muted">Net</span>
+                            <field name="amount_net" widget="monetary" class="fw-bold"/>
+                        </div>
+                        <field name="progress_pct" widget="progressbar"/>
+                        <footer>
+                            <field name="date" class="small text-muted"/>
+                            <field name="user_id" widget="many2one_avatar_user" class="ms-auto"/>
+                        </footer>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
     <record id="hom_progress_certificate_search" model="ir.ui.view">
         <field name="name">hom.progress.certificate.search</field>
         <field name="model">hom.progress.certificate</field>
@@ -125,13 +150,15 @@
     <record id="action_hom_progress_certificate" model="ir.actions.act_window">
         <field name="name">Progress Certificates</field>
         <field name="res_model">hom.progress.certificate</field>
-        <field name="view_mode">list,form,pivot,graph</field>
+        <field name="view_mode">list,kanban,form,pivot,graph</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">Create the first progress certificate (مستخلص)</p>
             <p>Pick a contract, load its BOQ and enter the cumulative quantities measured on site.</p>
         </field>
     </record>
 
+    <menuitem id="menu_hom_certificates_root" name="Owner Certificates" parent="hom_contracting_base.menu_hom_billing_top"
+              action="action_hom_progress_certificate" sequence="10"/>
     <menuitem id="menu_hom_certificates_sale" name="Progress Certificates" parent="sale.sale_order_menu"
               action="action_hom_progress_certificate" sequence="15"/>
     <menuitem id="menu_hom_certificates_account" name="Progress Certificates" parent="account.menu_finance_receivables"

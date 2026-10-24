@@ -1,0 +1,649 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hom_variation_order
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: ar\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5);\n"
+
+#. module: hom_variation_order
+#. odoo-python
+#: code:addons/hom_variation_order/models/variation_order.py:0
+msgid "%(vo)s applied: %(t)s (contract impact %(a)s)."
+msgstr "تم تطبيق %(vo)s: %(t)s (أثره على العقد %(a)s)."
+
+#. module: hom_variation_order
+#. odoo-python
+#: code:addons/hom_variation_order/models/variation_order.py:0
+msgid "%s: the new quantity is lower than what is already invoiced."
+msgstr "%s: الكمية الجديدة أقل من المفوتر بالفعل."
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__message_needaction
+msgid "Action Needed"
+msgstr "إجراء مطلوب"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__activity_ids
+msgid "Activities"
+msgstr "الأنشطة"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "زخرفة استثناء النشاط"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__activity_plans_ids
+msgid "Activity Plans"
+msgstr "خطط الأنشطة"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__activity_state
+msgid "Activity State"
+msgstr "حالة النشاط"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "أيقونة نوع النشاط"
+
+#. module: hom_variation_order
+#. odoo-python
+#: code:addons/hom_variation_order/models/variation_order.py:0
+msgid "Add at least one contract line to the variation order."
+msgstr "أضف بندًا واحدًا على الأقل لأمر التغيير."
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order_line__amount
+msgid "Amount"
+msgstr "المبلغ"
+
+#. module: hom_variation_order
+#: model:ir.model.fields.selection,name:hom_variation_order.selection__hom_variation_order__state__applied
+#: model_terms:ir.ui.view,arch_db:hom_variation_order.hom_variation_order_form
+msgid "Applied"
+msgstr "مطبّق"
+
+#. module: hom_variation_order
+#. odoo-python
+#: code:addons/hom_variation_order/models/variation_order.py:0
+msgid "Approve %(vo)s on %(so)s"
+msgstr "اعتماد %(vo)s على %(so)s"
+
+#. module: hom_variation_order
+#: model_terms:ir.ui.view,arch_db:hom_variation_order.hom_variation_order_form
+msgid "Approve & Apply"
+msgstr "اعتماد وتطبيق"
+
+#. module: hom_variation_order
+#: model:ir.model.fields.selection,name:hom_variation_order.selection__hom_variation_order__state__approved
+msgid "Approved"
+msgstr "معتمد"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__approver_id
+msgid "Approver"
+msgstr "المعتمِد"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__message_attachment_count
+msgid "Attachment Count"
+msgstr "عدد المرفقات"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__cost_total
+#: model_terms:ir.ui.view,arch_db:hom_variation_order.hom_variation_order_form
+msgid "Budget Impact"
+msgstr "الأثر على الموازنة"
+
+#. module: hom_variation_order
+#: model:ir.model,name:hom_variation_order.model_res_company
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: hom_variation_order
+#: model:ir.model,name:hom_variation_order.model_res_config_settings
+msgid "Config Settings"
+msgstr "إعدادات التهيئة"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,help:hom_variation_order.field_hom_variation_order__reference
+msgid "Consultant / owner instruction number"
+msgstr "رقم تعليمات الاستشاري / المالك"
+
+#. module: hom_variation_order
+#: model:ir.model.fields.selection,name:hom_variation_order.selection__hom_variation_order__reason__consultant
+msgid "Consultant instruction"
+msgstr "تعليمات الاستشاري"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__sale_order_id
+msgid "Contract"
+msgstr "العقد"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__amount_total
+#: model_terms:ir.ui.view,arch_db:hom_variation_order.hom_variation_order_form
+msgid "Contract Impact"
+msgstr "الأثر على العقد"
+
+#. module: hom_variation_order
+#. odoo-python
+#: code:addons/hom_variation_order/models/variation_order.py:0
+msgid "Contract impact %(a)s, budget impact %(c)s."
+msgstr "الأثر على العقد %(a)s، الأثر على الموازنة %(c)s."
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order_cost__amount
+msgid "Cost Change (+/-)"
+msgstr "تغير التكلفة (+/-)"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__cost_line_ids
+msgid "Cost Line"
+msgstr "بند تكلفة"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__create_uid
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order_cost__create_uid
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order_line__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__create_date
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order_cost__create_date
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order_line__create_date
+msgid "Created on"
+msgstr "تاريخ الإنشاء"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__currency_id
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order_cost__currency_id
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order_line__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order_cost__name
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order_line__name
+msgid "Description"
+msgstr "الوصف"
+
+#. module: hom_variation_order
+#: model:ir.model.fields.selection,name:hom_variation_order.selection__hom_variation_order__reason__design
+msgid "Design change"
+msgstr "تعديل تصميم"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__display_name
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order_cost__display_name
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order_line__display_name
+#: model:ir.model.fields,field_description:hom_variation_order.field_res_company__display_name
+#: model:ir.model.fields,field_description:hom_variation_order.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:hom_variation_order.field_sale_order__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: hom_variation_order
+#: model:ir.model.fields.selection,name:hom_variation_order.selection__hom_variation_order__state__draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order_line__sale_line_id
+msgid "Existing Item"
+msgstr "بند قائم"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__message_follower_ids
+msgid "Followers"
+msgstr "المتابعون"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "المتابعون (الشركاء)"
+
+#. module: hom_variation_order
+#: model:ir.module.module,shortdesc:base.module_hom_variation_order
+msgid "H.O.M Contracting - Variation Orders"
+msgstr "H.O.M مقاولات - أوامر التغيير"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__has_message
+msgid "Has Message"
+msgstr "يحتوي على رسالة"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_sale_order__hom_variation_ids
+msgid "Hom Variation"
+msgstr "أمر التغيير"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_sale_order__hom_variation_count
+msgid "Hom Variation Count"
+msgstr "عدد أوامر التغيير"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__id
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order_cost__id
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order_line__id
+#: model:ir.model.fields,field_description:hom_variation_order.field_res_company__id
+#: model:ir.model.fields,field_description:hom_variation_order.field_res_config_settings__id
+#: model:ir.model.fields,field_description:hom_variation_order.field_sale_order__id
+msgid "ID"
+msgstr "المعرّف"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__activity_exception_icon
+msgid "Icon"
+msgstr "الأيقونة"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,help:hom_variation_order.field_hom_variation_order__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "الأيقونة للإشارة إلى نشاط استثنائي."
+
+#. module: hom_variation_order
+#: model:ir.model.fields,help:hom_variation_order.field_hom_variation_order__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "إذا كان محددًا، فهناك رسائل جديدة تحتاج لرؤيتها."
+
+#. module: hom_variation_order
+#: model:ir.model.fields,help:hom_variation_order.field_hom_variation_order__message_has_error
+#: model:ir.model.fields,help:hom_variation_order.field_hom_variation_order__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "إذا كان محددًا، فقد حدث خطأ في تسليم بعض الرسائل."
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__reference
+msgid "Instruction Ref."
+msgstr "رقم التعليمات"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__message_is_follower
+msgid "Is Follower"
+msgstr "متابع"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__write_uid
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order_cost__write_uid
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order_line__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__write_date
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order_cost__write_date
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order_line__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__line_ids
+msgid "Line"
+msgstr "البند"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order_line__line_type
+msgid "Line Type"
+msgstr "نوع البند"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__margin
+msgid "Margin"
+msgstr "الهامش"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,help:hom_variation_order.field_hom_variation_order__activity_type_icon
+msgid "Material Symbols icon e.g. checklist"
+msgstr "أيقونة Material Symbols مثل checklist"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__message_has_error
+msgid "Message Delivery error"
+msgstr "خطأ في تسليم الرسائل"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__message_ids
+msgid "Messages"
+msgstr "الرسائل"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "موعد نشاطي النهائي"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: hom_variation_order
+#. odoo-python
+#: code:addons/hom_variation_order/models/variation_order.py:0
+msgid "New"
+msgstr "جديد"
+
+#. module: hom_variation_order
+#: model:ir.model.fields.selection,name:hom_variation_order.selection__hom_variation_order_line__line_type__add
+msgid "New item"
+msgstr "بند جديد"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "الموعد النهائي للنشاط التالي"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__activity_summary
+msgid "Next Activity Summary"
+msgstr "ملخص النشاط التالي"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__activity_type_id
+msgid "Next Activity Type"
+msgstr "نوع النشاط التالي"
+
+#. module: hom_variation_order
+#. odoo-python
+#: code:addons/hom_variation_order/models/variation_order.py:0
+msgid "No confirmed budget found for %s: budget not revised."
+msgstr "لا توجد موازنة معتمدة لـ %s: لم تُعدل الموازنة."
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__message_needaction_counter
+msgid "Number of Actions"
+msgstr "عدد الإجراءات"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__message_has_error_counter
+msgid "Number of errors"
+msgstr "عدد الأخطاء"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,help:hom_variation_order.field_hom_variation_order__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "عدد الرسائل التي تتطلب إجراء"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,help:hom_variation_order.field_hom_variation_order__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "عدد الرسائل الحادث بها خطأ في التسليم"
+
+#. module: hom_variation_order
+#. odoo-python
+#: code:addons/hom_variation_order/models/variation_order.py:0
+msgid "Only %s can approve this variation order."
+msgstr "%s فقط يمكنه اعتماد أمر التغيير هذا."
+
+#. module: hom_variation_order
+#: model:ir.model.fields.selection,name:hom_variation_order.selection__hom_variation_order__reason__other
+msgid "Other"
+msgstr "أخرى"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__partner_id
+msgid "Owner"
+msgstr "صاحب العمل"
+
+#. module: hom_variation_order
+#: model:ir.model.fields.selection,name:hom_variation_order.selection__hom_variation_order__reason__owner
+msgid "Owner request"
+msgstr "طلب المالك"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order_line__price_unit
+msgid "Price Unit"
+msgstr "سعر الوحدة"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order_line__product_id
+msgid "Product"
+msgstr "المنتج"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__project_id
+msgid "Project"
+msgstr "المشروع"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__analytic_account_id
+msgid "Project Analytic"
+msgstr "تحليلي المشروع"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order_line__quantity
+msgid "Qty (+/-)"
+msgstr "الكمية (+/-)"
+
+#. module: hom_variation_order
+#: model:ir.model.fields.selection,name:hom_variation_order.selection__hom_variation_order_line__line_type__change
+msgid "Quantity change"
+msgstr "تغيير كمية"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__rating_ids
+msgid "Ratings"
+msgstr "التقييمات"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__reason
+msgid "Reason"
+msgstr "السبب"
+
+#. module: hom_variation_order
+#: model_terms:ir.ui.view,arch_db:hom_variation_order.hom_variation_order_form
+msgid "Reject"
+msgstr "رفض"
+
+#. module: hom_variation_order
+#: model:ir.model.fields.selection,name:hom_variation_order.selection__hom_variation_order__state__rejected
+#: model_terms:ir.ui.view,arch_db:hom_variation_order.hom_variation_order_form
+msgid "Rejected"
+msgstr "مرفوض"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__requested_by_id
+msgid "Requested By"
+msgstr "مقدم الطلب"
+
+#. module: hom_variation_order
+#: model_terms:ir.ui.view,arch_db:hom_variation_order.hom_variation_order_form
+msgid "Reset to Draft"
+msgstr "إعادة لمسودة"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__activity_user_id
+msgid "Responsible User"
+msgstr "المستخدم المسؤول"
+
+#. module: hom_variation_order
+#: model_terms:ir.ui.view,arch_db:hom_variation_order.hom_variation_order_form
+msgid "Revised Budget"
+msgstr "الموازنة المعدلة"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__budget_id
+msgid "Revised Budget ID"
+msgstr "الموازنة المعدلة"
+
+#. module: hom_variation_order
+#. odoo-python
+#: code:addons/hom_variation_order/models/variation_order.py:0
+msgid "Revised by variation order %(vo)s on %(so)s."
+msgstr "عُدلت بأمر التغيير %(vo)s على %(so)s."
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "خطأ في تسليم الرسائل النصية"
+
+#. module: hom_variation_order
+#: model:ir.model,name:hom_variation_order.model_sale_order
+msgid "Sales Order"
+msgstr "أمر البيع"
+
+#. module: hom_variation_order
+#. odoo-python
+#: code:addons/hom_variation_order/models/variation_order.py:0
+msgid "Select the contract item whose quantity changes."
+msgstr "اختر بند العقد الذي تتغير كميته."
+
+#. module: hom_variation_order
+#. odoo-python
+#: code:addons/hom_variation_order/models/variation_order.py:0
+msgid "Select the product of the new item."
+msgstr "اختر منتج البند الجديد."
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__sequence_no
+msgid "Sequence No"
+msgstr "رقم التسلسل"
+
+#. module: hom_variation_order
+#: model:ir.model.fields.selection,name:hom_variation_order.selection__hom_variation_order__reason__site
+msgid "Site condition"
+msgstr "ظروف الموقع"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__state
+msgid "State"
+msgstr "الحالة"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,help:hom_variation_order.field_hom_variation_order__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"الحالة على أساس الأنشطة\n"
+"متأخرة: تاريخ الاستحقاق مر\n"
+"اليوم: تاريخ النشاط هو اليوم\n"
+"مخطط: أنشطة مستقبلية."
+
+#. module: hom_variation_order
+#: model_terms:ir.ui.view,arch_db:hom_variation_order.hom_variation_order_form
+msgid "Submit for Approval"
+msgstr "تقديم للاعتماد"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__title
+msgid "Title"
+msgstr "العنوان"
+
+#. module: hom_variation_order
+#: model_terms:ir.ui.view,arch_db:hom_variation_order.hom_variation_order_search
+msgid "To Approve by Me"
+msgstr "بانتظار اعتمادي"
+
+#. module: hom_variation_order
+#: model_terms:ir.ui.view,arch_db:hom_variation_order.hom_variation_order_form
+#: model_terms:ir.ui.view,arch_db:hom_variation_order.hom_variation_order_list
+msgid "Total"
+msgstr "الإجمالي"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order_cost__analytic_account_id
+msgid "Trade / Analytic"
+msgstr "التخصص / التحليلي"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,help:hom_variation_order.field_hom_variation_order__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "نوع النشاط الاستثنائي في السجل."
+
+#. module: hom_variation_order
+#: model_terms:ir.ui.view,arch_db:hom_variation_order.res_config_settings_view_form_hom_vo
+msgid "Usually the CEO"
+msgstr "غالبًا الرئيس التنفيذي"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order_cost__variation_id
+#: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order_line__variation_id
+msgid "Variation"
+msgstr "أمر التغيير"
+
+#. module: hom_variation_order
+#: model:ir.model,name:hom_variation_order.model_hom_variation_order
+#: model_terms:ir.ui.view,arch_db:hom_variation_order.hom_variation_order_form
+msgid "Variation Order"
+msgstr "أمر تغيير"
+
+#. module: hom_variation_order
+#. odoo-python
+#: code:addons/hom_variation_order/models/variation_order.py:0
+msgid "Variation Order %(vo)s - %(t)s"
+msgstr "أمر تغيير %(vo)s - %(t)s"
+
+#. module: hom_variation_order
+#: model:ir.model,name:hom_variation_order.model_hom_variation_order_cost
+msgid "Variation Order - Budget Impact"
+msgstr "أمر التغيير - الأثر على الموازنة"
+
+#. module: hom_variation_order
+#: model:ir.model,name:hom_variation_order.model_hom_variation_order_line
+msgid "Variation Order - Contract Line"
+msgstr "أمر التغيير - بند العقد"
+
+#. module: hom_variation_order
+#: model:ir.actions.act_window,name:hom_variation_order.action_hom_variation_order
+#: model:ir.ui.menu,name:hom_variation_order.menu_hom_variation_orders
+#: model:ir.ui.menu,name:hom_variation_order.menu_hom_variation_orders_root
+msgid "Variation Orders"
+msgstr "أوامر التغيير"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,field_description:hom_variation_order.field_res_company__hom_vo_approver_id
+#: model:ir.model.fields,field_description:hom_variation_order.field_res_config_settings__hom_vo_approver_id
+msgid "Variation Orders Approver"
+msgstr "معتمد أوامر التغيير"
+
+#. module: hom_variation_order
+#: model:ir.module.module,summary:base.module_hom_variation_order
+msgid "Variation orders (أوامر التغيير): CEO approval, then the contract (sales order) and, when Budget is installed, the project cost budget are revised automatically."
+msgstr "أوامر التغيير: اعتماد الرئيس التنفيذي ثم تعديل العقد (أمر البيع) وموازنة تكلفة المشروع تلقائيًا عند تثبيت الموازنات."
+
+#. module: hom_variation_order
+#: model_terms:ir.ui.view,arch_db:hom_variation_order.res_config_settings_view_form_hom_vo
+msgid "Variation orders approver"
+msgstr "معتمد أوامر التغيير"
+
+#. module: hom_variation_order
+#: model_terms:ir.ui.view,arch_db:hom_variation_order.view_order_form_hom_variations
+msgid "Variations"
+msgstr "أوامر التغيير"
+
+#. module: hom_variation_order
+#: model:ir.model.fields.selection,name:hom_variation_order.selection__hom_variation_order__state__submitted
+#: model_terms:ir.ui.view,arch_db:hom_variation_order.hom_variation_order_search
+msgid "Waiting Approval"
+msgstr "بانتظار الاعتماد"
+
+#. module: hom_variation_order
+#: model_terms:ir.ui.view,arch_db:hom_variation_order.hom_variation_order_form
+msgid "What changes?"
+msgstr "إيه اللي بيتغير؟"
+
+#. module: hom_variation_order
+#: model:ir.model.fields,help:hom_variation_order.field_hom_variation_order__title
+msgid "e.g. Add FM-200 system to the server room"
+msgstr "مثال: إضافة نظام FM-200 لغرفة السيرفرات"
