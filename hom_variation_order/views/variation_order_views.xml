@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hom_variation_order_form" model="ir.ui.view">
+        <field name="name">hom.variation.order.form</field>
+        <field name="model">hom.variation.order</field>
+        <field name="arch" type="xml">
+            <form string="Variation Order">
+                <header>
+                    <button name="action_submit" type="object" string="Submit for Approval" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_approve" type="object" string="Approve &amp; Apply" class="btn-primary" invisible="state != 'submitted'"/>
+                    <button name="action_reject" type="object" string="Reject" invisible="state != 'submitted'"/>
+                    <button name="action_reset_draft" type="object" string="Reset to Draft" invisible="state not in ('submitted', 'rejected')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,submitted,applied"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_budget" type="object" class="oe_stat_button" icon="fa-money" invisible="not budget_id"
+                                string="Revised Budget"/>
+                    </div>
+                    <widget name="web_ribbon" title="Applied" invisible="state != 'applied'"/>
+                    <widget name="web_ribbon" title="Rejected" bg_color="text-bg-danger" invisible="state != 'rejected'"/>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                        <h3><field name="title" placeholder="What changes?" readonly="state != 'draft'"/></h3>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="sale_order_id" readonly="state != 'draft'" options="{'no_create': True}"/>
+                            <field name="partner_id"/>
+                            <field name="project_id"/>
+                            <field name="analytic_account_id" invisible="1"/>
+                            <field name="budget_id" invisible="1"/>
+                            <field name="company_id" invisible="1"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="reason" readonly="state != 'draft'"/>
+                            <field name="reference" readonly="state != 'draft'"/>
+                            <field name="date" readonly="state != 'draft'"/>
+                            <field name="requested_by_id" widget="many2one_avatar_user"/>
+                            <field name="approver_id" widget="many2one_avatar_user" readonly="state != 'draft'"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Contract Impact" name="contract">
+                            <field name="line_ids" readonly="state != 'draft'">
+                                <list editable="bottom">
+                                    <field name="currency_id" column_invisible="1"/>
+                                    <field name="line_type"/>
+                                    <field name="sale_line_id" readonly="line_type != 'change'" required="line_type == 'change'" options="{'no_create': True}"/>
+                                    <field name="product_id" readonly="line_type != 'add'" required="line_type == 'add'"/>
+                                    <field name="name"/>
+                                    <field name="quantity" digits="[16,2]"/>
+                                    <field name="price_unit" digits="[16,2]"/>
+                                    <field name="amount" sum="Total"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Budget Impact" name="budget">
+                            <field name="cost_line_ids" readonly="state != 'draft'">
+                                <list editable="bottom">
+                                    <field name="currency_id" column_invisible="1"/>
+                                    <field name="analytic_account_id"/>
+                                    <field name="name"/>
+                                    <field name="amount" sum="Total"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                    <group class="oe_subtotal_footer">
+                        <field name="amount_total"/>
+                        <field name="cost_total"/>
+                        <field name="margin" class="oe_subtotal_footer_separator"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="hom_variation_order_list" model="ir.ui.view">
+        <field name="name">hom.variation.order.list</field>
+        <field name="model">hom.variation.order</field>
+        <field name="arch" type="xml">
+            <list decoration-info="state == 'submitted'" decoration-success="state == 'applied'" decoration-muted="state == 'rejected'">
+                <field name="name"/>
+                <field name="title"/>
+                <field name="sale_order_id"/>
+                <field name="date"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="amount_total" sum="Total"/>
+                <field name="cost_total" sum="Total" optional="show"/>
+                <field name="state" widget="badge" decoration-info="state == 'submitted'" decoration-success="state == 'applied'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="hom_variation_order_search" model="ir.ui.view">
+        <field name="name">hom.variation.order.search</field>
+        <field name="model">hom.variation.order</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="title"/>
+                <field name="sale_order_id"/>
+                <filter name="waiting" string="Waiting Approval" domain="[('state', '=', 'submitted')]"/>
+                <filter name="mine" string="To Approve by Me" domain="[('state', '=', 'submitted'), ('approver_id', '=', uid)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_hom_variation_order" model="ir.actions.act_window">
+        <field name="name">Variation Orders</field>
+        <field name="res_model">hom.variation.order</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_hom_variation_orders" name="Variation Orders" parent="sale.sale_order_menu"
+              action="action_hom_variation_order" sequence="16"/>
+
+    <record id="res_config_settings_view_form_hom_vo" model="ir.ui.view">
+        <field name="name">res.config.settings.hom.vo</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="hom_contracting_base.res_config_settings_view_form_hom"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@name='hom_contracting']" position="inside">
+                <setting string="Variation orders approver" help="Usually the CEO">
+                    <field name="hom_vo_approver_id"/>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>
