@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="purchase_order_form_hom_sub_billing" model="ir.ui.view">
+        <field name="name">purchase.order.form.hom.sub.billing</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="hom_contracting_base.purchase_order_form_hom_subcontract"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_hom_advance_bill" type="object" string="Advance Bill"
+                        invisible="not hom_is_subcontract or state != 'purchase' or not hom_advance_amount or hom_advance_bill_ids"
+                        groups="account.group_account_invoice"/>
+            </xpath>
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_hom_sub_certificates" type="object" class="oe_stat_button" icon="fa-file-text-o"
+                        invisible="not hom_is_subcontract or state != 'purchase'">
+                    <field name="hom_sub_certificate_count" widget="statinfo" string="Certificates"/>
+                </button>
+            </xpath>
+            <xpath expr="//field[@name='hom_advance_amount']" position="after">
+                <field name="hom_advance_bill_ids" invisible="1"/>
+                <field name="hom_advance_remaining" string="Advance to Recover" invisible="not hom_is_subcontract or not hom_advance_billed"/>
+                <field name="hom_advance_billed" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,6 @@
+id,name,model_id,group_id/id,operation,domain
+access_hom_subcert_purchase_user,hom sub certificate purchase user,hom.subcontract.certificate,purchase.group_purchase_user,cru,
+access_hom_subcert_purchase_manager,hom sub certificate purchase manager,hom.subcontract.certificate,purchase.group_purchase_manager,crud,
+access_hom_subcert_invoice,hom sub certificate invoicing,hom.subcontract.certificate,account.group_account_invoice,ru,
+access_hom_subcert_line_purchase_user,hom sub certificate line purchase user,hom.subcontract.certificate.line,purchase.group_purchase_user,crud,
+access_hom_subcert_line_invoice,hom sub certificate line invoicing,hom.subcontract.certificate.line,account.group_account_invoice,r,

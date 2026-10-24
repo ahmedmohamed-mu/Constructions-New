@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hom_subcontract_certificate_form" model="ir.ui.view">
+        <field name="name">hom.subcontract.certificate.form</field>
+        <field name="model">hom.subcontract.certificate</field>
+        <field name="arch" type="xml">
+            <form string="Subcontractor Certificate">
+                <header>
+                    <button name="action_load_items" type="object" string="Load Items" invisible="state != 'draft'"/>
+                    <button name="action_submit" type="object" string="Submit" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_approve" type="object" string="Approve" class="btn-primary" invisible="state != 'submitted'"
+                            groups="purchase.group_purchase_manager"/>
+                    <button name="action_create_bill" type="object" string="Create Bill" class="btn-primary" invisible="state != 'approved'"
+                            groups="account.group_account_invoice"/>
+                    <button name="action_reset_draft" type="object" string="Reset to Draft" invisible="state not in ('submitted', 'approved', 'cancel')"/>
+                    <button name="action_cancel" type="object" string="Cancel" invisible="state in ('billed', 'cancel')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,submitted,approved,billed"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_bill" type="object" class="oe_stat_button" icon="fa-pencil-square-o" invisible="not bill_id">
+                            <div class="o_stat_info"><span class="o_stat_text">Bill</span><field name="bill_payment_state" widget="badge"/></div>
+                        </button>
+                    </div>
+                    <widget name="web_ribbon" title="Billed" invisible="state != 'billed'"/>
+                    <div class="oe_title"><h1><field name="name" readonly="1"/></h1></div>
+                    <group>
+                        <group>
+                            <field name="purchase_order_id" readonly="state != 'draft'" options="{'no_create': True}"/>
+                            <field name="partner_id"/>
+                            <field name="company_id" invisible="1"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="number" invisible="not number"/>
+                            <field name="date" readonly="state not in ('draft', 'submitted')"/>
+                            <field name="user_id" widget="many2one_avatar_user"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Measured Work" name="lines">
+                            <field name="line_ids" readonly="state != 'draft'">
+                                <list editable="bottom" create="0" decoration-muted="current_qty == 0">
+                                    <field name="purchase_line_id" column_invisible="1"/>
+                                    <field name="currency_id" column_invisible="1"/>
+                                    <field name="product_id" readonly="1"/>
+                                    <field name="product_uom_id" string="Unit"/>
+                                    <field name="contract_qty" digits="[16,2]"/>
+                                    <field name="previous_qty" digits="[16,2]" readonly="1"/>
+                                    <field name="current_qty" digits="[16,2]"/>
+                                    <field name="cumulative_qty" digits="[16,2]" class="fw-bold"/>
+                                    <field name="price_unit" digits="[16,2]"/>
+                                    <field name="amount_current" sum="Total"/>
+                                    <field name="progress_pct" widget="progressbar" optional="show"/>
+                                </list>
+                            </field>
+                            <group class="oe_subtotal_footer">
+                                <field name="amount_current"/>
+                                <field name="amount_advance_recovery"/>
+                                <field name="amount_retention"/>
+                                <field name="amount_net" class="oe_subtotal_footer_separator"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="hom_subcontract_certificate_list" model="ir.ui.view">
+        <field name="name">hom.subcontract.certificate.list</field>
+        <field name="model">hom.subcontract.certificate</field>
+        <field name="arch" type="xml">
+            <list decoration-success="state == 'billed'" decoration-muted="state == 'cancel'">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="partner_id"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="amount_current" sum="Total"/>
+                <field name="amount_retention" sum="Total" optional="show"/>
+                <field name="amount_net" sum="Total"/>
+                <field name="state" widget="badge" decoration-success="state in ('approved', 'billed')"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="hom_subcontract_certificate_search" model="ir.ui.view">
+        <field name="name">hom.subcontract.certificate.search</field>
+        <field name="model">hom.subcontract.certificate</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="purchase_order_id"/>
+                <field name="partner_id"/>
+                <filter name="to_approve" string="To Approve" domain="[('state', '=', 'submitted')]"/>
+                <filter name="to_bill" string="To Bill" domain="[('state', '=', 'approved')]"/>
+                <separator/>
+                <filter name="group_partner" string="Subcontractor" context="{'group_by': 'partner_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_hom_subcontract_certificate" model="ir.actions.act_window">
+        <field name="name">Subcontractor Certificates</field>
+        <field name="res_model">hom.subcontract.certificate</field>
+        <field name="view_mode">list,form,pivot</field>
+    </record>
+
+    <menuitem id="menu_hom_sub_certificates_purchase" name="Subcontractor Certificates" parent="purchase.menu_procurement_management"
+              action="action_hom_subcontract_certificate" sequence="20"/>
+    <menuitem id="menu_hom_sub_certificates_account" name="Subcontractor Certificates" parent="account.menu_finance_payables"
+              action="action_hom_subcontract_certificate" sequence="5"/>
+</odoo>

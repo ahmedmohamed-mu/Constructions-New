@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_subcontract_certificate" model="ir.actions.report">
+        <field name="name">Subcontractor Certificate (مستخلص مقاول)</field>
+        <field name="model">hom.subcontract.certificate</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hom_subcontract_billing.report_subcontract_certificate</field>
+        <field name="print_report_name">'مستخلص مقاول - %s' % (object.name)</field>
+        <field name="binding_model_id" ref="model_hom_subcontract_certificate"/>
+        <field name="binding_type">report</field>
+    </record>
+    <template id="report_subcontract_certificate">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <t t-set="F" t-value="{'widget': 'float', 'precision': 2}"/>
+                    <t t-set="M" t-value="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
+                    <div class="page" dir="rtl" style="text-align:right">
+                        <h2>مستخلص مقاول باطن رقم <span t-out="o.number"/></h2>
+                        <p><strong>المقاول:</strong> <span t-out="o.partner_id.name"/> — <strong>العقد:</strong> <span t-out="o.purchase_order_id.name"/> — <strong>التاريخ:</strong> <span t-field="o.date"/></p>
+                        <table class="table table-sm table-bordered">
+                            <thead><tr><th style="width:36%">البند</th><th>الوحدة</th><th class="text-end">السابق</th><th class="text-end">الحالي</th><th class="text-end">التراكمي</th><th class="text-end">الفئة</th><th class="text-end">قيمة الحالي</th></tr></thead>
+                            <tbody>
+                                <tr t-foreach="o.line_ids" t-as="l">
+                                    <td><span t-out="l.product_id.name"/></td>
+                                    <td><span t-out="l.product_uom_id.name"/></td>
+                                    <td class="text-end"><span t-out="l.previous_qty" t-options="F"/></td>
+                                    <td class="text-end"><span t-out="l.current_qty" t-options="F"/></td>
+                                    <td class="text-end"><span t-out="l.cumulative_qty" t-options="F"/></td>
+                                    <td class="text-end"><span t-out="l.price_unit" t-options="F"/></td>
+                                    <td class="text-end"><span t-out="l.amount_current" t-options="M"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table table-sm" style="width:60%">
+                            <tr><td>إجمالي الأعمال الحالية</td><td class="text-end"><span t-out="o.amount_current" t-options="M"/></td></tr>
+                            <tr><td>استرداد الدفعة المقدمة (<span t-out="'%g' % o.recovery_pct"/>%)</td><td class="text-end"><span t-out="o.amount_advance_recovery" t-options="M"/></td></tr>
+                            <tr><td>محتجز ضمان (<span t-out="'%g' % o.retention_pct"/>%)</td><td class="text-end"><span t-out="o.amount_retention" t-options="M"/></td></tr>
+                            <tr class="fw-bold"><td>الصافي قبل الضريبة</td><td class="text-end"><span t-out="o.amount_net" t-options="M"/></td></tr>
+                        </table>
+                        <div class="row mt-5 text-center">
+                            <div class="col-4">مهندس الموقع<br/><br/>..............</div>
+                            <div class="col-4">مدير المشروع<br/><br/>..............</div>
+                            <div class="col-4">المقاول<br/><br/>..............</div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
