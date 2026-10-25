@@ -2,7 +2,7 @@
     "name": "H.O.M Contracting - Subcontractor Certificates",
     "summary": "Subcontract advance bills and subcontractor progress certificates (مستخلصات مقاولي الباطن) "
                "with advance recovery and retention, billed from the subcontract purchase order.",
-    "version": "20.0.1.2.2",
+    "version": "20.0.1.2.3",
     "category": "Inventory/Purchase",
     "author": "Ziij AI",
     "license": "OPL-1",

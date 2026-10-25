@@ -26,7 +26,7 @@
                 </table>
                 <h5>أولًا: الأعمال المنفذة</h5>
                 <table class="table table-sm table-bordered" style="font-size:11px">
-                    <thead t-attf-style="--bs-table-bg:{{ o.company_id.secondary_color or '#1E2521' }};--bs-table-color:#fff;background:{{ o.company_id.secondary_color or '#1E2521' }};color:#fff"><tr>
+                    <style>.hom-head th{color:#fff !important;background:transparent !important}</style><thead class="hom-head" t-attf-style="background:{{ o.company_id.secondary_color or '#1E2521' }};color:#fff"><tr>
                         <th style="width:34%">البند</th><th>الوحدة</th><th class="text-end">كمية العقد</th>
                         <th class="text-end">السابق</th><th class="text-end">الحالي</th><th class="text-end">التراكمي</th>
                         <th class="text-end">الفئة</th><th class="text-end">قيمة الحالي</th><th class="text-end">نسبة الإنجاز</th>
