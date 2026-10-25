@@ -102,7 +102,10 @@ class HomSubcontractCertificate(models.Model):
                 boq = line.purchase_line_id.hom_boq_line_id
                 if not boq:
                     continue
-                executed = sum(Measurement.search([("sale_line_id", "=", boq.id), ("date", "<=", cert.date)]).mapped("quantity"))
+                # certified to date on the owner side + site measurements not yet certified
+                pending = Measurement.search([("sale_line_id", "=", boq.id), ("date", "<=", cert.date),
+                                              ("state", "!=", "certified")])
+                executed = boq.qty_delivered + sum(pending.mapped("quantity"))
                 qty = min(executed, line.contract_qty) if line.contract_qty else executed
                 if float_compare(qty, line.previous_qty, precision_digits=6) > 0:
                     line.cumulative_qty = qty
