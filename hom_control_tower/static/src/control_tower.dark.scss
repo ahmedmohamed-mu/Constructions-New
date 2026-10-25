@@ -11,5 +11,6 @@
     --ct-shadow: 0 1px 2px rgba(0, 0, 0, .3);
     --ct-navy: #252D28;
     .ct-tab.active { color: #fff; }
+    .ct-alert.ct-info .ct-alert-count { color: var(--ct-teal); }
     .ct-btn { color: #E8EEE9; }
 }

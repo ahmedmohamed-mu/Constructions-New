@@ -140,6 +140,7 @@ class HomSubmittal(models.Model):
         if self.state not in ("revise", "rejected"):
             raise UserError(_("Only a submittal to revise can be resubmitted."))
         new = self.copy({"name": self.name, "revision": self.revision + 1, "previous_id": self.id})
+        self.activity_ids.action_feedback(feedback=_("Resubmitted as revision %s.", new.revision))
         self.state = "superseded"
         self.message_post(body=_("Superseded by revision %s.", new.revision))
         return {"type": "ir.actions.act_window", "res_model": "hom.submittal", "res_id": new.id, "view_mode": "form"}
