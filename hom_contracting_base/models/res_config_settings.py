@@ -9,3 +9,4 @@ class ResConfigSettings(models.TransientModel):
     hom_sub_advance_product_id = fields.Many2one(related="company_id.hom_sub_advance_product_id", readonly=False)
     hom_sub_advance_recovery_product_id = fields.Many2one(related="company_id.hom_sub_advance_recovery_product_id", readonly=False)
     hom_management_user_id = fields.Many2one(related="company_id.hom_management_user_id", readonly=False)
+    hom_auto_draft_invoice = fields.Boolean(related="company_id.hom_auto_draft_invoice", readonly=False)

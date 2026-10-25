@@ -90,3 +90,30 @@ class TestSubcontractCertificate(AccountTestInvoicingCommon):
         cert.action_submit()
         if expected:
             self.assertTrue(cert.activity_ids)
+
+    def test_site_driven_quantities_and_auto_bill(self):
+        """One data entry: owner BOQ measurements fill the subcontractor certificate; approval drafts the bill."""
+        if "hom.site.measurement" not in self.env:
+            self.skipTest("hom_progress_billing not installed")
+        self.env.user.group_ids |= self.env.ref("sales_team.group_sale_manager")
+        owner_item = self.env["product.product"].create({"name": "Pipe 8in owner", "default_code": "QA-P8",
+                                                          "type": "service", "service_type": "manual"})
+        so = self.env["sale.order"].create({"partner_id": self.partner_b.id, "order_line": [
+            Command.create({"product_id": owner_item.id, "product_uom_qty": 180, "price_unit": 1200})]})
+        so.action_confirm()
+        sub_item = self.products[1]
+        sub_item.default_code = "SC-QA-P8"
+        line = self.po.order_line.filtered(lambda l: l.product_id == sub_item)
+        line._compute_hom_boq_line_id()
+        self.assertEqual(line.hom_boq_line_id, so.order_line)
+        self.env["hom.site.measurement"].create({"sale_line_id": so.order_line.id, "quantity": 50, "date": "2026-12-01"})
+        self.env["hom.site.measurement"].create({"sale_line_id": so.order_line.id, "quantity": 40, "date": "2026-12-05"})
+        self.env.company.hom_auto_draft_invoice = True
+        cert = self.env["hom.subcontract.certificate"].create({"purchase_order_id": self.po.id, "date": "2026-12-07"})
+        cert.action_load_items()
+        self.assertEqual(cert.line_ids.filtered(lambda l: l.purchase_line_id == line).cumulative_qty, 90)
+        cert.action_submit()
+        cert.action_approve()
+        self.assertEqual(cert.state, "billed")
+        self.assertEqual(cert.bill_id.state, "draft")
+        self.assertAlmostEqual(cert.amount_current, 90 * 850)

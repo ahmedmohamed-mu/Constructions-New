@@ -1,4 +1,4 @@
-from odoo import Command, _, fields, models
+from odoo import Command, _, api, fields, models
 from odoo.exceptions import UserError
 
 
@@ -70,3 +70,32 @@ class AccountMove(models.Model):
                                            copy=False, index="btree_not_null")
     hom_sub_certificate_id = fields.Many2one("hom.subcontract.certificate", string="Subcontractor Certificate",
                                              readonly=True, copy=False, index="btree_not_null")
+
+
+class PurchaseOrderLine(models.Model):
+    _inherit = "purchase.order.line"
+
+    hom_boq_line_id = fields.Many2one(
+        "sale.order.line", string="Owner BOQ Item", compute="_compute_hom_boq_line_id", store=True, readonly=False,
+        help="Owner contract item executed by this subcontract line: its site measurements fill the "
+             "subcontractor certificate automatically (matched on the item code, e.g. SC-HV-04 -> HV-04).")
+
+    @api.depends("product_id", "order_id.hom_is_subcontract")
+    def _compute_hom_boq_line_id(self):
+        SOL = self.env["sale.order.line"].sudo()
+        for line in self:
+            code = line.product_id.default_code or ""
+            if line.hom_boq_line_id or not line.order_id.hom_is_subcontract or not code:
+                line.hom_boq_line_id = line.hom_boq_line_id
+                continue
+            base = code[3:] if code.upper().startswith("SC-") else code
+            candidates = SOL.search([("product_id.default_code", "=", base), ("order_id.state", "=", "sale"),
+                                     ("order_id.hom_project_type", "=", "contracting")])
+            analytic_ids = set()
+            for key in (line.analytic_distribution or {}):
+                analytic_ids.update(int(x) for x in str(key).split(",") if x.isdigit())
+            if analytic_ids:
+                preferred = candidates.filtered(
+                    lambda s: "project_ids" in s.order_id._fields and s.order_id.project_ids[:1].account_id.id in analytic_ids)
+                candidates = preferred or candidates
+            line.hom_boq_line_id = candidates[:1]

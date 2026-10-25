@@ -23,4 +23,16 @@
             </xpath>
         </field>
     </record>
+
+    <record id="purchase_order_form_hom_boq_link" model="ir.ui.view">
+        <field name="name">purchase.order.form.hom.boq.link</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']/list/column[@name='product_and_description']" position="after">
+                <field name="hom_boq_line_id" optional="show" column_invisible="not parent.hom_is_subcontract"
+                       options="{'no_create': True}"/>
+            </xpath>
+        </field>
+    </record>
 </odoo>

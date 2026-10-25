@@ -88,6 +88,51 @@ class HomSubcontractCertificate(models.Model):
                 lambda l: not l.display_type and l.product_id and l not in existing)
             cert.line_ids = [Command.create({
                 "purchase_line_id": l.id, "cumulative_qty": Line._previous_for(l, Line)}) for l in lines]
+            cert._hom_apply_site_progress()
+
+    def _hom_apply_site_progress(self):
+        """Back-to-back from one source: the subcontractor's cumulative quantity is what the site engineer
+        measured on the owner's BOQ item executed by this subcontract line (no second data entry)."""
+        if "hom.site.measurement" not in self.env:
+            return
+        Measurement = self.env["hom.site.measurement"].sudo()
+        for cert in self.filtered(lambda c: c.state == "draft"):
+            done = []
+            for line in cert.line_ids:
+                boq = line.purchase_line_id.hom_boq_line_id
+                if not boq:
+                    continue
+                executed = sum(Measurement.search([("sale_line_id", "=", boq.id), ("date", "<=", cert.date)]).mapped("quantity"))
+                qty = min(executed, line.contract_qty) if line.contract_qty else executed
+                if float_compare(qty, line.previous_qty, precision_digits=6) > 0:
+                    line.cumulative_qty = qty
+                    done.append("%s: %s" % (line.product_id.default_code or line.product_id.name, qty))
+            if done:
+                cert.message_post(body=_("Quantities taken from the site measurements of the owner BOQ: %s", ", ".join(done)))
+
+    @api.model
+    def _cron_monthly_drafts(self):
+        """Prepare the monthly draft certificate of every running subcontract from the site measurements."""
+        today = fields.Date.context_today(self)
+        orders = self.env["purchase.order"].search([("hom_is_subcontract", "=", True), ("state", "=", "purchase")])
+        for order in orders:
+            company = order.company_id
+            day = company["hom_certificate_day"] if "hom_certificate_day" in company._fields else 25
+            if today.day != (day or 25) or not order.order_line.hom_boq_line_id:
+                continue
+            if self.search_count([("purchase_order_id", "=", order.id), ("state", "in", ("draft", "submitted"))]):
+                continue
+            cert = self.create({"purchase_order_id": order.id, "date": today})
+            cert.action_load_items()
+            if not cert.line_ids.filtered(lambda l: not float_is_zero(l.current_qty, precision_digits=6)):
+                cert.unlink()
+                continue
+            responsible = cert.project_id.user_id or order.user_id
+            if responsible:
+                cert.activity_schedule(
+                    "mail.mail_activity_data_todo", user_id=responsible.id,
+                    summary=_("Monthly subcontractor certificate - %s", order.name),
+                    note=_("Draft prepared automatically from the site measurements. Check and submit."))
 
     def action_submit(self):
         for cert in self.filtered(lambda c: c.state == "draft"):
@@ -130,7 +175,18 @@ class HomSubcontractCertificate(models.Model):
             cert.state = "approved"
             cert.message_post(body=_("Approved by %s; received quantities updated on the subcontract.", self.env.user.name))
             buyer = cert.purchase_order_id.user_id
-            if buyer:
+            company = cert.company_id
+            accountant = company["hom_certificate_accountant_id"] if "hom_certificate_accountant_id" in company._fields else False
+            if company.hom_auto_draft_invoice:
+                cert.sudo().action_create_bill()
+                cert.message_post(body=_("Draft vendor bill %s prepared automatically.", cert.bill_id.display_name))
+                user = accountant or buyer
+                if user:
+                    cert.bill_id.sudo().activity_schedule(
+                        "mail.mail_activity_data_todo", user_id=user.id,
+                        summary=_("Review and post subcontractor bill %s", cert.name),
+                        note=_("Prepared automatically from the approved subcontractor certificate."))
+            elif buyer:
                 cert.activity_schedule("mail.mail_activity_data_todo", user_id=buyer.id,
                                        summary=_("Bill subcontractor certificate %s", cert.name))
 

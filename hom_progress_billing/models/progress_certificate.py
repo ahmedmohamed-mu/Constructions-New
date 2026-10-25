@@ -196,7 +196,17 @@ class HomProgressCertificate(models.Model):
             cert.state = "approved"
             cert.message_post(body=_("Approved by %s; delivered quantities updated on the contract.", self.env.user.name))
             accountant = cert.company_id.hom_certificate_accountant_id
-            if accountant:
+            if cert.company_id.hom_auto_draft_invoice:
+                # zero-touch: the draft invoice is ready, the accountant only reviews and posts it
+                cert.sudo().action_create_invoice()
+                cert.message_post(body=_("Draft invoice %s prepared automatically.", cert.invoice_id.display_name))
+                if accountant:
+                    cert.invoice_id.sudo().activity_schedule(
+                        "mail.mail_activity_data_todo", user_id=accountant.id,
+                        summary=_("Review and post certificate invoice %s", cert.name),
+                        note=_("Prepared automatically from the approved certificate (works, advance recovery, "
+                               "retention, VAT). Check and post."))
+            elif accountant:
                 cert.activity_schedule(
                     "mail.mail_activity_data_todo", user_id=accountant.id,
                     summary=_("Invoice certificate %s", cert.name),

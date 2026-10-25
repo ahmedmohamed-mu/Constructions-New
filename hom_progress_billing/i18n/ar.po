@@ -1,18 +1,19 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * hom_progress_billing
+# 	* hom_progress_billing
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 20.0\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-25 08:22+0000\n"
+"PO-Revision-Date: 2026-10-25 08:22+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: ar\n"
-"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5);\n"
+"Plural-Forms: \n"
 
 #. module: hom_progress_billing
 #. odoo-python
@@ -24,7 +25,7 @@ msgstr "%(so)s - مستخلص %(n)s"
 #. odoo-python
 #: code:addons/hom_progress_billing/models/project_project.py:0
 msgid "%.1f %%"
-msgstr "%.1f %%"
+msgstr ""
 
 #. module: hom_progress_billing
 #: model:ir.actions.report,print_report_name:hom_progress_billing.action_report_progress_certificate
@@ -214,7 +215,9 @@ msgstr "رقم المستخلص"
 #. module: hom_progress_billing
 #. odoo-python
 #: code:addons/hom_progress_billing/models/progress_certificate.py:0
-msgid "Certificate approved by the consultant: create and post the customer invoice."
+msgid ""
+"Certificate approved by the consultant: create and post the customer "
+"invoice."
 msgstr "الاستشاري اعتمد المستخلص: أنشئ فاتورة العميل ورحّلها."
 
 #. module: hom_progress_billing
@@ -278,7 +281,7 @@ msgstr "الشركة"
 #. module: hom_progress_billing
 #: model:ir.model,name:hom_progress_billing.model_res_config_settings
 msgid "Config Settings"
-msgstr "إعدادات التهيئة"
+msgstr "تهيئة الإعدادات"
 
 #. module: hom_progress_billing
 #: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__consultant_id
@@ -331,8 +334,12 @@ msgstr "المقاولات: تحديث أسبوعي لحالة المشروع"
 
 #. module: hom_progress_billing
 #: model:ir.model.fields,help:hom_progress_billing.field_project_project__hom_estimate_to_complete
-msgid "Cost still expected to finish the project; used for the expected margin (EAC = actual cost + ETC)."
-msgstr "التكلفة المتوقعة لاستكمال المشروع؛ تُستخدم لحساب الهامش المتوقع (التكلفة عند الإنجاز = الفعلية + المتبقية)."
+msgid ""
+"Cost still expected to finish the project; used for the expected margin (EAC"
+" = actual cost + ETC)."
+msgstr ""
+"التكلفة المتوقعة لاستكمال المشروع؛ تُستخدم لحساب الهامش المتوقع (التكلفة عند"
+" الإنجاز = الفعلية + المتبقية)."
 
 #. module: hom_progress_billing
 #: model_terms:ir.ui.view,arch_db:hom_progress_billing.hom_progress_certificate_form
@@ -376,13 +383,16 @@ msgstr "الأعمال التراكمية"
 #. module: hom_progress_billing
 #. odoo-python
 #: code:addons/hom_progress_billing/models/progress_certificate.py:0
-msgid "Cumulative quantity of %s cannot be lower than the previous certificate."
+msgid ""
+"Cumulative quantity of %s cannot be lower than the previous certificate."
 msgstr "الكمية التراكمية لـ %s لا يمكن أن تقل عن المستخلص السابق."
 
 #. module: hom_progress_billing
 #. odoo-python
 #: code:addons/hom_progress_billing/models/progress_certificate.py:0
-msgid "Cumulative quantity of %s exceeds the contract quantity; issue a variation order first."
+msgid ""
+"Cumulative quantity of %s exceeds the contract quantity; issue a variation "
+"order first."
 msgstr "الكمية التراكمية لـ %s تتجاوز كمية العقد؛ أصدر أمر تغيير أولًا."
 
 #. module: hom_progress_billing
@@ -423,7 +433,7 @@ msgstr "الوصف"
 #: model:ir.model.fields,field_description:hom_progress_billing.field_res_config_settings__display_name
 #: model:ir.model.fields,field_description:hom_progress_billing.field_sale_order__display_name
 msgid "Display Name"
-msgstr "الاسم المعروض"
+msgstr "اسم العرض"
 
 #. module: hom_progress_billing
 #: model:ir.model.fields.selection,name:hom_progress_billing.selection__hom_progress_certificate__state__draft
@@ -438,8 +448,18 @@ msgstr "تُجهَّز المستخلصات المسودة تلقائيًا في
 #. module: hom_progress_billing
 #. odoo-python
 #: code:addons/hom_progress_billing/models/progress_certificate.py:0
-msgid "Draft prepared automatically from the site measurements. Review the quantities with the consultant, then submit."
-msgstr "مسودة جُهزت تلقائيًا من حصر الموقع. راجع الكميات مع الاستشاري ثم قدّم المستخلص."
+msgid "Draft invoice %s prepared automatically."
+msgstr "تم تجهيز مسودة الفاتورة %s تلقائيًا."
+
+#. module: hom_progress_billing
+#. odoo-python
+#: code:addons/hom_progress_billing/models/progress_certificate.py:0
+msgid ""
+"Draft prepared automatically from the site measurements. Review the "
+"quantities with the consultant, then submit."
+msgstr ""
+"مسودة جُهزت تلقائيًا من حصر الموقع. راجع الكميات مع الاستشاري ثم قدّم "
+"المستخلص."
 
 #. module: hom_progress_billing
 #: model:ir.model.fields,field_description:hom_progress_billing.field_project_project__hom_estimate_to_complete
@@ -504,7 +524,7 @@ msgstr "عدد المستخلصات"
 #: model:ir.model.fields,field_description:hom_progress_billing.field_res_config_settings__id
 #: model:ir.model.fields,field_description:hom_progress_billing.field_sale_order__id
 msgid "ID"
-msgstr "المعرّف"
+msgstr "المُعرف"
 
 #. module: hom_progress_billing
 #: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__activity_exception_icon
@@ -601,8 +621,12 @@ msgstr "الأعمال المحصورة (المقايسة)"
 #. module: hom_progress_billing
 #. odoo-python
 #: code:addons/hom_progress_billing/models/progress_certificate.py:0
-msgid "Measured quantities exceed the contract for: %s. Capped to the contract quantity; issue a variation order for the extra work."
-msgstr "الكميات المحصورة تتجاوز العقد في: %s. تم تحديدها بكمية العقد؛ أصدر أمر تغيير للأعمال الزائدة."
+msgid ""
+"Measured quantities exceed the contract for: %s. Capped to the contract "
+"quantity; issue a variation order for the extra work."
+msgstr ""
+"الكميات المحصورة تتجاوز العقد في: %s. تم تحديدها بكمية العقد؛ أصدر أمر تغيير"
+" للأعمال الزائدة."
 
 #. module: hom_progress_billing
 #: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__measurement_count
@@ -728,7 +752,9 @@ msgstr "عدد الرسائل الحادث بها خطأ في التسليم"
 #. module: hom_progress_billing
 #. odoo-python
 #: code:addons/hom_progress_billing/models/progress_certificate.py:0
-msgid "Only a project manager or a sales manager can approve a progress certificate."
+msgid ""
+"Only a project manager or a sales manager can approve a progress "
+"certificate."
 msgstr "اعتماد المستخلص لمدير المشروع أو مدير المبيعات فقط."
 
 #. module: hom_progress_billing
@@ -759,8 +785,13 @@ msgstr "بند مستخلص المالك"
 
 #. module: hom_progress_billing
 #: model:ir.module.module,summary:base.module_hom_progress_billing
-msgid "Owner progress certificates (مستخلصات المالك) on sales contracts: cumulative BOQ measurement, consultant approval, invoicing with advance recovery and retention."
-msgstr "مستخلصات المالك على عقود البيع: حصر تراكمي للمقايسة، اعتماد الاستشاري، وفوترة مع استرداد الدفعة المقدمة والمحتجز."
+msgid ""
+"Owner progress certificates (مستخلصات المالك) on sales contracts: cumulative"
+" BOQ measurement, consultant approval, invoicing with advance recovery and "
+"retention."
+msgstr ""
+"مستخلصات المالك على عقود البيع: حصر تراكمي للمقايسة، اعتماد الاستشاري، "
+"وفوترة مع استرداد الدفعة المقدمة والمحتجز."
 
 #. module: hom_progress_billing
 #: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__invoice_payment_state
@@ -769,13 +800,29 @@ msgstr "حالة السداد"
 
 #. module: hom_progress_billing
 #: model_terms:ir.actions.act_window,help:hom_progress_billing.action_hom_progress_certificate
-msgid "Pick a contract, load its BOQ and enter the cumulative quantities measured on site."
+msgid ""
+"Pick a contract, load its BOQ and enter the cumulative quantities measured "
+"on site."
 msgstr "اختر العقد، حمّل المقايسة وأدخل الكميات التراكمية المحصورة بالموقع."
 
 #. module: hom_progress_billing
 #: model_terms:ir.actions.act_window,help:hom_progress_billing.action_hom_site_measurement
-msgid "Pick the BOQ item and the executed quantity. Open measurements are pulled into the next progress certificate automatically."
-msgstr "اختر بند المقايسة والكمية المنفذة. الحصر المفتوح يُسحب تلقائيًا في المستخلص التالي."
+msgid ""
+"Pick the BOQ item and the executed quantity. Open measurements are pulled "
+"into the next progress certificate automatically."
+msgstr ""
+"اختر بند المقايسة والكمية المنفذة. الحصر المفتوح يُسحب تلقائيًا في المستخلص "
+"التالي."
+
+#. module: hom_progress_billing
+#. odoo-python
+#: code:addons/hom_progress_billing/models/progress_certificate.py:0
+msgid ""
+"Prepared automatically from the approved certificate (works, advance "
+"recovery, retention, VAT). Check and post."
+msgstr ""
+"اتجهزت تلقائيًا من المستخلص المعتمد (الأعمال، استرداد المقدم، المحتجز، "
+"الضريبة). راجعي ورحّلي."
 
 #. module: hom_progress_billing
 #: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__user_id
@@ -893,6 +940,12 @@ msgstr "محتجز مستحق التحصيل"
 #: model:ir.model.fields,help:hom_progress_billing.field_hom_progress_certificate__retention_pct
 msgid "Retention withheld from each progress certificate."
 msgstr "نسبة تُحتجز من كل مستخلص."
+
+#. module: hom_progress_billing
+#. odoo-python
+#: code:addons/hom_progress_billing/models/progress_certificate.py:0
+msgid "Review and post certificate invoice %s"
+msgstr "مراجعة وترحيل فاتورة المستخلص %s"
 
 #. module: hom_progress_billing
 #: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__message_has_sms_error

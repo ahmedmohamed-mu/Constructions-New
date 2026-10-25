@@ -10,6 +10,9 @@
                     <setting string="Top management" help="Receives budget overrun and margin alerts (usually the CEO)">
                         <field name="hom_management_user_id"/>
                     </setting>
+                    <setting string="Zero-touch invoicing" help="Approved certificates create their draft invoice / vendor bill automatically; the accountant only reviews and posts">
+                        <field name="hom_auto_draft_invoice"/>
+                    </setting>
                     <setting string="Owner retention" help="Line withheld on owner certificates">
                         <field name="hom_retention_owner_product_id"/>
                     </setting>
