@@ -7,7 +7,7 @@
     <div class="ct-hero">
         <div class="ct-hero-top">
             <div class="ct-brand">
-                <div class="ct-logo"><i class="oi" data-icon="business"/></div>
+                <div class="ct-logo"><img src="/hom_control_tower/static/img/hom_emblem.png" alt="H.O.M"/></div>
                 <div>
                     <div class="ct-title">Control Tower</div>
                     <div class="ct-sub" t-if="this.state.data">
@@ -253,6 +253,7 @@
                         <div class="ct-stat ct-click" t-on-click="() => this.open('certificates')"><span>Certificates with consultant</span><b t-out="p.waiting_consultant"/></div>
                         <div class="ct-stat ct-click" t-on-click="() => this.open('variations')"><span>Variation orders</span><b><t t-out="p.vo_count"/> <small t-if="p.vo_pending" class="text-warning">(<t t-out="p.vo_pending"/> pending)</small></b></div>
                         <div class="ct-stat"><span>Approved variations</span><b><bdi t-out="this.short(p.vo_amount)"/> <small t-out="this.cur"/></b></div>
+                        <div class="ct-stat ct-click" t-on-click="() => this.open('submittals')"><span>Submittals with consultant</span><b><t t-out="p.submittals_open"/> <small t-if="p.submittals_late" class="text-danger">(<t t-out="p.submittals_late"/> late)</small></b></div>
                         <div class="ct-stat"><span>Blocked site reports</span><b t-attf-class="{{ p.blocked_reports ? 'text-danger' : '' }}" t-out="p.blocked_reports"/></div>
                         <div class="ct-stat"><span>Advance to recover</span><b><bdi t-out="this.short(p.advance_outstanding)"/></b></div>
                         <div class="ct-stat"><span>Retention to collect</span><b><bdi t-out="this.short(p.retention)"/></b></div>
@@ -356,6 +357,15 @@
                         <div class="ct-kpi-value" t-out="this.pct(m.sla_pct)"/>
                         <div class="ct-kpi-foot"><t t-out="m.late"/> tickets out of SLA</div></div>
                 </t>
+                <t t-if="m.assets and m.assets.available">
+                    <div class="ct-kpi ct-click" t-on-click="() => this.open('maintenance')"><div class="ct-kpi-label"><i class="oi" data-icon="build"/> Assets under maintenance</div>
+                        <div class="ct-kpi-value" t-out="m.assets.equipment"/>
+                        <div class="ct-kpi-foot"><t t-out="m.assets.open"/> open visits · <b t-out="m.assets.due_week"/> preventive this week</div></div>
+                    <div t-attf-class="ct-kpi ct-kpi-accent ct-click {{ m.assets.late ? 'is-bad' : 'is-good' }}" t-on-click="() => this.open('maintenance')">
+                        <div class="ct-kpi-label"><i class="oi" data-icon="calendar_today"/> Late visits</div>
+                        <div class="ct-kpi-value" t-out="m.assets.late"/>
+                        <div class="ct-kpi-foot"><t t-out="m.assets.preventive"/> preventive · <t t-out="m.assets.corrective"/> corrective</div></div>
+                </t>
             </div>
             <div class="ct-grid ct-grid-8-4" t-if="m.available">
                 <div class="ct-card">
@@ -383,6 +393,21 @@
                     <div class="ct-card-head mt-3"><h3>Clients</h3></div>
                     <div t-foreach="m.clients" t-as="c" t-key="c.order" class="ct-stat"><span t-out="c.name"/><b><bdi t-out="this.short(c.monthly)"/> <small>/ month</small></b></div>
                 </div>
+            </div>
+            <div class="ct-card mt-3" t-if="m.assets and m.assets.available and m.assets.next.length">
+                <div class="ct-card-head"><h3><i class="oi" data-icon="build"/> Maintenance plan (next visits)</h3>
+                    <button class="ct-btn" t-on-click="() => this.open('maintenance')">Open</button></div>
+                <table class="ct-table">
+                    <thead><tr><th>Visit</th><th>Equipment</th><th>Type</th><th>Technicians</th><th class="text-end">Planned</th></tr></thead>
+                    <tbody>
+                        <tr t-foreach="m.assets.next" t-as="r" t-key="r.id" class="ct-click" t-on-click="() => this.open('maintenance_request', r.id)">
+                            <td><b t-out="r.name"/></td><td t-out="r.equipment"/>
+                            <td><span t-attf-class="ct-pill {{ r.type === 'preventive' ? 'ct-on_track' : 'ct-at_risk' }}" t-out="r.type === 'preventive' ? this.labels.preventive : this.labels.corrective"/></td>
+                            <td t-out="r.user"/>
+                            <td class="text-end"><span t-attf-class="ct-pill {{ r.late ? 'ct-off_track' : 'ct-on_track' }}"><bdi t-out="this.date(r.date)"/></span></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </t>
     </div>

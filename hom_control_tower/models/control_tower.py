@@ -152,7 +152,13 @@ class HomControlTower(models.AbstractModel):
         Daily = env.get("x_site_daily_report")
         if Daily is not None and project and "x_studio_status" in Daily._fields:
             blocked = Daily.search_count([("x_studio_project", "=", project.id), ("x_studio_status", "=", "blocked")])
+        sub_open = sub_late = 0
+        if "hom.submittal" in env and project:
+            Sub = env["hom.submittal"]
+            sub_open = Sub.search_count([("project_id", "=", project.id), ("state", "=", "submitted")])
+            sub_late = Sub.search_count([("project_id", "=", project.id), ("is_overdue", "=", True)])
         return {
+            "submittals_open": sub_open, "submittals_late": sub_late,
             "id": order.id, "project_id": project.id or False,
             "name": project.name or order.name, "order": order.name,
             "partner": order.partner_id.commercial_partner_id.name,
@@ -330,6 +336,7 @@ class HomControlTower(models.AbstractModel):
                     "clients": [{"name": o.partner_id.commercial_partner_id.name, "order": o.name,
                                  "monthly": o.recurring_monthly if "recurring_monthly" in o._fields else o.amount_untaxed}
                                 for o in fm_orders]})
+        res["assets"] = self._fm_assets(company, today)
         if not res["available"]:
             return res
         T = env["helpdesk.ticket"]
@@ -353,6 +360,30 @@ class HomControlTower(models.AbstractModel):
             } for t in open_t.sorted(lambda t: (t.sla_deadline or now + timedelta(days=999)) if "sla_deadline" in t._fields else now)],
         })
         return res
+
+    def _fm_assets(self, company, today):
+        """Equipment and preventive maintenance (Maintenance app), when installed."""
+        env = self.sudo().env
+        if "maintenance.request" not in env:
+            return {"available": False}
+        R = env["maintenance.request"]
+        open_r = R.search([("state", "not in", ("done", "cancelled"))])
+        prev = open_r.filtered(lambda r: r.maintenance_type == "preventive")
+        week = today + timedelta(days=7)
+        late = open_r.filtered(lambda r: r.schedule_date and r.schedule_date.date() < today)
+        return {
+            "available": True,
+            "equipment": env["maintenance.equipment"].search_count([]),
+            "open": len(open_r), "preventive": len(prev), "late": len(late),
+            "corrective": len(open_r) - len(prev),
+            "due_week": len(prev.filtered(lambda r: r.schedule_date and r.schedule_date.date() <= week)),
+            "next": [{
+                "id": r.id, "name": r.name, "equipment": r.equipment_id.name or "",
+                "type": r.maintenance_type, "date": fields.Date.to_string(r.schedule_date.date()) if r.schedule_date else False,
+                "late": bool(r.schedule_date and r.schedule_date.date() < today),
+                "user": ", ".join(r.user_ids.mapped("name")),
+            } for r in open_r.sorted(lambda r: r.schedule_date or fields.Datetime.now() + timedelta(days=999))[:6]],
+        }
 
     # ------------------------------------------------------------------
     # Attention items
@@ -392,6 +423,15 @@ class HomControlTower(models.AbstractModel):
                                         ("payment_state", "not in", self._SETTLED)])
         add("danger", _("Overdue customer invoices"), len(D),
             _act(_("Overdue invoices"), "account.move", [("id", "in", D.ids)]), sum(D.mapped("amount_residual")))
+        if "hom.submittal" in env:
+            SB = env["hom.submittal"].search([("is_overdue", "=", True)])
+            add("danger", _("Submittals overdue at the consultant"), len(SB),
+                _act(_("Overdue submittals"), "hom.submittal", [("id", "in", SB.ids)]))
+        if "maintenance.request" in env:
+            MR = env["maintenance.request"].search([("state", "not in", ("done", "cancelled")),
+                                                    ("schedule_date", "<", fields.Datetime.to_string(today))])
+            add("warning", _("Maintenance visits past their planned date"), len(MR),
+                _act(_("Late maintenance"), "maintenance.request", [("id", "in", MR.ids)]))
         if "helpdesk.ticket" in env:
             T = env["helpdesk.ticket"].search([("stage_id.fold", "=", False)]).filtered(
                 lambda t: ("sla_fail" in t._fields and t.sla_fail))
@@ -419,6 +459,12 @@ class HomControlTower(models.AbstractModel):
             "variations": ("hom_variation_order.action_hom_variation_order", None),
             "subcontracts": ("hom_contracting_base.action_hom_subcontracts", None),
         }
+        if "hom.submittal" in self.env:
+            mapping["submittals"] = ("hom_submittals.action_hom_submittal", None)
+        if "maintenance.request" in self.env:
+            mapping["maintenance"] = ("maintenance.hr_equipment_request_action", None)
+        if kind == "maintenance_request" and res_id:
+            return _act(_("Maintenance"), "maintenance.request", [("id", "=", res_id)], ("form",)) | {"res_id": res_id}
         if kind in mapping:
             return self.env["ir.actions.act_window"]._for_xml_id(mapping[kind][0])
         if kind == "receivables":

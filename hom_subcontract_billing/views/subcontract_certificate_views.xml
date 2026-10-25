@@ -23,7 +23,7 @@
                 <field name="back_to_back_warning" invisible="1"/>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
-                        <button name="action_view_bill" type="object" class="oe_stat_button" icon="fa-pencil-square-o" invisible="not bill_id">
+                        <button name="action_view_bill" type="object" class="oe_stat_button" icon="edit_square" invisible="not bill_id">
                             <div class="o_stat_info"><span class="o_stat_text">Bill</span><field name="bill_payment_state" widget="badge"/></div>
                         </button>
                     </div>

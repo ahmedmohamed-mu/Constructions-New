@@ -11,7 +11,7 @@
                         groups="account.group_account_invoice"/>
             </xpath>
             <xpath expr="//div[@name='button_box']" position="inside">
-                <button name="action_hom_sub_certificates" type="object" class="oe_stat_button" icon="fa-file-text-o"
+                <button name="action_hom_sub_certificates" type="object" class="oe_stat_button" icon="article"
                         invisible="not hom_is_subcontract or state != 'purchase'">
                     <field name="hom_sub_certificate_count" widget="statinfo" string="Certificates"/>
                 </button>

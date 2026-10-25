@@ -92,7 +92,7 @@
                         <field name="partner_id" class="text-muted small"/>
                         <div><field name="amount_current" widget="monetary"/> <field name="currency_id" invisible="1"/></div>
                         <div t-attf-class="small #{record.days_to_expiry.raw_value &lt; 30 ? 'text-danger' : ''}">
-                            <i class="fa fa-calendar me-1"/><field name="expiry_date"/>
+                            <i class="oi me-1" data-icon="calendar_today"/><field name="expiry_date"/>
                         </div>
                         <footer><field name="state" widget="badge" class="ms-auto"/></footer>
                     </t>

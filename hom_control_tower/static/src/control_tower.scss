@@ -1,34 +1,34 @@
-// H.O.M Control Tower — navy / teal identity, same palette as the progress certificate report
+// H.O.M Control Tower — H.O.M Egypt identity: brand green #6DB33F on charcoal (from hom-egypt.com)
 @font-face { font-family: "HomTajawal"; font-weight: 400; src: url("/web/static/fonts/google/Tajawal/Tajawal-Regular.ttf") format("truetype"); }
 @font-face { font-family: "HomTajawal"; font-weight: 500; src: url("/web/static/fonts/google/Tajawal/Tajawal-Medium.ttf") format("truetype"); }
 @font-face { font-family: "HomTajawal"; font-weight: 700; src: url("/web/static/fonts/google/Tajawal/Tajawal-Bold.ttf") format("truetype"); }
 @font-face { font-family: "HomTajawal"; font-weight: 800; src: url("/web/static/fonts/google/Tajawal/Tajawal-ExtraBold.ttf") format("truetype"); }
 
 .o_hom_ct {
-    --ct-navy: #0B3C5D;
-    --ct-navy-2: #082B44;
-    --ct-teal: #2EC4B6;
+    --ct-navy: #1E2521;
+    --ct-navy-2: #0D110F;
+    --ct-teal: #6DB33F;
     --ct-amber: #F4A261;
     --ct-red: #E5484D;
-    --ct-green: #23A094;
-    --ct-bg: #F2F5F9;
+    --ct-green: #3E8E2B;
+    --ct-bg: #F3F5F2;
     --ct-card: #FFFFFF;
-    --ct-text: #12263A;
-    --ct-muted: #6B7C93;
-    --ct-line: #E3E9F1;
-    --ct-track: #EDF1F6;
-    --ct-c1: #2EC4B6;
-    --ct-c2: #0B3C5D;
+    --ct-text: #1A201C;
+    --ct-muted: #6E7A71;
+    --ct-line: #E3E8E2;
+    --ct-track: #ECF0EA;
+    --ct-c1: #6DB33F;
+    --ct-c2: #2B332E;
     --ct-c3: #F4A261;
-    --ct-b0: #D7E0EA;
-    --ct-shadow: 0 1px 2px rgba(11, 60, 93, .06), 0 6px 20px rgba(11, 60, 93, .06);
+    --ct-b0: #D9E0D6;
+    --ct-shadow: 0 1px 2px rgba(20, 30, 22, .06), 0 6px 20px rgba(20, 30, 22, .06);
 
     background: var(--ct-bg);
     color: var(--ct-text);
     font-family: "HomTajawal", var(--o-font-family-sans-serif, sans-serif);
 
     .ct-hero {
-        background: radial-gradient(1200px 300px at 85% -40%, rgba(46, 196, 182, .35), transparent 60%),
+        background: radial-gradient(1200px 300px at 85% -40%, rgba(109, 179, 63, .40), transparent 60%),
                     linear-gradient(135deg, var(--ct-navy) 0%, var(--ct-navy-2) 100%);
         color: #fff;
         padding: 20px 28px 0;
@@ -37,8 +37,8 @@
     .ct-brand { display: flex; align-items: center; gap: 14px; }
     .ct-logo {
         width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center;
-        background: rgba(46, 196, 182, .18); color: var(--ct-teal); font-size: 22px;
-        border: 1px solid rgba(46, 196, 182, .35);
+        background: #fff; padding: 5px; box-shadow: 0 0 0 3px rgba(109, 179, 63, .35);
+        img { width: 100%; height: 100%; object-fit: contain; }
     }
     .ct-title { font-size: 24px; font-weight: 800; letter-spacing: .2px; }
     .ct-sub { font-size: 13px; opacity: .75; }
@@ -53,7 +53,7 @@
         padding: 10px 16px; border-radius: 10px 10px 0 0; font-family: inherit;
         i { margin-inline-end: 6px; }
         &:hover { color: #fff; background: rgba(255, 255, 255, .06); }
-        &.active { background: var(--ct-bg); color: var(--ct-navy); }
+        &.active { background: var(--ct-bg); color: var(--ct-navy); box-shadow: inset 0 3px 0 var(--ct-teal); }
     }
     .ct-body { padding: 22px 28px 40px; max-width: 1600px; margin: 0 auto; }
 
@@ -123,7 +123,7 @@
         thead th:first-child { border-start-start-radius: 8px; } thead th:last-child { border-start-end-radius: 8px; }
         td { padding: 10px; border-bottom: 1px solid var(--ct-line); vertical-align: middle; } }
     .ct-pill { display: inline-block; border-radius: 20px; padding: 2px 10px; font-size: 12px; font-weight: 700; white-space: nowrap; }
-    .ct-on_track { background: rgba(35, 160, 148, .14); color: var(--ct-green); }
+    .ct-on_track { background: rgba(62, 142, 43, .14); color: var(--ct-green); }
     .ct-at_risk { background: rgba(244, 162, 97, .2); color: #C46A1E; }
     .ct-off_track { background: rgba(229, 72, 77, .14); color: var(--ct-red); }
 
@@ -164,7 +164,7 @@
     // ---------------------------------------------------------------- finance
     .ct-stack { display: flex; height: 18px; border-radius: 8px; overflow: hidden; background: var(--ct-track);
         span { height: 100%; } }
-    .ct-a0 { background: #2EC4B6; } .ct-a1 { background: #8FD3C8; } .ct-a2 { background: #F4A261; }
+    .ct-a0 { background: #6DB33F; } .ct-a1 { background: #B5DB8F; } .ct-a2 { background: #F4A261; }
     .ct-a3 { background: #E76F51; } .ct-a4 { background: #C1272D; }
     .ct-aging-legend { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-top: 12px; font-size: 12px;
         div { display: flex; flex-direction: column; } span { color: var(--ct-muted); } b { font-size: 14px; } }

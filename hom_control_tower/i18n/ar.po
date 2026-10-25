@@ -1,9 +1,19 @@
 # Translation of Odoo Server.
-# * hom_control_tower
+# This file contains the translation of the following modules:
+# 	* hom_control_tower
+#
 msgid ""
 msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-25 06:48+0000\n"
+"PO-Revision-Date: 2026-10-25 06:48+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Language: ar\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
 
 #. module: hom_control_tower
 #. odoo-javascript
@@ -94,6 +104,12 @@ msgstr "مستخلصات معتمدة لم تُفوتر بعد"
 #: code:addons/hom_control_tower/static/src/control_tower.xml:0
 msgid "Approved variations"
 msgstr "أوامر تغيير معتمدة"
+
+#. module: hom_control_tower
+#. odoo-javascript
+#: code:addons/hom_control_tower/static/src/control_tower.xml:0
+msgid "Assets under maintenance"
+msgstr "الأصول تحت الصيانة"
 
 #. module: hom_control_tower
 #. odoo-javascript
@@ -226,6 +242,12 @@ msgstr "برج التحكم"
 
 #. module: hom_control_tower
 #. odoo-javascript
+#: code:addons/hom_control_tower/static/src/control_tower.js:0
+msgid "Corrective"
+msgstr "تصحيحية"
+
+#. module: hom_control_tower
+#. odoo-javascript
 #: code:addons/hom_control_tower/static/src/control_tower.xml:0
 msgid "Cost at completion"
 msgstr "التكلفة عند الإنجاز"
@@ -267,6 +289,12 @@ msgstr "التكلفة المتوقعة"
 #. module: hom_control_tower
 #. odoo-javascript
 #: code:addons/hom_control_tower/static/src/control_tower.xml:0
+msgid "Equipment"
+msgstr "المعدة"
+
+#. module: hom_control_tower
+#. odoo-javascript
+#: code:addons/hom_control_tower/static/src/control_tower.xml:0
 msgid "Estimate to complete"
 msgstr "التكلفة المتبقية للإنجاز"
 
@@ -278,8 +306,13 @@ msgstr "الإدارة العليا"
 
 #. module: hom_control_tower
 #: model:ir.module.module,summary:base.module_hom_control_tower
-msgid "Executive, projects, finance and facility-management dashboards for the contracting cycle (portfolio, certificates, cash, margin, guarantees, alerts)."
-msgstr "لوحات متابعة للإدارة العليا والمشروعات والمالية وإدارة المرافق لدورة المقاولات (المحفظة، المستخلصات، السيولة، الهامش، الضمانات، التنبيهات)."
+msgid ""
+"Executive, projects, finance and facility-management dashboards for the "
+"contracting cycle (portfolio, certificates, cash, margin, guarantees, "
+"alerts)."
+msgstr ""
+"لوحات متابعة للإدارة العليا والمشروعات والمالية وإدارة المرافق لدورة "
+"المقاولات (المحفظة، المستخلصات، السيولة، الهامش، الضمانات، التنبيهات)."
 
 #. module: hom_control_tower
 #. odoo-javascript
@@ -338,6 +371,12 @@ msgid "Guarantees issued"
 msgstr "خطابات الضمان الصادرة"
 
 #. module: hom_control_tower
+#. odoo-javascript
+#: code:addons/hom_control_tower/static/src/control_tower.xml:0
+msgid "H.O.M"
+msgstr "H.O.M"
+
+#. module: hom_control_tower
 #: model:ir.module.module,shortdesc:base.module_hom_control_tower
 msgid "H.O.M Contracting - Control Tower"
 msgstr "H.O.M مقاولات - برج التحكم"
@@ -366,6 +405,18 @@ msgid "Issued"
 msgstr "صادر"
 
 #. module: hom_control_tower
+#. odoo-python
+#: code:addons/hom_control_tower/models/control_tower.py:0
+msgid "Late maintenance"
+msgstr "صيانة متأخرة"
+
+#. module: hom_control_tower
+#. odoo-javascript
+#: code:addons/hom_control_tower/static/src/control_tower.xml:0
+msgid "Late visits"
+msgstr "زيارات متأخرة"
+
+#. module: hom_control_tower
 #. odoo-javascript
 #: code:addons/hom_control_tower/static/src/control_tower.xml:0
 msgid "Letters of guarantee"
@@ -378,16 +429,34 @@ msgid "Letters of guarantee expiring within 30 days"
 msgstr "خطابات ضمان تنتهي خلال 30 يوم"
 
 #. module: hom_control_tower
+#. odoo-python
+#: code:addons/hom_control_tower/models/control_tower.py:0
+msgid "Maintenance"
+msgstr "الصيانة"
+
+#. module: hom_control_tower
 #. odoo-javascript
 #: code:addons/hom_control_tower/static/src/control_tower.xml:0
 msgid "Maintenance contracts"
 msgstr "عقود الصيانة"
 
 #. module: hom_control_tower
+#. odoo-javascript
+#: code:addons/hom_control_tower/static/src/control_tower.xml:0
+msgid "Maintenance plan (next visits)"
+msgstr "خطة الصيانة (الزيارات القادمة)"
+
+#. module: hom_control_tower
 #. odoo-python
 #: code:addons/hom_control_tower/models/control_tower.py:0
 msgid "Maintenance tickets out of SLA"
 msgstr "بلاغات صيانة خارج الـ SLA"
+
+#. module: hom_control_tower
+#. odoo-python
+#: code:addons/hom_control_tower/models/control_tower.py:0
+msgid "Maintenance visits past their planned date"
+msgstr "زيارات صيانة تعدّت موعدها"
 
 #. module: hom_control_tower
 #. odoo-javascript
@@ -482,6 +551,12 @@ msgstr "في المسار"
 #. module: hom_control_tower
 #. odoo-javascript
 #: code:addons/hom_control_tower/static/src/control_tower.xml:0
+msgid "Open"
+msgstr "فتح"
+
+#. module: hom_control_tower
+#. odoo-javascript
+#: code:addons/hom_control_tower/static/src/control_tower.xml:0
 msgid "Open by priority"
 msgstr "المفتوح حسب الأولوية"
 
@@ -554,6 +629,12 @@ msgid "Overdue invoices"
 msgstr "فواتير متأخرة"
 
 #. module: hom_control_tower
+#. odoo-python
+#: code:addons/hom_control_tower/models/control_tower.py:0
+msgid "Overdue submittals"
+msgstr "اعتمادات متأخرة"
+
+#. module: hom_control_tower
 #. odoo-javascript
 #: code:addons/hom_control_tower/static/src/control_tower.xml:0
 msgid "Owner"
@@ -588,6 +669,18 @@ msgstr "مستحقات الموردين"
 #: code:addons/hom_control_tower/static/src/control_tower.xml:0
 msgid "Payables aging"
 msgstr "أعمار مستحقات الموردين"
+
+#. module: hom_control_tower
+#. odoo-javascript
+#: code:addons/hom_control_tower/static/src/control_tower.xml:0
+msgid "Planned"
+msgstr "المخطط له"
+
+#. module: hom_control_tower
+#. odoo-javascript
+#: code:addons/hom_control_tower/static/src/control_tower.js:0
+msgid "Preventive"
+msgstr "وقائية"
 
 #. module: hom_control_tower
 #. odoo-javascript
@@ -742,10 +835,28 @@ msgid "Subcontractors (back-to-back)"
 msgstr "مقاولو الباطن (Back-to-back)"
 
 #. module: hom_control_tower
+#. odoo-python
+#: code:addons/hom_control_tower/models/control_tower.py:0
+msgid "Submittals overdue at the consultant"
+msgstr "اعتمادات متأخرة عند الاستشاري"
+
+#. module: hom_control_tower
+#. odoo-javascript
+#: code:addons/hom_control_tower/static/src/control_tower.xml:0
+msgid "Submittals with consultant"
+msgstr "اعتمادات لدى الاستشاري"
+
+#. module: hom_control_tower
 #. odoo-javascript
 #: code:addons/hom_control_tower/static/src/control_tower.xml:0
 msgid "Technician"
 msgstr "الفني"
+
+#. module: hom_control_tower
+#. odoo-javascript
+#: code:addons/hom_control_tower/static/src/control_tower.xml:0
+msgid "Technicians"
+msgstr "الفنيون"
 
 #. module: hom_control_tower
 #. odoo-python
@@ -810,6 +921,12 @@ msgid "Variation orders waiting for approval"
 msgstr "أوامر تغيير بانتظار الاعتماد"
 
 #. module: hom_control_tower
+#. odoo-javascript
+#: code:addons/hom_control_tower/static/src/control_tower.xml:0
+msgid "Visit"
+msgstr "الزيارة"
+
+#. module: hom_control_tower
 #. odoo-python
 #: code:addons/hom_control_tower/models/control_tower.py:0
 msgid "Waiting consultant"
@@ -822,10 +939,22 @@ msgid "Work invoiced"
 msgstr "الأعمال المفوترة"
 
 #. module: hom_control_tower
+#. odoo-python
+#: code:addons/hom_control_tower/models/control_tower.py:0
+msgid "amount_residual"
+msgstr ""
+
+#. module: hom_control_tower
 #. odoo-javascript
 #: code:addons/hom_control_tower/static/src/control_tower.xml:0
 msgid "certified"
 msgstr "معتمد"
+
+#. module: hom_control_tower
+#. odoo-javascript
+#: code:addons/hom_control_tower/static/src/control_tower.xml:0
+msgid "corrective"
+msgstr "تصحيحية"
 
 #. module: hom_control_tower
 #. odoo-javascript
@@ -840,10 +969,28 @@ msgid "h"
 msgstr "س"
 
 #. module: hom_control_tower
+#. odoo-python
+#: code:addons/hom_control_tower/models/control_tower.py:0
+msgid "id"
+msgstr ""
+
+#. module: hom_control_tower
 #. odoo-javascript
 #: code:addons/hom_control_tower/static/src/control_tower.xml:0
 msgid "journals"
 msgstr "دفاتر"
+
+#. module: hom_control_tower
+#. odoo-javascript
+#: code:addons/hom_control_tower/static/src/control_tower.xml:0
+msgid "late)"
+msgstr "متأخرة)"
+
+#. module: hom_control_tower
+#. odoo-python
+#: code:addons/hom_control_tower/models/control_tower.py:0
+msgid "move_type"
+msgstr ""
 
 #. module: hom_control_tower
 #. odoo-javascript
@@ -854,8 +1001,32 @@ msgstr "من المحفظة"
 #. module: hom_control_tower
 #. odoo-javascript
 #: code:addons/hom_control_tower/static/src/control_tower.xml:0
+msgid "open visits ·"
+msgstr "زيارات مفتوحة ·"
+
+#. module: hom_control_tower
+#. odoo-python
+#: code:addons/hom_control_tower/models/control_tower.py:0
+msgid "payment_state"
+msgstr ""
+
+#. module: hom_control_tower
+#. odoo-javascript
+#: code:addons/hom_control_tower/static/src/control_tower.xml:0
 msgid "pending)"
 msgstr "بانتظار الاعتماد)"
+
+#. module: hom_control_tower
+#. odoo-javascript
+#: code:addons/hom_control_tower/static/src/control_tower.xml:0
+msgid "preventive this week"
+msgstr "وقائية هذا الأسبوع"
+
+#. module: hom_control_tower
+#. odoo-javascript
+#: code:addons/hom_control_tower/static/src/control_tower.xml:0
+msgid "preventive ·"
+msgstr "وقائية ·"
 
 #. module: hom_control_tower
 #. odoo-javascript
@@ -868,6 +1039,18 @@ msgstr "عقود جارية"
 #: code:addons/hom_control_tower/static/src/control_tower.xml:0
 msgid "solved"
 msgstr "تم حلها"
+
+#. module: hom_control_tower
+#. odoo-python
+#: code:addons/hom_control_tower/models/control_tower.py:0
+msgid "stage_id.fold"
+msgstr ""
+
+#. module: hom_control_tower
+#. odoo-python
+#: code:addons/hom_control_tower/models/control_tower.py:0
+msgid "state"
+msgstr ""
 
 #. module: hom_control_tower
 #. odoo-javascript

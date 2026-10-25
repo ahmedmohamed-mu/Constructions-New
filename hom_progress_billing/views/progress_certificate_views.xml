@@ -19,10 +19,10 @@
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
-                        <button name="action_view_measurements" type="object" class="oe_stat_button" icon="fa-map-marker" invisible="not measurement_count">
+                        <button name="action_view_measurements" type="object" class="oe_stat_button" icon="location_on" invisible="not measurement_count">
                             <field name="measurement_count" widget="statinfo" string="Measurements"/>
                         </button>
-                        <button name="action_view_invoice" type="object" class="oe_stat_button" icon="fa-pencil-square-o" invisible="not invoice_id">
+                        <button name="action_view_invoice" type="object" class="oe_stat_button" icon="edit_square" invisible="not invoice_id">
                             <div class="o_stat_info"><span class="o_stat_text">Invoice</span><field name="invoice_payment_state" widget="badge"/></div>
                         </button>
                     </div>

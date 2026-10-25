@@ -9,6 +9,7 @@ Thin modules on top of standard Odoo. Everything that Studio/standard covers sta
 | hom_subcontract_billing | Site / Purchase → Accounting | Subcontract advance bill + subcontractor certificate: approval pushes Received qty to the PO, bill with advance recovery + retention |
 | hom_variation_order | Sales → CEO | Variation order with approval; applies to the SO (new section / qty changes) and revises the project budget when Budget is installed |
 | hom_guarantees | Accounting / Sales | Letters of guarantee (bid, advance, performance, retention) issued or received; advance LG reduces with recovery; expiry alerts |
+| hom_control_tower | Management (CEO, PM, finance) | Control Tower: executive, projects, finance & guarantees, FM dashboards (navy/teal, dark mode, Arabic) with drill-down alerts |
 
 All modules ship an Arabic translation (`i18n/ar.po`) and share one **Contracting** app menu.
 
@@ -21,7 +22,7 @@ All modules ship an Arabic translation (`i18n/ar.po`) and share one **Contractin
 - Bank guarantee expiry alerts.
 
 ## Deploy on Odoo.sh
-1. Copy the 5 folders to the root of the project repo, on a **staging** branch (not main).
+1. Copy the 6 folders to the root of the project repo, on a **staging** branch (not main).
 2. Push → Odoo.sh builds staging on a copy of production → install the modules from Apps.
 3. `hom_contracting_base` copies the existing `x_studio_*` values (SO/PO) automatically on install.
 4. Accounting > Settings > Contracting: check retention / advance products and their balance-sheet accounts (102020, 201031, 102021), certificates accountant, VO approver.

@@ -22,6 +22,7 @@ export class HomControlTower extends Component {
             { key: "finance", label: _t("Finance & Guarantees"), icon: "account_balance" },
             { key: "fm", label: _t("Facility Management"), icon: "build" },
         ];
+        this.labels = { preventive: _t("Preventive"), corrective: _t("Corrective") };
         onWillStart(() => this.load());
     }
 
