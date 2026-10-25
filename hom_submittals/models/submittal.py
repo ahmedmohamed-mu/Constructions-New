@@ -113,7 +113,8 @@ class HomSubmittal(models.Model):
                 feedback=_("Consultant replied: %s", dict(self._fields["review_code"].selection)[code]))
             if state == "approved" and sub.purchase_order_id:
                 buyer = sub.purchase_order_id.user_id or sub.responsible_id
-                sub.purchase_order_id.activity_schedule(
+                # the technical office may not have write access on purchases: notify the buyer as superuser
+                sub.purchase_order_id.sudo().activity_schedule(
                     "mail.mail_activity_data_todo", user_id=buyer.id,
                     summary=_("Material approved: %s", sub.title),
                     note=_("%(ref)s came back with code %(code)s - the order can be released to the supplier.",
