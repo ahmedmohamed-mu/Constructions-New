@@ -2,7 +2,7 @@
     "name": "H.O.M Contracting - Control Tower",
     "summary": "Executive, projects, finance and facility-management dashboards for the contracting cycle "
                "(portfolio, certificates, cash, margin, guarantees, alerts).",
-    "version": "20.0.1.1.2",
+    "version": "20.0.1.1.3",
     "category": "Services/Contracting",
     "author": "Ziij AI",
     "license": "OPL-1",
