@@ -1,16 +1,17 @@
-// Dark mode: variables only
+// The Control Tower keeps its light, report-like look even when Odoo runs in dark mode
+// (same palette as the printed certificate): only the browser colour scheme is pinned here.
 .o_hom_ct {
-    --ct-bg: #0E1210;
-    --ct-card: #171D19;
-    --ct-text: #E8EEE9;
-    --ct-muted: #97A39A;
-    --ct-line: #27302A;
-    --ct-track: #1E2621;
-    --ct-b0: #2E3830;
-    --ct-c2: #A7B3AA;
-    --ct-shadow: 0 1px 2px rgba(0, 0, 0, .3);
-    --ct-navy: #252D28;
-    .ct-tab.active { color: #fff; }
+    color-scheme: light;
+    --ct-bg: #F3F5F2;
+    --ct-card: #FFFFFF;
+    --ct-text: #1A201C;
+    --ct-muted: #6E7A71;
+    --ct-line: #E3E8E2;
+    --ct-track: #ECF0EA;
+    --ct-b0: #D9E0D6;
+    --ct-c2: #2B332E;
+    --ct-navy: #1E2521;
     .ct-alert.ct-info .ct-alert-count { color: var(--ct-teal); }
-    .ct-btn { color: #E8EEE9; }
+    .text-muted { color: var(--ct-muted) !important; }
+    .table, table { color: var(--ct-text); }
 }
