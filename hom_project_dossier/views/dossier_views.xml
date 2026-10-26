@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_hom_project_dossier_wizard" model="ir.ui.view">
+        <field name="name">hom.project.dossier.wizard.form</field>
+        <field name="model">hom.project.dossier.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Project Dossier">
+                <p class="text-muted">
+                    One report with everything recorded on the project: contract and BOQ progress, variation orders,
+                    certificates, invoices and collections, guarantees, purchases, subcontracts, vendor bills,
+                    material movements, expenses, labour, budget, site records, schedule and every accounting
+                    movement booked on the project — each line opens its source document.
+                </p>
+                <group>
+                    <field name="project_id" options="{'no_create': True}"/>
+                    <label for="date_from" string="Period"/>
+                    <div class="o_row">
+                        <field name="date_from" placeholder="Since start"/> → <field name="date_to" placeholder="Today"/>
+                    </div>
+                </group>
+                <footer>
+                    <button name="action_view" type="object" string="Open Dossier" class="btn-primary"/>
+                    <button name="action_print" type="object" string="Print PDF" class="btn-secondary"/>
+                    <button special="cancel" string="Cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hom_project_dossier_wizard" model="ir.actions.act_window">
+        <field name="name">Project Dossier</field>
+        <field name="res_model">hom.project.dossier.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_hom_reports_top" name="Reports" parent="hom_contracting_base.menu_hom_root" sequence="60"/>
+    <menuitem id="menu_hom_project_dossier" name="Project Dossier" parent="menu_hom_reports_top"
+              action="action_hom_project_dossier_wizard" sequence="10"/>
+
+    <record id="view_project_form_hom_dossier" model="ir.ui.view">
+        <field name="name">project.project.form.hom.dossier</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="%(action_hom_project_dossier_wizard)d" type="action" class="oe_stat_button" icon="description"
+                        context="{'active_model': 'project.project', 'active_id': id}">
+                    <div class="o_stat_info"><span class="o_stat_text">Project Dossier</span></div>
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_order_form_hom_dossier" model="ir.ui.view">
+        <field name="name">sale.order.form.hom.dossier</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_hom_dossier" type="object" class="oe_stat_button" icon="description"
+                        invisible="hom_project_type != 'contracting' or state != 'sale'">
+                    <div class="o_stat_info"><span class="o_stat_text">Project Dossier</span></div>
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>

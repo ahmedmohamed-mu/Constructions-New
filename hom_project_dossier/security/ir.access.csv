@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_hom_dossier_wizard_project,dossier wizard project,hom.project.dossier.wizard,project.group_project_manager,crud,
+access_hom_dossier_wizard_account,dossier wizard accounting,hom.project.dossier.wizard,account.group_account_manager,crud,
+access_hom_dossier_wizard_sale,dossier wizard sales,hom.project.dossier.wizard,sales_team.group_sale_manager,crud,

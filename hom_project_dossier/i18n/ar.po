@@ -1,0 +1,1171 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hom_project_dossier
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-26 09:07+0000\n"
+"PO-Revision-Date: 2026-10-26 09:07+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hom_project_dossier
+#: model:ir.actions.report,print_report_name:hom_project_dossier.action_report_project_dossier
+msgid "'Project Dossier - %s' % object.name"
+msgstr "'ملف المشروع - %s' % object.name"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "1 · الملخص التنفيذي <small>Executive summary</small>"
+msgstr "1 · الملخص التنفيذي <small>Executive summary</small>"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid ""
+"10 · البرنامج الزمني <small>Milestones, tasks &amp; status updates</small>"
+msgstr ""
+"10 · البرنامج الزمني <small>Milestones, tasks &amp; status updates</small>"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid ""
+"11 · دفتر حركة الأموال على المشروع <small>Every money movement (analytic "
+"ledger)</small>"
+msgstr ""
+"11 · دفتر حركة الأموال على المشروع <small>Every money movement (analytic "
+"ledger)</small>"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "2 · المطابقة مع الحسابات <small>Accounting tie-out</small>"
+msgstr "2 · المطابقة مع الحسابات <small>Accounting tie-out</small>"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "3 · العقد والمقايسة <small>Contract &amp; BOQ progress</small>"
+msgstr "3 · العقد والمقايسة <small>Contract &amp; BOQ progress</small>"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid ""
+"4 · مستخلصات المالك والفواتير والتحصيل <small>Certificates, invoices &amp; "
+"collections</small>"
+msgstr ""
+"4 · مستخلصات المالك والفواتير والتحصيل <small>Certificates, invoices &amp; "
+"collections</small>"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid ""
+"5 · المشتريات ومقاولو الباطن <small>Procurement &amp; subcontracts</small>"
+msgstr ""
+"5 · المشتريات ومقاولو الباطن <small>Procurement &amp; subcontracts</small>"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "6 · حركة الخامات <small>Material movements</small>"
+msgstr "6 · حركة الخامات <small>Material movements</small>"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "7 · العُهد والمصروفات والعمالة <small>Expenses &amp; labour</small>"
+msgstr "7 · العُهد والمصروفات والعمالة <small>Expenses &amp; labour</small>"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "8 · الموازنة مقابل الفعلي <small>Budget vs actual</small>"
+msgstr "8 · الموازنة مقابل الفعلي <small>Budget vs actual</small>"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid ""
+"9 · الموقع <small>Site measurements, daily reports &amp; submittals</small>"
+msgstr ""
+"9 · الموقع <small>Site measurements, daily reports &amp; submittals</small>"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid ""
+"<br/>\n"
+"                                <span class=\"note\" style=\"display:inline-block; margin-top:4px\">كل رقم أخضر مسطّر قابل للضغط ويفتح المستند الأصلي</span>"
+msgstr ""
+"<br/>\n"
+"                                <span class=\"note\" style=\"display:inline-block; margin-top:4px\">كل رقم أخضر مسطّر قابل للضغط ويفتح المستند الأصلي</span>"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "<br/>بواسطة"
+msgstr "<br/>بواسطة"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.view_order_form_hom_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.view_project_form_hom_dossier
+msgid "<span class=\"o_stat_text\">Project Dossier</span>"
+msgstr "<span class=\"o_stat_text\">ملف المشروع</span>"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "<span>الإيراد المسجل على المشروع</span>"
+msgstr "<span>الإيراد المسجل على المشروع</span>"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "<span>التكلفة الفعلية</span>"
+msgstr "<span>التكلفة الفعلية</span>"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "<span>التكلفة المتوقعة عند الإنهاء (EAC)</span>"
+msgstr "<span>التكلفة المتوقعة عند الإنهاء (EAC)</span>"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "<span>المحصل</span>"
+msgstr "<span>المحصل</span>"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "<span>المعتمد حتى تاريخه</span>"
+msgstr "<span>المعتمد حتى تاريخه</span>"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "<span>المفوتر (أعمال)</span>"
+msgstr "<span>المفوتر (أعمال)</span>"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "<span>الموازنة</span>"
+msgstr "<span>الموازنة</span>"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "<span>خطابات ضمان قائمة (صادرة)</span>"
+msgstr "<span>خطابات ضمان قائمة (صادرة)</span>"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "<span>قيمة العقد الحالية</span>"
+msgstr "<span>قيمة العقد الحالية</span>"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "<span>محتجز لدى العميل</span>"
+msgstr "<span>محتجز لدى العميل</span>"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "<span>مقدم لم يُسترد</span>"
+msgstr "<span>مقدم لم يُسترد</span>"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "<span>ملتزم به (أوامر شراء غير مفوترة)</span>"
+msgstr "<span>ملتزم به (أوامر شراء غير مفوترة)</span>"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "<span>من الحسابات التحليلية</span>"
+msgstr "<span>من الحسابات التحليلية</span>"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "<span>يُصرف بعد التسليم</span>"
+msgstr "<span>يُصرف بعد التسليم</span>"
+
+#. module: hom_project_dossier
+#. odoo-python
+#: code:addons/hom_project_dossier/models/project_dossier.py:0
+msgid "Advance"
+msgstr "دفعة مقدمة"
+
+#. module: hom_project_dossier
+#. odoo-python
+#: code:addons/hom_project_dossier/models/project_dossier.py:0
+msgid "Advance still to recover"
+msgstr "مقدم لم يُسترد بعد"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "Back-to-back"
+msgstr "Back-to-back"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.view_hom_project_dossier_wizard
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: hom_project_dossier
+#. odoo-python
+#: code:addons/hom_project_dossier/models/project_dossier.py:0
+msgid "Certificate"
+msgstr "مستخلص"
+
+#. module: hom_project_dossier
+#: model:ir.model.fields,field_description:hom_project_dossier.field_hom_project_dossier_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: hom_project_dossier
+#: model:ir.model.fields,field_description:hom_project_dossier.field_hom_project_dossier_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: hom_project_dossier
+#. odoo-python
+#: code:addons/hom_project_dossier/models/project_dossier.py:0
+msgid "Credit note"
+msgstr "إشعار دائن"
+
+#. module: hom_project_dossier
+#: model:ir.model.fields,field_description:hom_project_dossier.field_hom_project_dossier_wizard__display_name
+#: model:ir.model.fields,field_description:hom_project_dossier.field_project_project__display_name
+#: model:ir.model.fields,field_description:hom_project_dossier.field_report_hom_project_dossier_report_project_dossier__display_name
+#: model:ir.model.fields,field_description:hom_project_dossier.field_sale_order__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: hom_project_dossier
+#. odoo-python
+#: code:addons/hom_project_dossier/models/project_dossier.py:0
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: hom_project_dossier
+#: model:ir.model.fields,field_description:hom_project_dossier.field_hom_project_dossier_wizard__date_from
+msgid "From"
+msgstr "من"
+
+#. module: hom_project_dossier
+#: model:ir.module.module,shortdesc:base.module_hom_project_dossier
+msgid "H.O.M Contracting - Project Dossier"
+msgstr "H.O.M مقاولات - ملف المشروع الشامل"
+
+#. module: hom_project_dossier
+#: model:ir.model,name:hom_project_dossier.model_report_hom_project_dossier_report_project_dossier
+msgid "H.O.M Project Dossier"
+msgstr "ملف المشروع الشامل"
+
+#. module: hom_project_dossier
+#: model:ir.model.fields,field_description:hom_project_dossier.field_hom_project_dossier_wizard__id
+#: model:ir.model.fields,field_description:hom_project_dossier.field_project_project__id
+#: model:ir.model.fields,field_description:hom_project_dossier.field_report_hom_project_dossier_report_project_dossier__id
+#: model:ir.model.fields,field_description:hom_project_dossier.field_sale_order__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: hom_project_dossier
+#. odoo-python
+#: code:addons/hom_project_dossier/models/project_dossier.py:0
+msgid "Issue to site"
+msgstr "صرف للموقع"
+
+#. module: hom_project_dossier
+#: model:ir.model.fields,field_description:hom_project_dossier.field_hom_project_dossier_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: hom_project_dossier
+#: model:ir.model.fields,field_description:hom_project_dossier.field_hom_project_dossier_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: hom_project_dossier
+#: model:ir.model.fields,help:hom_project_dossier.field_hom_project_dossier_wizard__date_from
+msgid "Leave empty to include everything since the start of the project."
+msgstr "اتركه فارغًا لعرض كل شيء منذ بداية المشروع."
+
+#. module: hom_project_dossier
+#: model:ir.module.module,summary:base.module_hom_project_dossier
+msgid ""
+"One printable, clickable report per project (ملف المشروع الشامل): contract, "
+"BOQ progress, certificates, invoices, collections, guarantees, purchases, "
+"subcontracts, materials, expenses, labour, budget, site records and every "
+"accounting movement, reconciled to the general ledger."
+msgstr ""
+"One printable, clickable report per project (ملف المشروع الشامل): contract, "
+"BOQ progress, certificates, invoices, collections, guarantees, purchases, "
+"subcontracts, materials, expenses, labour, budget, site records and every "
+"accounting movement, reconciled to the general ledger."
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.view_hom_project_dossier_wizard
+msgid ""
+"One report with everything recorded on the project: contract and BOQ progress, variation orders,\n"
+"                    certificates, invoices and collections, guarantees, purchases, subcontracts, vendor bills,\n"
+"                    material movements, expenses, labour, budget, site records, schedule and every accounting\n"
+"                    movement booked on the project — each line opens its source document."
+msgstr ""
+"تقرير واحد بكل ما سُجّل على المشروع: العقد وإنجاز المقايسة، أوامر التغيير، "
+"المستخلصات، الفواتير والتحصيل، خطابات الضمان، المشتريات، مقاولو الباطن، "
+"فواتير الموردين، حركة الخامات، المصروفات، العمالة، الموازنة، سجلات الموقع، "
+"البرنامج الزمني، وكل حركة محاسبية على المشروع — وكل سطر يفتح مستنده الأصلي."
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.view_hom_project_dossier_wizard
+msgid "Open Dossier"
+msgstr "عرض الملف"
+
+#. module: hom_project_dossier
+#. odoo-python
+#: code:addons/hom_project_dossier/models/project_dossier.py:0
+msgid "Owner balance (receivable)"
+msgstr "رصيد العميل (مدينون)"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.view_hom_project_dossier_wizard
+msgid "Period"
+msgstr "الفترة"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.view_hom_project_dossier_wizard
+msgid "Print PDF"
+msgstr "طباعة PDF"
+
+#. module: hom_project_dossier
+#: model:ir.model,name:hom_project_dossier.model_project_project
+#: model:ir.model.fields,field_description:hom_project_dossier.field_hom_project_dossier_wizard__project_id
+msgid "Project"
+msgstr "المشروع"
+
+#. module: hom_project_dossier
+#: model:ir.actions.act_window,name:hom_project_dossier.action_hom_project_dossier_wizard
+#: model:ir.actions.report,name:hom_project_dossier.action_report_project_dossier_html
+#: model:ir.model,name:hom_project_dossier.model_hom_project_dossier_wizard
+#: model:ir.ui.menu,name:hom_project_dossier.menu_hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.view_hom_project_dossier_wizard
+msgid "Project Dossier"
+msgstr "ملف المشروع الشامل"
+
+#. module: hom_project_dossier
+#: model:ir.actions.report,name:hom_project_dossier.action_report_project_dossier
+msgid "Project Dossier (PDF)"
+msgstr "ملف المشروع الشامل (PDF)"
+
+#. module: hom_project_dossier
+#. odoo-python
+#: code:addons/hom_project_dossier/models/project_dossier.py:0
+msgid "Receipt"
+msgstr "استلام"
+
+#. module: hom_project_dossier
+#: model:ir.ui.menu,name:hom_project_dossier.menu_hom_reports_top
+msgid "Reports"
+msgstr "التقارير"
+
+#. module: hom_project_dossier
+#. odoo-python
+#: code:addons/hom_project_dossier/models/project_dossier.py:0
+msgid "Retention release"
+msgstr "صرف محتجز"
+
+#. module: hom_project_dossier
+#. odoo-python
+#: code:addons/hom_project_dossier/models/project_dossier.py:0
+msgid "Retention to collect"
+msgstr "محتجز مستحق التحصيل"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "Rev"
+msgstr ""
+
+#. module: hom_project_dossier
+#: model:ir.model,name:hom_project_dossier.model_sale_order
+msgid "Sales Order"
+msgstr "أمر البيع"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.view_hom_project_dossier_wizard
+msgid "Since start"
+msgstr "منذ البداية"
+
+#. module: hom_project_dossier
+#. odoo-python
+#: code:addons/hom_project_dossier/wizard/dossier_wizard.py:0
+msgid "The start date must be before the end date."
+msgstr "تاريخ البداية يجب أن يكون قبل تاريخ النهاية."
+
+#. module: hom_project_dossier
+#. odoo-python
+#: code:addons/hom_project_dossier/models/project_dossier.py:0
+msgid "Timesheet"
+msgstr "ساعات عمل"
+
+#. module: hom_project_dossier
+#. odoo-python
+#: code:addons/hom_project_dossier/models/project_dossier.py:0
+msgid "Timesheets (labour)"
+msgstr "ساعات العمل (عمالة)"
+
+#. module: hom_project_dossier
+#: model:ir.model.fields,field_description:hom_project_dossier.field_hom_project_dossier_wizard__date_to
+msgid "To"
+msgstr "إلى"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.view_hom_project_dossier_wizard
+msgid "Today"
+msgstr "اليوم"
+
+#. module: hom_project_dossier
+#. odoo-python
+#: code:addons/hom_project_dossier/models/project_dossier.py:0
+msgid "Transfer"
+msgstr "تحويل"
+
+#. module: hom_project_dossier
+#. odoo-python
+#: code:addons/hom_project_dossier/models/project_dossier.py:0
+msgid "Unassigned"
+msgstr "غير محدد"
+
+#. module: hom_project_dossier
+#. odoo-python
+#: code:addons/hom_project_dossier/models/project_dossier.py:0
+msgid "Work invoiced (revenue)"
+msgstr "الأعمال المفوترة (إيراد)"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "أثر العقد"
+msgstr "أثر العقد"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "أثر الموازنة"
+msgstr "أثر الموازنة"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid ""
+"أرقام التقرير مقارنة بالأستاذ العام (القيود المرحّلة فقط). أي فرق يظهر "
+"باللون الأحمر."
+msgstr ""
+"أرقام التقرير مقارنة بالأستاذ العام (القيود المرحّلة فقط). أي فرق يظهر "
+"باللون الأحمر."
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "أعمال الفترة"
+msgstr "أعمال الفترة"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "أمر الشراء"
+msgstr "أمر الشراء"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "أوامر التغيير"
+msgstr "أوامر التغيير"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "أوامر الشراء (خامات ومعدات)"
+msgstr "أوامر الشراء (خامات ومعدات)"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "أوامر تغيير:"
+msgstr "أوامر تغيير:"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "إجمالي الفاتورة"
+msgstr "إجمالي الفاتورة"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "إجمالي القيمة"
+msgstr "إجمالي القيمة"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "إجمالي المحصل"
+msgstr "إجمالي المحصل"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "إجمالي بالضريبة"
+msgstr "إجمالي بالضريبة"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "إلى"
+msgstr "إلى"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "استرداد مقدم"
+msgstr "استرداد مقدم"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "اعتمادات الاستشاري"
+msgstr "اعتمادات الاستشاري"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "الأصلي"
+msgstr "الأصلي"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "الإجمالي"
+msgstr "الإجمالي"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "الإجمالي (المرحّل)"
+msgstr "الإجمالي (المرحّل)"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "الإصدار"
+msgstr "الإصدار"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "الإنجاز"
+msgstr "الإنجاز"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "الاتجاه"
+msgstr "الاتجاه"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "الاستحقاق"
+msgstr "الاستحقاق"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "الاستشاري"
+msgstr "الاستشاري"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "الاستهلاك"
+msgstr "الاستهلاك"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "الانتهاء"
+msgstr "الانتهاء"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "البند"
+msgstr "البند"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "البنك"
+msgstr "البنك"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "البيان"
+msgstr "البيان"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "التاريخ"
+msgstr "التاريخ"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "التحصيلات"
+msgstr "التحصيلات"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "التخصص"
+msgstr "التخصص"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "التراكمي"
+msgstr "التراكمي"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "التقارير اليومية"
+msgstr "التقارير اليومية"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "التقديم"
+msgstr "التقديم"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "التكلفة"
+msgstr "التكلفة"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "الحالة"
+msgstr "الحالة"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "الحالي"
+msgstr "الحالي"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "الحساب"
+msgstr "الحساب"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "الحساب التحليلي"
+msgstr "الحساب التحليلي"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "الرصيد"
+msgstr "الرصيد"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "الرقم"
+msgstr "الرقم"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "الساعات"
+msgstr "الساعات"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "السبب"
+msgstr "السبب"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "السداد"
+msgstr "السداد"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "الصافي"
+msgstr "الصافي"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "الصنف"
+msgstr "الصنف"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "الضريبة"
+msgstr "الضريبة"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "الطرف"
+msgstr "الطرف"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "العقد"
+msgstr "العقد"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "العمالة"
+msgstr "العمالة"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "العميل"
+msgstr "العميل"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "الفاتورة"
+msgstr "الفاتورة"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "الفترة"
+msgstr "الفترة"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "الفعلي"
+msgstr "الفعلي"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "القسم"
+msgstr "القسم"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "القيد"
+msgstr "القيد"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "القيمة"
+msgstr "القيمة"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "الكمية"
+msgstr "الكمية"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "الكود"
+msgstr "الكود"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "المبلغ"
+msgstr "المبلغ"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "المتبقي"
+msgstr "المتبقي"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "المحصل"
+msgstr "المحصل"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "المدة"
+msgstr "المدة"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "المرجع"
+msgstr "المرجع"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "المرحلة"
+msgstr "المرحلة"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "المسؤول"
+msgstr "المسؤول"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "المستخلص"
+msgstr "المستخلص"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "المستلم"
+msgstr "المستلم"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "المستند"
+msgstr "المستند"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "المشتري"
+msgstr "المشتري"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "المصدر"
+msgstr "المصدر"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "المعتمد"
+msgstr "المعتمد"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "المفوتر"
+msgstr "المفوتر"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "المقدم / المحتجز"
+msgstr "المقدم / المحتجز"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "المكان"
+msgstr "المكان"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "المنفذ (مستلم)"
+msgstr "المنفذ (مستلم)"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "المنفذ المعتمد"
+msgstr "المنفذ المعتمد"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "المهمة"
+msgstr "المهمة"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "المهندس"
+msgstr "المهندس"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "الموازنة"
+msgstr "الموازنة"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "المورد"
+msgstr "المورد"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "الموضوع"
+msgstr "الموضوع"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "الموظف"
+msgstr "الموظف"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "الموعد"
+msgstr "الموعد"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "الموعد المخطط"
+msgstr "الموعد المخطط"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "النوع"
+msgstr "النوع"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "الوحدة"
+msgstr "الوحدة"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "الوصف"
+msgstr "الوصف"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "اليومية"
+msgstr "اليومية"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "تاريخ الإنجاز"
+msgstr "تاريخ الإنجاز"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "تحديث الحالة"
+msgstr "تحديث الحالة"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "حتى"
+msgstr "حتى"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "خطاب"
+msgstr "خطاب"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "خطابات الضمان"
+msgstr "خطابات الضمان"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "دورية المستخلص"
+msgstr "دورية المستخلص"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "رصيد الأستاذ العام"
+msgstr "رصيد الأستاذ العام"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "رقم النظام"
+msgstr "رقم النظام"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "سبب التوقف"
+msgstr "سبب التوقف"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "سعر الوحدة"
+msgstr "سعر الوحدة"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "سليم"
+msgstr "سليم"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "صافي نتيجة المشروع"
+msgstr "صافي نتيجة المشروع"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "طُبع في"
+msgstr "طُبع في"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "عدد الحركات"
+msgstr "عدد الحركات"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "عقد باطن:"
+msgstr "عقد باطن:"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "عن الفواتير"
+msgstr "عن الفواتير"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "فاتورة المورد"
+msgstr "فاتورة المورد"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "فواتير العميل (القيود)"
+msgstr "فواتير العميل (القيود)"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "فواتير الموردين ومقاولي الباطن المحمّلة على المشروع"
+msgstr "فواتير الموردين ومقاولي الباطن المحمّلة على المشروع"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "قبل الضريبة"
+msgstr "قبل الضريبة"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "قيد التنفيذ"
+msgstr "قيد التنفيذ"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "قيمة العقد"
+msgstr "قيمة العقد"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "قيمة المشروع"
+msgstr "قيمة المشروع"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "قيمة المعتمد"
+msgstr "قيمة المعتمد"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid ""
+"كل قيد محاسبي أو ساعة عمل تم تحميلها على الحساب التحليلي للمشروع، بالترتيب "
+"الزمني. الموجب إيراد والسالب تكلفة."
+msgstr ""
+"كل قيد محاسبي أو ساعة عمل تم تحميلها على الحساب التحليلي للمشروع، بالترتيب "
+"الزمني. الموجب إيراد والسالب تكلفة."
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "كمية العقد"
+msgstr "كمية العقد"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "لا توجد أوامر شراء على المشروع"
+msgstr "لا توجد أوامر شراء على المشروع"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "لا توجد حركات تحليلية في الفترة"
+msgstr "لا توجد حركات تحليلية في الفترة"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "لا توجد حركات مخزنية في الفترة"
+msgstr "لا توجد حركات مخزنية في الفترة"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "لا توجد فواتير موردين في الفترة"
+msgstr "لا توجد فواتير موردين في الفترة"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "لا توجد مستخلصات في الفترة"
+msgstr "لا توجد مستخلصات في الفترة"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "لا توجد مصروفات محمّلة على المشروع"
+msgstr "لا توجد مصروفات محمّلة على المشروع"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "لا توجد موازنة مسجلة للمشروع"
+msgstr "لا توجد موازنة مسجلة للمشروع"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "لا يوجد حصر في الفترة"
+msgstr "لا يوجد حصر في الفترة"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "متأخر"
+msgstr "متأخر"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "متبقي عند العميل"
+msgstr "متبقي عند العميل"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "محتجز"
+msgstr "محتجز"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "محتجز لدينا"
+msgstr "محتجز لدينا"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "مدير المشروع"
+msgstr "مدير المشروع"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "مستحق لموردين/باطن"
+msgstr "مستحق لموردين/باطن"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "مستهلك"
+msgstr "مستهلك"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "مقدم متبقي"
+msgstr "مقدم متبقي"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "مقدم مدفوع"
+msgstr "مقدم مدفوع"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "مقدم مسترد"
+msgstr "مقدم مسترد"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "ملتزم"
+msgstr "ملتزم"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "ملتزم متبقي"
+msgstr "ملتزم متبقي"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "ملف المشروع الشامل · Project Dossier"
+msgstr "ملف المشروع الشامل · Project Dossier"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "من"
+msgstr "من"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "منذ البداية"
+msgstr "منذ البداية"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "نتيجة المشروع حسب الحساب (من القيود)"
+msgstr "نتيجة المشروع حسب الحساب (من القيود)"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "نصيب المشروع"
+msgstr "نصيب المشروع"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "هامش حالي"
+msgstr "هامش حالي"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "هامش متوقع"
+msgstr "هامش متوقع"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "يسبق المالك"
+msgstr "يسبق المالك"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "✓ تمت"
+msgstr "✓ تمت"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "✓ مطابق"
+msgstr "✓ مطابق"
+
+#. module: hom_project_dossier
+#: model_terms:ir.ui.view,arch_db:hom_project_dossier.report_project_dossier
+msgid "✗ فرق"
+msgstr "✗ فرق"

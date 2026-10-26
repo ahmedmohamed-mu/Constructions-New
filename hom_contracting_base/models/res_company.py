@@ -25,3 +25,16 @@ class ResCompany(models.Model):
     hom_management_user_id = fields.Many2one(
         "res.users", string="Top Management",
         help="Receives contracting alerts (budget overrun, margin risk), usually the CEO.")
+
+    def _hom_contract_balance_accounts(self):
+        """Advance and retention accounts of the contracts (customer and subcontractor side)."""
+        self.ensure_one()
+        accounts = self.env["account.account"]
+        if "downpayment_account_id" in self._fields:
+            accounts |= self.downpayment_account_id
+        products = (self.hom_retention_owner_product_id | self.hom_retention_sub_product_id
+                    | self.hom_sub_advance_product_id | self.hom_sub_advance_recovery_product_id)
+        for product in products:
+            found = product.product_tmpl_id.with_company(self)._get_product_accounts()
+            accounts |= (found.get("income") or accounts) | (found.get("expense") or accounts)
+        return accounts

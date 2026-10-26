@@ -40,3 +40,22 @@ class TestRetentionRelease(AccountTestInvoicingCommon):
                 {"name": "Monthly", "billing_period_value": 1, "billing_period_unit": "month"})
             sub = self.env["sale.order"].create({"partner_id": self.partner_a.id, "plan_id": plan.id})
             self.assertEqual(sub.hom_project_type, "fm")
+
+    def test_no_project_analytic_on_advance_and_retention(self):
+        ret_acc = self.company_data["default_account_receivable"].copy(
+            {"code": "102029", "name": "Retention QA", "account_type": "asset_current", "reconcile": False})
+        retention = self.env.ref("hom_contracting_base.product_retention_owner")
+        retention.property_account_income_id = ret_acc
+        self.env.company.hom_retention_owner_product_id = retention
+        plan = self.env["account.analytic.plan"].create({"name": "Projects QA"})
+        project_acc = self.env["account.analytic.account"].create({"name": "Site QA", "plan_id": plan.id})
+        move = self.env["account.move"].create({
+            "move_type": "out_invoice", "partner_id": self.partner_a.id,
+            "invoice_line_ids": [
+                Command.create({"name": "Work", "price_unit": 1000, "analytic_distribution": {str(project_acc.id): 100}}),
+                Command.create({"product_id": retention.id, "quantity": 1, "price_unit": -50,
+                                "analytic_distribution": {str(project_acc.id): 100}}),
+            ]})
+        work, ret = move.invoice_line_ids
+        self.assertTrue(work.analytic_distribution)
+        self.assertFalse(ret.analytic_distribution, "retention stays off the project P&L")

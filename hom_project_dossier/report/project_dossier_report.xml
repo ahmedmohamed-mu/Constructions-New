@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="paperformat_dossier" model="report.paperformat">
+        <field name="name">H.O.M Dossier A4</field>
+        <field name="format">A4</field>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">28</field>
+        <field name="margin_bottom">16</field>
+        <field name="margin_left">8</field>
+        <field name="margin_right">8</field>
+        <field name="header_spacing">22</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <record id="action_report_project_dossier" model="ir.actions.report">
+        <field name="name">Project Dossier (PDF)</field>
+        <field name="model">project.project</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hom_project_dossier.report_project_dossier</field>
+        <field name="print_report_name">'Project Dossier - %s' % object.name</field>
+        <field name="paperformat_id" ref="paperformat_dossier"/>
+        <field name="binding_model_id" ref="project.model_project_project"/>
+        <field name="binding_type">report</field>
+    </record>
+    <record id="action_report_project_dossier_html" model="ir.actions.report">
+        <field name="name">Project Dossier</field>
+        <field name="model">project.project</field>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">hom_project_dossier.report_project_dossier</field>
+        <field name="paperformat_id" ref="paperformat_dossier"/>
+    </record>
+
+    <template id="report_project_dossier">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="project">
+                <t t-set="d" t-value="dossiers[project.id]"/>
+                <t t-set="k" t-value="d['kpi']"/>
+                <t t-set="o" t-value="d['order']"/>
+                <t t-call="web.external_layout">
+                    <t t-set="doc" t-value="project"/>
+                    <t t-set="rtl" t-value="(project.env.lang or '').startswith('ar')"/>
+                    <div t-att-class="'page hom-dossier ' + ('rtl' if rtl else 'ltr')">
+                        <style>
+                            .hom-dossier { font-size: 10.5px; color: #1A201C; width: 100%; }
+                            .hom-dossier.rtl { text-align: right; }
+                            .hom-dossier h1 { font-size: 20px; margin: 0 0 2px; color: #1E2521; }
+                            .hom-dossier h2 { font-size: 13.5px; margin: 16px 0 6px; padding: 5px 9px; background: #1E2521; color: #fff !important; border-radius: 4px; page-break-after: avoid; }
+                            .hom-dossier h2 small { color: #CFE8BF; font-weight: normal; padding: 0 8px; }
+                            .hom-dossier h3 { font-size: 11.5px; margin: 10px 0 4px; color: #3E8E2B; }
+                            .hom-dossier .sub { color: #6E7A71; }
+                            .hom-dossier table.t { width: 100%; border-collapse: collapse; margin-bottom: 6px; page-break-inside: auto; }
+                            .hom-dossier table.t tr { page-break-inside: avoid; }
+                            .hom-dossier table.t th { background: #ECF0EA; color: #1E2521; font-weight: 600; padding: 4px 5px; border-bottom: 2px solid #6DB33F; text-align: left; }
+                            .hom-dossier.rtl table.t th { text-align: right; }
+                            .hom-dossier table.t td { padding: 3px 5px; border-bottom: 1px solid #E3E8E2; vertical-align: top; }
+                            .hom-dossier table.t td.n, .hom-dossier table.t th.n { text-align: right; white-space: nowrap; direction: ltr; }
+                            .hom-dossier.rtl table.t td.n, .hom-dossier.rtl table.t th.n { text-align: left; }
+                            .hom-dossier table.t tr.tot td { font-weight: 700; background: #F3F5F2; border-top: 2px solid #1E2521; }
+                            .hom-dossier .neg { color: #B42318; }
+                            .hom-dossier .lnk { color: #2D6A1E; text-decoration: none; border-bottom: 1px dotted #6DB33F; }
+                            .hom-dossier .kpis { display: table; width: 100%; border-spacing: 6px 4px; margin: 0; table-layout: fixed; }
+                            .hom-dossier .kpi { display: table-cell; width: 16.6%; background: #F3F5F2; border-radius: 6px; padding: 7px 9px; border-left: 4px solid #6DB33F; }
+                            .hom-dossier.rtl .kpi { border-left: none; border-right: 4px solid #6DB33F; }
+                            .hom-dossier .kpi.warn { border-left-color: #E8A33D; border-right-color: #E8A33D; }
+                            .hom-dossier .kpi.red { border-left-color: #B42318; border-right-color: #B42318; }
+                            .hom-dossier .kpi b { display: block; font-size: 14px; color: #1E2521; }
+                            .hom-dossier .kpi span { color: #6E7A71; font-size: 9.5px; }
+                            .hom-dossier .bar { height: 6px; background: #E3E8E2; border-radius: 3px; overflow: hidden; margin-top: 3px; }
+                            .hom-dossier .bar i { display: block; height: 6px; background: #6DB33F; }
+                            .hom-dossier .ok { color: #2D6A1E; font-weight: 700; }
+                            .hom-dossier .ko { color: #B42318; font-weight: 700; }
+                            .hom-dossier .pill { display: inline-block; padding: 1px 6px; border-radius: 8px; background: #ECF0EA; font-size: 9px; }
+                            .hom-dossier .pill.r { background: #FDE7E5; color: #B42318; }
+                            .hom-dossier .meta td { padding: 2px 10px 2px 0; }
+                            .hom-dossier .note { background: #F3F5F2; border-radius: 4px; padding: 6px 9px; color: #4A554D; margin: 4px 0 8px; }
+                            .hom-dossier .ltr { direction: ltr; unicode-bidi: embed; display: inline-block; }
+                            @media print { .hom-dossier .lnk { border-bottom: none; } }
+                        </style>
+
+                        <!-- ===================== Header ===================== -->
+                        <table style="width:100%"><tr>
+                            <td>
+                                <div class="sub">ملف المشروع الشامل · Project Dossier</div>
+                                <h1><t t-out="link(project, project.name)"/></h1>
+                                <table class="meta">
+                                    <tr><td class="sub">العقد</td><td><t t-out="link(o, o.name if o else '-')"/>
+                                        <t t-if="o and o.client_order_ref"> · <t t-out="o.client_order_ref"/></t></td>
+                                        <td class="sub">العميل</td><td t-out="(o.partner_id.name if o else project.partner_id.name) or '-'" style="max-width:220px"/>
+                                        <td class="sub">الاستشاري</td><td t-out="(o.hom_consultant_id.name if o else '') or '-'"/></tr>
+                                    <tr><td class="sub">مدير المشروع</td><td t-out="project.user_id.name or '-'"/>
+                                        <td class="sub">المدة</td><td><span class="ltr"><t t-out="project.date_start or '-'"/> → <t t-out="project.date or '-'"/></span></td>
+                                        <td class="sub">الحساب التحليلي</td><td><t t-out="project.account_id.code or ''"/> <t t-out="project.account_id.name or '-'"/></td></tr>
+                                    <tr><td class="sub">المقدم / المحتجز</td><td t-if="o"><span class="ltr" t-out="fmt(o.hom_advance_pct, 0) + '% / ' + fmt(o.hom_retention_pct, 0) + '%'"/></td><td t-else="">-</td>
+                                        <td class="sub">دورية المستخلص</td><td t-if="o"><t t-set="fq" t-value="dict(o._fields['hom_certificate_frequency']._description_selection(o.env)).get(o.hom_certificate_frequency) or ''"/><t t-out="fq.split(' / ')[-1] if rtl else fq.split(' / ')[0]"/></td><td t-else="">-</td>
+                                        <td class="sub">الفترة</td><td><t t-if="d['date_from'] or d['date_to']"><span class="ltr"><t t-out="d['date_from'] or '...'"/> → <t t-out="d['date_to'] or '...'"/></span></t><t t-else="">منذ البداية</t></td></tr>
+                                </table>
+                            </td>
+                            <td t-att-style="'width:24%; vertical-align:top; text-align:' + ('left' if rtl else 'right')" class="sub">
+                                طُبع في <t t-out="printed_on.strftime('%Y-%m-%d %H:%M')"/><br/>بواسطة <t t-out="printed_by"/><br/>
+                                <span class="note" style="display:inline-block; margin-top:4px">كل رقم أخضر مسطّر قابل للضغط ويفتح المستند الأصلي</span>
+                            </td>
+                        </tr></table>
+
+                        <!-- ===================== 1. Executive summary ===================== -->
+                        <h2>1 · الملخص التنفيذي <small>Executive summary</small></h2>
+                        <div class="kpis">
+                            <div class="kpi"><span>قيمة العقد الحالية</span><b t-out="fmt(k['contract'], 0)"/><span>أوامر تغيير: <t t-out="fmt(k['variations'], 0)"/></span></div>
+                            <div class="kpi"><span>المعتمد حتى تاريخه</span><b t-out="fmt(k['certified'], 0)"/><div class="bar"><i t-att-style="'width:' + str(round(min(k['certified_pct'], 100), 1)) + '%'"/></div><span t-out="fmt(k['certified_pct'], 1) + '%'"/></div>
+                            <div class="kpi"><span>المفوتر (أعمال)</span><b t-out="fmt(k['invoiced_work'], 0)"/><span>إجمالي بالضريبة <t t-out="fmt(k['invoiced_total'], 0)"/></span></div>
+                            <div class="kpi"><span>المحصل</span><b t-out="fmt(k['collected'], 0)"/><span>متبقي عند العميل <t t-out="fmt(k['receivable'], 0)"/></span></div>
+                            <div class="kpi warn"><span>مقدم لم يُسترد</span><b t-out="fmt(k['advance_left'], 0)"/><span>من <t t-out="fmt(k['advance_received'], 0)"/></span></div>
+                            <div class="kpi warn"><span>محتجز لدى العميل</span><b t-out="fmt(k['retention'], 0)"/><span>يُصرف بعد التسليم</span></div>
+                        </div>
+                        <div class="kpis">
+                            <div class="kpi"><span>الإيراد المسجل على المشروع</span><b t-out="fmt(k['revenue'], 0)"/><span>من الحسابات التحليلية</span></div>
+                            <div class="kpi"><span>التكلفة الفعلية</span><b t-out="fmt(k['cost'], 0)"/><span>هامش حالي <t t-out="fmt(k['margin_now'], 1)"/>%</span></div>
+                            <div class="kpi"><span>ملتزم به (أوامر شراء غير مفوترة)</span><b t-out="fmt(k['committed'], 0)"/><span>مستحق لموردين/باطن <t t-out="fmt(k['sub_payable'], 0)"/></span></div>
+                            <div class="kpi"><span>الموازنة</span><b t-out="fmt(k['budget'], 0)"/><span>مستهلك <t t-out="fmt((k['cost'] / k['budget'] * 100) if k['budget'] else 0, 1)"/>%</span></div>
+                            <div t-att-class="'kpi ' + ('red' if k['margin_eac'] is not None and k['margin_eac'] &lt; 5 else ('warn' if k['margin_eac'] is not None and k['margin_eac'] &lt; 15 else ''))"><span>التكلفة المتوقعة عند الإنهاء (EAC)</span><b t-out="fmt(k['eac'], 0)"/><span>هامش متوقع <t t-out="fmt(k['margin_eac'], 1) if k['margin_eac'] is not None else '-'"/>%</span></div>
+                            <div class="kpi"><span>خطابات ضمان قائمة (صادرة)</span><b t-out="fmt(k['guarantees_out'], 0)"/><span><t t-out="d['counts']['guarantees']"/> خطاب</span></div>
+                        </div>
+
+                        <!-- ===================== 2. Accounting tie-out ===================== -->
+                        <h2>2 · المطابقة مع الحسابات <small>Accounting tie-out</small></h2>
+                        <div class="note">أرقام التقرير مقارنة بالأستاذ العام (القيود المرحّلة فقط). أي فرق يظهر باللون الأحمر.</div>
+                        <table class="t">
+                            <tr><th>البند</th><th class="n">رقم النظام</th><th class="n">رصيد الأستاذ العام</th><th class="n">الحالة</th></tr>
+                            <tr t-foreach="d['tie_out']" t-as="r">
+                                <td t-out="r['label']"/><td class="n" t-out="fmt(r['system'])"/><td class="n" t-out="fmt(r['gl'])"/>
+                                <td class="n"><span t-if="r['ok']" class="ok">✓ مطابق</span><span t-else="" class="ko">✗ فرق <t t-out="fmt(r['system'] - r['gl'])"/></span></td>
+                            </tr>
+                        </table>
+                        <h3>نتيجة المشروع حسب الحساب (من القيود)</h3>
+                        <table class="t">
+                            <tr><th>الحساب</th><th class="n">عدد الحركات</th><th class="n">المبلغ</th></tr>
+                            <tr t-foreach="d['ledger_by_account']" t-as="r">
+                                <td t-out="r[0]"/><td class="n" t-out="r[1][1]"/><td t-att-class="'n neg' if r[1][0] &lt; 0 else 'n'" t-out="fmt(r[1][0])"/>
+                            </tr>
+                            <tr class="tot"><td>صافي نتيجة المشروع</td><td class="n" t-out="len(d['ledger'])"/><td class="n" t-out="fmt(k['revenue'] - k['cost'])"/></tr>
+                        </table>
+
+                        <!-- ===================== 3. Contract & BOQ ===================== -->
+                        <h2>3 · العقد والمقايسة <small>Contract &amp; BOQ progress</small></h2>
+                        <table class="t" t-if="d['boq_sections']">
+                            <tr><th>القسم</th><th class="n">قيمة العقد</th><th class="n">المعتمد</th><th style="width:22%">الإنجاز</th></tr>
+                            <tr t-foreach="[x for x in d['boq_sections'] if x['amount']]" t-as="s">
+                                <t t-set="sp" t-value="(s['certified'] / s['amount'] * 100) if s['amount'] else 0"/>
+                                <td t-out="s['name']"/><td class="n" t-out="fmt(s['amount'], 0)"/><td class="n" t-out="fmt(s['certified'], 0)"/>
+                                <td><div class="bar"><i t-att-style="'width:' + str(round(min(sp, 100), 1)) + '%'"/></div><span class="sub" t-out="fmt(sp, 1) + '%'"/></td>
+                            </tr>
+                        </table>
+                        <table class="t">
+                            <tr><th>البند</th><th>الوصف</th><th>الوحدة</th><th class="n">كمية العقد</th><th class="n">سعر الوحدة</th><th class="n">القيمة</th>
+                                <th class="n">المنفذ المعتمد</th><th class="n">%</th><th class="n">المفوتر</th><th class="n">قيمة المعتمد</th></tr>
+                            <tr t-foreach="d['boq']" t-as="r">
+                                <td><t t-out="link(o, r['code'] or '-')"/></td>
+                                <td t-out="r['name']"/><td t-out="r['uom']"/>
+                                <td class="n" t-out="fmt(r['qty'])"/><td class="n" t-out="fmt(r['price'])"/><td class="n" t-out="fmt(r['amount'])"/>
+                                <td class="n" t-out="fmt(r['qty_done'])"/><td class="n" t-out="fmt(r['pct'], 1)"/><td class="n" t-out="fmt(r['qty_invoiced'])"/><td class="n" t-out="fmt(r['amount_done'])"/>
+                            </tr>
+                            <tr class="tot"><td colspan="5">الإجمالي</td><td class="n" t-out="fmt(sum(r['amount'] for r in d['boq']))"/><td colspan="3"/><td class="n" t-out="fmt(sum(r['amount_done'] for r in d['boq']))"/></tr>
+                        </table>
+                        <t t-if="d['variations']">
+                            <h3>أوامر التغيير</h3>
+                            <table class="t">
+                                <tr><th>الرقم</th><th>التاريخ</th><th>الموضوع</th><th>السبب</th><th>المرجع</th><th class="n">أثر العقد</th><th class="n">أثر الموازنة</th><th>الحالة</th></tr>
+                                <tr t-foreach="d['variations']" t-as="r">
+                                    <td><t t-out="link(r['rec'], r['name'])"/></td>
+                                    <td t-out="r['date']"/><td t-out="r['title']"/><td t-out="r['reason']"/><td t-out="r['ref']"/>
+                                    <td class="n" t-out="fmt(r['amount'])"/><td class="n" t-out="fmt(r['cost'])"/><td t-out="r['state']"/>
+                                </tr>
+                            </table>
+                        </t>
+
+                        <!-- ===================== 4. Owner certificates & invoicing ===================== -->
+                        <h2>4 · مستخلصات المالك والفواتير والتحصيل <small>Certificates, invoices &amp; collections</small></h2>
+                        <table class="t">
+                            <tr><th>المستخلص</th><th>التاريخ</th><th>حتى</th><th>الحالة</th><th class="n">أعمال الفترة</th><th class="n">التراكمي</th>
+                                <th class="n">استرداد مقدم</th><th class="n">محتجز</th><th class="n">الصافي</th><th class="n">الإنجاز</th><th>الفاتورة</th><th>السداد</th></tr>
+                            <tr t-foreach="d['certificates']" t-as="r">
+                                <td><t t-out="link(r['rec'], r['name'])"/></td>
+                                <td t-out="r['date']"/><td t-out="r['period_end'] or ''"/><td t-out="r['state']"/>
+                                <td class="n" t-out="fmt(r['current'])"/><td class="n" t-out="fmt(r['cumulative'])"/>
+                                <td class="n neg" t-out="fmt(r['advance'])"/><td class="n neg" t-out="fmt(r['retention'])"/><td class="n" t-out="fmt(r['net'])"/>
+                                <td class="n" t-out="fmt(r['progress'], 1) + '%'"/>
+                                <td><t t-out="link(r['invoice'], r['invoice'].name if r['invoice'] else '-')"/></td>
+                                <td t-out="r['payment']"/>
+                            </tr>
+                            <tr t-if="not d['certificates']"><td colspan="12" class="sub">لا توجد مستخلصات في الفترة</td></tr>
+                        </table>
+                        <h3>فواتير العميل (القيود)</h3>
+                        <table class="t">
+                            <tr><th>الفاتورة</th><th>التاريخ</th><th>النوع</th><th>الحالة</th><th class="n">قبل الضريبة</th><th class="n">الضريبة</th><th class="n">الإجمالي</th><th class="n">المحصل</th><th class="n">المتبقي</th><th>السداد</th></tr>
+                            <tr t-foreach="d['invoices']" t-as="r">
+                                <td><t t-out="link(r['rec'], r['name'])"/></td>
+                                <td t-out="r['date'] or ''"/><td t-out="r['kind']"/><td t-out="r['state']"/>
+                                <td class="n" t-out="fmt(r['untaxed'])"/><td class="n" t-out="fmt(r['tax'])"/><td class="n" t-out="fmt(r['total'])"/>
+                                <td class="n" t-out="fmt(r['paid'])"/><td class="n" t-out="fmt(r['residual'])"/><td t-out="r['payment_state']"/>
+                            </tr>
+                            <tr class="tot"><td colspan="4">الإجمالي (المرحّل)</td><td class="n" t-out="fmt(d['inv_totals']['untaxed'])"/><td class="n" t-out="fmt(d['inv_totals']['tax'])"/>
+                                <td class="n" t-out="fmt(d['inv_totals']['total'])"/><td class="n" t-out="fmt(d['inv_totals']['paid'])"/><td class="n" t-out="fmt(d['inv_totals']['residual'])"/><td/></tr>
+                        </table>
+                        <t t-if="d['payments']">
+                            <h3>التحصيلات</h3>
+                            <table class="t">
+                                <tr><th>القيد</th><th>التاريخ</th><th>اليومية</th><th>عن الفواتير</th><th class="n">المبلغ</th></tr>
+                                <tr t-foreach="d['payments']" t-as="r">
+                                    <td><t t-out="link(r['rec'], r['name'])"/></td>
+                                    <td t-out="r['date']"/><td t-out="r['journal']"/><td t-out="' · '.join(sorted(set(r['invoices'])))"/><td class="n" t-out="fmt(r['amount'])"/>
+                                </tr>
+                                <tr class="tot"><td colspan="4">إجمالي المحصل</td><td class="n" t-out="fmt(sum(r['amount'] for r in d['payments']))"/></tr>
+                            </table>
+                        </t>
+                        <t t-if="d['guarantees']">
+                            <h3>خطابات الضمان</h3>
+                            <table class="t">
+                                <tr><th>الرقم</th><th>الاتجاه</th><th>النوع</th><th>الطرف</th><th>البنك</th><th class="n">الأصلي</th><th class="n">الحالي</th><th>الإصدار</th><th>الانتهاء</th><th>الحالة</th></tr>
+                                <tr t-foreach="d['guarantees']" t-as="r">
+                                    <td><t t-out="link(r['rec'], r['name'])"/></td>
+                                    <td t-out="r['direction']"/><td t-out="r['type']"/><td t-out="r['partner']"/><td t-out="r['bank']"/>
+                                    <td class="n" t-out="fmt(r['amount'])"/><td class="n" t-out="fmt(r['current'])"/><td t-out="r['issue']"/><td t-out="r['expiry']"/><td t-out="r['state']"/>
+                                </tr>
+                            </table>
+                        </t>
+
+                        <!-- ===================== 5. Procurement & subcontracts ===================== -->
+                        <h2>5 · المشتريات ومقاولو الباطن <small>Procurement &amp; subcontracts</small></h2>
+                        <h3>أوامر الشراء (خامات ومعدات)</h3>
+                        <table class="t">
+                            <tr><th>أمر الشراء</th><th>المورد</th><th>التاريخ</th><th>المشتري</th><th class="n">قيمة المشروع</th><th class="n">المستلم</th><th class="n">المفوتر</th><th class="n">ملتزم متبقي</th></tr>
+                            <tr t-foreach="d['purchases']" t-as="r">
+                                <td><t t-out="link(r['rec'], r['name'])"/></td>
+                                <td t-out="r['partner']"/><td t-out="r['date']"/><td t-out="r['buyer']"/>
+                                <td class="n" t-out="fmt(r['amount'])"/><td class="n" t-out="fmt(r['received'])"/><td class="n" t-out="fmt(r['billed'])"/><td class="n" t-out="fmt(r['open'])"/>
+                            </tr>
+                            <tr t-if="not d['purchases']"><td colspan="8" class="sub">لا توجد أوامر شراء على المشروع</td></tr>
+                            <tr t-else="" class="tot"><td colspan="4">الإجمالي</td><td class="n" t-out="fmt(sum(r['amount'] for r in d['purchases']))"/><td class="n" t-out="fmt(sum(r['received'] for r in d['purchases']))"/><td class="n" t-out="fmt(sum(r['billed'] for r in d['purchases']))"/><td class="n" t-out="fmt(sum(r['open'] for r in d['purchases']))"/></tr>
+                        </table>
+                        <t t-foreach="d['subcontracts']" t-as="s">
+                            <h3>عقد باطن: <t t-out="link(s['rec'], s['name'])"/> — <t t-out="s['partner']"/></h3>
+                            <table class="t">
+                                <tr><th class="n">قيمة العقد</th><th class="n">المنفذ (مستلم)</th><th class="n">المفوتر</th><th class="n">مقدم مدفوع</th><th class="n">مقدم مسترد</th><th class="n">مقدم متبقي</th><th class="n">محتجز لدينا</th></tr>
+                                <tr><td class="n" t-out="fmt(s['amount'])"/><td class="n" t-out="fmt(s['received'])"/><td class="n" t-out="fmt(s['billed'])"/>
+                                    <td class="n" t-out="fmt(s['advance'])"/><td class="n" t-out="fmt(s['recovered'])"/><td class="n" t-out="fmt(s['advance_left'])"/><td class="n" t-out="fmt(s['retention_held'])"/></tr>
+                            </table>
+                            <table class="t" t-if="s['certificates']">
+                                <tr><th>المستخلص</th><th>التاريخ</th><th>الحالة</th><th class="n">أعمال الفترة</th><th class="n">استرداد مقدم</th><th class="n">محتجز</th><th class="n">الصافي</th><th>فاتورة المورد</th><th>Back-to-back</th></tr>
+                                <tr t-foreach="s['certificates']" t-as="r">
+                                    <td><t t-out="link(r['rec'], r['name'])"/></td>
+                                    <td t-out="r['date']"/><td t-out="r['state']"/><td class="n" t-out="fmt(r['current'])"/><td class="n neg" t-out="fmt(r['advance'])"/>
+                                    <td class="n neg" t-out="fmt(r['retention'])"/><td class="n" t-out="fmt(r['net'])"/>
+                                    <td><t t-out="link(r['bill'], r['bill'].name if r['bill'] else '-')"/></td>
+                                    <td><span t-if="r['b2b']" class="pill r">يسبق المالك</span><span t-else="" class="pill">سليم</span></td>
+                                </tr>
+                            </table>
+                        </t>
+                        <h3>فواتير الموردين ومقاولي الباطن المحمّلة على المشروع</h3>
+                        <table class="t">
+                            <tr><th>الفاتورة</th><th>المرجع</th><th>المورد</th><th>التاريخ</th><th>المصدر</th><th class="n">نصيب المشروع</th><th class="n">إجمالي الفاتورة</th><th class="n">المتبقي</th><th>السداد</th></tr>
+                            <tr t-foreach="d['bills']" t-as="r">
+                                <td><t t-out="link(r['rec'], r['name'])"/></td>
+                                <td t-out="r['ref']"/><td t-out="r['partner']"/><td t-out="r['date'] or ''"/><td t-out="r['origin']"/>
+                                <td class="n" t-out="fmt(r['project_amount'])"/><td class="n" t-out="fmt(r['total'])"/><td class="n" t-out="fmt(r['residual'])"/><td t-out="r['payment_state']"/>
+                            </tr>
+                            <tr t-if="not d['bills']"><td colspan="9" class="sub">لا توجد فواتير موردين في الفترة</td></tr>
+                            <tr t-else="" class="tot"><td colspan="5">الإجمالي</td><td class="n" t-out="fmt(sum(r['project_amount'] for r in d['bills']))"/><td class="n" t-out="fmt(sum(r['total'] for r in d['bills']))"/><td class="n" t-out="fmt(sum(r['residual'] for r in d['bills']))"/><td/></tr>
+                        </table>
+
+                        <!-- ===================== 6. Materials ===================== -->
+                        <h2>6 · حركة الخامات <small>Material movements</small></h2>
+                        <table class="t">
+                            <tr><th>التاريخ</th><th>المستند</th><th>النوع</th><th>الصنف</th><th class="n">الكمية</th><th>الوحدة</th><th>من</th><th>إلى</th><th class="n">القيمة</th></tr>
+                            <tr t-foreach="d['materials']" t-as="r">
+                                <td t-out="r['date'].strftime('%Y-%m-%d')"/>
+                                <td><t t-out="link(r['picking'] or r['rec'], r['ref'])"/></td>
+                                <td t-out="r['kind']"/><td t-out="r['product']"/><td class="n" t-out="fmt(r['qty'])"/><td t-out="r['uom']"/>
+                                <td t-out="r['src']"/><td t-out="r['dest']"/><td class="n" t-out="fmt(r['value'])"/>
+                            </tr>
+                            <tr t-if="not d['materials']"><td colspan="9" class="sub">لا توجد حركات مخزنية في الفترة</td></tr>
+                            <tr t-else="" class="tot"><td colspan="8">إجمالي القيمة</td><td class="n" t-out="fmt(sum(r['value'] for r in d['materials']))"/></tr>
+                        </table>
+
+                        <!-- ===================== 7. Expenses & labour ===================== -->
+                        <h2>7 · العُهد والمصروفات والعمالة <small>Expenses &amp; labour</small></h2>
+                        <table class="t">
+                            <tr><th>التاريخ</th><th>الموظف</th><th>البيان</th><th class="n">المبلغ</th><th>الحالة</th><th>القيد</th></tr>
+                            <tr t-foreach="d['expenses']" t-as="r">
+                                <td t-out="r['date']"/><td t-out="r['employee']"/>
+                                <td><t t-out="link(r['rec'], r['name'])"/></td>
+                                <td class="n" t-out="fmt(r['amount'])"/><td t-out="r['state']"/>
+                                <td><t t-out="link(r['move'], r['move'].name if r['move'] else '-')"/></td>
+                            </tr>
+                            <tr t-if="not d['expenses']"><td colspan="6" class="sub">لا توجد مصروفات محمّلة على المشروع</td></tr>
+                            <tr t-else="" class="tot"><td colspan="3">الإجمالي</td><td class="n" t-out="fmt(sum(r['amount'] for r in d['expenses']))"/><td colspan="2"/></tr>
+                        </table>
+                        <table class="t" t-if="d['labour']">
+                            <tr><th>الموظف</th><th class="n">الساعات</th><th class="n">التكلفة</th></tr>
+                            <tr t-foreach="d['labour']" t-as="r"><td t-out="r[0]"/><td class="n" t-out="fmt(r[1][0], 1)"/><td class="n" t-out="fmt(r[1][1])"/></tr>
+                        </table>
+
+                        <!-- ===================== 8. Budget ===================== -->
+                        <h2>8 · الموازنة مقابل الفعلي <small>Budget vs actual</small></h2>
+                        <table class="t">
+                            <tr><th>الموازنة</th><th>التخصص</th><th class="n">المعتمد</th><th class="n">ملتزم</th><th class="n">الفعلي</th><th style="width:20%">الاستهلاك</th></tr>
+                            <tr t-foreach="d['budget']" t-as="r">
+                                <td><t t-out="link(r['rec'].budget_analytic_id, r['budget'])"/></td>
+                                <td t-out="r['trade']"/><td class="n" t-out="fmt(r['amount'])"/><td class="n" t-out="fmt(r['committed'])"/><td class="n" t-out="fmt(r['achieved'])"/>
+                                <td><div class="bar"><i t-att-style="'width:' + str(round(min(r['pct'], 100), 1)) + '%; background:' + ('#B42318' if r['pct'] &gt; 100 else '#6DB33F')"/></div><span class="sub" t-out="fmt(r['pct'], 1) + '%'"/></td>
+                            </tr>
+                            <tr t-if="not d['budget']"><td colspan="6" class="sub">لا توجد موازنة مسجلة للمشروع</td></tr>
+                        </table>
+
+                        <!-- ===================== 9. Site ===================== -->
+                        <h2>9 · الموقع <small>Site measurements, daily reports &amp; submittals</small></h2>
+                        <table class="t">
+                            <tr><th>التاريخ</th><th>البند</th><th>الوصف</th><th class="n">الكمية</th><th>الوحدة</th><th>المكان</th><th>المهندس</th><th>المستخلص</th><th>الحالة</th></tr>
+                            <tr t-foreach="d['measurements']" t-as="r">
+                                <td><t t-out="link(r['rec'], r['date'])"/></td>
+                                <td t-out="r['code']"/><td t-out="r['item']"/><td class="n" t-out="fmt(r['qty'])"/><td t-out="r['uom']"/><td t-out="r['location']"/><td t-out="r['engineer']"/>
+                                <td><t t-out="link(r['certificate'], r['certificate'].name if r['certificate'] else '-')"/></td>
+                                <td t-out="r['state']"/>
+                            </tr>
+                            <tr t-if="not d['measurements']"><td colspan="9" class="sub">لا يوجد حصر في الفترة</td></tr>
+                        </table>
+                        <t t-if="d['daily']">
+                            <h3>التقارير اليومية</h3>
+                            <table class="t">
+                                <tr><th>التاريخ</th><th>الحالة</th><th>سبب التوقف</th><th class="n">العمالة</th><th class="n">الإنجاز</th><th>المهندس</th></tr>
+                                <tr t-foreach="d['daily']" t-as="r">
+                                    <td><t t-out="link(r['rec'], r['date'])"/></td>
+                                    <td t-out="r['status']"/><td t-out="r['reason']"/><td class="n" t-out="r['manpower']"/><td class="n" t-out="fmt(r['progress'], 1) + '%'"/><td t-out="r['engineer']"/>
+                                </tr>
+                            </table>
+                        </t>
+                        <t t-if="d['submittals']">
+                            <h3>اعتمادات الاستشاري</h3>
+                            <table class="t">
+                                <tr><th>الرقم</th><th>الموضوع</th><th>النوع</th><th class="n">Rev</th><th>التقديم</th><th>الاستحقاق</th><th>الكود</th><th>الحالة</th></tr>
+                                <tr t-foreach="d['submittals']" t-as="r">
+                                    <td><t t-out="link(r['rec'], r['name'])"/></td>
+                                    <td t-out="r['title']"/><td t-out="r['type']"/><td class="n" t-out="r['rev']"/><td t-out="r['submitted'] or ''"/><td t-out="r['due'] or ''"/>
+                                    <td t-out="r['code']"/><td><t t-out="r['state']"/> <span t-if="r['overdue']" class="pill r">متأخر</span></td>
+                                </tr>
+                            </table>
+                        </t>
+
+                        <!-- ===================== 10. Schedule ===================== -->
+                        <h2>10 · البرنامج الزمني <small>Milestones, tasks &amp; status updates</small></h2>
+                        <table class="t" t-if="d['milestones']">
+                            <tr><th>المرحلة</th><th>الموعد المخطط</th><th>الحالة</th><th>تاريخ الإنجاز</th></tr>
+                            <tr t-foreach="d['milestones']" t-as="r">
+                                <td><t t-out="link(r['rec'], r['name'])"/></td>
+                                <td t-out="r['deadline'] or ''"/><td><span t-if="r['reached']" class="ok">✓ تمت</span><span t-else="" class="sub">قيد التنفيذ</span></td><td t-out="r['reached_date'] or ''"/>
+                            </tr>
+                        </table>
+                        <table class="t" t-if="d['tasks']">
+                            <tr><th>المهمة</th><th>المرحلة</th><th>المسؤول</th><th>الموعد</th></tr>
+                            <tr t-foreach="d['tasks']" t-as="r">
+                                <td><t t-out="link(r['rec'], r['name'])"/></td>
+                                <td t-out="r['stage']"/><td t-out="r['users']"/><td t-out="r['deadline'] and r['deadline'].strftime('%Y-%m-%d') or ''"/>
+                            </tr>
+                        </table>
+                        <table class="t" t-if="d['updates']">
+                            <tr><th>تحديث الحالة</th><th>التاريخ</th><th>الحالة</th><th class="n">الإنجاز</th></tr>
+                            <tr t-foreach="d['updates']" t-as="r">
+                                <td><t t-out="link(r['rec'], r['name'])"/></td>
+                                <td t-out="r['date']"/><td t-out="r['status']"/><td class="n" t-out="str(r['progress']) + '%'"/>
+                            </tr>
+                        </table>
+
+                        <!-- ===================== 11. Analytic ledger ===================== -->
+                        <h2 style="page-break-before: always">11 · دفتر حركة الأموال على المشروع <small>Every money movement (analytic ledger)</small></h2>
+                        <div class="note">كل قيد محاسبي أو ساعة عمل تم تحميلها على الحساب التحليلي للمشروع، بالترتيب الزمني. الموجب إيراد والسالب تكلفة.</div>
+                        <table class="t">
+                            <tr><th>التاريخ</th><th>القيد</th><th>الحساب</th><th>الطرف</th><th>البيان</th><th>التخصص</th><th class="n">المبلغ</th><th class="n">الرصيد</th></tr>
+                            <t t-set="run" t-value="0.0"/>
+                            <tr t-foreach="d['ledger']" t-as="r">
+                                <t t-set="run" t-value="run + r['amount']"/>
+                                <td t-out="r['date']"/>
+                                <td><t t-out="link(r['move'] or r['rec'], r['ref'] or '-')"/></td>
+                                <td t-out="r['account']"/><td t-out="r['partner']"/><td t-out="r['label']"/><td t-out="r['trade']"/>
+                                <td t-att-class="'n neg' if r['amount'] &lt; 0 else 'n'" t-out="fmt(r['amount'])"/><td class="n" t-out="fmt(run)"/>
+                            </tr>
+                            <tr t-if="not d['ledger']"><td colspan="8" class="sub">لا توجد حركات تحليلية في الفترة</td></tr>
+                            <tr t-else="" class="tot"><td colspan="6">الصافي</td><td class="n" t-out="fmt(run)"/><td/></tr>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
