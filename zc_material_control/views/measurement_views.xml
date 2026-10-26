@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hom_site_measurement_list_zc" model="ir.ui.view">
+        <field name="name">hom.site.measurement.list.zc</field>
+        <field name="model">hom.site.measurement</field>
+        <field name="inherit_id" ref="hom_progress_billing.hom_site_measurement_list"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='quantity']" position="before">
+                <field name="zc_stage" readonly="state == 'certified'"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="hom_site_measurement_form_zc" model="ir.ui.view">
+        <field name="name">hom.site.measurement.form.zc</field>
+        <field name="model">hom.site.measurement</field>
+        <field name="inherit_id" ref="hom_progress_billing.hom_site_measurement_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//label[@for='quantity']" position="before">
+                <field name="zc_stage" widget="radio" options="{'horizontal': true}"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="hom_progress_certificate_form_zc" model="ir.ui.view">
+        <field name="name">hom.progress.certificate.form.zc</field>
+        <field name="model">hom.progress.certificate</field>
+        <field name="inherit_id" ref="hom_progress_billing.hom_progress_certificate_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='line_ids']/list/field[@name='previous_qty']" position="before">
+                <field name="zc_installed_qty" digits="[16,2]" optional="show"
+                       column_invisible="not parent.zc_stage_valuation"/>
+                <field name="zc_supplied_only_qty" digits="[16,2]" optional="show"
+                       column_invisible="not parent.zc_stage_valuation"/>
+            </xpath>
+            <xpath expr="//field[@name='line_ids']" position="before">
+                <field name="zc_stage_valuation" invisible="1"/>
+                <div class="text-muted small mb-1" invisible="not zc_stage_valuation">
+                    Stage valuation: quantities are equivalent units at the full rate = installed x installed% + supplied only x supplied%.
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

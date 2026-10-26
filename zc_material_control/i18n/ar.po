@@ -1,0 +1,1062 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* zc_material_control
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-26 13:30+0000\n"
+"PO-Revision-Date: 2026-10-26 13:30+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: zc_material_control
+#. odoo-python
+#: code:addons/zc_material_control/models/purchase.py:0
+msgid "%(p)s: within the shop drawing quantity and the item budget"
+msgstr "%(p)s: في حدود كمية الشوب دروينج وميزانية البند"
+
+#. module: zc_material_control
+#. odoo-python
+#: code:addons/zc_material_control/models/purchase.py:0
+msgid "%(q)s %(u)s available in %(w)s: transfer instead of buying"
+msgstr "متاح %(q)s %(u)s في %(w)s: حوّل بدل ما تشتري"
+
+#. module: zc_material_control
+#. odoo-python
+#: code:addons/zc_material_control/models/stock.py:0
+msgid ""
+"%(q)s %(u)s of %(p)s are still on site beyond what is installed (value "
+"%(v)s). Return them to the supplier before the deadline or transfer them to "
+"another project."
+msgstr ""
+"فيه %(q)s %(u)s من %(p)s في الموقع زيادة عن المركّب (قيمتها %(v)s). رجّعها "
+"للمورد قبل آخر موعد أو حوّلها لمشروع تاني."
+
+#. module: zc_material_control
+#. odoo-python
+#: code:addons/zc_material_control/models/purchase.py:0
+msgid "%s has no budget line for this material."
+msgstr "البند %s مالوش سطر ميزانية للخامة دي."
+
+#. module: zc_material_control
+#: model_terms:ir.ui.view,arch_db:zc_material_control.purchase_order_form_zc
+msgid "<strong>Above the shop drawing or the item budget.</strong>"
+msgstr "<strong>الطلب أعلى من الشوب دروينج أو ميزانية البند.</strong>"
+
+#. module: zc_material_control
+#: model_terms:ir.ui.view,arch_db:zc_material_control.purchase_order_form_zc
+msgid "<strong>Waiting for the project manager.</strong>"
+msgstr "<strong>في انتظار اعتماد مدير المشروع.</strong>"
+
+#. module: zc_material_control
+#: model:ir.model.fields,help:zc_material_control.field_res_company__zc_price_tolerance_pct
+#: model:ir.model.fields,help:zc_material_control.field_res_config_settings__zc_price_tolerance_pct
+msgid ""
+"A purchase price above the item budget by more than this % needs the project"
+" manager's approval."
+msgstr ""
+"أي سعر شراء أعلى من ميزانية البند بأكتر من النسبة دي محتاج اعتماد مدير "
+"المشروع."
+
+#. module: zc_material_control
+#: model:ir.model.fields.selection,name:zc_material_control.selection__purchase_order_line__zc_check__over_price
+msgid "Above budget price"
+msgstr "سعر أعلى من الميزانية"
+
+#. module: zc_material_control
+#: model:ir.model.fields.selection,name:zc_material_control.selection__purchase_order_line__zc_check__over_both
+msgid "Above quantity and price"
+msgstr "كمية وسعر أعلى"
+
+#. module: zc_material_control
+#: model:ir.model.fields.selection,name:zc_material_control.selection__purchase_order_line__zc_check__over_qty
+msgid "Above shop drawing"
+msgstr "أعلى من الشوب دروينج"
+
+#. module: zc_material_control
+#: model:ir.model.fields.selection,name:zc_material_control.selection__zc_boq_cost_line__cost_type__accessory
+msgid "Accessories"
+msgstr "إكسسوارات"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_product_category__zc_tolerance_pct
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_boq_cost_line__tolerance_pct
+msgid "Allowed Over-supply %"
+msgstr "نسبة الزيادة المسموحة %"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_boq_cost_line__allowed_qty
+msgid "Allowed Qty"
+msgstr "الكمية المسموحة"
+
+#. module: zc_material_control
+#: model_terms:ir.ui.view,arch_db:zc_material_control.purchase_order_form_zc
+msgid "Approve Exception"
+msgstr "اعتماد الاستثناء"
+
+#. module: zc_material_control
+#. odoo-python
+#: code:addons/zc_material_control/models/purchase.py:0
+msgid "Approve purchase exception %s"
+msgstr "اعتماد استثناء الشراء %s"
+
+#. module: zc_material_control
+#: model:ir.model.fields.selection,name:zc_material_control.selection__purchase_order__zc_exception_state__approved
+msgid "Approved"
+msgstr "معتمد"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_purchase_order__zc_exception_user_id
+msgid "Approved by"
+msgstr "اعتمده"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_hom_submittal__zc_sale_line_id
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_boq_cost_line__sale_line_id
+msgid "BOQ Item"
+msgstr "بند المقايسة"
+
+#. module: zc_material_control
+#: model:ir.model,name:zc_material_control.model_zc_boq_cost_line
+msgid "BOQ Item Cost Breakdown"
+msgstr "تحليل تكلفة بند المقايسة"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_material_recon__boq_items
+msgid "BOQ Items"
+msgstr "بنود المقايسة"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_hom_submittal__zc_contract_qty
+msgid "BOQ Qty"
+msgstr "كمية المقايسة"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_boq_cost_line__budget_amount
+msgid "Budget"
+msgstr "الميزانية"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_purchase_order_line__zc_cost_line_id
+msgid "Budget Line"
+msgstr "سطر الميزانية"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_purchase_order_line__zc_budget_price
+msgid "Budget Price"
+msgstr "سعر الميزانية"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_sale_order_line__zc_unit_cost
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_boq_cost_line__unit_cost
+msgid "Budget Unit Cost"
+msgstr "تكلفة الوحدة (ميزانية)"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_sale_order__zc_budget_margin
+msgid "Budgeted Margin"
+msgstr "الهامش المخطط"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_sale_order__hom_certificate_frequency
+msgid "Certificate Frequency"
+msgstr "دورية المستخلص"
+
+#. module: zc_material_control
+#. odoo-python
+#: code:addons/zc_material_control/models/stage.py:0
+msgid "Certificate every %(d)s days - %(o)s"
+msgstr "مستخلص كل %(d)s يوم - %(o)s"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_material_recon__certified_qty
+msgid "Certified"
+msgstr "المُستخلص"
+
+#. module: zc_material_control
+#: model:ir.model.fields,help:zc_material_control.field_hom_progress_certificate__zc_stage_valuation
+#: model:ir.model.fields,help:zc_material_control.field_sale_order__zc_stage_valuation
+msgid ""
+"Certify supplied and installed quantities at different percentages of the "
+"BOQ rate (e.g. supplied 60%, supplied and installed 75%)."
+msgstr ""
+"استخلاص الكميات المورّدة والمركّبة بنسب مختلفة من سعر البند (مثال: مورّد "
+"60%، مورّد ومركّب 75%)."
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_purchase_order_line__zc_check
+msgid "Check"
+msgstr "الفحص"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_purchase_order_line__zc_check_note
+msgid "Check Detail"
+msgstr "تفاصيل الفحص"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_boq_cost_line__committed_amount
+msgid "Committed"
+msgstr "الملتزم به"
+
+#. module: zc_material_control
+#: model:ir.model,name:zc_material_control.model_res_company
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_boq_cost_line__company_id
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_material_recon__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: zc_material_control
+#: model:ir.model,name:zc_material_control.model_res_config_settings
+msgid "Config Settings"
+msgstr "تهيئة الإعدادات"
+
+#. module: zc_material_control
+#: model:ir.module.module,summary:base.module_zc_material_control
+msgid ""
+"Connects the technical office, purchasing, stores and the site: BOQ cost "
+"breakdown, shop-drawing quantities from approved submittals, purchase checks"
+" against quantity and item budget with a project-manager exception, supplier"
+" return deadlines, the material reconciliation (Material Truth) and stage "
+"valuation of certificates (supplied / installed)."
+msgstr ""
+
+#. module: zc_material_control
+#: model:ir.model,name:zc_material_control.model_res_partner
+msgid "Contact"
+msgstr "جهة الاتصال"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_boq_cost_line__order_id
+msgid "Contract"
+msgstr ""
+
+#. module: zc_material_control
+#: model:ir.model,name:zc_material_control.model_hom_control_tower
+msgid "Contracting Control Tower"
+msgstr "برج التحكم - المقاولات"
+
+#. module: zc_material_control
+#: model:ir.actions.server,name:zc_material_control.ir_cron_zc_interval_certificates_ir_actions_server
+msgid "Contracting: certificates every N days"
+msgstr "المقاولات: مستخلص كل عدد أيام"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_sale_order_line__zc_cost_line_ids
+msgid "Cost Breakdown"
+msgstr "تحليل التكلفة"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_boq_cost_line__create_uid
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_material_recon__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_boq_cost_line__create_date
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_material_recon__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_boq_cost_line__currency_id
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_material_recon__currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: zc_material_control
+#: model:ir.model.fields,help:zc_material_control.field_res_partner__zc_return_days
+#: model:ir.model.fields,help:zc_material_control.field_res_users__zc_return_days
+msgid "Days this supplier accepts returns. Empty uses the company default."
+msgstr ""
+"عدد الأيام اللي المورد بيقبل فيها المرتجع. لو فاضي يتطبق الافتراضي للشركة."
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_material_recon__days_left
+msgid "Days to Return"
+msgstr "أيام متبقية للمرتجع"
+
+#. module: zc_material_control
+#: model:ir.model.fields,help:zc_material_control.field_res_company__zc_return_days
+#: model:ir.model.fields,help:zc_material_control.field_res_config_settings__zc_return_days
+msgid "Default number of days to return surplus material to a supplier."
+msgstr "عدد الأيام الافتراضي لإرجاع الخامات الزيادة للمورد."
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_boq_cost_line__name
+msgid "Description"
+msgstr ""
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_hom_submittal__zc_qty_diff
+msgid "Difference vs BOQ"
+msgstr "الفرق عن المقايسة"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_hom_control_tower__display_name
+#: model:ir.model.fields,field_description:zc_material_control.field_hom_progress_certificate__display_name
+#: model:ir.model.fields,field_description:zc_material_control.field_hom_progress_certificate_line__display_name
+#: model:ir.model.fields,field_description:zc_material_control.field_hom_site_measurement__display_name
+#: model:ir.model.fields,field_description:zc_material_control.field_hom_subcontract_certificate__display_name
+#: model:ir.model.fields,field_description:zc_material_control.field_hom_submittal__display_name
+#: model:ir.model.fields,field_description:zc_material_control.field_product_category__display_name
+#: model:ir.model.fields,field_description:zc_material_control.field_project_project__display_name
+#: model:ir.model.fields,field_description:zc_material_control.field_purchase_order__display_name
+#: model:ir.model.fields,field_description:zc_material_control.field_purchase_order_line__display_name
+#: model:ir.model.fields,field_description:zc_material_control.field_res_company__display_name
+#: model:ir.model.fields,field_description:zc_material_control.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:zc_material_control.field_res_partner__display_name
+#: model:ir.model.fields,field_description:zc_material_control.field_sale_order__display_name
+#: model:ir.model.fields,field_description:zc_material_control.field_sale_order_line__display_name
+#: model:ir.model.fields,field_description:zc_material_control.field_stock_picking__display_name
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_boq_cost_line__display_name
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_material_recon__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_sale_order__zc_cert_interval_days
+msgid "Every (days)"
+msgstr "كل (يوم)"
+
+#. module: zc_material_control
+#: model:ir.model.fields.selection,name:zc_material_control.selection__sale_order__hom_certificate_frequency__interval
+msgid "Every N days / كل عدد أيام"
+msgstr "كل عدد أيام"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_purchase_order__zc_exception_reason
+msgid "Exception Reason"
+msgstr "سبب الاستثناء"
+
+#. module: zc_material_control
+#. odoo-python
+#: code:addons/zc_material_control/models/purchase.py:0
+msgid "Exception approved by %s"
+msgstr "الاستثناء اعتمده %s"
+
+#. module: zc_material_control
+#. odoo-python
+#: code:addons/zc_material_control/models/purchase.py:0
+msgid "Exception rejected"
+msgstr "تم رفض الاستثناء"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_sale_order_line__zc_basis_qty
+msgid "Execution Qty"
+msgstr "كمية التنفيذ"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_purchase_order_line__zc_boq_line_id
+msgid "For BOQ Item"
+msgstr "لبند المقايسة"
+
+#. module: zc_material_control
+#: model:ir.model.fields,help:zc_material_control.field_product_category__zc_reusable
+msgid ""
+"Generic material (wire, pipes, paint...) that can move to another contract. "
+"Project-specific models (light fittings, door handles...) are left unticked."
+msgstr ""
+"خامة عامة (سلك، مواسير، دهان...) ممكن تتنقل لعقد تاني. الموديلات الخاصة "
+"بالمشروع (كشافات، أوكر...) تتساب من غير علامة."
+
+#. module: zc_material_control
+#: model:ir.model.fields.selection,name:zc_material_control.selection__zc_material_recon__recommendation__hold
+msgid "Hold / sell"
+msgstr "احتفاظ / بيع"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_hom_control_tower__id
+#: model:ir.model.fields,field_description:zc_material_control.field_hom_progress_certificate__id
+#: model:ir.model.fields,field_description:zc_material_control.field_hom_progress_certificate_line__id
+#: model:ir.model.fields,field_description:zc_material_control.field_hom_site_measurement__id
+#: model:ir.model.fields,field_description:zc_material_control.field_hom_subcontract_certificate__id
+#: model:ir.model.fields,field_description:zc_material_control.field_hom_submittal__id
+#: model:ir.model.fields,field_description:zc_material_control.field_product_category__id
+#: model:ir.model.fields,field_description:zc_material_control.field_project_project__id
+#: model:ir.model.fields,field_description:zc_material_control.field_purchase_order__id
+#: model:ir.model.fields,field_description:zc_material_control.field_purchase_order_line__id
+#: model:ir.model.fields,field_description:zc_material_control.field_res_company__id
+#: model:ir.model.fields,field_description:zc_material_control.field_res_config_settings__id
+#: model:ir.model.fields,field_description:zc_material_control.field_res_partner__id
+#: model:ir.model.fields,field_description:zc_material_control.field_sale_order__id
+#: model:ir.model.fields,field_description:zc_material_control.field_sale_order_line__id
+#: model:ir.model.fields,field_description:zc_material_control.field_stock_picking__id
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_boq_cost_line__id
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_material_recon__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: zc_material_control
+#. odoo-python
+#: code:addons/zc_material_control/models/control_tower.py:0
+msgid "Idle material on site past the return window"
+msgstr "خامات راكدة في الموقع بعد مهلة المرتجع"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_material_recon__on_site_qty
+msgid "In Site Store"
+msgstr "في مخزن الموقع"
+
+#. module: zc_material_control
+#: model:ir.model.fields.selection,name:zc_material_control.selection__zc_boq_cost_line__cost_type__labour
+msgid "Installation / Labour"
+msgstr "تركيب / مصنعية"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_hom_progress_certificate_line__zc_installed_qty
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_material_recon__installed_qty
+msgid "Installed"
+msgstr "مركّب"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_sale_order__zc_installed_pct
+msgid "Installed %"
+msgstr "نسبة المركّب %"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_sale_order_line__zc_installed_pct
+msgid "Installed % (item)"
+msgstr "نسبة المركّب % (للبند)"
+
+#. module: zc_material_control
+#: model:ir.model.fields.selection,name:zc_material_control.selection__hom_site_measurement__zc_stage__installed
+msgid "Installed / مركّب"
+msgstr "مركّب"
+
+#. module: zc_material_control
+#: model:ir.model.fields.selection,name:zc_material_control.selection__zc_material_recon__recommendation__shortage
+msgid "Installed more than received"
+msgstr "المركّب أكتر من المستلم"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_sale_order__zc_budget_total
+#: model:ir.model.fields,field_description:zc_material_control.field_sale_order__zc_cost_line_ids
+#: model_terms:ir.ui.view,arch_db:zc_material_control.view_order_form_zc_boq
+msgid "Item Budget"
+msgstr "ميزانية البنود"
+
+#. module: zc_material_control
+#: model:ir.actions.act_window,name:zc_material_control.action_zc_boq_cost_line
+#: model:ir.ui.menu,name:zc_material_control.menu_zc_boq_cost_line
+msgid "Item Budgets"
+msgstr "ميزانيات البنود"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_material_recon__picking_id
+msgid "Last Receipt"
+msgstr "آخر استلام"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_boq_cost_line__write_uid
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_material_recon__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_boq_cost_line__write_date
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_material_recon__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: zc_material_control
+#: model:ir.model.fields,help:zc_material_control.field_stock_picking__zc_return_deadline
+msgid "Last day the supplier accepts surplus material back."
+msgstr "آخر يوم المورد بيقبل فيه رجوع الخامات الزيادة."
+
+#. module: zc_material_control
+#: model:ir.model.fields,help:zc_material_control.field_sale_order_line__zc_installed_pct
+#: model:ir.model.fields,help:zc_material_control.field_sale_order_line__zc_supplied_pct
+msgid "Leave 0 to use the contract percentage."
+msgstr "سيبها 0 عشان تتطبق نسبة العقد."
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_material_recon__product_id
+#: model:ir.model.fields.selection,name:zc_material_control.selection__zc_boq_cost_line__cost_type__material
+msgid "Material"
+msgstr "الخامة"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_boq_cost_line__product_id
+msgid "Material / Service"
+msgstr "الخامة / الخدمة"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_purchase_order__zc_check_html
+msgid "Material Check"
+msgstr "فحص الخامات"
+
+#. module: zc_material_control
+#: model:ir.actions.server,name:zc_material_control.ir_cron_zc_return_alerts_ir_actions_server
+msgid "Material Control: supplier return alerts"
+msgstr "التحكم في الخامات: تنبيهات مهلة المرتجع"
+
+#. module: zc_material_control
+#: model:ir.model,name:zc_material_control.model_zc_material_recon
+msgid "Material Reconciliation"
+msgstr "تسوية الخامات"
+
+#. module: zc_material_control
+#. odoo-python
+#: code:addons/zc_material_control/models/recon.py:0
+#: model:ir.actions.server,name:zc_material_control.action_zc_material_recon_server
+#: model:ir.ui.menu,name:zc_material_control.menu_zc_material_recon
+#: model:ir.ui.menu,name:zc_material_control.menu_zc_material_recon_stock
+msgid "Material Truth"
+msgstr "حقيقة المواد"
+
+#. module: zc_material_control
+#: model_terms:ir.ui.view,arch_db:zc_material_control.res_config_settings_view_form_zc
+msgid "Material control"
+msgstr "التحكم في الخامات"
+
+#. module: zc_material_control
+#: model:ir.model.fields,help:zc_material_control.field_sale_order__hom_certificate_frequency
+msgid ""
+"Monthly: a draft certificate is prepared on the certificate day when there is new site work.\n"
+"On milestones: a draft is prepared when a project milestone is marked as reached.\n"
+"On demand: no automatic drafts; the site engineer creates the certificate when needed."
+msgstr ""
+"شهري: تُجهَّز مسودة مستخلص في يوم المستخلص الشهري إذا وُجد حصر موقع جديد.\n"
+"بالمراحل: تُجهَّز المسودة عند اعتبار مرحلة (Milestone) في المشروع منجزة.\n"
+"عند الطلب: لا مسودات تلقائية؛ مهندس الموقع ينشئ المستخلص عند الحاجة."
+
+#. module: zc_material_control
+#: model:ir.model.fields.selection,name:zc_material_control.selection__purchase_order_line__zc_check__no_budget
+msgid "No item budget"
+msgstr "لا توجد ميزانية للبند"
+
+#. module: zc_material_control
+#: model:ir.model.fields.selection,name:zc_material_control.selection__purchase_order__zc_exception_state__none
+msgid "Not needed"
+msgstr "غير مطلوب"
+
+#. module: zc_material_control
+#: model:ir.model.fields.selection,name:zc_material_control.selection__zc_material_recon__recommendation__ok
+msgid "OK"
+msgstr "سليم"
+
+#. module: zc_material_control
+#. odoo-python
+#: code:addons/zc_material_control/models/purchase.py:0
+msgid "Only the project manager can approve this exception."
+msgstr "مدير المشروع بس هو اللي يقدر يعتمد الاستثناء ده."
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_boq_cost_line__ordered_qty
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_material_recon__ordered_qty
+msgid "Ordered"
+msgstr "المطلوب شراؤه"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_material_recon__over_order_qty
+msgid "Ordered above Need"
+msgstr "مشتريات زيادة عن الاحتياج"
+
+#. module: zc_material_control
+#: model:ir.model,name:zc_material_control.model_hom_progress_certificate
+msgid "Owner Progress Certificate"
+msgstr "مستخلص المالك"
+
+#. module: zc_material_control
+#: model:ir.model,name:zc_material_control.model_hom_progress_certificate_line
+msgid "Owner Progress Certificate Line"
+msgstr "بند مستخلص المالك"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_purchase_order__zc_exception_state
+msgid "PM Exception"
+msgstr "استثناء مدير المشروع"
+
+#. module: zc_material_control
+#. odoo-python
+#: code:addons/zc_material_control/models/purchase.py:0
+msgid "Price %(p)s > budget %(b)s"
+msgstr "السعر %(p)s > الميزانية %(b)s"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_res_company__zc_price_tolerance_pct
+#: model:ir.model.fields,field_description:zc_material_control.field_res_config_settings__zc_price_tolerance_pct
+msgid "Price Tolerance %"
+msgstr "سماحية السعر %"
+
+#. module: zc_material_control
+#: model_terms:ir.ui.view,arch_db:zc_material_control.view_order_form_zc_boq
+msgid ""
+"Price analysis of each BOQ item (material, installation, accessories, taxes...). The material\n"
+"                        lines set what purchasing may buy: quantity = shop-drawing qty x qty per unit, at the budget price."
+msgstr ""
+"تحليل سعر كل بند (خامة، تركيب، إكسسوارات، ضرائب...). سطور الخامات بتحدد "
+"المشتريات المسموحة: الكمية = كمية الشوب دروينج × الكمية لكل وحدة، بسعر "
+"الميزانية."
+
+#. module: zc_material_control
+#: model:ir.model,name:zc_material_control.model_product_category
+msgid "Product Category"
+msgstr "فئة المنتج"
+
+#. module: zc_material_control
+#: model:ir.model,name:zc_material_control.model_project_project
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_material_recon__project_id
+#: model_terms:ir.ui.view,arch_db:zc_material_control.zc_material_recon_search
+msgid "Project"
+msgstr "المشروع"
+
+#. module: zc_material_control
+#: model:ir.model,name:zc_material_control.model_purchase_order
+msgid "Purchase Order"
+msgstr "أمر شراء"
+
+#. module: zc_material_control
+#: model:ir.model,name:zc_material_control.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "بند أمر الشراء"
+
+#. module: zc_material_control
+#. odoo-python
+#: code:addons/zc_material_control/models/purchase.py:0
+msgid "Purchase exception approved by %(u)s. Reason: %(r)s"
+msgstr "استثناء الشراء اعتمده %(u)s. السبب: %(r)s"
+
+#. module: zc_material_control
+#. odoo-python
+#: code:addons/zc_material_control/models/purchase.py:0
+msgid "Purchase exception rejected by %s."
+msgstr "استثناء الشراء رفضه %s."
+
+#. module: zc_material_control
+#. odoo-python
+#: code:addons/zc_material_control/models/control_tower.py:0
+msgid "Purchase exceptions"
+msgstr "استثناءات الشراء"
+
+#. module: zc_material_control
+#. odoo-python
+#: code:addons/zc_material_control/models/control_tower.py:0
+msgid "Purchases above shop drawing / item budget waiting for the PM"
+msgstr "مشتريات فوق الشوب دروينج / ميزانية البند مستنية مدير المشروع"
+
+#. module: zc_material_control
+#. odoo-python
+#: code:addons/zc_material_control/models/purchase.py:0
+msgid ""
+"Qty %(q)s > allowed %(a)s (shop drawing %(sd)s + %(t)s%%, already ordered "
+"%(o)s)"
+msgstr ""
+"الكمية %(q)s > المسموح %(a)s (شوب دروينج %(sd)s + %(t)s%%، اتطلب قبل كده "
+"%(o)s)"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_boq_cost_line__qty_per_unit
+msgid "Qty per BOQ Unit"
+msgstr "الكمية لكل وحدة بند"
+
+#. module: zc_material_control
+#: model:ir.model.fields,help:zc_material_control.field_sale_order_line__zc_sd_qty
+msgid ""
+"Quantity of the approved shop drawing (code A/B). Purchasing is checked "
+"against it; without it, the contract quantity is used."
+msgstr ""
+"كمية الشوب دروينج المعتمد (كود A/B). المشتريات بتتراجع عليها؛ ولو مش موجودة "
+"تُستخدم كمية العقد."
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_boq_cost_line__received_qty
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_material_recon__received_qty
+msgid "Received"
+msgstr "المستلم"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_material_recon__recommendation
+#: model_terms:ir.ui.view,arch_db:zc_material_control.zc_material_recon_search
+msgid "Recommendation"
+msgstr "الإجراء المقترح"
+
+#. module: zc_material_control
+#: model_terms:ir.ui.view,arch_db:zc_material_control.purchase_order_form_zc
+msgid "Reject Exception"
+msgstr "رفض الاستثناء"
+
+#. module: zc_material_control
+#: model_terms:ir.ui.view,arch_db:zc_material_control.purchase_order_form_zc
+msgid "Request PM Exception"
+msgstr "طلب استثناء من مدير المشروع"
+
+#. module: zc_material_control
+#: model:ir.model.fields.selection,name:zc_material_control.selection__purchase_order__zc_exception_state__requested
+msgid "Requested"
+msgstr "مطلوب"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_material_recon__required_qty
+msgid "Required (shop drawing)"
+msgstr "المطلوب (شوب دروينج)"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_boq_cost_line__budget_qty
+msgid "Required Qty"
+msgstr "الكمية المطلوبة"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_res_company__zc_return_alert_days
+#: model:ir.model.fields,field_description:zc_material_control.field_res_config_settings__zc_return_alert_days
+msgid "Return Alert (days before)"
+msgstr "تنبيه المرتجع (قبل بأيام)"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_stock_picking__zc_return_deadline
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_material_recon__return_deadline
+msgid "Return Deadline"
+msgstr "آخر موعد للمرتجع"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_res_partner__zc_return_days
+#: model:ir.model.fields,field_description:zc_material_control.field_res_users__zc_return_days
+msgid "Return Window (days)"
+msgstr "مهلة المرتجع (أيام)"
+
+#. module: zc_material_control
+#: model_terms:ir.ui.view,arch_db:zc_material_control.zc_material_recon_search
+msgid "Return now"
+msgstr "رجّع دلوقتي"
+
+#. module: zc_material_control
+#. odoo-python
+#: code:addons/zc_material_control/models/stock.py:0
+msgid "Return surplus before %s"
+msgstr "رجّع الزيادة قبل %s"
+
+#. module: zc_material_control
+#: model:ir.model.fields.selection,name:zc_material_control.selection__zc_material_recon__recommendation__return
+msgid "Return to supplier"
+msgstr "إرجاع للمورد"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_material_recon__categ_reusable
+msgid "Reusable"
+msgstr "قابلة للنقل"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_product_category__zc_reusable
+msgid "Reusable on other projects"
+msgstr "قابلة للاستخدام في مشاريع تانية"
+
+#. module: zc_material_control
+#: model:ir.model,name:zc_material_control.model_sale_order
+msgid "Sales Order"
+msgstr "أمر البيع"
+
+#. module: zc_material_control
+#: model:ir.model,name:zc_material_control.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "بند أمر المبيعات"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_boq_cost_line__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_sale_order_line__zc_sd_submittal_id
+msgid "Shop Drawing"
+msgstr "الشوب دروينج"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_hom_submittal__zc_sd_qty
+#: model:ir.model.fields,field_description:zc_material_control.field_sale_order_line__zc_sd_qty
+msgid "Shop Drawing Qty"
+msgstr "كمية الشوب دروينج"
+
+#. module: zc_material_control
+#. odoo-python
+#: code:addons/zc_material_control/models/submittal.py:0
+msgid ""
+"Shop drawing %(sd)s approved: execution quantity of %(item)s is now %(q)s "
+"%(u)s (BOQ %(b)s)."
+msgstr ""
+"اعتماد الشوب دروينج %(sd)s: كمية التنفيذ لـ %(item)s بقت %(q)s %(u)s "
+"(المقايسة %(b)s)."
+
+#. module: zc_material_control
+#. odoo-python
+#: code:addons/zc_material_control/models/submittal.py:0
+msgid "Shop drawing above BOQ: %s"
+msgstr "شوب دروينج أعلى من المقايسة: %s"
+
+#. module: zc_material_control
+#: model_terms:ir.ui.view,arch_db:zc_material_control.zc_material_recon_search
+msgid "Shortage"
+msgstr "عجز"
+
+#. module: zc_material_control
+#: model:ir.model,name:zc_material_control.model_hom_site_measurement
+msgid "Site Measurement"
+msgstr "حصر الموقع"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_project_project__zc_warehouse_id
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_material_recon__warehouse_id
+msgid "Site Store"
+msgstr "مخزن الموقع"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_hom_site_measurement__zc_stage
+msgid "Stage"
+msgstr "المرحلة"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_hom_progress_certificate__zc_stage_valuation
+#: model:ir.model.fields,field_description:zc_material_control.field_sale_order__zc_stage_valuation
+msgid "Stage Valuation"
+msgstr "التقييم بالمراحل"
+
+#. module: zc_material_control
+#. odoo-python
+#: code:addons/zc_material_control/models/boq.py:0
+msgid "Stage percentages must satisfy 0 ≤ supplied ≤ installed ≤ 100."
+msgstr "نسب المراحل لازم تكون 0 ≤ المورّد ≤ المركّب ≤ 100."
+
+#. module: zc_material_control
+#: model_terms:ir.ui.view,arch_db:zc_material_control.hom_progress_certificate_form_zc
+msgid ""
+"Stage valuation: quantities are equivalent units at the full rate = "
+"installed x installed% + supplied only x supplied%."
+msgstr ""
+"التقييم بالمراحل: الكميات وحدات مكافئة بالسعر الكامل = المركّب × نسبة "
+"المركّب + المورّد فقط × نسبة المورّد."
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_purchase_order_line__zc_allowed_remaining
+msgid "Still Allowed"
+msgstr "المتبقي المسموح"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_res_company__zc_stores_user_id
+#: model:ir.model.fields,field_description:zc_material_control.field_res_config_settings__zc_stores_user_id
+msgid "Stores Responsible"
+msgstr "مسئول المخازن"
+
+#. module: zc_material_control
+#: model:ir.model,name:zc_material_control.model_hom_subcontract_certificate
+msgid "Subcontractor Progress Certificate"
+msgstr "مستخلص مقاول باطن"
+
+#. module: zc_material_control
+#: model:ir.model,name:zc_material_control.model_hom_submittal
+msgid "Submittal to Consultant"
+msgstr "اعتماد مقدم للاستشاري"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_sale_order__zc_supplied_pct
+msgid "Supplied %"
+msgstr "نسبة المورّد %"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_sale_order_line__zc_supplied_pct
+msgid "Supplied % (item)"
+msgstr "نسبة المورّد % (للبند)"
+
+#. module: zc_material_control
+#: model_terms:ir.ui.view,arch_db:zc_material_control.view_order_form_zc_boq
+msgid "Supplied / Installed %"
+msgstr "نسب مورّد / مركّب %"
+
+#. module: zc_material_control
+#: model:ir.model.fields.selection,name:zc_material_control.selection__hom_site_measurement__zc_stage__supplied
+msgid "Supplied / مورّد"
+msgstr "مورّد"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_hom_progress_certificate_line__zc_supplied_only_qty
+msgid "Supplied only"
+msgstr "مورّد فقط"
+
+#. module: zc_material_control
+#: model:ir.model.fields,help:zc_material_control.field_hom_site_measurement__zc_stage
+msgid ""
+"Supplied: material delivered to the site, not installed yet.\n"
+"Installed: supplied and installed (record the installed quantity even if the same units were measured as supplied before)."
+msgstr ""
+"مورّد: خامة وصلت الموقع ولسه ما اتركبتش.\n"
+"مركّب: مورّد ومركّب (سجّل الكمية المركّبة حتى لو نفس الوحدات اتسجلت مورّد قبل كده)."
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_res_company__zc_return_days
+#: model:ir.model.fields,field_description:zc_material_control.field_res_config_settings__zc_return_days
+msgid "Supplier Return Window (days)"
+msgstr "مهلة المرتجع للمورد (أيام)"
+
+#. module: zc_material_control
+#: model_terms:ir.ui.view,arch_db:zc_material_control.res_config_settings_view_form_zc
+msgid "Supplier return window, price tolerance and stores responsible."
+msgstr "مهلة المرتجع، سماحية السعر، ومسئول المخازن."
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_material_recon__surplus_value
+msgid "Surplus Value"
+msgstr "قيمة الزيادة"
+
+#. module: zc_material_control
+#. odoo-python
+#: code:addons/zc_material_control/models/control_tower.py:0
+msgid "Surplus material to return before the supplier deadline"
+msgstr "خامات زيادة لازم ترجع قبل مهلة المورد"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_material_recon__surplus_qty
+msgid "Surplus on Site"
+msgstr "الزيادة في الموقع"
+
+#. module: zc_material_control
+#: model_terms:ir.ui.view,arch_db:zc_material_control.zc_material_recon_search
+msgid "Surplus on site"
+msgstr "زيادة في الموقع"
+
+#. module: zc_material_control
+#: model:ir.model.fields.selection,name:zc_material_control.selection__zc_boq_cost_line__cost_type__other
+msgid "Taxes, insurance & other"
+msgstr "ضرائب وتأمينات وأخرى"
+
+#. module: zc_material_control
+#: model:ir.model.fields,help:zc_material_control.field_hom_submittal__zc_sale_line_id
+msgid ""
+"The BOQ item this shop drawing details. On approval (A/B) its quantity "
+"becomes the execution quantity that purchasing is checked against."
+msgstr ""
+"بند المقايسة اللي الشوب دروينج ده بيفصّله. عند الاعتماد (A/B) كميته تبقى "
+"كمية التنفيذ اللي المشتريات بتتراجع عليها."
+
+#. module: zc_material_control
+#. odoo-python
+#: code:addons/zc_material_control/models/submittal.py:0
+msgid ""
+"The approved shop drawing (%(q)s) exceeds the BOQ quantity (%(b)s). The "
+"owner pays the BOQ quantity only: prepare a change request (CRVO) for the "
+"difference."
+msgstr ""
+"الشوب دروينج المعتمد (%(q)s) أكبر من كمية المقايسة (%(b)s). المالك بيحاسب "
+"على المقايسة بس: جهّز CRVO بالفرق."
+
+#. module: zc_material_control
+#: model:ir.model.fields,help:zc_material_control.field_purchase_order_line__zc_boq_line_id
+msgid ""
+"The contract item this material is bought for. The quantity is checked "
+"against the approved shop drawing and the price against the item budget."
+msgstr ""
+"بند العقد اللي الخامة دي متشترية له. الكمية بتتراجع على الشوب دروينج المعتمد"
+" والسعر على ميزانية البند."
+
+#. module: zc_material_control
+#: model:ir.model.fields,help:zc_material_control.field_project_project__zc_warehouse_id
+msgid ""
+"The store of this site: receipts, transfers and the material reconciliation "
+"of the project are read from it."
+msgstr "مخزن الموقع: منه بتتقري الاستلامات والتحويلات وتسوية خامات المشروع."
+
+#. module: zc_material_control
+#. odoo-python
+#: code:addons/zc_material_control/models/purchase.py:0
+msgid ""
+"This order is above the approved shop drawing or the item budget:\n"
+"%(d)s\n"
+"\n"
+"Reduce it, or click 'Request PM Exception' with the reason."
+msgstr ""
+"الطلب ده أعلى من الشوب دروينج المعتمد أو ميزانية البند:\n"
+"%(d)s\n"
+"\n"
+"قلّل الكمية، أو اضغط 'طلب استثناء من مدير المشروع' واكتب السبب."
+
+#. module: zc_material_control
+#: model_terms:ir.ui.view,arch_db:zc_material_control.view_order_form_zc_boq
+#: model_terms:ir.ui.view,arch_db:zc_material_control.zc_boq_cost_line_list
+#: model_terms:ir.ui.view,arch_db:zc_material_control.zc_material_recon_list
+msgid "Total"
+msgstr ""
+
+#. module: zc_material_control
+#: model:ir.model,name:zc_material_control.model_stock_picking
+msgid "Transfer"
+msgstr "تحويل"
+
+#. module: zc_material_control
+#: model:ir.model.fields.selection,name:zc_material_control.selection__zc_material_recon__recommendation__transfer
+msgid "Transfer to another project"
+msgstr "تحويل لمشروع تاني"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_boq_cost_line__cost_type
+msgid "Type"
+msgstr "النوع"
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_zc_material_recon__uom_id
+#: model_terms:ir.ui.view,arch_db:zc_material_control.zc_material_recon_list
+msgid "Unit"
+msgstr "الوحدة"
+
+#. module: zc_material_control
+#. odoo-python
+#: code:addons/zc_material_control/models/stage.py:0
+msgid ""
+"Valued quantities exceed the contract for: %s. Capped to the contract "
+"quantity; issue a variation order for the extra work."
+msgstr ""
+"الكميات المقيّمة أكبر من العقد لـ: %s. اتقفلت على كمية العقد؛ اعمل أمر تغيير"
+" للشغل الزيادة."
+
+#. module: zc_material_control
+#: model:ir.model.fields,help:zc_material_control.field_product_category__zc_tolerance_pct
+msgid "Waste / over-supply allowed above the shop-drawing quantity."
+msgstr "الهالك / الزيادة المسموحة فوق كمية الشوب دروينج."
+
+#. module: zc_material_control
+#: model:ir.model.fields.selection,name:zc_material_control.selection__purchase_order_line__zc_check__ok
+msgid "Within budget"
+msgstr "في حدود الميزانية"
+
+#. module: zc_material_control
+#: model_terms:ir.ui.view,arch_db:zc_material_control.purchase_order_form_zc
+msgid ""
+"Write the reason below and request the project manager's exception, or "
+"reduce the order."
+msgstr "اكتب السبب تحت واطلب استثناء من مدير المشروع، أو قلّل الطلب."
+
+#. module: zc_material_control
+#. odoo-python
+#: code:addons/zc_material_control/models/purchase.py:0
+msgid ""
+"Write the reason for the exception first (e.g. waste on site, model change)."
+msgstr "اكتب سبب الاستثناء الأول (مثال: هالك في الموقع، تغيير موديل)."
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_purchase_order__zc_needs_exception
+msgid "Zc Needs Exception"
+msgstr ""
+
+#. module: zc_material_control
+#: model:ir.module.module,shortdesc:base.module_zc_material_control
+msgid "Ziij Construction - Material Control & Stage Valuation"
+msgstr "Ziij للمقاولات - التحكم في الخامات والتقييم بالمراحل"
+
+#. module: zc_material_control
+#: model:ir.model.fields,help:zc_material_control.field_zc_boq_cost_line__qty_per_unit
+msgid "e.g. 0.17 litre of paint per m²."
+msgstr "مثال: 0.17 لتر دهان لكل م²."
+
+#. module: zc_material_control
+#: model_terms:ir.ui.view,arch_db:zc_material_control.purchase_order_form_zc
+msgid "e.g. 5% breakage on site, approved model change"
+msgstr "مثال: كسر 5% في الموقع، تغيير موديل معتمد"
+
+#. module: zc_material_control
+#. odoo-python
+#: code:addons/zc_material_control/models/control_tower.py:0
+msgid "id"
+msgstr ""

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="purchase_order_form_zc" model="ir.ui.view">
+        <field name="name">purchase.order.form.zc</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_zc_request_exception" type="object" string="Request PM Exception"
+                        class="btn-warning" invisible="not zc_needs_exception or zc_exception_state != 'none' or state not in ('draft', 'sent', 'to approve')"/>
+                <button name="action_zc_approve_exception" type="object" string="Approve Exception" class="btn-primary"
+                        invisible="zc_exception_state != 'requested'"/>
+                <button name="action_zc_reject_exception" type="object" string="Reject Exception"
+                        invisible="zc_exception_state != 'requested'"/>
+            </xpath>
+            <xpath expr="//sheet" position="before">
+                <field name="zc_needs_exception" invisible="1"/>
+                <div class="alert alert-danger mb-0" role="alert"
+                     invisible="not zc_needs_exception or zc_exception_state == 'approved' or state not in ('draft', 'sent', 'to approve')">
+                    <strong>Above the shop drawing or the item budget.</strong>
+                    <field name="zc_check_html" readonly="1" nolabel="1"/>
+                    <div invisible="zc_exception_state != 'none'">Write the reason below and request the project manager's exception, or reduce the order.</div>
+                    <div invisible="zc_exception_state != 'requested'"><strong>Waiting for the project manager.</strong></div>
+                </div>
+                <div class="alert alert-success mb-0" role="alert"
+                     invisible="zc_needs_exception or not zc_check_html or state not in ('draft', 'sent', 'to approve')">
+                    <field name="zc_check_html" readonly="1" nolabel="1"/>
+                </div>
+            </xpath>
+            <xpath expr="//field[@name='partner_ref']" position="after">
+                <field name="zc_exception_state" invisible="zc_exception_state == 'none'" widget="badge"
+                       decoration-warning="zc_exception_state == 'requested'" decoration-success="zc_exception_state == 'approved'"/>
+                <field name="zc_exception_reason" invisible="not zc_needs_exception and not zc_exception_reason"
+                       readonly="zc_exception_state == 'approved'" placeholder="e.g. 5% breakage on site, approved model change"/>
+                <field name="zc_exception_user_id" invisible="not zc_exception_user_id"/>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/list/field[@name='product_qty']" position="before">
+                <field name="zc_boq_line_id" optional="show" options="{'no_create': True}"/>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/list/field[@name='price_unit']" position="after">
+                <field name="zc_allowed_remaining" optional="hide" invisible="not zc_cost_line_id"/>
+                <field name="zc_budget_price" optional="hide" invisible="not zc_cost_line_id"/>
+                <field name="zc_cost_line_id" column_invisible="1"/>
+                <field name="zc_check" optional="show" widget="badge" invisible="not zc_check"
+                       decoration-success="zc_check == 'ok'" decoration-danger="zc_check in ('over_qty', 'over_both')"
+                       decoration-warning="zc_check in ('over_price', 'no_budget')"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

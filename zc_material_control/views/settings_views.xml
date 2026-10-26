@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_zc" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.zc</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="hom_contracting_base.res_config_settings_view_form_hom"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@name='hom_contracting']" position="inside">
+                <setting string="Material control" help="Supplier return window, price tolerance and stores responsible.">
+                    <div class="content-group">
+                        <div class="row mt8"><label for="zc_return_days" class="col-lg-5 o_light_label"/><field name="zc_return_days"/></div>
+                        <div class="row"><label for="zc_return_alert_days" class="col-lg-5 o_light_label"/><field name="zc_return_alert_days"/></div>
+                        <div class="row"><label for="zc_price_tolerance_pct" class="col-lg-5 o_light_label"/><field name="zc_price_tolerance_pct"/></div>
+                        <div class="row"><label for="zc_stores_user_id" class="col-lg-5 o_light_label"/><field name="zc_stores_user_id"/></div>
+                    </div>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>

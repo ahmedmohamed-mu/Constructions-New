@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_picking_form_zc" model="ir.ui.view">
+        <field name="name">stock.picking.form.zc</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='origin']" position="after">
+                <field name="zc_return_deadline" invisible="not zc_return_deadline"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="vpicktree_zc" model="ir.ui.view">
+        <field name="name">stock.picking.list.zc</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.vpicktree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='origin']" position="after">
+                <field name="zc_return_deadline" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

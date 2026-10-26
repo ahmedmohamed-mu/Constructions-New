@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form_zc_boq" model="ir.ui.view">
+        <field name="name">sale.order.form.zc.boq</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="hom_progress_billing.view_order_form_hom_certificates"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='hom_certificate_frequency']" position="after">
+                <field name="zc_cert_interval_days" invisible="hom_certificate_frequency != 'interval'"/>
+                <field name="zc_stage_valuation" invisible="hom_project_type != 'contracting'"/>
+                <label for="zc_supplied_pct" string="Supplied / Installed %" invisible="not zc_stage_valuation"/>
+                <div class="o_row" invisible="not zc_stage_valuation">
+                    <field name="zc_supplied_pct" class="oe_inline"/> / <field name="zc_installed_pct" class="oe_inline"/>
+                </div>
+            </xpath>
+            <xpath expr="//list[@name='sol_list']//column[@name='sol_qty']" position="after">
+                <field name="zc_sd_qty" optional="show" invisible="display_type or is_downpayment"
+                       column_invisible="parent.hom_project_type != 'contracting'"/>
+            </xpath>
+            <xpath expr="//notebook/page[@name='order_lines']" position="after">
+                <page string="Item Budget" name="zc_item_budget" invisible="hom_project_type != 'contracting'">
+                    <div class="text-muted mb-2">
+                        Price analysis of each BOQ item (material, installation, accessories, taxes...). The material
+                        lines set what purchasing may buy: quantity = shop-drawing qty x qty per unit, at the budget price.
+                    </div>
+                    <field name="zc_cost_line_ids" context="{'default_order_id': id}">
+                        <list editable="bottom">
+                            <field name="sequence" widget="handle"/>
+                            <field name="order_id" column_invisible="1"/>
+                            <field name="currency_id" column_invisible="1"/>
+                            <field name="sale_line_id" options="{'no_create': True}"/>
+                            <field name="cost_type"/>
+                            <field name="product_id"/>
+                            <field name="name" optional="hide"/>
+                            <field name="qty_per_unit"/>
+                            <field name="unit_cost"/>
+                            <field name="tolerance_pct" optional="show"/>
+                            <field name="budget_qty"/>
+                            <field name="allowed_qty" optional="hide"/>
+                            <field name="ordered_qty" decoration-danger="ordered_qty &gt; allowed_qty"/>
+                            <field name="received_qty" optional="show"/>
+                            <field name="budget_amount" sum="Total"/>
+                            <field name="committed_amount" sum="Total" optional="show"/>
+                        </list>
+                    </field>
+                    <group class="oe_subtotal_footer">
+                        <field name="zc_budget_total"/>
+                        <field name="zc_budget_margin"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="zc_boq_cost_line_list" model="ir.ui.view">
+        <field name="name">zc.boq.cost.line.list</field>
+        <field name="model">zc.boq.cost.line</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="order_id"/>
+                <field name="sale_line_id" options="{'no_create': True}"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="cost_type"/>
+                <field name="product_id"/>
+                <field name="qty_per_unit"/>
+                <field name="unit_cost"/>
+                <field name="tolerance_pct"/>
+                <field name="budget_qty"/>
+                <field name="ordered_qty"/>
+                <field name="received_qty"/>
+                <field name="budget_amount" sum="Total"/>
+                <field name="committed_amount" sum="Total"/>
+            </list>
+        </field>
+    </record>
+    <record id="action_zc_boq_cost_line" model="ir.actions.act_window">
+        <field name="name">Item Budgets</field>
+        <field name="res_model">zc.boq.cost.line</field>
+        <field name="view_mode">list,pivot</field>
+        <field name="context">{'group_by': ['order_id']}</field>
+    </record>
+    <menuitem id="menu_zc_boq_cost_line" name="Item Budgets" parent="hom_contracting_base.menu_hom_contracts_top"
+              sequence="30" action="action_zc_boq_cost_line"/>
+
+    <record id="hom_submittal_form_zc" model="ir.ui.view">
+        <field name="name">hom.submittal.form.zc</field>
+        <field name="model">hom.submittal</field>
+        <field name="inherit_id" ref="hom_submittals.hom_submittal_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='trade_account_id']" position="after">
+                <field name="zc_sale_line_id" options="{'no_create': True}" invisible="not sale_order_id"/>
+                <field name="zc_sd_qty" invisible="not zc_sale_line_id"/>
+                <field name="zc_contract_qty" invisible="not zc_sale_line_id"/>
+                <field name="zc_qty_diff" invisible="not zc_sale_line_id or not zc_qty_diff"
+                       decoration-danger="zc_qty_diff &gt; 0" decoration-success="zc_qty_diff &lt; 0"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_project_form_zc" model="ir.ui.view">
+        <field name="name">project.project.form.zc</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="zc_warehouse_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_category_form_zc" model="ir.ui.view">
+        <field name="name">product.category.form.zc</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='parent_id']" position="after">
+                <field name="zc_reusable"/>
+                <field name="zc_tolerance_pct"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="res_partner_form_zc" model="ir.ui.view">
+        <field name="name">res.partner.form.zc</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="purchase.view_partner_property_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='property_supplier_payment_term_id']" position="after">
+                <field name="zc_return_days"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

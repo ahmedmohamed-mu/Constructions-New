@@ -1,0 +1,5 @@
+id,name,model_id,group_id/id,operation,domain
+access_zc_boq_cost_line_sale,item budget sales,zc.boq.cost.line,sales_team.group_sale_salesman,crud,
+access_zc_boq_cost_line_project,item budget project,zc.boq.cost.line,project.group_project_user,crud,
+access_zc_boq_cost_line_user,item budget internal,zc.boq.cost.line,base.group_user,r,
+access_zc_material_recon_user,material truth,zc.material.recon,base.group_user,crud,

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="zc_material_recon_list" model="ir.ui.view">
+        <field name="name">zc.material.recon.list</field>
+        <field name="model">zc.material.recon</field>
+        <field name="arch" type="xml">
+            <list create="0" edit="0" delete="0" default_order="surplus_value desc"
+                  decoration-danger="recommendation == 'return'" decoration-warning="recommendation in ('transfer', 'hold')"
+                  decoration-muted="recommendation == 'ok'">
+                <field name="currency_id" column_invisible="1"/>
+                <field name="project_id"/>
+                <field name="warehouse_id" optional="hide"/>
+                <field name="product_id"/>
+                <field name="boq_items" optional="show"/>
+                <field name="uom_id" string="Unit"/>
+                <field name="required_qty" digits="[16,2]"/>
+                <field name="ordered_qty" digits="[16,2]"/>
+                <field name="received_qty" digits="[16,2]"/>
+                <field name="installed_qty" digits="[16,2]"/>
+                <field name="certified_qty" digits="[16,2]" optional="show"/>
+                <field name="on_site_qty" digits="[16,2]"/>
+                <field name="surplus_qty" digits="[16,2]" class="fw-bold"/>
+                <field name="surplus_value" sum="Total" class="fw-bold"/>
+                <field name="return_deadline" optional="show"/>
+                <field name="days_left" optional="show" decoration-danger="days_left &lt;= 5 and recommendation == 'return'"/>
+                <field name="recommendation" widget="badge" decoration-danger="recommendation == 'return'"
+                       decoration-warning="recommendation in ('transfer', 'hold', 'shortage')" decoration-success="recommendation == 'ok'"/>
+                <field name="picking_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+    <record id="zc_material_recon_pivot" model="ir.ui.view">
+        <field name="name">zc.material.recon.pivot</field>
+        <field name="model">zc.material.recon</field>
+        <field name="arch" type="xml">
+            <pivot>
+                <field name="project_id" type="row"/>
+                <field name="recommendation" type="col"/>
+                <field name="surplus_value" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+    <record id="zc_material_recon_search" model="ir.ui.view">
+        <field name="name">zc.material.recon.search</field>
+        <field name="model">zc.material.recon</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="project_id"/>
+                <field name="product_id"/>
+                <filter name="with_surplus" string="Surplus on site" domain="[('surplus_qty', '&gt;', 0)]"/>
+                <filter name="to_return" string="Return now" domain="[('recommendation', '=', 'return')]"/>
+                <filter name="shortage" string="Shortage" domain="[('recommendation', '=', 'shortage')]"/>
+                <group>
+                    <filter name="group_project" string="Project" context="{'group_by': 'project_id'}"/>
+                    <filter name="group_reco" string="Recommendation" context="{'group_by': 'recommendation'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="action_zc_material_recon_server" model="ir.actions.server">
+        <field name="name">Material Truth</field>
+        <field name="model_id" ref="model_zc_material_recon"/>
+        <field name="state">code</field>
+        <field name="code">action = model.action_refresh()</field>
+    </record>
+    <menuitem id="menu_zc_material_recon" name="Material Truth" parent="hom_contracting_base.menu_hom_site_top"
+              sequence="5" action="action_zc_material_recon_server"/>
+    <menuitem id="menu_zc_material_recon_stock" name="Material Truth" parent="stock.menu_warehouse_report"
+              sequence="5" action="action_zc_material_recon_server"/>
+</odoo>
