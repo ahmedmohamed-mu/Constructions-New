@@ -107,7 +107,7 @@
                             <div class="kpi"><span>قيمة العقد الحالية</span><b t-out="fmt(k['contract'], 0)"/><span>أوامر تغيير: <t t-out="fmt(k['variations'], 0)"/></span></div>
                             <div class="kpi"><span>المعتمد حتى تاريخه</span><b t-out="fmt(k['certified'], 0)"/><div class="bar"><i t-att-style="'width:' + str(round(min(k['certified_pct'], 100), 1)) + '%'"/></div><span t-out="fmt(k['certified_pct'], 1) + '%'"/></div>
                             <div class="kpi"><span>المفوتر (أعمال)</span><b t-out="fmt(k['invoiced_work'], 0)"/><span>إجمالي بالضريبة <t t-out="fmt(k['invoiced_total'], 0)"/></span></div>
-                            <div class="kpi"><span>المحصل</span><b t-out="fmt(k['collected'], 0)"/><span>متبقي عند العميل <t t-out="fmt(k['receivable'], 0)"/></span></div>
+                            <div class="kpi"><span>المحصل</span><b t-out="fmt(k['collected'], 0)"/><span t-if="k['collected_unmatched']">منها <t t-out="fmt(k['collected_unmatched'], 0)"/> تحت التسوية البنكية</span><span t-else="">رصيد العميل في الدفاتر <t t-out="fmt(k['receivable'], 0)"/></span></div>
                             <div class="kpi warn"><span>مقدم لم يُسترد</span><b t-out="fmt(k['advance_left'], 0)"/><span>من <t t-out="fmt(k['advance_received'], 0)"/></span></div>
                             <div class="kpi warn"><span>محتجز لدى العميل</span><b t-out="fmt(k['retention'], 0)"/><span>يُصرف بعد التسليم</span></div>
                         </div>
@@ -203,12 +203,13 @@
                         <t t-if="d['payments']">
                             <h3>التحصيلات</h3>
                             <table class="t">
-                                <tr><th>القيد</th><th>التاريخ</th><th>اليومية</th><th>عن الفواتير</th><th class="n">المبلغ</th></tr>
+                                <tr><th>الدفعة / القيد</th><th>التاريخ</th><th>اليومية</th><th>عن الفواتير</th><th>الحالة</th><th>مطابقة البنك</th><th class="n">المبلغ</th></tr>
                                 <tr t-foreach="d['payments']" t-as="r">
                                     <td><t t-out="link(r['rec'], r['name'])"/></td>
-                                    <td t-out="r['date']"/><td t-out="r['journal']"/><td t-out="' · '.join(sorted(set(r['invoices'])))"/><td class="n" t-out="fmt(r['amount'])"/>
+                                    <td t-out="r['date']"/><td t-out="r['journal']"/><td t-out="' · '.join(sorted(set(r['invoices'])))"/><td t-out="r['state']"/>
+                                    <td><span t-if="r['bank_matched']" class="ok">✓</span><span t-else="" class="pill">بانتظار كشف البنك</span></td><td class="n" t-out="fmt(r['amount'])"/>
                                 </tr>
-                                <tr class="tot"><td colspan="4">إجمالي المحصل</td><td class="n" t-out="fmt(sum(r['amount'] for r in d['payments']))"/></tr>
+                                <tr class="tot"><td colspan="6">إجمالي المحصل</td><td class="n" t-out="fmt(sum(r['amount'] for r in d['payments']))"/></tr>
                             </table>
                         </t>
                         <t t-if="d['guarantees']">

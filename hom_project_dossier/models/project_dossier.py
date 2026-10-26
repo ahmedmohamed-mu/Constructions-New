@@ -138,6 +138,26 @@ class ProjectProject(models.Model):
                                                   "journal": pay.journal_id.name, "amount": 0.0, "invoices": []})
                         payments[key]["amount"] += partial.amount
                         payments[key]["invoices"].append(move.name)
+        Payment = env["account.payment"]
+        pay_domain = [("state", "not in", ("draft", "canceled", "cancel"))]
+        links = [f for f in ("invoice_ids", "reconciled_invoice_ids") if f in Payment._fields]
+        linked = Payment.browse()
+        for f in links:
+            linked |= Payment.search(pay_domain + [(f, "in", invoices.ids)]) if invoices else Payment
+        for pay in linked:
+            key = pay.move_id.id if pay.move_id else "p%s" % pay.id
+            if key in payments:
+                payments[key]["payment"] = pay
+                continue
+            inv_names = (pay[links[0]] if links else invoices).filtered(lambda m: m in invoices).mapped("name")
+            payments[key] = {"rec": pay, "payment": pay, "name": pay.name, "date": pay.date, "journal": pay.journal_id.name,
+                             "amount": pay.amount, "invoices": inv_names}
+            totals["paid_unmatched"] += pay.amount
+        for p in payments.values():
+            pay = p.get("payment")
+            p["state"] = sel(pay, "state") if pay else _("Matched")
+            p["bank_matched"] = bool(pay.is_matched) if pay and "is_matched" in pay._fields else not pay
+        totals["collected"] = totals["paid"] + totals["paid_unmatched"]
         data["invoices"] = [r for r in inv_rows if in_period(r["date"])]
         data["payments"] = sorted([p for p in payments.values() if in_period(p["date"])], key=lambda p: (p["date"], p["name"]))
         data["inv_totals"] = totals
@@ -311,13 +331,20 @@ class ProjectProject(models.Model):
             receivable_gl = sum(AML.search([("move_id", "in", posted.ids), ("account_id.account_type", "=", "asset_receivable"),
                                             ("reconciled", "=", False)]).mapped("amount_residual"))
             tie.append((_("Owner balance (receivable)"), totals["residual"], receivable_gl))
-            dp_lines = AML.search([("move_id", "in", posted.ids), ("is_downpayment", "=", True), ("display_type", "=", "product")])
-            tie.append((_("Advance still to recover"), order.hom_advance_outstanding, -sum(dp_lines.mapped("balance"))))
-            ret_lines = AML.search([("move_id", "in", (posted | order.hom_retention_release_ids.filtered(lambda m: m.state == "posted")).ids),
-                                    ("product_id", "=", retention_product.id)]) if retention_product else AML
-            tie.append((_("Retention to collect"), order.hom_retention_balance, sum(ret_lines.mapped("balance"))))
-            work_lines = AML.search([("move_id", "in", posted.ids), ("display_type", "=", "product"), ("is_downpayment", "=", False),
-                                     ("product_id", "!=", retention_product.id or 0)])
+            # the ledger side reads the contract accounts themselves, not the product lines
+            dp_account = company.downpayment_account_id if "downpayment_account_id" in company._fields else env["account.account"]
+            if dp_account:
+                dp_lines = AML.search([("move_id", "in", posted.ids), ("account_id", "=", dp_account.id), ("tax_line_id", "=", False)])
+                tie.append((_("Advance still to recover"), order.hom_advance_outstanding, -sum(dp_lines.mapped("balance"))))
+            ret_account = retention_product.product_tmpl_id.with_company(company)._get_product_accounts().get("income") \
+                if retention_product else env["account.account"]
+            if ret_account:
+                releases = order.hom_retention_release_ids.filtered(lambda m: m.state == "posted")
+                ret_lines = AML.search([("move_id", "in", (posted | releases).ids), ("account_id", "=", ret_account.id),
+                                        ("tax_line_id", "=", False)])
+                tie.append((_("Retention to collect"), order.hom_retention_balance, sum(ret_lines.mapped("balance"))))
+            work_lines = AML.search([("move_id", "in", posted.ids), ("account_id.account_type", "in", ("income", "income_other")),
+                                     ("tax_line_id", "=", False)])
             tie.append((_("Work invoiced (revenue)"), totals["work"], -sum(work_lines.mapped("balance"))))
         data["tie_out"] = [{"label": l, "system": s, "gl": g, "ok": cur.is_zero(s - g)} for l, s, g in tie]
 
@@ -330,8 +357,8 @@ class ProjectProject(models.Model):
             "variations": sum(v["amount"] for v in data["variations"] if v["rec"].state in ("approved", "applied")),
             "certified": order.hom_certified_amount if order else 0.0,
             "certified_pct": order.hom_certified_pct if order else 0.0,
-            "invoiced_work": totals["work"], "invoiced_total": totals["total"], "collected": totals["paid"],
-            "receivable": totals["residual"],
+            "invoiced_work": totals["work"], "invoiced_total": totals["total"], "collected": totals["collected"],
+            "receivable": totals["residual"], "collected_unmatched": totals["paid_unmatched"],
             "advance_received": order.hom_advance_received if order else 0.0,
             "advance_left": order.hom_advance_outstanding if order else 0.0,
             "retention": order.hom_retention_balance if order else 0.0,
