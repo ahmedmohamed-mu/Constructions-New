@@ -3,7 +3,7 @@
     "summary": "One printable, clickable report per project (ملف المشروع الشامل): contract, BOQ progress, "
                "certificates, invoices, collections, guarantees, purchases, subcontracts, materials, expenses, "
                "labour, budget, site records and every accounting movement, reconciled to the general ledger.",
-    "version": "20.0.1.0.0",
+    "version": "20.0.1.0.1",
     "category": "Services/Project",
     "author": "Ziij AI",
     "license": "OPL-1",

@@ -205,7 +205,7 @@ class ProjectProject(models.Model):
         data["materials"] = [{
             "rec": m, "date": m.date, "ref": m.reference or m.picking_id.name or "", "picking": m.picking_id,
             "product": m.product_id.display_name, "qty": m.quantity if "quantity" in m._fields else m.product_uom_qty,
-            "uom": m.product_uom.name, "src": m.location_id.display_name, "dest": m.location_dest_id.display_name,
+            "uom": (m.uom_id if "uom_id" in m._fields else m.product_uom).name, "src": m.location_id.display_name, "dest": m.location_dest_id.display_name,
             "value": abs(m.value) if "value" in m._fields else 0.0,
             "kind": _("Issue to site") if m.picking_id.project_id == project and m.location_id.usage == "internal"
             and m.location_dest_id.usage != "internal" else (_("Receipt") if m.location_id.usage == "supplier" else _("Transfer")),
