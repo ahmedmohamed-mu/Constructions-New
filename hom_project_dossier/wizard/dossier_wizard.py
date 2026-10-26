@@ -16,7 +16,9 @@ class HomProjectDossierWizard(models.TransientModel):
         self.ensure_one()
         if self.date_from and self.date_to and self.date_from > self.date_to:
             raise UserError(_("The start date must be before the end date."))
-        return {"date_from": self.date_from and fields.Date.to_string(self.date_from),
+        # project_ids travels in data: a report action with data is rendered without docids in the URL
+        return {"project_ids": self.project_id.ids,
+                "date_from": self.date_from and fields.Date.to_string(self.date_from),
                 "date_to": self.date_to and fields.Date.to_string(self.date_to)}
 
     def action_view(self):

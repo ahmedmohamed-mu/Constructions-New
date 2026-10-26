@@ -33,3 +33,14 @@ class TestProjectDossier(TestProgressCertificate):
         wizard = self.env["hom.project.dossier.wizard"].create({"project_id": project.id})
         action = wizard.action_print()
         self.assertTrue(action, "the wizard returns the PDF report action")
+
+    def test_wizard_renders_selected_project(self):
+        """The wizard sends data (dates), so the report is rendered without docids: it must still find the project."""
+        project = self.env["project.project"].create({"name": "Wizard Empty Project"})
+        wizard = self.env["hom.project.dossier.wizard"].create({"project_id": project.id})
+        for action in (wizard.action_view(), wizard.action_print()):
+            action = action.get("context", {}).get("report_action", action) if "data" not in action else action
+            self.assertEqual(action["data"]["project_ids"], project.ids)
+            html = self.env["ir.actions.report"]._render_qweb_html(
+                "hom_project_dossier.action_report_project_dossier_html", None, data=action["data"])[0].decode()
+            self.assertIn("Wizard Empty Project", html, "a project with no contract still renders")

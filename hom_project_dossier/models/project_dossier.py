@@ -391,7 +391,9 @@ class ReportProjectDossier(models.AbstractModel):
     @api.model
     def _get_report_values(self, docids, data=None):
         data = data or {}
-        projects = self.env["project.project"].browse(docids or data.get("project_ids") or [])
+        ids = docids or data.get("project_ids") or data.get("context", {}).get("active_ids") \
+            or self.env.context.get("active_ids") or []
+        projects = self.env["project.project"].browse(ids).exists()
         date_from = fields.Date.to_date(data.get("date_from")) if data.get("date_from") else False
         date_to = fields.Date.to_date(data.get("date_to")) if data.get("date_to") else False
         cur = self.env.company.currency_id
