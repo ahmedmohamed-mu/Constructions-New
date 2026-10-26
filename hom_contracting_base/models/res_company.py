@@ -32,9 +32,13 @@ class ResCompany(models.Model):
         accounts = self.env["account.account"]
         if "downpayment_account_id" in self._fields:
             accounts |= self.downpayment_account_id
-        products = (self.hom_retention_owner_product_id | self.hom_retention_sub_product_id
-                    | self.hom_sub_advance_product_id | self.hom_sub_advance_recovery_product_id)
-        for product in products:
-            found = product.product_tmpl_id.with_company(self)._get_product_accounts()
-            accounts |= (found.get("income") or accounts) | (found.get("expense") or accounts)
+        # owner retention is sold (income side); subcontractor retention / advance are bought (expense side)
+        for product, side in ((self.hom_retention_owner_product_id, "income"),
+                              (self.hom_retention_sub_product_id, "expense"),
+                              (self.hom_sub_advance_product_id, "expense"),
+                              (self.hom_sub_advance_recovery_product_id, "expense")):
+            if product:
+                account = product.product_tmpl_id.with_company(self)._get_product_accounts().get(side)
+                if account and account.account_type not in ("income", "income_other", "expense", "expense_direct_cost"):
+                    accounts |= account
         return accounts
