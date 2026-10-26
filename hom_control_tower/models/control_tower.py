@@ -49,6 +49,8 @@ class HomControlTower(models.AbstractModel):
         ctx["executive"] = self._executive(orders, projects, today)
         ctx["finance"] = self._finance(company, today)
         ctx["fm"] = self._fm(company, today)
+        ctx["has_fm"] = bool(env["sale.order"].search_count([("hom_project_type", "=", "fm"), ("state", "=", "sale"),
+                                                             ("company_id", "=", company.id)]))
         ctx["alerts"] = self._alerts(company, today)
         return ctx
 

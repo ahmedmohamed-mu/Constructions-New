@@ -26,6 +26,12 @@ export class HomControlTower extends Component {
         onWillStart(() => this.load());
     }
 
+    get visibleTabs() {
+        // the facility-management tab only for companies that run maintenance contracts
+        const d = this.state.data;
+        return this.tabs.filter((t) => t.key !== "fm" || !d || d.has_fm);
+    }
+
     async load() {
         this.state.loading = true;
         this.state.data = await this.orm.call("hom.control.tower", "get_dashboard_data", []);

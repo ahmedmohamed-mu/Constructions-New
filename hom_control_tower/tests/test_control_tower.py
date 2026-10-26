@@ -28,6 +28,7 @@ class TestControlTower(AccountTestInvoicingCommon):
         self.assertGreaterEqual(data["executive"]["kpi"]["contract"], 100000)
         self.assertTrue(data["executive"]["series"])
         self.assertGreaterEqual(data["finance"]["guarantees_issued"], 5000)
+        self.assertIn("has_fm", data, "the client tells the dashboard whether to show the facility-management tab")
         self.assertTrue(any(a["action"]["res_model"] == "hom.progress.certificate" for a in data["alerts"]))
         self.assertTrue(self.env["hom.control.tower"].get_open_action("contracts"))
         engineer = new_test_user(self.env, "ct.eng", groups="project.group_project_user")

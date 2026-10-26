@@ -20,7 +20,7 @@
             </button>
         </div>
         <div class="ct-tabs">
-            <t t-foreach="this.tabs" t-as="tab" t-key="tab.key">
+            <t t-foreach="this.visibleTabs" t-as="tab" t-key="tab.key">
                 <button t-attf-class="ct-tab {{ this.state.tab === tab.key ? 'active' : '' }}" t-on-click="() => this.setTab(tab.key)">
                     <i class="oi" t-att-data-icon="tab.icon"/> <t t-out="tab.label"/>
                 </button>
