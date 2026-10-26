@@ -102,14 +102,20 @@ class ProjectProject(models.Model):
         invoices = order.invoice_ids.filtered(lambda m: m.state != "cancel").sorted(lambda m: (m.invoice_date or m.date, m.id)) \
             if order else env["account.move"]
         retention_product = company.hom_retention_owner_product_id
+        dp_acc = company.downpayment_account_id if "downpayment_account_id" in company._fields else False
+        ret_acc = retention_product.product_tmpl_id.with_company(company)._get_product_accounts().get("income") \
+            if retention_product else False
         inv_rows, payments = [], {}
         totals = defaultdict(float)
         for move in invoices:
             sign = -1 if move.move_type == "out_refund" else 1
             lines = move.invoice_line_ids.filtered(lambda l: l.display_type == "product")
-            work = sum(lines.filtered(lambda l: not l.is_downpayment and l.product_id != retention_product).mapped("price_subtotal"))
-            dp = sum(lines.filtered("is_downpayment").mapped("price_subtotal"))
-            ret = sum(lines.filtered(lambda l: l.product_id == retention_product).mapped("price_subtotal"))
+            # classify by the account the line is booked on (works also for invoices made by hand / older flows)
+            dp_l = lines.filtered(lambda l: l.is_downpayment or (dp_acc and l.account_id == dp_acc))
+            ret_l = (lines - dp_l).filtered(lambda l: l.product_id == retention_product or (ret_acc and l.account_id == ret_acc))
+            work = sum((lines - dp_l - ret_l).mapped("price_subtotal"))
+            dp = sum(dp_l.mapped("price_subtotal"))
+            ret = sum(ret_l.mapped("price_subtotal"))
             kind = _("Advance") if dp > 0 and not work else (_("Retention release") if ret > 0 and not work else
                                                            (_("Credit note") if sign < 0 else _("Certificate")))
             paid = move.amount_total - move.amount_residual if move.state == "posted" else 0.0
