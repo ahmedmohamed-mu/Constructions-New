@@ -189,7 +189,9 @@ class TestProgressCertificate(AccountTestInvoicingCommon):
         self.assertFalse(Cert.search([("sale_order_id", "=", self.so.id), ("state", "=", "draft")]))
         project = self.env["project.project"].create({"name": "MS", "sale_line_id": sol.id, "allow_milestones": True})
         milestone = self.env["project.milestone"].create({"name": "Chillers installed", "project_id": project.id})
-        milestone.is_reached = True
+        pm = self.env["res.users"].create({"name": "PM only", "login": "pm_only_hom",
+                                           "group_ids": [Command.set([self.env.ref("project.group_project_manager").id])]})
+        milestone.with_user(pm).is_reached = True
         draft = Cert.search([("sale_order_id", "=", self.so.id), ("state", "=", "draft")])
         self.assertEqual(len(draft), 1)
         self.assertEqual(draft.line_ids.filtered(lambda l: l.sale_line_id == sol).cumulative_qty, 5)

@@ -101,7 +101,7 @@ class ProjectMilestone(models.Model):
         res = super().write(vals)
         Certificate = self.env["hom.progress.certificate"]
         for milestone in newly_reached:
-            project = milestone.project_id
+            project = milestone.project_id.sudo()  # the PM may have no access to sales orders
             order = project.reinvoiced_sale_order_id or project.sale_order_id
             if order and order.state == "sale" and order.hom_project_type == "contracting" \
                     and order.hom_certificate_frequency == "milestone":
