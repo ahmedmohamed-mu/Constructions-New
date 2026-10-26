@@ -500,8 +500,8 @@ msgstr "يستلم مهمة عند اعتماد المستخلص"
 
 #. module: hom_progress_billing
 #: model:ir.module.module,shortdesc:base.module_hom_progress_billing
-msgid "H.O.M Contracting - Owner Progress Certificates"
-msgstr "H.O.M مقاولات - مستخلصات المالك"
+msgid "Ziij Construction - Owner Progress Certificates"
+msgstr "Ziij للمقاولات - مستخلصات المالك"
 
 #. module: hom_progress_billing
 #: model:ir.model.fields,field_description:hom_progress_billing.field_hom_progress_certificate__has_message

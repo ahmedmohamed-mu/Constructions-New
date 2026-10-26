@@ -228,8 +228,8 @@ msgstr "المتابعون (الشركاء)"
 
 #. module: hom_submittals
 #: model:ir.module.module,shortdesc:base.module_hom_submittals
-msgid "H.O.M Contracting - Submittals"
-msgstr "H.O.M مقاولات - الاعتمادات"
+msgid "Ziij Construction - Submittals"
+msgstr "Ziij للمقاولات - الاعتمادات"
 
 #. module: hom_submittals
 #: model:ir.model.fields,field_description:hom_submittals.field_hom_submittal__has_message

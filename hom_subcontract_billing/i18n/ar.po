@@ -325,8 +325,8 @@ msgstr "المتابعون (الشركاء)"
 
 #. module: hom_subcontract_billing
 #: model:ir.module.module,shortdesc:base.module_hom_subcontract_billing
-msgid "H.O.M Contracting - Subcontractor Certificates"
-msgstr "H.O.M مقاولات - مستخلصات مقاولي الباطن"
+msgid "Ziij Construction - Subcontractor Certificates"
+msgstr "Ziij للمقاولات - مستخلصات مقاولي الباطن"
 
 #. module: hom_subcontract_billing
 #: model:ir.model.fields,field_description:hom_subcontract_billing.field_hom_subcontract_certificate__has_message

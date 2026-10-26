@@ -1,5 +1,5 @@
 {
-    "name": "H.O.M Contracting - Base",
+    "name": "Ziij Construction - Base",
     "summary": "Contract terms on sales/purchase orders and contracting accounts (advance, retention).",
     "version": "20.0.1.4.1",
     "category": "Services/Contracting",

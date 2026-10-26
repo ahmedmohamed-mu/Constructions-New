@@ -1,5 +1,5 @@
 {
-    "name": "H.O.M Contracting - Owner Progress Certificates",
+    "name": "Ziij Construction - Owner Progress Certificates",
     "summary": "Owner progress certificates (مستخلصات المالك) on sales contracts: cumulative BOQ measurement, "
                "consultant approval, invoicing with advance recovery and retention.",
     "version": "20.0.1.4.2",

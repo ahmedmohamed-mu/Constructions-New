@@ -244,13 +244,13 @@ msgstr "من"
 
 #. module: hom_project_dossier
 #: model:ir.module.module,shortdesc:base.module_hom_project_dossier
-msgid "H.O.M Contracting - Project Dossier"
-msgstr "H.O.M مقاولات - ملف المشروع الشامل"
+msgid "Ziij Construction - Project Dossier"
+msgstr "Ziij للمقاولات - ملف المشروع الشامل"
 
 #. module: hom_project_dossier
 #: model:ir.model,name:hom_project_dossier.model_report_hom_project_dossier_report_project_dossier
-msgid "H.O.M Project Dossier"
-msgstr "ملف المشروع الشامل"
+msgid "Project Dossier Report"
+msgstr "تقرير ملف المشروع الشامل"
 
 #. module: hom_project_dossier
 #: model:ir.model.fields,field_description:hom_project_dossier.field_hom_project_dossier_wizard__id

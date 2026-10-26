@@ -7,7 +7,7 @@
     <div class="ct-hero">
         <div class="ct-hero-top">
             <div class="ct-brand">
-                <div class="ct-logo"><img src="/hom_control_tower/static/img/hom_emblem.png" alt="H.O.M"/></div>
+                <div class="ct-logo"><img src="/hom_control_tower/static/img/hom_emblem.png" alt="Logo"/></div>
                 <div>
                     <div class="ct-title">Control Tower</div>
                     <div class="ct-sub" t-if="this.state.data">

@@ -373,13 +373,13 @@ msgstr "خطابات الضمان الصادرة"
 #. module: hom_control_tower
 #. odoo-javascript
 #: code:addons/hom_control_tower/static/src/control_tower.xml:0
-msgid "H.O.M"
-msgstr "H.O.M"
+msgid "Logo"
+msgstr "الشعار"
 
 #. module: hom_control_tower
 #: model:ir.module.module,shortdesc:base.module_hom_control_tower
-msgid "H.O.M Contracting - Control Tower"
-msgstr "H.O.M مقاولات - برج التحكم"
+msgid "Ziij Construction - Control Tower"
+msgstr "Ziij للمقاولات - برج التحكم"
 
 #. module: hom_control_tower
 #: model:ir.model.fields,field_description:hom_control_tower.field_hom_control_tower__id

@@ -3,7 +3,7 @@
     <!-- Default contracting products; accounts are set per company in Accounting (balance-sheet accounts). -->
     <record id="product_retention_owner" model="product.product">
         <field name="name">محتجز ضمان أعمال (عميل)</field>
-        <field name="default_code">HOM-RET-C</field>
+        <field name="default_code">ZC-RET-C</field>
         <field name="type">service</field>
         <field name="sale_ok" eval="True"/>
         <field name="purchase_ok" eval="False"/>
@@ -12,7 +12,7 @@
     </record>
     <record id="product_retention_sub" model="product.product">
         <field name="name">محتجز ضمان مقاول باطن</field>
-        <field name="default_code">HOM-RET-S</field>
+        <field name="default_code">ZC-RET-S</field>
         <field name="type">service</field>
         <field name="sale_ok" eval="False"/>
         <field name="purchase_ok" eval="True"/>
@@ -20,14 +20,14 @@
     </record>
     <record id="product_sub_advance" model="product.product">
         <field name="name">دفعة مقدمة مقاول باطن</field>
-        <field name="default_code">HOM-ADV-S</field>
+        <field name="default_code">ZC-ADV-S</field>
         <field name="type">service</field>
         <field name="sale_ok" eval="False"/>
         <field name="purchase_ok" eval="True"/>
     </record>
     <record id="product_sub_advance_recovery" model="product.product">
         <field name="name">استرداد دفعة مقدمة مقاول باطن</field>
-        <field name="default_code">HOM-ADVR-S</field>
+        <field name="default_code">ZC-ADVR-S</field>
         <field name="type">service</field>
         <field name="sale_ok" eval="False"/>
         <field name="purchase_ok" eval="True"/>

@@ -386,7 +386,7 @@ class ProjectProject(models.Model):
 
 class ReportProjectDossier(models.AbstractModel):
     _name = "report.hom_project_dossier.report_project_dossier"
-    _description = "H.O.M Project Dossier"
+    _description = "Project Dossier Report"
 
     @api.model
     def _get_report_values(self, docids, data=None):

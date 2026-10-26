@@ -1,5 +1,5 @@
 {
-    "name": "H.O.M Contracting - Project Dossier",
+    "name": "Ziij Construction - Project Dossier",
     "summary": "One printable, clickable report per project (ملف المشروع الشامل): contract, BOQ progress, "
                "certificates, invoices, collections, guarantees, purchases, subcontracts, materials, expenses, "
                "labour, budget, site records and every accounting movement, reconciled to the general ledger.",

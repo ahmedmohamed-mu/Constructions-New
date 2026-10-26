@@ -19,7 +19,7 @@
                         <h2>مستخلص مقاول باطن رقم <span t-out="o.number"/></h2>
                         <p><strong>المقاول:</strong> <span t-out="o.partner_id.name"/> — <strong>العقد:</strong> <span t-out="o.purchase_order_id.name"/> — <strong>التاريخ:</strong> <span t-field="o.date"/></p>
                         <table class="table table-sm table-bordered" style="font-size:11px">
-                            <style>.hom-head th{color:#fff !important;background:transparent !important}</style><thead class="hom-head" t-attf-style="background:{{ o.company_id.secondary_color or '#1E2521' }};color:#fff"><tr><th style="width:36%">البند</th><th>الوحدة</th><th class="text-end">السابق</th><th class="text-end">الحالي</th><th class="text-end">التراكمي</th><th class="text-end">الفئة</th><th class="text-end">قيمة الحالي</th></tr></thead>
+                            <style>.hom-head th{color:#fff !important;background:transparent !important}</style><thead class="hom-head" t-attf-style="background:{{ o.company_id.secondary_color or '#1F1F1F' }};color:#fff"><tr><th style="width:36%">البند</th><th>الوحدة</th><th class="text-end">السابق</th><th class="text-end">الحالي</th><th class="text-end">التراكمي</th><th class="text-end">الفئة</th><th class="text-end">قيمة الحالي</th></tr></thead>
                             <tbody>
                                 <tr t-foreach="o.line_ids.filtered(lambda x: x.cumulative_qty)" t-as="l">
                                     <td><span t-out="l.product_id.name"/></td>

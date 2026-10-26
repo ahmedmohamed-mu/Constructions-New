@@ -1,5 +1,5 @@
 {
-    "name": "H.O.M Contracting - Bank Guarantees",
+    "name": "Ziij Construction - Bank Guarantees",
     "summary": "Letters of guarantee (خطابات الضمان): bid, advance payment, performance and retention bonds "
                "issued for owners or received from subcontractors, with expiry alerts and advance reduction.",
     "version": "20.0.1.1.1",

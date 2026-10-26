@@ -1,26 +1,26 @@
-// H.O.M Control Tower — H.O.M Egypt identity: brand green #6DB33F on charcoal (from hom-egypt.com)
+// Control Tower — brand accent from the client identity (orange on charcoal)
 @font-face { font-family: "HomTajawal"; font-weight: 400; src: url("/web/static/fonts/google/Tajawal/Tajawal-Regular.ttf") format("truetype"); }
 @font-face { font-family: "HomTajawal"; font-weight: 500; src: url("/web/static/fonts/google/Tajawal/Tajawal-Medium.ttf") format("truetype"); }
 @font-face { font-family: "HomTajawal"; font-weight: 700; src: url("/web/static/fonts/google/Tajawal/Tajawal-Bold.ttf") format("truetype"); }
 @font-face { font-family: "HomTajawal"; font-weight: 800; src: url("/web/static/fonts/google/Tajawal/Tajawal-ExtraBold.ttf") format("truetype"); }
 
 .o_hom_ct {
-    --ct-navy: #1E2521;
-    --ct-navy-2: #0D110F;
-    --ct-teal: #6DB33F;
+    --ct-navy: #1F1F1F;
+    --ct-navy-2: #0F0F0F;
+    --ct-teal: #EC4123;
     --ct-amber: #F4A261;
     --ct-red: #E5484D;
-    --ct-green: #3E8E2B;
-    --ct-bg: #F3F5F2;
+    --ct-green: #C7361C;
+    --ct-bg: #F6F4F3;
     --ct-card: #FFFFFF;
-    --ct-text: #1A201C;
-    --ct-muted: #6E7A71;
-    --ct-line: #E3E8E2;
-    --ct-track: #ECF0EA;
-    --ct-c1: #6DB33F;
-    --ct-c2: #2B332E;
+    --ct-text: #1A1A1A;
+    --ct-muted: #6F6A68;
+    --ct-line: #ECE4E1;
+    --ct-track: #F7ECE9;
+    --ct-c1: #EC4123;
+    --ct-c2: #3A3A3A;
     --ct-c3: #F4A261;
-    --ct-b0: #D9E0D6;
+    --ct-b0: #E9DCD8;
     --ct-shadow: 0 1px 2px rgba(20, 30, 22, .06), 0 6px 20px rgba(20, 30, 22, .06);
 
     background: var(--ct-bg);
@@ -28,7 +28,7 @@
     font-family: "HomTajawal", var(--o-font-family-sans-serif, sans-serif);
 
     .ct-hero {
-        background: radial-gradient(1200px 300px at 85% -40%, rgba(109, 179, 63, .40), transparent 60%),
+        background: radial-gradient(1200px 300px at 85% -40%, rgba(236, 65, 35, .40), transparent 60%),
                     linear-gradient(135deg, var(--ct-navy) 0%, var(--ct-navy-2) 100%);
         color: #fff;
         padding: 20px 28px 0;
@@ -37,7 +37,7 @@
     .ct-brand { display: flex; align-items: center; gap: 14px; }
     .ct-logo {
         width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center;
-        background: #fff; padding: 5px; box-shadow: 0 0 0 3px rgba(109, 179, 63, .35);
+        background: #fff; padding: 5px; box-shadow: 0 0 0 3px rgba(236, 65, 35, .35);
         img { width: 100%; height: 100%; object-fit: contain; }
     }
     .ct-title { font-size: 24px; font-weight: 800; letter-spacing: .2px; }
@@ -164,7 +164,7 @@
     // ---------------------------------------------------------------- finance
     .ct-stack { display: flex; height: 18px; border-radius: 8px; overflow: hidden; background: var(--ct-track);
         span { height: 100%; } }
-    .ct-a0 { background: #6DB33F; } .ct-a1 { background: #B5DB8F; } .ct-a2 { background: #F4A261; }
+    .ct-a0 { background: #EC4123; } .ct-a1 { background: #F6A08E; } .ct-a2 { background: #F4A261; }
     .ct-a3 { background: #E76F51; } .ct-a4 { background: #C1272D; }
     .ct-aging-legend { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-top: 12px; font-size: 12px;
         div { display: flex; flex-direction: column; } span { color: var(--ct-muted); } b { font-size: 14px; } }

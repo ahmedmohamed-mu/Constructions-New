@@ -222,8 +222,8 @@ msgstr "المتابعون (الشركاء)"
 
 #. module: hom_variation_order
 #: model:ir.module.module,shortdesc:base.module_hom_variation_order
-msgid "H.O.M Contracting - Variation Orders"
-msgstr "H.O.M مقاولات - أوامر التغيير"
+msgid "Ziij Construction - Variation Orders"
+msgstr "Ziij للمقاولات - أوامر التغيير"
 
 #. module: hom_variation_order
 #: model:ir.model.fields,field_description:hom_variation_order.field_hom_variation_order__has_message

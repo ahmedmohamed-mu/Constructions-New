@@ -231,8 +231,8 @@ msgstr "خطابات الضمان"
 
 #. module: hom_guarantees
 #: model:ir.module.module,shortdesc:base.module_hom_guarantees
-msgid "H.O.M Contracting - Bank Guarantees"
-msgstr "H.O.M مقاولات - خطابات الضمان"
+msgid "Ziij Construction - Bank Guarantees"
+msgstr "Ziij للمقاولات - خطابات الضمان"
 
 #. module: hom_guarantees
 #: model:ir.model.fields,field_description:hom_guarantees.field_hom_bank_guarantee__has_message

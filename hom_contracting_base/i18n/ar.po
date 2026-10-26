@@ -184,8 +184,8 @@ msgstr "المالية"
 
 #. module: hom_contracting_base
 #: model:ir.module.module,shortdesc:base.module_hom_contracting_base
-msgid "H.O.M Contracting - Base"
-msgstr "H.O.M مقاولات - الأساس"
+msgid "Ziij Construction - Base"
+msgstr "Ziij للمقاولات - الأساس"
 
 #. module: hom_contracting_base
 #: model:ir.model.fields,field_description:hom_contracting_base.field_purchase_order__hom_budget_warning

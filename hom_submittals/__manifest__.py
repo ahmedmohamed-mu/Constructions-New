@@ -1,5 +1,5 @@
 {
-    "name": "H.O.M Contracting - Submittals",
+    "name": "Ziij Construction - Submittals",
     "summary": "Submittal log (اعتمادات الاستشاري): shop drawings, material submittals, samples and method statements "
                "sent to the consultant, with A/B/C/D review codes, revisions and overdue alerts.",
     "version": "20.0.1.0.2",
