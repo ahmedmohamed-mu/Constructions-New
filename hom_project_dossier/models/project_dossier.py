@@ -288,7 +288,9 @@ class ProjectProject(models.Model):
         # ---------------- Budget vs actual by trade
         budget = []
         if "budget.line" in env and account:
-            for bl in env["budget.line"].search([("account_id", "=", account.id)]):
+            # only the budgets in force (a revision replaces its parent)
+            for bl in env["budget.line"].search([("account_id", "=", account.id),
+                                                 ("budget_analytic_id.state", "in", ("confirmed", "done"))]):
                 trade = next((bl[c] for c in bl._fields if c.startswith("x_plan") and bl[c]), env["account.analytic.account"])
                 budget.append({"rec": bl, "budget": bl.budget_analytic_id.name, "trade": trade.name or "",
                                "amount": abs(bl.budget_amount), "committed": abs(getattr(bl, "committed_amount", 0.0) or 0.0),
