@@ -62,6 +62,10 @@ class TestSubcontractCertificate(AccountTestInvoicingCommon):
         ret_line = bill.invoice_line_ids.filtered(lambda l: l.product_id == self.env.company.hom_retention_sub_product_id)
         self.assertEqual(ret_line.account_id, self.ret_acc)
         self.assertEqual(self.po.order_line[0].qty_invoiced, 30)
+        self.po.write({"hom_retention_pct": 10.0})
+        self.env.flush_all()
+        cert.invalidate_recordset()
+        self.assertAlmostEqual(cert.amount_retention, -19925, msg="billed certificate keeps its retention")
 
     def test_report_and_site_engineer(self):
         from odoo.tests import new_test_user

@@ -30,8 +30,23 @@ class HomSubcontractCertificate(models.Model):
     line_ids = fields.One2many("hom.subcontract.certificate.line", "certificate_id", copy=True)
     bill_id = fields.Many2one("account.move", readonly=True, copy=False, tracking=True)
     bill_payment_state = fields.Selection(related="bill_id.payment_state")
-    recovery_pct = fields.Float(related="purchase_order_id.hom_advance_recovery_pct")
-    retention_pct = fields.Float(related="purchase_order_id.hom_retention_pct")
+    # Copied from the subcontract, so a later change never rewrites certificates already billed.
+    recovery_pct = fields.Float(string="Advance Recovery %", compute="_compute_contract_terms", store=True,
+                                readonly=False, precompute=True)
+    retention_pct = fields.Float(string="Retention %", compute="_compute_contract_terms", store=True,
+                                 readonly=False, precompute=True)
+
+    @api.depends("purchase_order_id")
+    def _compute_contract_terms(self):
+        for cert in self:
+            cert.recovery_pct = cert.purchase_order_id.hom_advance_recovery_pct
+            cert.retention_pct = cert.purchase_order_id.hom_retention_pct
+
+    def _hom_sync_contract_terms(self):
+        for cert in self.filtered(lambda c: c.state == "draft"):
+            order = cert.purchase_order_id
+            if (cert.recovery_pct, cert.retention_pct) != (order.hom_advance_recovery_pct, order.hom_retention_pct):
+                cert.write({"recovery_pct": order.hom_advance_recovery_pct, "retention_pct": order.hom_retention_pct})
     amount_current = fields.Monetary(string="Work this Certificate", compute="_compute_amounts", store=True)
     amount_cumulative = fields.Monetary(string="Cumulative Work", compute="_compute_amounts", store=True)
     amount_advance_recovery = fields.Monetary(string="Advance Recovery", compute="_compute_amounts", store=True)
@@ -79,6 +94,7 @@ class HomSubcontractCertificate(models.Model):
             cert.amount_net = current + cert.amount_advance_recovery + cert.amount_retention
 
     def action_load_items(self):
+        self._hom_sync_contract_terms()
         Line = self.env["hom.subcontract.certificate.line"]
         for cert in self:
             if cert.state != "draft":
@@ -138,6 +154,7 @@ class HomSubcontractCertificate(models.Model):
                     note=_("Draft prepared automatically from the site measurements. Check and submit."))
 
     def action_submit(self):
+        self._hom_sync_contract_terms()
         for cert in self.filtered(lambda c: c.state == "draft"):
             if not cert.line_ids.filtered(lambda l: not float_is_zero(l.current_qty, precision_digits=6)):
                 raise UserError(_("Nothing measured in this certificate."))

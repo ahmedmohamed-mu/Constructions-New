@@ -33,8 +33,12 @@ class HomProgressCertificate(models.Model):
     line_ids = fields.One2many("hom.progress.certificate.line", "certificate_id", copy=True)
     invoice_id = fields.Many2one("account.move", readonly=True, copy=False, tracking=True)
     invoice_payment_state = fields.Selection(related="invoice_id.payment_state")
-    advance_pct = fields.Float(related="sale_order_id.hom_advance_pct")
-    retention_pct = fields.Float(related="sale_order_id.hom_retention_pct")
+    # Contract terms are copied on the certificate (not linked): changing the % on the contract later
+    # must never rewrite certificates that were already invoiced and posted in accounting.
+    advance_pct = fields.Float(string="Advance %", compute="_compute_contract_terms", store=True, readonly=False,
+                               precompute=True)
+    retention_pct = fields.Float(string="Retention %", compute="_compute_contract_terms", store=True, readonly=False,
+                                 precompute=True)
     amount_current = fields.Monetary(string="Work this Certificate", compute="_compute_amounts", store=True)
     amount_cumulative = fields.Monetary(string="Cumulative Work", compute="_compute_amounts", store=True)
     amount_advance_recovery = fields.Monetary(string="Advance Recovery", compute="_compute_amounts", store=True)
@@ -54,8 +58,20 @@ class HomProgressCertificate(models.Model):
         for cert in self:
             cert.project_id = cert.sale_order_id.project_ids[:1]
 
-    @api.depends("line_ids.amount_current", "line_ids.amount_cumulative", "advance_pct", "retention_pct",
-                 "sale_order_id.amount_untaxed")
+    @api.depends("sale_order_id")
+    def _compute_contract_terms(self):
+        for cert in self:
+            cert.advance_pct = cert.sale_order_id.hom_advance_pct
+            cert.retention_pct = cert.sale_order_id.hom_retention_pct
+
+    def _hom_sync_contract_terms(self):
+        """Draft certificates follow the current contract terms; later ones keep what was certified."""
+        for cert in self.filtered(lambda c: c.state == "draft"):
+            order = cert.sale_order_id
+            if (cert.advance_pct, cert.retention_pct) != (order.hom_advance_pct, order.hom_retention_pct):
+                cert.write({"advance_pct": order.hom_advance_pct, "retention_pct": order.hom_retention_pct})
+
+    @api.depends("line_ids.amount_current", "line_ids.amount_cumulative", "advance_pct", "retention_pct")
     def _compute_amounts(self):
         for cert in self:
             current = sum(cert.line_ids.mapped("amount_current"))
@@ -117,6 +133,7 @@ class HomProgressCertificate(models.Model):
     # Actions
     # ------------------------------------------------------------------
     def action_load_boq(self):
+        self._hom_sync_contract_terms()
         for cert in self:
             if cert.state != "draft":
                 raise UserError(_("BOQ lines can only be loaded on a draft certificate."))
@@ -165,6 +182,7 @@ class HomProgressCertificate(models.Model):
         }
 
     def action_submit(self):
+        self._hom_sync_contract_terms()
         for cert in self:
             if cert.state != "draft":
                 continue

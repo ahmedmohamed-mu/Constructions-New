@@ -88,6 +88,19 @@ class TestProgressCertificate(AccountTestInvoicingCommon):
         self.assertAlmostEqual(cert2.invoice_id.amount_untaxed, 105000)
         self.assertAlmostEqual(self.env["hom.progress.certificate"].new({"sale_order_id": self.so.id})._remaining_advance(), 0.0)
         self.assertEqual(self.so.invoice_status, "invoiced")
+        # changing the contract terms later never rewrites certificates already in accounting
+        self.so.invalidate_recordset()
+        held = self.so.hom_retention_balance
+        self.so.write({"hom_retention_pct": 10.0, "hom_advance_pct": 30.0})
+        self.env.flush_all()
+        cert1.invalidate_recordset()
+        self.assertAlmostEqual(cert1.retention_pct, 5.0)
+        self.assertAlmostEqual(cert1.amount_retention, -2500)
+        self.assertAlmostEqual(cert1.amount_advance_recovery, -12500)
+        self.so.invalidate_recordset()
+        self.assertAlmostEqual(self.so.hom_retention_balance, held)
+        cert3 = self.env["hom.progress.certificate"].create({"sale_order_id": self.so.id})
+        self.assertAlmostEqual(cert3.retention_pct, 10.0, msg="new certificates follow the new terms")
 
     def test_cannot_exceed_contract(self):
         cert = self.env["hom.progress.certificate"].create({"sale_order_id": self.so.id})
