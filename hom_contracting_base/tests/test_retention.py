@@ -27,3 +27,16 @@ class TestRetentionRelease(AccountTestInvoicingCommon):
         release.action_post()
         so.invalidate_recordset()
         self.assertAlmostEqual(so.hom_retention_balance, 0)
+
+    def test_fm_order_has_no_advance_or_retention(self):
+        self.env.user.group_ids |= self.env.ref("sales_team.group_sale_manager")
+        so = self.env["sale.order"].create({"partner_id": self.partner_a.id, "hom_project_type": "fm"})
+        self.assertEqual((so.hom_advance_pct, so.hom_retention_pct), (0.0, 0.0))
+        contract = self.env["sale.order"].create({"partner_id": self.partner_a.id})
+        self.assertEqual(contract.hom_project_type, "contracting")
+        self.assertEqual((contract.hom_advance_pct, contract.hom_retention_pct), (25.0, 5.0))
+        if "plan_id" in self.env["sale.order"]._fields:
+            plan = self.env["sale.subscription.plan"].search([], limit=1) or self.env["sale.subscription.plan"].create(
+                {"name": "Monthly", "billing_period_value": 1, "billing_period_unit": "month"})
+            sub = self.env["sale.order"].create({"partner_id": self.partner_a.id, "plan_id": plan.id})
+            self.assertEqual(sub.hom_project_type, "fm")

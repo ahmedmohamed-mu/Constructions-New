@@ -11,7 +11,7 @@
                         groups="account.group_account_invoice"/>
             </xpath>
             <xpath expr="//group[@name='order_details']" position="inside">
-                <field name="hom_project_type"/>
+                <field name="hom_project_type" readonly="state in ('sale', 'cancel')"/>
                 <field name="hom_consultant_id" invisible="hom_project_type != 'contracting'"/>
                 <label for="hom_advance_pct" invisible="hom_project_type != 'contracting'"/>
                 <div class="o_row" invisible="hom_project_type != 'contracting'">
