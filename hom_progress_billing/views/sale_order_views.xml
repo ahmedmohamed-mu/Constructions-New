@@ -15,6 +15,9 @@
                     <field name="hom_open_measurement_count" widget="statinfo" string="To Certify"/>
                 </button>
             </xpath>
+            <xpath expr="//field[@name='hom_consultant_id']" position="after">
+                <field name="hom_certificate_frequency" invisible="hom_project_type != 'contracting'"/>
+            </xpath>
             <xpath expr="//notebook/page[@name='order_lines']" position="after">
                 <page string="Contract Control" name="hom_contract_control"
                       invisible="hom_project_type != 'contracting' or state != 'sale'">

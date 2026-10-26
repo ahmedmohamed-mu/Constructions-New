@@ -157,6 +157,10 @@ class TestProgressCertificate(AccountTestInvoicingCommon):
         Cert = self.env["hom.progress.certificate"]
         before = Cert.search_count([("sale_order_id", "=", self.so.id)])
         Cert._cron_monthly_drafts()
+        self.assertEqual(Cert.search_count([("sale_order_id", "=", self.so.id)]), before, "no site work, no draft")
+        self.env["hom.site.measurement"].create({"sale_line_id": self.so.order_line.filtered(lambda l: l.product_id == self.item_a).id,
+                                                 "quantity": 5, "date": date.today()})
+        Cert._cron_monthly_drafts()
         self.assertEqual(Cert.search_count([("sale_order_id", "=", self.so.id)]), before + 1)
         Cert._cron_monthly_drafts()  # no duplicate while a draft exists
         self.assertEqual(Cert.search_count([("sale_order_id", "=", self.so.id)]), before + 1)
@@ -168,3 +172,24 @@ class TestProgressCertificate(AccountTestInvoicingCommon):
         update = self.env["project.update"].search([("project_id", "=", project.id)])
         self.assertTrue(update)
         self.assertEqual(update.status, "on_track")
+
+    def test_certificate_frequency(self):
+        from datetime import date
+        Cert = self.env["hom.progress.certificate"]
+        sol = self.so.order_line.filtered(lambda l: l.product_id == self.item_a)
+        self.env["hom.site.measurement"].create({"sale_line_id": sol.id, "quantity": 5, "date": date.today()})
+        self.env.company.hom_certificate_day = date.today().day
+        # on demand: never automatic
+        self.so.hom_certificate_frequency = "on_demand"
+        Cert._cron_monthly_drafts()
+        self.assertFalse(Cert.search([("sale_order_id", "=", self.so.id), ("state", "=", "draft")]))
+        # milestone: draft when a milestone is reached, not on the monthly day
+        self.so.hom_certificate_frequency = "milestone"
+        Cert._cron_monthly_drafts()
+        self.assertFalse(Cert.search([("sale_order_id", "=", self.so.id), ("state", "=", "draft")]))
+        project = self.env["project.project"].create({"name": "MS", "sale_line_id": sol.id, "allow_milestones": True})
+        milestone = self.env["project.milestone"].create({"name": "Chillers installed", "project_id": project.id})
+        milestone.is_reached = True
+        draft = Cert.search([("sale_order_id", "=", self.so.id), ("state", "=", "draft")])
+        self.assertEqual(len(draft), 1)
+        self.assertEqual(draft.line_ids.filtered(lambda l: l.sale_line_id == sol).cumulative_qty, 5)

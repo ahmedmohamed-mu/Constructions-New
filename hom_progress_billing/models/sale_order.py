@@ -4,6 +4,12 @@ from odoo import _, fields, models
 class SaleOrder(models.Model):
     _inherit = "sale.order"
 
+    hom_certificate_frequency = fields.Selection(
+        [("monthly", "Monthly / شهري"), ("milestone", "On milestones / بالمراحل"), ("on_demand", "On demand / عند الطلب")],
+        string="Certificate Frequency", default="monthly", required=True, tracking=True,
+        help="Monthly: a draft certificate is prepared on the certificate day when there is new site work.\n"
+             "On milestones: a draft is prepared when a project milestone is marked as reached.\n"
+             "On demand: no automatic drafts; the site engineer creates the certificate when needed.")
     hom_certificate_ids = fields.One2many("hom.progress.certificate", "sale_order_id", string="Progress Certificates")
     hom_certificate_count = fields.Integer(compute="_compute_hom_certificate_count")
     hom_certified_amount = fields.Monetary(string="Certified to Date", compute="_compute_hom_contract_control")

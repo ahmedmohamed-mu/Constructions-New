@@ -91,3 +91,21 @@ class ProjectProject(models.Model):
                 "description": body,
                 "user_id": project.user_id.id or self.env.user.id,
             })
+
+
+class ProjectMilestone(models.Model):
+    _inherit = "project.milestone"
+
+    def write(self, vals):
+        newly_reached = self.filtered(lambda m: not m.is_reached) if vals.get("is_reached") else self.browse()
+        res = super().write(vals)
+        Certificate = self.env["hom.progress.certificate"]
+        for milestone in newly_reached:
+            project = milestone.project_id
+            order = project.reinvoiced_sale_order_id or project.sale_order_id
+            if order and order.state == "sale" and order.hom_project_type == "contracting" \
+                    and order.hom_certificate_frequency == "milestone":
+                cert = Certificate._hom_prepare_draft(order, _("Milestone reached: %s - certificate", milestone.name))
+                if cert:
+                    cert.message_post(body=_("Prepared automatically: milestone «%s» reached.", milestone.name))
+        return res

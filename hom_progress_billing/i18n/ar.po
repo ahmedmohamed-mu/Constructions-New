@@ -1244,3 +1244,31 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hom_progress_billing.report_progress_certificate_document
 msgid "نسبة الإنجاز"
 msgstr ""
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,field_description:hom_progress_billing.field_sale_order__hom_certificate_frequency
+msgid "Certificate Frequency"
+msgstr "دورية المستخلص"
+
+#. module: hom_progress_billing
+#: model:ir.model.fields,help:hom_progress_billing.field_sale_order__hom_certificate_frequency
+msgid ""
+"Monthly: a draft certificate is prepared on the certificate day when there is new site work.\n"
+"On milestones: a draft is prepared when a project milestone is marked as reached.\n"
+"On demand: no automatic drafts; the site engineer creates the certificate when needed."
+msgstr ""
+"شهري: تُجهَّز مسودة مستخلص في يوم المستخلص الشهري إذا وُجد حصر موقع جديد.\n"
+"بالمراحل: تُجهَّز المسودة عند اعتبار مرحلة (Milestone) في المشروع منجزة.\n"
+"عند الطلب: لا مسودات تلقائية؛ مهندس الموقع ينشئ المستخلص عند الحاجة."
+
+#. module: hom_progress_billing
+#. odoo-python
+#: code:addons/hom_progress_billing/models/project_project.py:0
+msgid "Milestone reached: %s - certificate"
+msgstr "تم إنجاز المرحلة: %s - مستخلص"
+
+#. module: hom_progress_billing
+#. odoo-python
+#: code:addons/hom_progress_billing/models/project_project.py:0
+msgid "Prepared automatically: milestone «%s» reached."
+msgstr "تم التجهيز تلقائيًا: تم إنجاز المرحلة «%s»."

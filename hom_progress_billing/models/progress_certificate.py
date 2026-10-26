@@ -289,24 +289,35 @@ class HomProgressCertificate(models.Model):
 
     @api.model
     def _cron_monthly_drafts(self):
-        """Create the monthly draft certificate of every running contract (on the configured day)."""
+        """Prepare the monthly draft certificate of contracts billed monthly (on the configured day)."""
         today = fields.Date.context_today(self)
-        orders = self.env["sale.order"].search([("state", "=", "sale"), ("hom_project_type", "=", "contracting")])
+        orders = self.env["sale.order"].search([("state", "=", "sale"), ("hom_project_type", "=", "contracting"),
+                                                ("hom_certificate_frequency", "=", "monthly")])
         for order in orders:
             if today.day != (order.company_id.hom_certificate_day or 25):
                 continue
-            if self.search_count([("sale_order_id", "=", order.id), ("state", "in", ("draft", "submitted"))]):
-                continue
-            cert = self.create({"sale_order_id": order.id, "date": today, "period_end": today})
-            cert.action_load_boq()
-            project = cert.project_id
-            responsible = project.user_id or order.user_id
-            if responsible:
-                cert.activity_schedule(
-                    "mail.mail_activity_data_todo", user_id=responsible.id,
-                    summary=_("Monthly progress certificate - %s", order.name),
-                    note=_("Draft prepared automatically from the site measurements. Review the quantities "
-                           "with the consultant, then submit."))
+            self._hom_prepare_draft(order, _("Monthly progress certificate - %s", order.name))
+
+    @api.model
+    def _hom_prepare_draft(self, order, summary, period_end=None):
+        """Draft certificate from the uncertified site measurements; nothing is created without new site work."""
+        if self.search_count([("sale_order_id", "=", order.id), ("state", "in", ("draft", "submitted"))]):
+            return self.browse()
+        open_work = self.env["hom.site.measurement"].sudo().search_count([
+            ("sale_line_id.order_id", "=", order.id),
+            "|", ("certificate_id", "=", False), ("certificate_id.state", "=", "cancel")])
+        if not open_work:
+            return self.browse()
+        today = fields.Date.context_today(self)
+        cert = self.sudo().create({"sale_order_id": order.id, "date": today, "period_end": period_end or today})
+        cert.action_load_boq()
+        responsible = cert.project_id.user_id or order.user_id
+        if responsible:
+            cert.activity_schedule(
+                "mail.mail_activity_data_todo", user_id=responsible.id, summary=summary,
+                note=_("Draft prepared automatically from the site measurements. Review the quantities "
+                       "with the consultant, then submit."))
+        return cert
 
     def action_view_invoice(self):
         self.ensure_one()
