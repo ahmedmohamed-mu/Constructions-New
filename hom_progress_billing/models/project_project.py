@@ -105,7 +105,12 @@ class ProjectMilestone(models.Model):
             order = project.reinvoiced_sale_order_id or project.sale_order_id
             if order and order.state == "sale" and order.hom_project_type == "contracting" \
                     and order.hom_certificate_frequency == "milestone":
-                cert = Certificate._hom_prepare_draft(order, _("Milestone reached: %s - certificate", milestone.name))
+                # a reached milestone certifies all the work measured for it, whatever the measurement date
+                last = self.env["hom.site.measurement"].sudo().search(
+                    [("sale_line_id.order_id", "=", order.id), ("certificate_id", "=", False)], order="date desc", limit=1)
+                period_end = max(last.date, fields.Date.context_today(self)) if last else None
+                cert = Certificate._hom_prepare_draft(order, _("Milestone reached: %s - certificate", milestone.name),
+                                                      period_end=period_end)
                 if cert:
                     cert.message_post(body=_("Prepared automatically: milestone «%s» reached.", milestone.name))
         return res

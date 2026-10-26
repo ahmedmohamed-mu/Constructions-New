@@ -303,12 +303,12 @@ class HomProgressCertificate(models.Model):
         """Draft certificate from the uncertified site measurements; nothing is created without new site work."""
         if self.search_count([("sale_order_id", "=", order.id), ("state", "in", ("draft", "submitted"))]):
             return self.browse()
+        today = fields.Date.context_today(self)
         open_work = self.env["hom.site.measurement"].sudo().search_count([
-            ("sale_line_id.order_id", "=", order.id),
+            ("sale_line_id.order_id", "=", order.id), ("date", "<=", period_end or today),
             "|", ("certificate_id", "=", False), ("certificate_id.state", "=", "cancel")])
         if not open_work:
             return self.browse()
-        today = fields.Date.context_today(self)
         cert = self.sudo().create({"sale_order_id": order.id, "date": today, "period_end": period_end or today})
         cert.action_load_boq()
         responsible = cert.project_id.user_id or order.user_id
