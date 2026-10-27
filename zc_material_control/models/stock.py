@@ -33,14 +33,15 @@ class StockPicking(models.Model):
                 if row["company_id"] != company.id or row["surplus_qty"] <= 0 or not row["return_deadline"]:
                     continue
                 if today <= row["return_deadline"] <= limit:
-                    picking = self.browse(row["picking_id"])
-                    summary = _("Return surplus before %s", row["return_deadline"])
+                    # write the alert in the stores keeper's language, not the cron user's
+                    picking = self.with_context(lang=user.lang or self.env.lang).browse(row["picking_id"])
+                    summary = picking.env._("Return surplus before %s", row["return_deadline"])
                     if picking.activity_ids.filtered(lambda a: a.summary == summary):
                         continue
                     picking.activity_schedule(
                         "mail.mail_activity_data_warning", user_id=user.id, date_deadline=row["return_deadline"],
                         summary=summary,
-                        note=_("%(q)s %(u)s of %(p)s are still on site beyond what is installed (value %(v)s). "
+                        note=picking.env._("%(q)s %(u)s of %(p)s are still on site beyond what is installed (value %(v)s). "
                                "Return them to the supplier before the deadline or transfer them to another project.",
                                q=round(row["surplus_qty"], 2), u=row["uom"], p=row["product_name"],
                                v="{:,.0f}".format(row["surplus_value"])))
