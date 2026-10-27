@@ -229,3 +229,24 @@ class TestCertificateControls(AccountTestInvoicingCommon):
         payable = self.env["account.move.line"].search([("account_id", "=", self.types["SWHT"].account_id.id),
                                                         ("parent_state", "=", "posted")])
         self.assertAlmostEqual(sum(payable.mapped("balance")), -840)
+
+    def test_back_to_back_on_linked_items(self):
+        """A trade subcontract is compared with the owner's certified quantity of its own BOQ item."""
+        self._measure(self.line_a, 60)
+        owner = self._cert()
+        owner.action_submit()
+        owner.action_approve()
+        self.assertEqual(self.line_a.qty_delivered, 60)
+        svc = self.env["product.product"].create({"name": "Gypsum labour", "type": "service", "purchase_method": "receive"})
+        po = self.env["purchase.order"].create({
+            "partner_id": self.sub.id, "hom_is_subcontract": True,
+            "order_line": [Command.create({"product_id": svc.id, "product_qty": 100, "price_unit": 300,
+                                           "hom_boq_line_id": self.line_a.id})]})
+        po.button_confirm()
+        cert = self.env["hom.subcontract.certificate"].create({"purchase_order_id": po.id})
+        cert.action_load_items()
+        self.assertEqual(cert.line_ids.cumulative_qty, 60)
+        self.assertAlmostEqual(cert.owner_progress_pct, 60)
+        self.assertFalse(cert.back_to_back_warning, "60% of the item certified on both sides")
+        cert.line_ids.cumulative_qty = 80
+        self.assertTrue(cert.back_to_back_warning)

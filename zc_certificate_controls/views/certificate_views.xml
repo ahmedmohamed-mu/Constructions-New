@@ -89,7 +89,7 @@
                         <list>
                             <field name="name"/>
                             <field name="product_id"/>
-                            <field name="qty"/>
+                            <field name="qty" digits="[16,2]"/>
                             <field name="currency_id" column_invisible="1"/>
                             <field name="amount" sum="Total"/>
                             <field name="reason"/>

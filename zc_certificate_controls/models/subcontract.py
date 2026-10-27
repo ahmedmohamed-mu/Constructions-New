@@ -48,6 +48,26 @@ class HomSubcontractCertificate(models.Model):
             cert.zc_withholding_open = bool(bill and bill.state == "posted" and cert.zc_deduction_ids.filtered(
                 lambda d: d.timing == "payment" and d.amount and not d.settled_move_id))
 
+    @api.depends("line_ids.amount_cumulative", "purchase_order_id")
+    def _compute_back_to_back(self):
+        """Compare the subcontractor with what the owner certified on the same BOQ items (not the whole project).
+
+        A tiling subcontract at 62% is in line with the owner when the owner certified 62% of the tiling item,
+        even if the whole project is at 10%.
+        """
+        res = super()._compute_back_to_back()
+        tolerance = 5.0
+        for cert in self:
+            lines = cert.purchase_order_id.order_line.filtered(lambda l: not l.display_type and l.product_qty)
+            linked = lines.filtered("hom_boq_line_id")
+            if not lines or linked != lines:
+                continue
+            total = sum(l.product_qty * l.price_unit for l in lines)
+            owner = sum(min(l.hom_boq_line_id.qty_delivered, l.product_qty) * l.price_unit for l in lines)
+            cert.owner_progress_pct = (owner / total * 100.0) if total else 0.0
+            cert.back_to_back_warning = cert.sub_progress_pct > cert.owner_progress_pct + tolerance
+        return res
+
     # ------------------------------------------------------------------
     def _hom_apply_site_progress(self):
         gated = self.filtered(lambda c: c.state == "draft" and c.company_id.zc_wir_required)

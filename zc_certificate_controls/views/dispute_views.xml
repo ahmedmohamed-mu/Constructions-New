@@ -9,7 +9,7 @@
                 <field name="certificate_id"/>
                 <field name="project_id" optional="show"/>
                 <field name="product_id"/>
-                <field name="qty"/>
+                <field name="qty" digits="[16,2]"/>
                 <field name="product_uom_id" string="Unit"/>
                 <field name="currency_id" column_invisible="1"/>
                 <field name="amount" sum="Total"/>
@@ -43,13 +43,13 @@
                         </group>
                         <group>
                             <label for="qty"/>
-                            <div class="o_row"><field name="qty" readonly="1"/><field name="product_uom_id"/></div>
+                            <div class="o_row"><field name="qty" readonly="1" digits="[16,2]"/><field name="product_uom_id"/></div>
                             <field name="price_unit" readonly="1"/>
                             <field name="currency_id" invisible="1"/>
                             <field name="amount"/>
                             <field name="reason"/>
                             <field name="resubmit_cert_id"/>
-                            <field name="recovered_qty"/>
+                            <field name="recovered_qty" digits="[16,2]"/>
                             <field name="recovered_amount"/>
                         </group>
                     </group>

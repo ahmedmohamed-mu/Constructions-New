@@ -105,7 +105,7 @@
                         <field name="title" class="fw-bold"/>
                         <field name="quantity_summary" class="small"/>
                         <footer>
-                            <field name="date_due" class="small" t-att-class="record.is_overdue.raw_value ? 'text-danger fw-bold' : 'text-muted'"/>
+                            <span t-att-class="record.is_overdue.raw_value ? 'small text-danger fw-bold' : 'small text-muted'"><field name="date_due"/></span>
                             <field name="user_id" widget="many2one_avatar_user" class="ms-auto"/>
                         </footer>
                     </t>

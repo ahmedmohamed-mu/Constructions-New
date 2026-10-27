@@ -4,6 +4,6 @@
               sequence="15" action="action_zc_inspection_request"/>
     <menuitem id="menu_zc_disputes" name="Quantity Claims" parent="hom_contracting_base.menu_hom_billing_top"
               sequence="25" action="action_zc_quantity_dispute"/>
-    <menuitem id="menu_zc_deduction_types" name="Certificate Deductions" parent="hom_contracting_base.menu_hom_root"
-              sequence="95" action="action_zc_deduction_type" groups="account.group_account_manager"/>
+    <menuitem id="menu_zc_deduction_types" name="Certificate Deductions" parent="hom_contracting_base.menu_hom_billing_top"
+              sequence="90" action="action_zc_deduction_type" groups="account.group_account_manager"/>
 </odoo>
