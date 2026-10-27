@@ -113,7 +113,10 @@ class ProjectProject(models.Model):
             # classify by the account the line is booked on (works also for invoices made by hand / older flows)
             dp_l = lines.filtered(lambda l: l.is_downpayment or (dp_acc and l.account_id == dp_acc))
             ret_l = (lines - dp_l).filtered(lambda l: l.product_id == retention_product or (ret_acc and l.account_id == ret_acc))
-            work = sum((lines - dp_l - ret_l).mapped("price_subtotal"))
+            # owner deductions booked on the invoice (penalties, utilities...) are not work: they sit on cost accounts
+            ded_l = (lines - dp_l - ret_l).filtered(
+                lambda l: l.account_id.account_type not in ("income", "income_other"))
+            work = sum((lines - dp_l - ret_l - ded_l).mapped("price_subtotal"))
             dp = sum(dp_l.mapped("price_subtotal"))
             ret = sum(ret_l.mapped("price_subtotal"))
             kind = _("Advance") if dp > 0 and not work else (_("Retention release") if ret > 0 and not work else
