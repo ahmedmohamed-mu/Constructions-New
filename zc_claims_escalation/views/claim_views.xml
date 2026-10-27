@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="zc_claim_form" model="ir.ui.view">
+        <field name="name">zc.claim.form</field>
+        <field name="model">zc.claim</field>
+        <field name="arch" type="xml">
+            <form string="Claim">
+                <header>
+                    <button name="action_notify" type="object" string="Notice Sent" class="btn-primary" invisible="state != 'event'"/>
+                    <button name="action_submit" type="object" string="Detailed Claim Submitted" class="btn-primary" invisible="state != 'notified'"/>
+                    <button name="action_agree" type="object" string="Agreed" class="btn-primary" invisible="state != 'submitted'"/>
+                    <button name="action_partial" type="object" string="Partially Agreed" invisible="state != 'submitted'"/>
+                    <button name="action_reject" type="object" string="Rejected" invisible="state != 'submitted'"/>
+                    <button name="action_dispute" type="object" string="Notice of Dissatisfaction" invisible="state not in ('partial', 'rejected')"/>
+                    <button name="action_create_invoice" type="object" string="Invoice Agreed Amount"
+                            invisible="state not in ('agreed', 'partial') or not amount_granted or invoice_id" groups="account.group_account_invoice"/>
+                    <button name="action_withdraw" type="object" string="Withdraw" invisible="state not in ('event', 'notified')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="event,notified,submitted,agreed"/>
+                </header>
+                <div class="alert alert-danger mb-0" role="alert" invisible="not time_barred">
+                    <strong>Time-bar risk:</strong> the notice of claim was not sent within the contractual period
+                    (due <field name="notice_deadline" class="d-inline" readonly="1"/>).
+                </div>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_invoice" type="object" class="oe_stat_button" icon="edit_square" invisible="not invoice_id">
+                            <span class="o_stat_text">Invoice</span>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <span class="text-muted"><field name="name" readonly="1"/></span>
+                        <h1><field name="title" placeholder="e.g. Late approval of the marble samples"/></h1>
+                    </div>
+                    <group>
+                        <group string="Contract">
+                            <field name="sale_order_id" readonly="state != 'event'" options="{'no_create': True}"/>
+                            <field name="partner_id"/>
+                            <field name="consultant_id"/>
+                            <field name="project_id"/>
+                            <field name="claim_type"/>
+                            <field name="cause"/>
+                            <field name="variation_id" options="{'no_create': True}"/>
+                            <field name="user_id" widget="many2one_avatar_user"/>
+                            <field name="company_id" invisible="1"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="invoice_id" invisible="1"/>
+                            <field name="time_barred" invisible="1"/>
+                        </group>
+                        <group string="Contractual clock">
+                            <field name="event_date"/>
+                            <field name="notice_deadline" decoration-danger="state == 'event' and notice_deadline &lt; current_date"/>
+                            <field name="notice_date"/>
+                            <field name="notice_ref"/>
+                            <field name="detail_deadline"/>
+                            <field name="submission_date"/>
+                            <field name="answer_deadline" decoration-danger="state == 'submitted' and answer_deadline &lt; current_date"/>
+                            <field name="determination_date"/>
+                            <field name="nod_deadline" invisible="not nod_deadline"/>
+                            <field name="next_step" class="fw-bold"/>
+                            <field name="next_deadline" class="fw-bold"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Time">
+                            <field name="days_claimed" invisible="claim_type == 'cost'"/>
+                            <field name="days_granted" invisible="claim_type == 'cost'"/>
+                            <field name="eot_applied" invisible="not eot_applied"/>
+                        </group>
+                        <group string="Cost">
+                            <field name="amount_claimed" invisible="claim_type == 'eot'"/>
+                            <field name="amount_granted" invisible="claim_type == 'eot'"/>
+                            <field name="determination_ref"/>
+                        </group>
+                    </group>
+                    <field name="description" placeholder="Facts, contract clauses, impact on the programme, quantum..."/>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="zc_claim_list" model="ir.ui.view">
+        <field name="name">zc.claim.list</field>
+        <field name="model">zc.claim</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="time_barred" decoration-success="state == 'agreed'" decoration-muted="state == 'withdrawn'">
+                <field name="name"/>
+                <field name="title"/>
+                <field name="sale_order_id" optional="show"/>
+                <field name="claim_type" optional="show"/>
+                <field name="event_date"/>
+                <field name="next_step"/>
+                <field name="next_deadline"/>
+                <field name="days_claimed" sum="Total" optional="show"/>
+                <field name="days_granted" sum="Total" optional="show"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="amount_claimed" sum="Total"/>
+                <field name="amount_granted" sum="Total"/>
+                <field name="time_barred" column_invisible="1"/>
+                <field name="state" widget="badge" decoration-info="state in ('notified', 'submitted')" decoration-success="state == 'agreed'"
+                       decoration-warning="state == 'partial'" decoration-danger="state in ('rejected', 'dispute')"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="zc_claim_search" model="ir.ui.view">
+        <field name="name">zc.claim.search</field>
+        <field name="model">zc.claim</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="title"/>
+                <field name="sale_order_id"/>
+                <filter name="open" string="Open" domain="[('state', 'in', ('event', 'notified', 'submitted', 'partial', 'rejected'))]"/>
+                <filter name="barred" string="Time-bar risk" domain="[('time_barred', '=', True)]"/>
+                <separator/>
+                <filter name="group_order" string="Contract" context="{'group_by': 'sale_order_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_zc_claim" model="ir.actions.act_window">
+        <field name="name">Claims (EOT / Cost)</field>
+        <field name="res_model">zc.claim</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_open': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No claim yet</p>
+            <p>Record the event the day you become aware of it: the system counts the notice, detailed claim,
+               engineer answer and dissatisfaction deadlines so no entitlement is lost to a time-bar.</p>
+        </field>
+    </record>
+</odoo>

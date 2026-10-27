@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_zc_claim_user,claim user,zc.claim,base.group_user,crud,
+access_zc_price_index_user,price index user,zc.price.index,base.group_user,crud,
+access_zc_price_index_value_user,price index value user,zc.price.index.value,base.group_user,crud,
+access_zc_escalation_formula_user,escalation formula user,zc.escalation.formula,base.group_user,crud,
+access_zc_escalation_user,escalation user,zc.escalation,base.group_user,crud,
+access_zc_escalation_line_user,escalation line user,zc.escalation.line,base.group_user,crud,

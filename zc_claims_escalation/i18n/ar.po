@@ -1,0 +1,1318 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* zc_claims_escalation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-27 11:58+0000\n"
+"PO-Revision-Date: 2026-10-27 11:58+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: zc_claims_escalation
+#. odoo-python
+#: code:addons/zc_claims_escalation/models/escalation.py:0
+msgid "%(n)s - price escalation %(f)s to %(t)s (factor %(x).4f%%)"
+msgstr "%(n)s - فروق أسعار من %(f)s إلى %(t)s (معامل %(x).4f%%)"
+
+#. module: zc_claims_escalation
+#: model_terms:ir.ui.view,arch_db:zc_claims_escalation.zc_claim_form
+#: model_terms:ir.ui.view,arch_db:zc_claims_escalation.zc_escalation_form
+msgid "<span class=\"o_stat_text\">Invoice</span>"
+msgstr "<span class=\"o_stat_text\">الفاتورة</span>"
+
+#. module: zc_claims_escalation
+#: model_terms:ir.ui.view,arch_db:zc_claims_escalation.zc_claim_form
+msgid ""
+"<strong>Time-bar risk:</strong> the notice of claim was not sent within the contractual period\n"
+"                    (due"
+msgstr ""
+"<strong>خطر سقوط الحق:</strong> لم يُرسل إخطار المطالبة خلال المدة التعاقدية"
+" (الموعد"
+
+#. module: zc_claims_escalation
+#. odoo-python
+#: code:addons/zc_claims_escalation/models/claim.py:0
+msgid "Accept or send a notice of dissatisfaction"
+msgstr "القبول أو إرسال إخطار عدم الرضا"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__message_needaction
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__activity_plans_ids
+msgid "Activity Plans"
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields.selection,name:zc_claims_escalation.selection__zc_claim__claim_type__cost
+msgid "Additional cost"
+msgstr "تكلفة إضافية"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,help:zc_claims_escalation.field_sale_order__zc_escalation_threshold
+msgid "Adjust only when the weighted change exceeds this percentage."
+msgstr "يُعدّل السعر فقط إذا تجاوز التغير المرجح هذه النسبة."
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation__factor
+msgid "Adjustment factor"
+msgstr "معامل التعديل"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields.selection,name:zc_claims_escalation.selection__zc_claim__state__agreed
+#: model_terms:ir.ui.view,arch_db:zc_claims_escalation.zc_claim_form
+msgid "Agreed"
+msgstr "متفق عليها"
+
+#. module: zc_claims_escalation
+#. odoo-python
+#: code:addons/zc_claims_escalation/models/claim.py:0
+msgid "Already invoiced: %s"
+msgstr "تمت الفوترة بالفعل: %s"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation_line__amount
+msgid "Amount"
+msgstr "المبلغ"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__amount_claimed
+msgid "Amount Claimed"
+msgstr "المبلغ المطالب به"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__amount_granted
+msgid "Amount Granted"
+msgstr "المبلغ المعتمد"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields.selection,name:zc_claims_escalation.selection__zc_escalation__state__approved
+#: model_terms:ir.ui.view,arch_db:zc_claims_escalation.zc_escalation_form
+msgid "Approved"
+msgstr "معتمد"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__message_attachment_count
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation_line__base_index
+msgid "Base Index"
+msgstr "رقم الأساس"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation_formula__base_value
+msgid "Base Value"
+msgstr "قيمة الأساس"
+
+#. module: zc_claims_escalation
+#: model_terms:ir.ui.view,arch_db:zc_claims_escalation.zc_escalation_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields.selection,name:zc_claims_escalation.selection__zc_escalation__state__cancel
+msgid "Cancelled"
+msgstr "ملغي"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__cause
+msgid "Cause"
+msgstr "السبب"
+
+#. module: zc_claims_escalation
+#: model_terms:ir.ui.view,arch_db:zc_claims_escalation.zc_escalation_form
+msgid "Certificates"
+msgstr "المستخلصات"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation__certificate_ids
+msgid "Certificates of the period"
+msgstr "مستخلصات الفترة"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation_line__change_pct
+msgid "Change %"
+msgstr "التغير %"
+
+#. module: zc_claims_escalation
+#: model_terms:ir.ui.view,arch_db:zc_claims_escalation.zc_claim_form
+msgid "Claim"
+msgstr "مطالبة"
+
+#. module: zc_claims_escalation
+#. odoo-python
+#: code:addons/zc_claims_escalation/models/claim.py:0
+msgid "Claim %s"
+msgstr "مطالبة %s"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__claim_type
+msgid "Claim Type"
+msgstr "نوع المطالبة"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_res_company__zc_claim_notice_days
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_res_config_settings__zc_claim_notice_days
+msgid "Claim notice within (days)"
+msgstr "مدة إخطار المطالبة (يوم)"
+
+#. module: zc_claims_escalation
+#. odoo-python
+#: code:addons/zc_claims_escalation/models/control_tower.py:0
+msgid "Claim notices"
+msgstr "إخطارات المطالبات"
+
+#. module: zc_claims_escalation
+#. odoo-python
+#: code:addons/zc_claims_escalation/models/control_tower.py:0
+msgid "Claim notices due within 14 days (risk of time-bar)"
+msgstr "إخطارات مطالبات مستحقة خلال 14 يوم (خطر سقوط الحق)"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_res_company__zc_claim_product_id
+msgid "Claim settlement product"
+msgstr "منتج تسوية المطالبات"
+
+#. module: zc_claims_escalation
+#. odoo-python
+#: code:addons/zc_claims_escalation/models/escalation.py:0
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_sale_order__zc_claim_ids
+#: model_terms:ir.ui.view,arch_db:zc_claims_escalation.view_order_form_zc_ce
+msgid "Claims"
+msgstr "المطالبات"
+
+#. module: zc_claims_escalation
+#: model:ir.actions.act_window,name:zc_claims_escalation.action_zc_claim
+#: model:ir.ui.menu,name:zc_claims_escalation.menu_zc_claim
+msgid "Claims (EOT / Cost)"
+msgstr "المطالبات (مد مدة / تكلفة)"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__user_id
+msgid "Claims engineer"
+msgstr "مهندس المطالبات"
+
+#. module: zc_claims_escalation
+#. odoo-python
+#: code:addons/zc_claims_escalation/models/control_tower.py:0
+msgid "Claims waiting"
+msgstr "مطالبات منتظرة"
+
+#. module: zc_claims_escalation
+#. odoo-python
+#: code:addons/zc_claims_escalation/models/control_tower.py:0
+msgid "Claims without the engineer's answer in the contractual period"
+msgstr "مطالبات بدون رد الاستشاري في المدة التعاقدية"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_price_index__code
+msgid "Code"
+msgstr "الكود"
+
+#. module: zc_claims_escalation
+#: model:ir.model,name:zc_claims_escalation.model_res_company
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__company_id
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: zc_claims_escalation
+#. odoo-python
+#: code:addons/zc_claims_escalation/models/claim.py:0
+msgid "Completion extended by %(d)s days by %(c)s: %(o)s -> %(n)s."
+msgstr "تم مد تاريخ الانتهاء %(d)s يوم بموجب %(c)s: %(o)s ← %(n)s."
+
+#. module: zc_claims_escalation
+#: model_terms:ir.ui.view,arch_db:zc_claims_escalation.zc_escalation_form
+msgid "Compute"
+msgstr "احسب"
+
+#. module: zc_claims_escalation
+#: model:ir.model,name:zc_claims_escalation.model_res_config_settings
+msgid "Config Settings"
+msgstr "تهيئة الإعدادات"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__consultant_id
+msgid "Consultant"
+msgstr "الاستشاري"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__sale_order_id
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation__sale_order_id
+#: model_terms:ir.ui.view,arch_db:zc_claims_escalation.zc_claim_form
+#: model_terms:ir.ui.view,arch_db:zc_claims_escalation.zc_claim_search
+msgid "Contract"
+msgstr "العقد"
+
+#. module: zc_claims_escalation
+#: model:ir.model,name:zc_claims_escalation.model_hom_control_tower
+msgid "Contracting Control Tower"
+msgstr "برج التحكم - المقاولات"
+
+#. module: zc_claims_escalation
+#: model:ir.model,name:zc_claims_escalation.model_zc_claim
+msgid "Contractor Claim (EOT / cost)"
+msgstr "مطالبة المقاول (مد مدة / تكلفة)"
+
+#. module: zc_claims_escalation
+#: model:ir.module.module,summary:base.module_zc_claims_escalation
+msgid ""
+"Contractor claims (extension of time and cost) with the contractual notice "
+"periods and time-bar alerts (notice, detailed claim, engineer's answer, "
+"notice of dissatisfaction), and price escalation (فروق الأسعار) by weighted "
+"price indices against the base date of the contract."
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model_terms:ir.ui.view,arch_db:zc_claims_escalation.zc_claim_form
+msgid "Contractual clock"
+msgstr "المواعيد التعاقدية"
+
+#. module: zc_claims_escalation
+#: model_terms:ir.ui.view,arch_db:zc_claims_escalation.zc_claim_form
+msgid "Cost"
+msgstr "التكلفة"
+
+#. module: zc_claims_escalation
+#: model_terms:ir.ui.view,arch_db:zc_claims_escalation.zc_escalation_form
+msgid "Create Invoice"
+msgstr "إنشاء الفاتورة"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__create_uid
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation__create_uid
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation_formula__create_uid
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation_line__create_uid
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_price_index__create_uid
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_price_index_value__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__create_date
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation__create_date
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation_formula__create_date
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation_line__create_date
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_price_index__create_date
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_price_index_value__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__currency_id
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation__currency_id
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation_line__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation_line__current_index
+msgid "Current Index"
+msgstr "الرقم الحالي"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_price_index_value__date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation__date_from
+msgid "Date From"
+msgstr "من"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation__date_to
+msgid "Date To"
+msgstr "إلى"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__days_claimed
+msgid "Days Claimed"
+msgstr "الأيام المطالب بها"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__days_granted
+msgid "Days Granted"
+msgstr "الأيام المعتمدة"
+
+#. module: zc_claims_escalation
+#: model_terms:ir.ui.view,arch_db:zc_claims_escalation.zc_claim_form
+msgid "Detailed Claim Submitted"
+msgstr "تم تقديم المطالبة التفصيلية"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__detail_deadline
+msgid "Detailed claim due"
+msgstr "موعد المطالبة التفصيلية"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__submission_date
+msgid "Detailed claim on"
+msgstr "تاريخ المطالبة التفصيلية"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields.selection,name:zc_claims_escalation.selection__zc_claim__state__submitted
+msgid "Detailed claim submitted"
+msgstr "المطالبة التفصيلية مقدمة"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_res_company__zc_claim_detail_days
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_res_config_settings__zc_claim_detail_days
+msgid "Detailed claim within (days)"
+msgstr "مدة المطالبة التفصيلية (يوم)"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__determination_ref
+msgid "Determination Ref"
+msgstr "رقم قرار الاستشاري"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__determination_date
+msgid "Determination on"
+msgstr "تاريخ قرار الاستشاري"
+
+#. module: zc_claims_escalation
+#. odoo-python
+#: code:addons/zc_claims_escalation/models/control_tower.py:0
+msgid "Determinations becoming final: notice of dissatisfaction due"
+msgstr "قرارات ستصبح نهائية: إخطار عدم الرضا مستحق"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_hom_control_tower__display_name
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_res_company__display_name
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_sale_order__display_name
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__display_name
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation__display_name
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation_formula__display_name
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation_line__display_name
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_price_index__display_name
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_price_index_value__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields.selection,name:zc_claims_escalation.selection__zc_claim__state__dispute
+msgid "Dispute (NOD)"
+msgstr "نزاع (إخطار عدم رضا)"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__nod_deadline
+msgid "Dissatisfaction notice due"
+msgstr "موعد إخطار عدم الرضا"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields.selection,name:zc_claims_escalation.selection__zc_escalation__state__draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__answer_deadline
+msgid "Engineer answer due"
+msgstr "موعد رد الاستشاري"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_res_company__zc_claim_answer_days
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_res_config_settings__zc_claim_answer_days
+msgid "Engineer answers within (days)"
+msgstr "مدة رد الاستشاري (يوم)"
+
+#. module: zc_claims_escalation
+#. odoo-python
+#: code:addons/zc_claims_escalation/models/claim.py:0
+msgid "Engineer's agreement / determination"
+msgstr "اتفاق / قرار الاستشاري"
+
+#. module: zc_claims_escalation
+#. odoo-python
+#: code:addons/zc_claims_escalation/models/claim.py:0
+msgid "Enter the amount claimed."
+msgstr "أدخل المبلغ المطالب به."
+
+#. module: zc_claims_escalation
+#. odoo-python
+#: code:addons/zc_claims_escalation/models/claim.py:0
+msgid "Enter the days / amount granted by the engineer."
+msgstr "أدخل الأيام / المبلغ الذي اعتمده الاستشاري."
+
+#. module: zc_claims_escalation
+#. odoo-python
+#: code:addons/zc_claims_escalation/models/claim.py:0
+msgid "Enter the days claimed."
+msgstr "أدخل الأيام المطالب بها."
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__eot_applied
+msgid "Eot Applied"
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation_line__escalation_id
+msgid "Escalation"
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_sale_order__zc_escalation_base_date
+msgid "Escalation base date"
+msgstr "تاريخ الأساس لفروق الأسعار"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_sale_order__zc_escalation_formula_ids
+msgid "Escalation formula"
+msgstr "معادلة فروق الأسعار"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__title
+msgid "Event"
+msgstr "الحدث"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__event_date
+msgid "Event / aware on"
+msgstr "تاريخ الحدث / العلم به"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields.selection,name:zc_claims_escalation.selection__zc_claim__state__event
+msgid "Event recorded"
+msgstr "تم تسجيل الحدث"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_sale_order__zc_escalation_exclude_advance
+msgid "Exclude work financed by the advance"
+msgstr "استبعاد الأعمال الممولة من الدفعة المقدمة"
+
+#. module: zc_claims_escalation
+#. odoo-python
+#: code:addons/zc_claims_escalation/models/claim.py:0
+msgid "Extend %s after the extension of time"
+msgstr "مد الخطاب %s بعد مد مدة التنفيذ"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields.selection,name:zc_claims_escalation.selection__zc_claim__claim_type__eot
+msgid "Extension of time"
+msgstr "مد مدة"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,help:zc_claims_escalation.field_res_company__zc_claim_notice_days
+#: model:ir.model.fields,help:zc_claims_escalation.field_res_config_settings__zc_claim_notice_days
+msgid "FIDIC 20.2.1: notice of claim within 28 days of becoming aware."
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,help:zc_claims_escalation.field_res_company__zc_claim_detail_days
+#: model:ir.model.fields,help:zc_claims_escalation.field_res_config_settings__zc_claim_detail_days
+msgid "FIDIC 20.2.4: fully detailed claim within 84 days of becoming aware."
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,help:zc_claims_escalation.field_res_company__zc_claim_answer_days
+#: model:ir.model.fields,help:zc_claims_escalation.field_res_config_settings__zc_claim_answer_days
+msgid "FIDIC 3.7.3: agreement / determination within 42 days."
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,help:zc_claims_escalation.field_res_company__zc_claim_nod_days
+#: model:ir.model.fields,help:zc_claims_escalation.field_res_config_settings__zc_claim_nod_days
+msgid "FIDIC 3.7.5: otherwise the determination is final and binding."
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__description
+msgid "Facts & entitlement"
+msgstr "الوقائع والاستحقاق"
+
+#. module: zc_claims_escalation
+#: model_terms:ir.ui.view,arch_db:zc_claims_escalation.zc_claim_form
+msgid "Facts, contract clauses, impact on the programme, quantum..."
+msgstr "الوقائع، بنود العقد، الأثر على البرنامج الزمني، القيمة..."
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation__advance_excluded
+msgid "Financed by the advance"
+msgstr "ممول من الدفعة المقدمة"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_sale_order__zc_escalation_fixed
+msgid "Fixed share %"
+msgstr "الجزء الثابت %"
+
+#. module: zc_claims_escalation
+#. odoo-python
+#: code:addons/zc_claims_escalation/models/claim.py:0
+msgid "Follow up the engineer's answer on %s"
+msgstr "متابعة رد الاستشاري على %s"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__message_follower_ids
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__message_partner_ids
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields.selection,name:zc_claims_escalation.selection__zc_claim__cause__force_majeure
+msgid "Force majeure / exceptional event"
+msgstr "قوة قاهرة / حدث استثنائي"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__has_message
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_hom_control_tower__id
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_res_company__id
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_res_config_settings__id
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_sale_order__id
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__id
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation__id
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation_formula__id
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation_line__id
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_price_index__id
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_price_index_value__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,help:zc_claims_escalation.field_zc_claim__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,help:zc_claims_escalation.field_zc_claim__message_needaction
+#: model:ir.model.fields,help:zc_claims_escalation.field_zc_escalation__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,help:zc_claims_escalation.field_zc_claim__message_has_error
+#: model:ir.model.fields,help:zc_claims_escalation.field_zc_claim__message_has_sms_error
+#: model:ir.model.fields,help:zc_claims_escalation.field_zc_escalation__message_has_error
+#: model:ir.model.fields,help:zc_claims_escalation.field_zc_escalation__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation_formula__index_id
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation_line__index_id
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_price_index_value__index_id
+msgid "Index"
+msgstr "المؤشر"
+
+#. module: zc_claims_escalation
+#: model_terms:ir.ui.view,arch_db:zc_claims_escalation.zc_escalation_form
+msgid "Indices"
+msgstr "المؤشرات"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__invoice_id
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation__invoice_id
+msgid "Invoice"
+msgstr "الفاتورة"
+
+#. module: zc_claims_escalation
+#: model_terms:ir.ui.view,arch_db:zc_claims_escalation.zc_claim_form
+msgid "Invoice Agreed Amount"
+msgstr "فوترة المبلغ المتفق عليه"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields.selection,name:zc_claims_escalation.selection__zc_escalation__state__invoiced
+msgid "Invoiced"
+msgstr "مفوتر"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__message_is_follower
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_price_index__last_date
+msgid "Last Date"
+msgstr "آخر تاريخ"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__write_uid
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation__write_uid
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation_formula__write_uid
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation_line__write_uid
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_price_index__write_uid
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_price_index_value__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__write_date
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation__write_date
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation_formula__write_date
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation_line__write_date
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_price_index__write_date
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_price_index_value__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_price_index__last_value
+msgid "Last Value"
+msgstr "آخر قيمة"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields.selection,name:zc_claims_escalation.selection__zc_claim__cause__drawings
+msgid "Late drawings / approvals"
+msgstr "تأخر الرسومات / الاعتمادات"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields.selection,name:zc_claims_escalation.selection__zc_claim__cause__payment
+msgid "Late payment"
+msgstr "تأخر صرف المستحقات"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields.selection,name:zc_claims_escalation.selection__zc_claim__cause__site
+msgid "Late site access / handover"
+msgstr "تأخر تسليم الموقع"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation__line_ids
+msgid "Line"
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,help:zc_claims_escalation.field_zc_claim__activity_type_icon
+msgid "Material Symbols icon e.g. checklist"
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__message_has_error
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__message_ids
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,help:zc_claims_escalation.field_zc_price_index_value__date
+msgid "Month of the published value."
+msgstr "شهر القيمة المنشورة."
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__name
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation__name
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_price_index__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: zc_claims_escalation
+#. odoo-python
+#: code:addons/zc_claims_escalation/models/claim.py:0
+#: code:addons/zc_claims_escalation/models/escalation.py:0
+msgid "New"
+msgstr "جديد"
+
+#. module: zc_claims_escalation
+#. odoo-python
+#: code:addons/zc_claims_escalation/models/claim.py:0
+msgid "New completion date %(d)s; defects liability %(m)s months after."
+msgstr "تاريخ الانتهاء الجديد %(d)s، وفترة الضمان %(m)s شهر بعده."
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__next_deadline
+msgid "Next Deadline"
+msgstr "الموعد القادم"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__next_step
+msgid "Next Step"
+msgstr "الخطوة القادمة"
+
+#. module: zc_claims_escalation
+#: model_terms:ir.actions.act_window,help:zc_claims_escalation.action_zc_claim
+msgid "No claim yet"
+msgstr "لا توجد مطالبات بعد"
+
+#. module: zc_claims_escalation
+#: model_terms:ir.actions.act_window,help:zc_claims_escalation.action_zc_escalation
+msgid "No price escalation yet"
+msgstr "لا توجد فروق أسعار بعد"
+
+#. module: zc_claims_escalation
+#. odoo-python
+#: code:addons/zc_claims_escalation/models/escalation.py:0
+msgid "No value of the index %(i)s on or before %(d)s."
+msgstr "لا توجد قيمة للمؤشر %(i)s في أو قبل %(d)s."
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation__note
+msgid "Note"
+msgstr "ملاحظة"
+
+#. module: zc_claims_escalation
+#: model_terms:ir.ui.view,arch_db:zc_claims_escalation.zc_escalation_form
+msgid "Notes"
+msgstr "ملاحظات"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__notice_deadline
+msgid "Notice Deadline"
+msgstr "موعد الإخطار"
+
+#. module: zc_claims_escalation
+#: model_terms:ir.ui.view,arch_db:zc_claims_escalation.zc_claim_form
+msgid "Notice Sent"
+msgstr "تم إرسال الإخطار"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__notice_ref
+msgid "Notice letter ref."
+msgstr "رقم خطاب الإخطار"
+
+#. module: zc_claims_escalation
+#: model_terms:ir.ui.view,arch_db:zc_claims_escalation.zc_claim_form
+msgid "Notice of Dissatisfaction"
+msgstr "إخطار عدم الرضا"
+
+#. module: zc_claims_escalation
+#. odoo-python
+#: code:addons/zc_claims_escalation/models/control_tower.py:0
+msgid "Notice of dissatisfaction"
+msgstr "إخطار عدم الرضا"
+
+#. module: zc_claims_escalation
+#. odoo-python
+#: code:addons/zc_claims_escalation/models/claim.py:0
+msgid ""
+"Notice of dissatisfaction sent: the determination is referred to the dispute"
+" board."
+msgstr "تم إرسال إخطار عدم الرضا: يُحال القرار لمجلس فض المنازعات."
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_res_company__zc_claim_nod_days
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_res_config_settings__zc_claim_nod_days
+msgid "Notice of dissatisfaction within (days)"
+msgstr "مدة إخطار عدم الرضا (يوم)"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields.selection,name:zc_claims_escalation.selection__zc_claim__state__notified
+msgid "Notice sent"
+msgstr "تم الإخطار"
+
+#. module: zc_claims_escalation
+#. odoo-python
+#: code:addons/zc_claims_escalation/models/claim.py:0
+msgid ""
+"Notice sent after the contractual period (%s): the claim may be time-barred."
+msgstr "أُرسل الإخطار بعد المدة التعاقدية (%s): قد يسقط الحق في المطالبة."
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__notice_date
+msgid "Notice sent on"
+msgstr "تاريخ الإخطار"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__message_needaction_counter
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__message_has_error_counter
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,help:zc_claims_escalation.field_zc_claim__message_needaction_counter
+#: model:ir.model.fields,help:zc_claims_escalation.field_zc_escalation__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,help:zc_claims_escalation.field_zc_claim__message_has_error_counter
+#: model:ir.model.fields,help:zc_claims_escalation.field_zc_escalation__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.constraint,message:zc_claims_escalation.constraint_zc_price_index_value_uniq_index_date
+msgid "One value per index and date."
+msgstr "قيمة واحدة لكل مؤشر وتاريخ."
+
+#. module: zc_claims_escalation
+#. odoo-python
+#: code:addons/zc_claims_escalation/models/escalation.py:0
+msgid "Only a draft escalation is recomputed."
+msgstr "يُعاد حساب فروق الأسعار في حالة المسودة فقط."
+
+#. module: zc_claims_escalation
+#. odoo-python
+#: code:addons/zc_claims_escalation/models/claim.py:0
+msgid "Only an agreed amount is invoiced."
+msgstr "يُفوتر المبلغ المتفق عليه فقط."
+
+#. module: zc_claims_escalation
+#. odoo-python
+#: code:addons/zc_claims_escalation/models/escalation.py:0
+msgid "Only an approved, non-zero escalation is invoiced."
+msgstr "تُفوتر فروق الأسعار المعتمدة غير الصفرية فقط."
+
+#. module: zc_claims_escalation
+#: model_terms:ir.ui.view,arch_db:zc_claims_escalation.zc_claim_search
+msgid "Open"
+msgstr "مفتوحة"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields.selection,name:zc_claims_escalation.selection__zc_claim__cause__other
+msgid "Other"
+msgstr "أخرى"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__partner_id
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation__partner_id
+msgid "Owner"
+msgstr "المالك"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields.selection,name:zc_claims_escalation.selection__zc_claim__cause__instruction
+msgid "Owner / consultant instruction"
+msgstr "تعليمات المالك / الاستشاري"
+
+#. module: zc_claims_escalation
+#: model_terms:ir.ui.view,arch_db:zc_claims_escalation.zc_claim_form
+msgid "Partially Agreed"
+msgstr "اعتماد جزئي"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields.selection,name:zc_claims_escalation.selection__zc_claim__state__partial
+msgid "Partially agreed"
+msgstr "معتمدة جزئيًا"
+
+#. module: zc_claims_escalation
+#: model_terms:ir.ui.view,arch_db:zc_claims_escalation.zc_escalation_form
+msgid "Period"
+msgstr "الفترة"
+
+#. module: zc_claims_escalation
+#: model:ir.actions.act_window,name:zc_claims_escalation.action_zc_escalation
+#: model:ir.model,name:zc_claims_escalation.model_zc_escalation
+#: model:ir.ui.menu,name:zc_claims_escalation.menu_zc_escalation
+#: model_terms:ir.ui.view,arch_db:zc_claims_escalation.view_order_form_zc_ce
+#: model_terms:ir.ui.view,arch_db:zc_claims_escalation.zc_escalation_form
+msgid "Price Escalation"
+msgstr "فروق الأسعار"
+
+#. module: zc_claims_escalation
+#: model:ir.model,name:zc_claims_escalation.model_zc_escalation_formula
+msgid "Price Escalation Formula Line"
+msgstr "بند معادلة فروق الأسعار"
+
+#. module: zc_claims_escalation
+#: model:ir.model,name:zc_claims_escalation.model_zc_escalation_line
+msgid "Price Escalation Line"
+msgstr "بند فروق الأسعار"
+
+#. module: zc_claims_escalation
+#: model:ir.model,name:zc_claims_escalation.model_zc_price_index
+msgid "Price Index"
+msgstr "مؤشر الأسعار"
+
+#. module: zc_claims_escalation
+#: model:ir.model,name:zc_claims_escalation.model_zc_price_index_value
+msgid "Price Index Value"
+msgstr "قيمة مؤشر الأسعار"
+
+#. module: zc_claims_escalation
+#: model:ir.actions.act_window,name:zc_claims_escalation.action_zc_price_index
+#: model:ir.ui.menu,name:zc_claims_escalation.menu_zc_price_index
+msgid "Price Indices"
+msgstr "مؤشرات الأسعار"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation__amount
+msgid "Price difference"
+msgstr "قيمة فروق الأسعار"
+
+#. module: zc_claims_escalation
+#. odoo-python
+#: code:addons/zc_claims_escalation/models/escalation.py:0
+msgid "Price escalation %s"
+msgstr "فروق أسعار %s"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_sale_order__zc_escalation
+msgid "Price escalation clause"
+msgstr "بند فروق الأسعار"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_res_company__zc_escalation_product_id
+msgid "Price escalation product"
+msgstr "منتج فروق الأسعار"
+
+#. module: zc_claims_escalation
+#. odoo-python
+#: code:addons/zc_claims_escalation/models/control_tower.py:0
+#: code:addons/zc_claims_escalation/models/escalation.py:0
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_sale_order__zc_escalation_ids
+msgid "Price escalations"
+msgstr "فروق الأسعار"
+
+#. module: zc_claims_escalation
+#. odoo-python
+#: code:addons/zc_claims_escalation/models/control_tower.py:0
+msgid "Price escalations waiting for approval / invoicing"
+msgstr "فروق أسعار في انتظار الاعتماد / الفوترة"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__project_id
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation__project_id
+msgid "Project"
+msgstr "المشروع"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,help:zc_claims_escalation.field_zc_price_index__source
+msgid "Publisher of the index (e.g. CAPMAS bulletin)."
+msgstr "جهة نشر المؤشر (مثل نشرة الجهاز المركزي للتعبئة العامة والإحصاء)."
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__rating_ids
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation__rating_ids
+msgid "Ratings"
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model_terms:ir.actions.act_window,help:zc_claims_escalation.action_zc_claim
+msgid ""
+"Record the event the day you become aware of it: the system counts the notice, detailed claim,\n"
+"               engineer answer and dissatisfaction deadlines so no entitlement is lost to a time-bar."
+msgstr ""
+"سجّل الحدث يوم العلم به: يحسب النظام مواعيد الإخطار والمطالبة التفصيلية ورد "
+"الاستشاري وإخطار عدم الرضا حتى لا يسقط أي حق."
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields.selection,name:zc_claims_escalation.selection__zc_claim__state__rejected
+#: model_terms:ir.ui.view,arch_db:zc_claims_escalation.zc_claim_form
+msgid "Rejected"
+msgstr "مرفوضة"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__variation_id
+msgid "Related variation"
+msgstr "أمر التغيير المرتبط"
+
+#. module: zc_claims_escalation
+#: model_terms:ir.ui.view,arch_db:zc_claims_escalation.zc_escalation_form
+msgid "Reset to Draft"
+msgstr "إرجاع لمسودة"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__message_has_sms_error
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation_formula__sale_order_id
+msgid "Sale Order"
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model,name:zc_claims_escalation.model_sale_order
+msgid "Sales Order"
+msgstr "أمر البيع"
+
+#. module: zc_claims_escalation
+#. odoo-python
+#: code:addons/zc_claims_escalation/models/claim.py:0
+msgid "Send the notice of claim"
+msgstr "أرسل إخطار المطالبة"
+
+#. module: zc_claims_escalation
+#. odoo-python
+#: code:addons/zc_claims_escalation/models/claim.py:0
+msgid "Set the claim settlement product (code ZC-CLM)."
+msgstr "حدد منتج تسوية المطالبات (كود ZC-CLM)."
+
+#. module: zc_claims_escalation
+#. odoo-python
+#: code:addons/zc_claims_escalation/models/escalation.py:0
+msgid "Set the escalation base date and formula on %s."
+msgstr "حدد تاريخ الأساس ومعادلة فروق الأسعار على %s."
+
+#. module: zc_claims_escalation
+#: model_terms:ir.actions.act_window,help:zc_claims_escalation.action_zc_escalation
+msgid ""
+"Set the escalation formula (index weights and base date) on the contract, enter the published index\n"
+"               values, then compute the price difference of the work certified in a period."
+msgstr ""
+"حدد معادلة فروق الأسعار (أوزان المؤشرات وتاريخ الأساس) على العقد، وأدخل قيم "
+"المؤشرات المنشورة، ثم احسب فروق الأسعار لأعمال الفترة."
+
+#. module: zc_claims_escalation
+#. odoo-python
+#: code:addons/zc_claims_escalation/models/escalation.py:0
+msgid "Set the price escalation product (code ZC-ESC)."
+msgstr "حدد منتج فروق الأسعار (كود ZC-ESC)."
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_price_index__source
+msgid "Source"
+msgstr "المصدر"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__state
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation__state
+msgid "State"
+msgstr "الحالة"
+
+#. module: zc_claims_escalation
+#: model_terms:ir.ui.view,arch_db:zc_claims_escalation.zc_claim_search
+msgid "Status"
+msgstr "الحالة"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,help:zc_claims_escalation.field_zc_claim__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: zc_claims_escalation
+#. odoo-python
+#: code:addons/zc_claims_escalation/models/claim.py:0
+msgid "Submit the detailed claim"
+msgstr "قدّم المطالبة التفصيلية"
+
+#. module: zc_claims_escalation
+#: model_terms:ir.ui.view,arch_db:zc_claims_escalation.zc_escalation_form
+msgid "Submit to Consultant"
+msgstr "تقديم للاستشاري"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields.selection,name:zc_claims_escalation.selection__zc_escalation__state__submitted
+msgid "Submitted to Consultant"
+msgstr "مقدمة للاستشاري"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields.selection,name:zc_claims_escalation.selection__zc_claim__cause__suspension
+msgid "Suspension of work"
+msgstr "إيقاف الأعمال"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,help:zc_claims_escalation.field_zc_claim__time_barred
+msgid ""
+"The contractual notice period passed without notice: entitlement may be "
+"lost."
+msgstr "انقضت مدة الإخطار التعاقدية بدون إخطار: قد يسقط الحق."
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,help:zc_claims_escalation.field_zc_escalation__date_to
+msgid "The index values of this month are used."
+msgstr "تُستخدم قيم المؤشرات لهذا الشهر."
+
+#. module: zc_claims_escalation
+#. odoo-python
+#: code:addons/zc_claims_escalation/models/escalation.py:0
+msgid "The index weights of %s exceed 100%%."
+msgstr "أوزان مؤشرات %s تتجاوز 100%%."
+
+#. module: zc_claims_escalation
+#. odoo-python
+#: code:addons/zc_claims_escalation/models/escalation.py:0
+msgid "The invoice of %s is posted."
+msgstr "فاتورة %s مُرحّلة."
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_sale_order__zc_escalation_threshold
+msgid "Threshold %"
+msgstr "حد التطبيق %"
+
+#. module: zc_claims_escalation
+#: model_terms:ir.ui.view,arch_db:zc_claims_escalation.zc_claim_form
+msgid "Time"
+msgstr "المدة"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_claim__time_barred
+msgid "Time Barred"
+msgstr "خطر سقوط الحق"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields.selection,name:zc_claims_escalation.selection__zc_claim__claim_type__both
+msgid "Time and cost"
+msgstr "مدة وتكلفة"
+
+#. module: zc_claims_escalation
+#: model_terms:ir.ui.view,arch_db:zc_claims_escalation.zc_claim_search
+msgid "Time-bar risk"
+msgstr "خطر سقوط الحق"
+
+#. module: zc_claims_escalation
+#: model_terms:ir.ui.view,arch_db:zc_claims_escalation.view_order_form_zc_ce
+#: model_terms:ir.ui.view,arch_db:zc_claims_escalation.zc_claim_list
+#: model_terms:ir.ui.view,arch_db:zc_claims_escalation.zc_escalation_form
+#: model_terms:ir.ui.view,arch_db:zc_claims_escalation.zc_escalation_list
+msgid "Total"
+msgstr "الإجمالي"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,help:zc_claims_escalation.field_zc_claim__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,help:zc_claims_escalation.field_sale_order__zc_escalation_base_date
+msgid "Usually the tender submission date (base month of the indices)."
+msgstr "عادة تاريخ تقديم العطاء (شهر أساس المؤشرات)."
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_price_index_value__value
+msgid "Value"
+msgstr "القيمة"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation__base_value
+msgid "Value subject to adjustment"
+msgstr "القيمة الخاضعة للتعديل"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_price_index__value_ids
+msgid "Values"
+msgstr "القيم"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields.selection,name:zc_claims_escalation.selection__zc_claim__cause__variation
+msgid "Variation order"
+msgstr "أمر تغيير"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation_formula__weight
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation_line__weight
+msgid "Weight %"
+msgstr "الوزن %"
+
+#. module: zc_claims_escalation
+#: model_terms:ir.ui.view,arch_db:zc_claims_escalation.zc_claim_form
+msgid "Withdraw"
+msgstr "سحب"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields.selection,name:zc_claims_escalation.selection__zc_claim__state__withdrawn
+msgid "Withdrawn"
+msgstr "مسحوبة"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_zc_escalation__work_value
+msgid "Work certified in the period"
+msgstr "أعمال الفترة المعتمدة"
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_sale_order__zc_claim_count
+msgid "Zc Claim Count"
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,field_description:zc_claims_escalation.field_sale_order__zc_escalation_count
+msgid "Zc Escalation Count"
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.module.module,shortdesc:base.module_zc_claims_escalation
+msgid "Ziij Construction - Claims & Price Escalation"
+msgstr "Ziij للمقاولات - المطالبات وفروق الأسعار"
+
+#. module: zc_claims_escalation
+#: model_terms:ir.ui.view,arch_db:zc_claims_escalation.zc_claim_form
+msgid "e.g. Late approval of the marble samples"
+msgstr "مثال: تأخر اعتماد عينات الرخام"
+
+#. module: zc_claims_escalation
+#. odoo-python
+#: code:addons/zc_claims_escalation/models/control_tower.py:0
+msgid "id"
+msgstr ""
+
+#. module: zc_claims_escalation
+#. odoo-python
+#: code:addons/zc_claims_escalation/models/escalation.py:0
+msgid "sale_order_id"
+msgstr ""
+
+#. module: zc_claims_escalation
+#: model:ir.model.fields,help:zc_claims_escalation.field_zc_escalation__factor
+msgid "Σ weight × (current index / base index) + fixed share - 1"
+msgstr "Σ الوزن × (الرقم الحالي / رقم الأساس) + الجزء الثابت - 1"

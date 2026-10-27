@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_zc_claim" name="Claims (EOT / Cost)" parent="hom_contracting_base.menu_hom_contracts_top"
+              sequence="50" action="action_zc_claim"/>
+    <menuitem id="menu_zc_escalation" name="Price Escalation" parent="hom_contracting_base.menu_hom_billing_top"
+              sequence="30" action="action_zc_escalation"/>
+    <menuitem id="menu_zc_price_index" name="Price Indices" parent="hom_contracting_base.menu_hom_billing_top"
+              sequence="95" action="action_zc_price_index"/>
+</odoo>

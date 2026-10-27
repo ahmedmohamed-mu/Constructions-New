@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form_zc_ce" model="ir.ui.view">
+        <field name="name">sale.order.form.zc.ce</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_zc_claims" type="object" class="oe_stat_button" icon="gavel"
+                        invisible="hom_project_type != 'contracting' or state != 'sale'">
+                    <field name="zc_claim_count" widget="statinfo" string="Claims"/>
+                </button>
+                <button name="action_zc_escalations" type="object" class="oe_stat_button" icon="trending_up"
+                        invisible="not zc_escalation">
+                    <field name="zc_escalation_count" widget="statinfo" string="Price Escalation"/>
+                </button>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="Price Escalation" name="zc_escalation" invisible="hom_project_type != 'contracting'">
+                    <group>
+                        <group>
+                            <field name="zc_escalation"/>
+                            <field name="zc_escalation_base_date" invisible="not zc_escalation"/>
+                            <field name="zc_escalation_threshold" invisible="not zc_escalation"/>
+                            <field name="zc_escalation_exclude_advance" invisible="not zc_escalation"/>
+                            <field name="zc_escalation_fixed" invisible="not zc_escalation"/>
+                        </group>
+                    </group>
+                    <field name="zc_escalation_formula_ids" invisible="not zc_escalation">
+                        <list editable="bottom">
+                            <field name="index_id"/>
+                            <field name="weight" sum="Total"/>
+                            <field name="base_value"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

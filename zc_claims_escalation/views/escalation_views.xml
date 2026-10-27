@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="zc_price_index_form" model="ir.ui.view">
+        <field name="name">zc.price.index.form</field>
+        <field name="model">zc.price.index</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group><field name="name"/><field name="code"/><field name="source"/></group>
+                        <group><field name="last_date"/><field name="last_value"/></group>
+                    </group>
+                    <field name="value_ids">
+                        <list editable="top"><field name="date"/><field name="value"/></list>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="zc_price_index_list" model="ir.ui.view">
+        <field name="name">zc.price.index.list</field>
+        <field name="model">zc.price.index</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="code"/><field name="name"/><field name="source"/><field name="last_date"/><field name="last_value"/>
+            </list>
+        </field>
+    </record>
+    <record id="action_zc_price_index" model="ir.actions.act_window">
+        <field name="name">Price Indices</field>
+        <field name="res_model">zc.price.index</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="zc_escalation_form" model="ir.ui.view">
+        <field name="name">zc.escalation.form</field>
+        <field name="model">zc.escalation</field>
+        <field name="arch" type="xml">
+            <form string="Price Escalation">
+                <header>
+                    <button name="action_compute" type="object" string="Compute" invisible="state != 'draft'"/>
+                    <button name="action_submit" type="object" string="Submit to Consultant" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_approve" type="object" string="Approved" class="btn-primary" invisible="state != 'submitted'"/>
+                    <button name="action_create_invoice" type="object" string="Create Invoice" class="btn-primary"
+                            invisible="state != 'approved'" groups="account.group_account_invoice"/>
+                    <button name="action_draft" type="object" string="Reset to Draft" invisible="state not in ('submitted', 'cancel')"/>
+                    <button name="action_cancel" type="object" string="Cancel" invisible="state in ('invoiced', 'cancel')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,submitted,approved,invoiced"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_invoice" type="object" class="oe_stat_button" icon="edit_square" invisible="not invoice_id">
+                            <span class="o_stat_text">Invoice</span>
+                        </button>
+                    </div>
+                    <div class="oe_title"><h1><field name="name" readonly="1"/></h1></div>
+                    <group>
+                        <group>
+                            <field name="sale_order_id" readonly="state != 'draft'" options="{'no_create': True}"/>
+                            <field name="partner_id"/>
+                            <field name="project_id"/>
+                            <label for="date_from" string="Period"/>
+                            <div class="o_row">
+                                <field name="date_from" readonly="state != 'draft'"/> - <field name="date_to" readonly="state != 'draft'"/>
+                            </div>
+                            <field name="company_id" invisible="1"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="invoice_id" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="work_value"/>
+                            <field name="advance_excluded"/>
+                            <field name="base_value"/>
+                            <field name="factor" widget="percentage"/>
+                            <field name="amount" class="fw-bold" decoration-success="amount &gt; 0" decoration-danger="amount &lt; 0"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Indices" name="lines">
+                            <field name="line_ids">
+                                <list>
+                                    <field name="index_id"/>
+                                    <field name="weight"/>
+                                    <field name="base_index"/>
+                                    <field name="current_index"/>
+                                    <field name="change_pct" digits="[16,2]"/>
+                                    <field name="currency_id" column_invisible="1"/>
+                                    <field name="amount" sum="Total"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Certificates" name="certs">
+                            <field name="certificate_ids">
+                                <list>
+                                    <field name="name"/><field name="period_end"/><field name="currency_id" column_invisible="1"/>
+                                    <field name="amount_current" sum="Total"/><field name="amount_advance_recovery" sum="Total"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Notes" name="notes"><field name="note"/></page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="zc_escalation_list" model="ir.ui.view">
+        <field name="name">zc.escalation.list</field>
+        <field name="model">zc.escalation</field>
+        <field name="arch" type="xml">
+            <list decoration-success="state == 'invoiced'" decoration-muted="state == 'cancel'">
+                <field name="name"/><field name="sale_order_id"/><field name="date_from"/><field name="date_to"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="base_value" sum="Total"/><field name="factor" widget="percentage"/>
+                <field name="amount" sum="Total"/>
+                <field name="state" widget="badge" decoration-success="state in ('approved', 'invoiced')" decoration-info="state == 'submitted'"/>
+            </list>
+        </field>
+    </record>
+    <record id="action_zc_escalation" model="ir.actions.act_window">
+        <field name="name">Price Escalation</field>
+        <field name="res_model">zc.escalation</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No price escalation yet</p>
+            <p>Set the escalation formula (index weights and base date) on the contract, enter the published index
+               values, then compute the price difference of the work certified in a period.</p>
+        </field>
+    </record>
+</odoo>
