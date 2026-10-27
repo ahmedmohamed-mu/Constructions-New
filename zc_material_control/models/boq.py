@@ -61,7 +61,7 @@ class SaleOrder(models.Model):
     zc_supplied_pct = fields.Float(string="Supplied %", default=60.0)
     zc_installed_pct = fields.Float(string="Installed %", default=75.0)
     zc_cost_line_ids = fields.One2many("zc.boq.cost.line", "order_id", string="Item Budget")
-    zc_budget_total = fields.Monetary(string="Item Budget", compute="_compute_zc_budget")
+    zc_budget_total = fields.Monetary(string="Item Budget Total", compute="_compute_zc_budget")
     zc_budget_margin = fields.Monetary(string="Budgeted Margin", compute="_compute_zc_budget")
 
     @api.depends("zc_cost_line_ids.budget_amount", "amount_untaxed")

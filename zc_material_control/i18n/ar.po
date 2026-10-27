@@ -1060,3 +1060,8 @@ msgstr "مثال: كسر 5% في الموقع، تغيير موديل معتمد
 #: code:addons/zc_material_control/models/control_tower.py:0
 msgid "id"
 msgstr ""
+
+#. module: zc_material_control
+#: model:ir.model.fields,field_description:zc_material_control.field_sale_order__zc_budget_total
+msgid "Item Budget Total"
+msgstr "إجمالي ميزانية البنود"

@@ -4,7 +4,7 @@
                "quantities from approved submittals, purchase checks against quantity and item budget with a "
                "project-manager exception, supplier return deadlines, the material reconciliation (Material Truth) "
                "and stage valuation of certificates (supplied / installed).",
-    "version": "20.0.1.0.1",
+    "version": "20.0.1.0.2",
     "category": "Services/Project",
     "author": "Ziij AI",
     "license": "OPL-1",
