@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="zc_labour_sheet_form" model="ir.ui.view">
+        <field name="name">zc.labour.sheet.form</field>
+        <field name="model">zc.labour.sheet</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_submit" type="object" string="Send to PM" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_approve" type="object" string="Approve &amp; Bill" class="btn-primary" invisible="state != 'submitted'"
+                            groups="project.group_project_manager"/>
+                    <button name="action_reset" type="object" string="Back to Draft" invisible="state != 'submitted'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,submitted,billed"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_bill" type="object" class="oe_stat_button" icon="fa-file-text-o"
+                                string="Vendor Bill" invisible="not bill_id"/>
+                    </div>
+                    <div class="oe_title"><h1><field name="name" readonly="1"/></h1></div>
+                    <group>
+                        <group>
+                            <field name="project_id" readonly="state != 'draft'" options="{'no_create': True}"/>
+                            <field name="week_start" readonly="state != 'draft'"/>
+                            <field name="week_end"/>
+                        </group>
+                        <group>
+                            <field name="partner_id" readonly="state != 'draft'"/>
+                            <field name="user_id" widget="many2one_avatar_user"/>
+                            <field name="bill_id" invisible="1"/>
+                            <field name="bill_payment_state" invisible="not bill_id" widget="badge"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="company_id" invisible="1"/>
+                        </group>
+                    </group>
+                    <field name="line_ids" readonly="state != 'draft'">
+                        <list editable="bottom">
+                            <field name="currency_id" column_invisible="1"/>
+                            <field name="worker"/>
+                            <field name="trade"/>
+                            <field name="d1"/><field name="d2"/><field name="d3"/><field name="d4"/>
+                            <field name="d5"/><field name="d6"/><field name="d7"/>
+                            <field name="days" sum="Days"/>
+                            <field name="daily_wage"/>
+                            <field name="amount" sum="Total"/>
+                        </list>
+                    </field>
+                    <group class="oe_subtotal_footer">
+                        <field name="total_days"/>
+                        <field name="amount_total"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="zc_labour_sheet_list" model="ir.ui.view">
+        <field name="name">zc.labour.sheet.list</field>
+        <field name="model">zc.labour.sheet</field>
+        <field name="arch" type="xml">
+            <list decoration-info="state == 'submitted'">
+                <field name="name"/>
+                <field name="project_id"/>
+                <field name="week_start"/>
+                <field name="total_days" sum="Days"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="amount_total" sum="Total"/>
+                <field name="bill_payment_state" widget="badge" optional="show"/>
+                <field name="state" widget="badge" decoration-info="state == 'submitted'" decoration-success="state == 'billed'"/>
+            </list>
+        </field>
+    </record>
+    <record id="action_zc_labour_sheet" model="ir.actions.act_window">
+        <field name="name">Daily Labour Sheets</field>
+        <field name="res_model">zc.labour.sheet</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

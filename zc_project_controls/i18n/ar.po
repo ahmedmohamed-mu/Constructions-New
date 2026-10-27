@@ -1,0 +1,1792 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* zc_project_controls
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-27 09:17+0000\n"
+"PO-Revision-Date: 2026-10-27 09:17+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/labour.py:0
+msgid "%(d)s days, %(a)s."
+msgstr "%(d)s يوم، %(a)s."
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/variation.py:0
+msgid "%(vo)s applied at the agreed rate (contract impact %(a)s)."
+msgstr "تم تطبيق %(vo)s بالسعر المتفق عليه (أثر على العقد %(a)s)."
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/variation.py:0
+msgid ""
+"%(vo)s approved internally: work may start, items are provisional and not "
+"billable until the rate is agreed with the consultant."
+msgstr ""
+"تم اعتماد %(vo)s داخليًا: يمكن بدء التنفيذ، والبنود مؤقتة ولا تُصرف في "
+"المستخلص قبل الاتفاق على السعر مع الاستشاري."
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/variation.py:0
+msgid "%s: the new quantity is lower than what is already invoiced."
+msgstr "%s: الكمية الجديدة أقل مما تم صرفه بالفعل."
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/labour.py:0
+msgid "A day is between 0 and 1.5 (overtime)."
+msgstr "اليوم قيمته بين 0 و1.5 (شامل الإضافي)."
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline__message_needaction
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_charge__message_needaction
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__message_needaction
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__activity_plans_ids
+msgid "Activity Plans"
+msgstr ""
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_evm_report__ac
+#: model:ir.model.fields.selection,name:zc_project_controls.selection__zc_evm_curve__series__ac
+msgid "Actual Cost (AC)"
+msgstr "التكلفة الفعلية (AC)"
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/variation.py:0
+msgid "Add the priced items of the variation first."
+msgstr "أضف بنود أمر التغيير المسعّرة أولًا."
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/labour.py:0
+msgid "Add the workers of the week first."
+msgstr "أضف عمال الأسبوع أولًا."
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_hom_variation_order__zc_agreed_amount
+msgid "Agreed Amount"
+msgstr "القيمة المتفق عليها"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_hom_variation_order__zc_agreed_date
+msgid "Agreement Date"
+msgstr "تاريخ الاتفاق"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_res_company__zc_overhead_account_id
+#: model:ir.model.fields,field_description:zc_project_controls.field_res_config_settings__zc_overhead_account_id
+msgid "Allocated Overhead (project cost)"
+msgstr "مصروفات عمومية محمّلة (تكلفة مشروع)"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation__allocated_total
+msgid "Allocated Total"
+msgstr "إجمالي المحمّل"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation_line__allocation_id
+msgid "Allocation"
+msgstr "التحميل"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_usage__amount
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet_line__amount
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation_line__amount
+msgid "Amount"
+msgstr "المبلغ"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_charge__amount_total
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__amount_total
+msgid "Amount Total"
+msgstr "الإجمالي"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation__amount
+msgid "Amount to Allocate"
+msgstr "المبلغ المطلوب تحميله"
+
+#. module: zc_project_controls
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_labour_sheet_form
+msgid "Approve & Bill"
+msgstr "اعتماد وإصدار الفاتورة"
+
+#. module: zc_project_controls
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_baseline_form
+msgid "Approve Baseline"
+msgstr "اعتماد الخطة الأساسية"
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/labour.py:0
+msgid "Approve the labour sheet %s"
+msgstr "اعتماد كشف العمالة %s"
+
+#. module: zc_project_controls
+#: model:ir.model.fields.selection,name:zc_project_controls.selection__zc_baseline__state__approved
+#: model:ir.model.fields.selection,name:zc_project_controls.selection__zc_labour_sheet__state__approved
+msgid "Approved"
+msgstr "معتمدة"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline__approved_by_id
+msgid "Approved By"
+msgstr "اعتمدها"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline__approved_date
+msgid "Approved Date"
+msgstr "تاريخ الاعتماد"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline__message_attachment_count
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_charge__message_attachment_count
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__message_attachment_count
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_evm_report__bac
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_baseline_form
+msgid "BAC"
+msgstr "الميزانية عند الإنجاز (BAC)"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline_item__sale_line_id
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline_line__sale_line_id
+msgid "BOQ Item"
+msgstr "بند المقايسة"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline__item_ids
+msgid "BOQ Items"
+msgstr "بنود المقايسة"
+
+#. module: zc_project_controls
+#: model:ir.model.fields.selection,name:zc_project_controls.selection__zc_baseline_item__curve__back
+msgid "Back loaded"
+msgstr "تركيز في النهاية"
+
+#. module: zc_project_controls
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_labour_sheet_form
+msgid "Back to Draft"
+msgstr "إرجاع لمسودة"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline_item__baseline_id
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline_line__baseline_id
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_evm_report__baseline_id
+msgid "Baseline"
+msgstr "الخطة الأساسية"
+
+#. module: zc_project_controls
+#: model:ir.model,name:zc_project_controls.model_zc_baseline_item
+msgid "Baseline - BOQ Item Schedule"
+msgstr "الخطة الأساسية - جدول البند"
+
+#. module: zc_project_controls
+#: model:ir.model,name:zc_project_controls.model_zc_baseline_line
+msgid "Baseline - Planned Value per Month"
+msgstr "الخطة الأساسية - القيمة المخططة شهريًا"
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/evm.py:0
+msgid "Baseline approved: BAC %s."
+msgstr "تم اعتماد الخطة الأساسية: BAC %s."
+
+#. module: zc_project_controls
+#: model:ir.actions.act_window,name:zc_project_controls.action_zc_baseline
+#: model:ir.ui.menu,name:zc_project_controls.menu_zc_baseline
+msgid "Baselines"
+msgstr "الخطط الأساسية (Baselines)"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation__basis
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation_line__basis_value
+msgid "Basis"
+msgstr "أساس التحميل"
+
+#. module: zc_project_controls
+#: model:ir.model.fields.selection,name:zc_project_controls.selection__zc_baseline_item__curve__bell
+msgid "Bell (S-curve)"
+msgstr "جرسي (منحنى S)"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__bill_id
+msgid "Bill"
+msgstr "الفاتورة"
+
+#. module: zc_project_controls
+#: model:ir.model.fields.selection,name:zc_project_controls.selection__zc_labour_sheet__state__billed
+msgid "Billed"
+msgstr "تمت الفوترة"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline__amount_total
+msgid "Budget at Completion (BAC)"
+msgstr "الميزانية عند الإنجاز (BAC)"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,help:zc_project_controls.field_zc_evm_report__bac
+msgid "Budget at completion (baseline value)."
+msgstr "الميزانية عند الإنجاز (قيمة الخطة الأساسية)."
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_evm_report__cpi
+msgid "CPI"
+msgstr "مؤشر أداء التكلفة CPI"
+
+#. module: zc_project_controls
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_equipment_charge_form
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_overhead_allocation_form
+msgid "Cancel (reverse)"
+msgstr "إلغاء (قيد عكسي)"
+
+#. module: zc_project_controls
+#: model:ir.model.fields.selection,name:zc_project_controls.selection__zc_equipment_charge__state__cancel
+#: model:ir.model.fields.selection,name:zc_project_controls.selection__zc_overhead_allocation__state__cancel
+msgid "Cancelled"
+msgstr "ملغاة"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_evm_report__ev_billed
+msgid "Certified Value"
+msgstr "القيمة المعتمدة بالمستخلص"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,help:zc_project_controls.field_zc_evm_report__ev
+msgid "Certified physical progress x full contract rate."
+msgstr "الإنجاز الفعلي المعتمد × سعر العقد الكامل."
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_usage__charge_id
+msgid "Charge"
+msgstr "التحميل"
+
+#. module: zc_project_controls
+#: model:ir.model.fields.selection,name:zc_project_controls.selection__zc_equipment_usage__state__charged
+msgid "Charged"
+msgstr "محمّل"
+
+#. module: zc_project_controls
+#: model:ir.model,name:zc_project_controls.model_res_company
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline__company_id
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_charge__company_id
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_usage__company_id
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_evm_curve__company_id
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_evm_report__company_id
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__company_id
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: zc_project_controls
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.res_config_settings_view_form_zc_pc
+msgid "Company machines charged to projects per working day."
+msgstr "معدات الشركة تُحمّل على المشاريع بيوم التشغيل."
+
+#. module: zc_project_controls
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_overhead_allocation_form
+msgid "Compute Shares"
+msgstr "احسب الأنصبة"
+
+#. module: zc_project_controls
+#: model:ir.model,name:zc_project_controls.model_res_config_settings
+msgid "Config Settings"
+msgstr "تهيئة الإعدادات"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline__sale_order_id
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_evm_report__sale_order_id
+msgid "Contract"
+msgstr "العقد"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline_item__quantity
+msgid "Contract Qty"
+msgstr "كمية العقد"
+
+#. module: zc_project_controls
+#: model:ir.model,name:zc_project_controls.model_hom_control_tower
+msgid "Contracting Control Tower"
+msgstr "برج التحكم للمقاولات"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_evm_report__cv
+msgid "Cost Variance"
+msgstr "انحراف التكلفة"
+
+#. module: zc_project_controls
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.maintenance_equipment_form_zc
+msgid "Create Cost Centre"
+msgstr "إنشاء مركز تكلفة"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline__create_uid
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline_item__create_uid
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline_line__create_uid
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_charge__create_uid
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_usage__create_uid
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_evm_curve__create_uid
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_evm_report__create_uid
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__create_uid
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet_line__create_uid
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation__create_uid
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation_line__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline__create_date
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline_item__create_date
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline_line__create_date
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_charge__create_date
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_usage__create_date
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_evm_curve__create_date
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_evm_report__create_date
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__create_date
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet_line__create_date
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation__create_date
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation_line__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: zc_project_controls
+#: model:ir.model.fields,help:zc_project_controls.field_res_company__zc_overhead_absorbed_account_id
+#: model:ir.model.fields,help:zc_project_controls.field_res_config_settings__zc_overhead_absorbed_account_id
+msgid ""
+"Credited by the allocation: G&A expenses stay in the books, part of them now"
+" sits on the projects."
+msgstr ""
+"يُقيَّد دائنًا عند التحميل: المصروفات العمومية تبقى في الدفاتر، وجزء منها "
+"يظهر الآن على المشاريع."
+
+#. module: zc_project_controls
+#: model:ir.model.fields,help:zc_project_controls.field_res_company__zc_equipment_recovery_account_id
+#: model:ir.model.fields,help:zc_project_controls.field_res_config_settings__zc_equipment_recovery_account_id
+msgid ""
+"Credited on the equipment cost centre: compared with the real cost of the "
+"machine (fuel, repairs, depreciation) it shows whether the internal rate "
+"covers the machine."
+msgstr ""
+"يُقيَّد دائنًا على مركز تكلفة المعدة: مقارنته بالتكلفة الفعلية (وقود، إصلاح،"
+" إهلاك) توضح هل الإيجار الداخلي يغطي المعدة."
+
+#. module: zc_project_controls
+#: model:ir.model.fields.selection,name:zc_project_controls.selection__zc_evm_report__status__critical
+msgid "Critical"
+msgstr "حرج"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_evm_curve__value
+msgid "Cumulative Value"
+msgstr "القيمة التراكمية"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,help:zc_project_controls.field_zc_evm_report__ev_billed
+msgid "Cumulative value of the certificates (with stage valuation when used)."
+msgstr "القيمة التراكمية للمستخلصات (بنسب المراحل عند استخدامها)."
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_maintenance_equipment__zc_currency_id
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline__currency_id
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline_item__currency_id
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline_line__currency_id
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_charge__currency_id
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_usage__currency_id
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_evm_curve__currency_id
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_evm_report__currency_id
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__currency_id
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet_line__currency_id
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation__currency_id
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation_line__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline_item__curve
+msgid "Curve"
+msgstr "شكل التوزيع"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_res_company__zc_labour_partner_id
+#: model:ir.model.fields,field_description:zc_project_controls.field_res_config_settings__zc_labour_partner_id
+msgid "Daily Labour Payee"
+msgstr "مستلم مستحقات العمالة اليومية"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_res_company__zc_labour_product_id
+#: model:ir.model.fields,field_description:zc_project_controls.field_res_config_settings__zc_labour_product_id
+msgid "Daily Labour Service"
+msgstr "خدمة العمالة اليومية"
+
+#. module: zc_project_controls
+#: model:ir.actions.act_window,name:zc_project_controls.action_zc_labour_sheet
+#: model:ir.ui.menu,name:zc_project_controls.menu_zc_labour_sheet
+msgid "Daily Labour Sheets"
+msgstr "كشوف العمالة اليومية"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_usage__rate
+msgid "Daily Rent"
+msgstr "الإيجار اليومي"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet_line__daily_wage
+msgid "Daily Wage"
+msgstr "اليومية"
+
+#. module: zc_project_controls
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.res_config_settings_view_form_zc_pc
+msgid "Daily labour"
+msgstr "العمالة اليومية"
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/control_tower.py:0
+msgid "Daily labour sheets waiting for the project manager"
+msgstr "كشوف عمالة يومية في انتظار مدير المشروع"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_usage__date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_charge__date_from
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation__date_from
+msgid "Date From"
+msgstr "من تاريخ"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_charge__date_to
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation__date_to
+msgid "Date To"
+msgstr "إلى تاريخ"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_usage__days
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet_line__days
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.maintenance_equipment_form_zc
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_equipment_charge_form
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_equipment_usage_list
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_labour_sheet_form
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_labour_sheet_list
+msgid "Days"
+msgstr "الأيام"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,help:zc_project_controls.field_res_company__zc_overhead_account_id
+#: model:ir.model.fields,help:zc_project_controls.field_res_config_settings__zc_overhead_account_id
+msgid ""
+"Debited on each project (with its analytic account) when G&A overhead is "
+"allocated."
+msgstr ""
+"يُقيَّد مدينًا على كل مشروع (بحسابه التحليلي) عند تحميل المصروفات العمومية."
+
+#. module: zc_project_controls
+#: model:ir.model.fields,help:zc_project_controls.field_res_company__zc_equipment_cost_account_id
+#: model:ir.model.fields,help:zc_project_controls.field_res_config_settings__zc_equipment_cost_account_id
+msgid ""
+"Debited on the project for the internal daily rent of company equipment."
+msgstr "يُقيَّد مدينًا على المشروع بالإيجار اليومي الداخلي لمعدات الشركة."
+
+#. module: zc_project_controls
+#: model:ir.model.fields.selection,name:zc_project_controls.selection__res_company__zc_overhead_basis__direct_cost
+#: model:ir.model.fields.selection,name:zc_project_controls.selection__zc_overhead_allocation__basis__direct_cost
+msgid "Direct cost of the period"
+msgstr "التكلفة المباشرة للفترة"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_hom_control_tower__display_name
+#: model:ir.model.fields,field_description:zc_project_controls.field_hom_progress_certificate__display_name
+#: model:ir.model.fields,field_description:zc_project_controls.field_hom_variation_order__display_name
+#: model:ir.model.fields,field_description:zc_project_controls.field_maintenance_equipment__display_name
+#: model:ir.model.fields,field_description:zc_project_controls.field_res_company__display_name
+#: model:ir.model.fields,field_description:zc_project_controls.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:zc_project_controls.field_sale_order_line__display_name
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline__display_name
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline_item__display_name
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline_line__display_name
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_charge__display_name
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_usage__display_name
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_evm_curve__display_name
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_evm_report__display_name
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__display_name
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet_line__display_name
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation__display_name
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation_line__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: zc_project_controls
+#: model:ir.model.fields.selection,name:zc_project_controls.selection__zc_baseline__state__draft
+#: model:ir.model.fields.selection,name:zc_project_controls.selection__zc_equipment_charge__state__draft
+#: model:ir.model.fields.selection,name:zc_project_controls.selection__zc_labour_sheet__state__draft
+#: model:ir.model.fields.selection,name:zc_project_controls.selection__zc_overhead_allocation__state__draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_evm_report__earned_pct
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_evm_report_list
+msgid "Earned %"
+msgstr "نسبة القيمة المكتسبة %"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_evm_report__ev
+#: model:ir.model.fields.selection,name:zc_project_controls.selection__zc_evm_curve__series__ev
+msgid "Earned (EV)"
+msgstr "القيمة المكتسبة (EV)"
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/evm.py:0
+#: model:ir.actions.server,name:zc_project_controls.action_zc_evm_server
+#: model:ir.ui.menu,name:zc_project_controls.menu_zc_evm
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_baseline_form
+msgid "Earned Value"
+msgstr "القيمة المكتسبة"
+
+#. module: zc_project_controls
+#: model:ir.model,name:zc_project_controls.model_zc_evm_curve
+msgid "Earned Value S-curve"
+msgstr "منحنى S للقيمة المكتسبة"
+
+#. module: zc_project_controls
+#: model:ir.model,name:zc_project_controls.model_zc_evm_report
+msgid "Earned Value Status"
+msgstr "حالة القيمة المكتسبة"
+
+#. module: zc_project_controls
+#: model:ir.module.module,summary:base.module_zc_project_controls
+msgid ""
+"Earned value against an approved baseline (PV / EV / AC, SPI / CPI, "
+"S-curve), G&A overhead allocation to projects, company equipment charged to "
+"projects as internal rent, the owner side of variation orders (instruction, "
+"impact, negotiation, agreed rate; executed work not billable until agreed) "
+"and weekly sheets for daily labour."
+msgstr ""
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_usage__equipment_id
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_equipment_usage_search
+msgid "Equipment"
+msgstr "المعدة"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_maintenance_equipment__zc_analytic_account_id
+msgid "Equipment Cost Centre"
+msgstr "مركز تكلفة المعدة"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_res_company__zc_equipment_cost_account_id
+#: model:ir.model.fields,field_description:zc_project_controls.field_res_config_settings__zc_equipment_cost_account_id
+msgid "Equipment Rent (project cost)"
+msgstr "إيجار معدات (تكلفة مشروع)"
+
+#. module: zc_project_controls
+#: model:ir.model,name:zc_project_controls.model_zc_equipment_charge
+msgid "Equipment Rent Charge"
+msgstr "تحميل إيجار المعدات"
+
+#. module: zc_project_controls
+#: model:ir.actions.act_window,name:zc_project_controls.action_zc_equipment_charge
+#: model:ir.ui.menu,name:zc_project_controls.menu_zc_equipment_charge
+msgid "Equipment Rent Charges"
+msgstr "تحميل إيجار المعدات"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_res_company__zc_equipment_recovery_account_id
+#: model:ir.model.fields,field_description:zc_project_controls.field_res_config_settings__zc_equipment_recovery_account_id
+msgid "Equipment Rent Recovered"
+msgstr "إيجار معدات مسترد"
+
+#. module: zc_project_controls
+#: model:ir.actions.act_window,name:zc_project_controls.action_zc_equipment_usage
+#: model:ir.model,name:zc_project_controls.model_zc_equipment_usage
+#: model:ir.ui.menu,name:zc_project_controls.menu_zc_equipment_usage
+msgid "Equipment Usage"
+msgstr "تشغيل المعدات"
+
+#. module: zc_project_controls
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.res_config_settings_view_form_zc_pc
+msgid "Equipment internal rent"
+msgstr "الإيجار الداخلي للمعدات"
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/equipment.py:0
+msgid "Equipment rent %(f)s - %(t)s"
+msgstr "إيجار معدات %(f)s - %(t)s"
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/equipment.py:0
+msgid "Equipment rent - %s"
+msgstr "إيجار معدات - %s"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_evm_report__eac
+msgid "Estimate at Completion"
+msgstr "التكلفة المتوقعة عند الإنجاز (EAC)"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_hom_variation_order__zc_provisional
+msgid "Executing at Risk"
+msgstr "تنفيذ قبل الاتفاق"
+
+#. module: zc_project_controls
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.hom_variation_order_form_zc
+msgid "Executing at risk"
+msgstr "تنفيذ قبل الاتفاق"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline__message_follower_ids
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_charge__message_follower_ids
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__message_follower_ids
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline__message_partner_ids
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_charge__message_partner_ids
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__message_partner_ids
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet_line__d7
+msgid "Fri"
+msgstr "جمعة"
+
+#. module: zc_project_controls
+#: model:ir.model.fields.selection,name:zc_project_controls.selection__zc_baseline_item__curve__front
+msgid "Front loaded"
+msgstr "تركيز في البداية"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation__pool_account_ids
+msgid "G&A Accounts"
+msgstr "حسابات المصروفات العمومية"
+
+#. module: zc_project_controls
+#: model:ir.model,name:zc_project_controls.model_zc_overhead_allocation
+msgid "G&A Overhead Allocation"
+msgstr "تحميل المصروفات العمومية"
+
+#. module: zc_project_controls
+#: model:ir.model,name:zc_project_controls.model_zc_overhead_allocation_line
+msgid "G&A Overhead Allocation - Project"
+msgstr "تحميل المصروفات العمومية - مشروع"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation__pool_amount
+msgid "G&A of the Period"
+msgstr "مصروفات عمومية الفترة"
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/overhead.py:0
+msgid "G&A overhead %(p)s (%(r)s%%)"
+msgstr "مصروفات عمومية %(p)s (%(r)s%%)"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline__has_message
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_charge__has_message
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__has_message
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: zc_project_controls
+#: model:ir.model.fields,help:zc_project_controls.field_zc_overhead_allocation__pool_account_ids
+msgid "Head-office expense accounts whose balance is allocated."
+msgstr "حسابات مصروفات المركز الرئيسي التي يُحمّل رصيدها."
+
+#. module: zc_project_controls
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.res_config_settings_view_form_zc_pc
+msgid "Head-office expenses charged to the projects by a journal entry."
+msgstr "مصروفات المركز الرئيسي تُحمّل على المشاريع بقيد يومية."
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_hom_control_tower__id
+#: model:ir.model.fields,field_description:zc_project_controls.field_hom_progress_certificate__id
+#: model:ir.model.fields,field_description:zc_project_controls.field_hom_variation_order__id
+#: model:ir.model.fields,field_description:zc_project_controls.field_maintenance_equipment__id
+#: model:ir.model.fields,field_description:zc_project_controls.field_res_company__id
+#: model:ir.model.fields,field_description:zc_project_controls.field_res_config_settings__id
+#: model:ir.model.fields,field_description:zc_project_controls.field_sale_order_line__id
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline__id
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline_item__id
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline_line__id
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_charge__id
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_usage__id
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_evm_curve__id
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_evm_report__id
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__id
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet_line__id
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation__id
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation_line__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: zc_project_controls
+#: model:ir.model.fields,help:zc_project_controls.field_zc_labour_sheet__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: zc_project_controls
+#: model:ir.model.fields,help:zc_project_controls.field_zc_baseline__message_needaction
+#: model:ir.model.fields,help:zc_project_controls.field_zc_equipment_charge__message_needaction
+#: model:ir.model.fields,help:zc_project_controls.field_zc_labour_sheet__message_needaction
+#: model:ir.model.fields,help:zc_project_controls.field_zc_overhead_allocation__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: zc_project_controls
+#: model:ir.model.fields,help:zc_project_controls.field_zc_baseline__message_has_error
+#: model:ir.model.fields,help:zc_project_controls.field_zc_baseline__message_has_sms_error
+#: model:ir.model.fields,help:zc_project_controls.field_zc_equipment_charge__message_has_error
+#: model:ir.model.fields,help:zc_project_controls.field_zc_equipment_charge__message_has_sms_error
+#: model:ir.model.fields,help:zc_project_controls.field_zc_labour_sheet__message_has_error
+#: model:ir.model.fields,help:zc_project_controls.field_zc_labour_sheet__message_has_sms_error
+#: model:ir.model.fields,help:zc_project_controls.field_zc_overhead_allocation__message_has_error
+#: model:ir.model.fields,help:zc_project_controls.field_zc_overhead_allocation__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: zc_project_controls
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.hom_variation_order_form_zc
+msgid "Impact Statement"
+msgstr "بيان الأثر"
+
+#. module: zc_project_controls
+#: model:ir.model.fields.selection,name:zc_project_controls.selection__hom_variation_order__zc_stage__impact
+msgid "Impact statement"
+msgstr "بيان الأثر"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_hom_variation_order__zc_instruction_date
+msgid "Instruction Date"
+msgstr "تاريخ خطاب التعليمات"
+
+#. module: zc_project_controls
+#: model:ir.model.fields.selection,name:zc_project_controls.selection__hom_variation_order__zc_stage__instruction
+msgid "Instruction received"
+msgstr "تم استلام خطاب التعليمات"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_maintenance_equipment__zc_daily_rate
+msgid "Internal Daily Rent"
+msgstr "الإيجار اليومي الداخلي"
+
+#. module: zc_project_controls
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.maintenance_equipment_form_zc
+msgid "Internal Rent"
+msgstr "الإيجار الداخلي"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline__message_is_follower
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_charge__message_is_follower
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__message_is_follower
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline_line__item_id
+msgid "Item"
+msgstr "البند"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline_item__amount
+msgid "Item Value"
+msgstr "قيمة البند"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,help:zc_project_controls.field_hom_variation_order__zc_provisional
+msgid "Items added to the contract, work may be measured, not billable yet."
+msgstr "البنود مضافة للعقد، يمكن حصر التنفيذ، ولا تُصرف بعد."
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation__move_id
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_equipment_charge_form
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_overhead_allocation_form
+msgid "Journal Entry"
+msgstr "قيد اليومية"
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/labour.py:0
+msgid "Labour %(p)s - week %(w)s"
+msgstr "عمالة %(p)s - أسبوع %(w)s"
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/control_tower.py:0
+msgid "Labour sheets"
+msgstr "كشوف العمالة"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline__write_uid
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline_item__write_uid
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline_line__write_uid
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_charge__write_uid
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_usage__write_uid
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_evm_curve__write_uid
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_evm_report__write_uid
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__write_uid
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet_line__write_uid
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation__write_uid
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation_line__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline__write_date
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline_item__write_date
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline_line__write_date
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_charge__write_date
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_usage__write_date
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_evm_curve__write_date
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_evm_report__write_date
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__write_date
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet_line__write_date
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation__write_date
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation_line__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__line_ids
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation__line_ids
+msgid "Line"
+msgstr "السطر"
+
+#. module: zc_project_controls
+#: model:ir.model.fields.selection,name:zc_project_controls.selection__zc_baseline_item__curve__linear
+msgid "Linear"
+msgstr "خطي"
+
+#. module: zc_project_controls
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_baseline_form
+msgid "Load BOQ Items"
+msgstr "تحميل بنود المقايسة"
+
+#. module: zc_project_controls
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_equipment_charge_form
+msgid "Load Usage"
+msgstr "تحميل التشغيل"
+
+#. module: zc_project_controls
+#: model:ir.model,name:zc_project_controls.model_maintenance_equipment
+msgid "Maintenance Equipment"
+msgstr "المعدات"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation_line__manual_pct
+#: model:ir.model.fields.selection,name:zc_project_controls.selection__res_company__zc_overhead_basis__manual
+#: model:ir.model.fields.selection,name:zc_project_controls.selection__zc_overhead_allocation__basis__manual
+msgid "Manual %"
+msgstr "نسبة يدوية %"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,help:zc_project_controls.field_zc_labour_sheet__activity_type_icon
+msgid "Material Symbols icon e.g. checklist"
+msgstr ""
+
+#. module: zc_project_controls
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.hom_variation_order_form_zc
+msgid "Meetings with the cost consultant, counter-offers..."
+msgstr "اجتماعات مع استشاري التكاليف، العروض المقابلة..."
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline__message_has_error
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_charge__message_has_error
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__message_has_error
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline__message_ids
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_charge__message_ids
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__message_ids
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet_line__d3
+msgid "Mon"
+msgstr "اثنين"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline_line__month
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_evm_curve__month
+msgid "Month"
+msgstr "الشهر"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline__line_ids
+msgid "Monthly Planned Value"
+msgstr "القيمة المخططة الشهرية"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_charge__move_id
+msgid "Move"
+msgstr "القيد"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline__name
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_charge__name
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__name
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation__name
+msgid "Name"
+msgstr ""
+
+#. module: zc_project_controls
+#: model:ir.model.fields.selection,name:zc_project_controls.selection__hom_variation_order__zc_stage__negotiation
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.hom_variation_order_form_zc
+msgid "Negotiation"
+msgstr "التفاوض"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_hom_variation_order__zc_negotiation_note
+msgid "Negotiation Notes"
+msgstr "ملاحظات التفاوض"
+
+#. module: zc_project_controls
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_baseline_form
+msgid "New Revision"
+msgstr "مراجعة جديدة"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,help:zc_project_controls.field_res_company__zc_vo_owner_agreement
+#: model:ir.model.fields,help:zc_project_controls.field_res_config_settings__zc_vo_owner_agreement
+msgid ""
+"New variation orders follow the owner cycle (instruction, impact, "
+"negotiation, agreed rate): items are executed as provisional and certified "
+"only once the rate is agreed."
+msgstr ""
+"أوامر التغيير الجديدة تمشي في دورة المالك (تعليمات، أثر، تفاوض، سعر متفق "
+"عليه): البنود تُنفّذ كمؤقتة ولا تُصرف إلا بعد الاتفاق على السعر."
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/equipment.py:0
+msgid "No equipment usage in this period."
+msgstr "لا يوجد تشغيل معدات في هذه الفترة."
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/variation.py:0
+msgid "Not certified until the rate is agreed: %s"
+msgstr "لا يُصرف حتى الاتفاق على السعر: %s"
+
+#. module: zc_project_controls
+#: model:ir.model.fields.selection,name:zc_project_controls.selection__zc_equipment_usage__state__open
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_equipment_usage_search
+msgid "Not charged"
+msgstr "غير محمّل"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline__note
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_usage__note
+msgid "Note"
+msgstr "ملاحظة"
+
+#. module: zc_project_controls
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_baseline_form
+msgid "Notes"
+msgstr "ملاحظات"
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/overhead.py:0
+msgid "Nothing to allocate: no project has a basis in this period."
+msgstr "لا يوجد ما يُحمّل: لا يوجد مشروع له أساس تحميل في هذه الفترة."
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline__message_needaction_counter
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_charge__message_needaction_counter
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__message_needaction_counter
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline__message_has_error_counter
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_charge__message_has_error_counter
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__message_has_error_counter
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: zc_project_controls
+#: model:ir.model.fields,help:zc_project_controls.field_zc_baseline__message_needaction_counter
+#: model:ir.model.fields,help:zc_project_controls.field_zc_equipment_charge__message_needaction_counter
+#: model:ir.model.fields,help:zc_project_controls.field_zc_labour_sheet__message_needaction_counter
+#: model:ir.model.fields,help:zc_project_controls.field_zc_overhead_allocation__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: zc_project_controls
+#: model:ir.model.fields,help:zc_project_controls.field_zc_baseline__message_has_error_counter
+#: model:ir.model.fields,help:zc_project_controls.field_zc_equipment_charge__message_has_error_counter
+#: model:ir.model.fields,help:zc_project_controls.field_zc_labour_sheet__message_has_error_counter
+#: model:ir.model.fields,help:zc_project_controls.field_zc_overhead_allocation__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: zc_project_controls
+#: model:ir.model.fields.selection,name:zc_project_controls.selection__zc_evm_report__status__on_track
+msgid "On track"
+msgstr "على المسار"
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/overhead.py:0
+msgid "Only a draft allocation can be recomputed."
+msgstr "لا يُعاد حساب إلا تحميل في حالة مسودة."
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/evm.py:0
+msgid "Only a draft baseline can be changed."
+msgstr "لا تُعدّل إلا خطة أساسية في حالة مسودة."
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/variation.py:0
+msgid "Only an open variation order can be agreed."
+msgstr "لا يُتفق إلا على أمر تغيير مفتوح."
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_usage__operator
+msgid "Operator"
+msgstr "المشغّل"
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/overhead.py:0
+msgid "Overhead %(f)s - %(t)s"
+msgstr "مصروفات عمومية %(f)s - %(t)s"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_res_company__zc_overhead_absorbed_account_id
+#: model:ir.model.fields,field_description:zc_project_controls.field_res_config_settings__zc_overhead_absorbed_account_id
+msgid "Overhead Absorbed (contra G&A)"
+msgstr "مصروفات عمومية مستوعبة (عكس العمومية)"
+
+#. module: zc_project_controls
+#: model:ir.actions.act_window,name:zc_project_controls.action_zc_overhead_allocation
+#: model:ir.ui.menu,name:zc_project_controls.menu_zc_overhead
+msgid "Overhead Allocation"
+msgstr "تحميل المصروفات العمومية"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_res_company__zc_overhead_basis
+#: model:ir.model.fields,field_description:zc_project_controls.field_res_config_settings__zc_overhead_basis
+msgid "Overhead Allocation Basis"
+msgstr "أساس تحميل المصروفات العمومية"
+
+#. module: zc_project_controls
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.res_config_settings_view_form_zc_pc
+msgid "Overhead allocation"
+msgstr "تحميل المصروفات العمومية"
+
+#. module: zc_project_controls
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.hom_variation_order_form_zc
+msgid "Owner / Consultant"
+msgstr "المالك / الاستشاري"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_hom_variation_order__zc_requires_agreement
+msgid "Owner Agreement Required"
+msgstr "يتطلب اتفاق المالك"
+
+#. module: zc_project_controls
+#: model:ir.model,name:zc_project_controls.model_hom_progress_certificate
+msgid "Owner Progress Certificate"
+msgstr "مستخلص المالك"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_hom_variation_order__zc_stage
+msgid "Owner Stage"
+msgstr "المرحلة مع المالك"
+
+#. module: zc_project_controls
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.res_config_settings_view_form_zc_pc
+msgid "Owner cycle: instruction, impact, negotiation, agreed rate."
+msgstr "دورة المالك: تعليمات، أثر، تفاوض، سعر متفق عليه."
+
+#. module: zc_project_controls
+#: model:ir.model.fields,help:zc_project_controls.field_res_company__zc_labour_partner_id
+#: model:ir.model.fields,help:zc_project_controls.field_res_config_settings__zc_labour_partner_id
+msgid ""
+"Partner of the weekly labour bills (e.g. the site foreman who pays the "
+"workers in cash)."
+msgstr ""
+"الطرف المستفيد من فواتير العمالة الأسبوعية (مثل ريس الموقع اللي بيصرف للعمال"
+" نقدًا)."
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__partner_id
+msgid "Payee"
+msgstr "المستلم"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__bill_payment_state
+msgid "Payment Status"
+msgstr "حالة السداد"
+
+#. module: zc_project_controls
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_evm_report_form
+msgid "Performance"
+msgstr "الأداء"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_evm_report__planned_pct
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_evm_report_list
+msgid "Planned %"
+msgstr "النسبة المخططة %"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_evm_report__pv
+#: model:ir.model.fields.selection,name:zc_project_controls.selection__zc_evm_curve__series__pv
+msgid "Planned (PV)"
+msgstr "القيمة المخططة (PV)"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline_item__date_end
+msgid "Planned Finish"
+msgstr "النهاية المخططة"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline_line__planned_qty
+msgid "Planned Qty"
+msgstr "الكمية المخططة"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline_item__date_start
+msgid "Planned Start"
+msgstr "البداية المخططة"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline_line__planned_value
+msgid "Planned Value (PV)"
+msgstr "القيمة المخططة (PV)"
+
+#. module: zc_project_controls
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_baseline_form
+msgid "Planned Value per Month"
+msgstr "القيمة المخططة لكل شهر"
+
+#. module: zc_project_controls
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_equipment_charge_form
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_overhead_allocation_form
+msgid "Post Entry"
+msgstr "ترحيل القيد"
+
+#. module: zc_project_controls
+#: model:ir.model.fields.selection,name:zc_project_controls.selection__zc_equipment_charge__state__posted
+#: model:ir.model.fields.selection,name:zc_project_controls.selection__zc_overhead_allocation__state__posted
+msgid "Posted"
+msgstr "مرحّل"
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/overhead.py:0
+msgid "Posted %s."
+msgstr "تم ترحيل %s."
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__user_id
+msgid "Prepared by"
+msgstr "أعدّه"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline_item__price_unit
+msgid "Price Unit"
+msgstr "سعر الوحدة"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline_item__product_id
+msgid "Product"
+msgstr "المنتج"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline__date_end
+msgid "Programme Finish"
+msgstr "نهاية البرنامج الزمني"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline__date_start
+msgid "Programme Start"
+msgstr "بداية البرنامج الزمني"
+
+#. module: zc_project_controls
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_baseline_form
+msgid "Programme per Item"
+msgstr "البرنامج الزمني لكل بند"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline__project_id
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline_line__project_id
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_usage__project_id
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_evm_curve__project_id
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_evm_report__project_id
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__project_id
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation_line__project_id
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_equipment_usage_search
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_evm_curve_search
+msgid "Project"
+msgstr "المشروع"
+
+#. module: zc_project_controls
+#: model:ir.model,name:zc_project_controls.model_zc_baseline
+msgid "Project Baseline (time-phased BOQ)"
+msgstr "الخطة الأساسية للمشروع (مقايسة موزعة زمنيًا)"
+
+#. module: zc_project_controls
+#: model:ir.ui.menu,name:zc_project_controls.menu_zc_controls_top
+msgid "Project Controls"
+msgstr "ضبط المشروعات"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_res_company__zc_overhead_journal_id
+#: model:ir.model.fields,field_description:zc_project_controls.field_res_config_settings__zc_overhead_journal_id
+msgid "Project Controls Journal"
+msgstr "يومية ضبط المشروعات"
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/control_tower.py:0
+msgid "Projects behind the approved baseline (SPI below 0.9)"
+msgstr "مشاريع متأخرة عن الخطة المعتمدة (SPI أقل من 0.9)"
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/control_tower.py:0
+msgid "Projects spending more than the work earned (CPI below 0.9)"
+msgstr "مشاريع تكلفتها أعلى من قيمة الشغل المنفذ (CPI أقل من 0.9)"
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/equipment.py:0
+msgid "Projects without analytic account: %s"
+msgstr "مشاريع بدون حساب تحليلي: %s"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_hom_variation_order__zc_proposed_amount
+msgid "Proposed Amount"
+msgstr "القيمة المقترحة"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_sale_order_line__zc_provisional
+msgid "Provisional (VO under negotiation)"
+msgstr "مؤقت (أمر تغيير تحت التفاوض)"
+
+#. module: zc_project_controls
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.hom_variation_order_form_zc
+msgid "Rate Agreed"
+msgstr "تم الاتفاق على السعر"
+
+#. module: zc_project_controls
+#: model:ir.model.fields.selection,name:zc_project_controls.selection__hom_variation_order__zc_stage__agreed
+msgid "Rate agreed"
+msgstr "تم الاتفاق على السعر"
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/variation.py:0
+msgid "Rate agreed with the consultant: %(a)s (proposed %(p)s)."
+msgstr "تم الاتفاق على السعر مع الاستشاري: %(a)s (المقترح %(p)s)."
+
+#. module: zc_project_controls
+#: model:ir.model.fields,help:zc_project_controls.field_maintenance_equipment__zc_daily_rate
+msgid "Rate charged to a project for each working day of the machine."
+msgstr "المبلغ المحمّل على المشروع عن كل يوم تشغيل للمعدة."
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline__rating_ids
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_charge__rating_ids
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__rating_ids
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation__rating_ids
+msgid "Ratings"
+msgstr ""
+
+#. module: zc_project_controls
+#: model:ir.model.fields,help:zc_project_controls.field_maintenance_equipment__zc_analytic_account_id
+msgid ""
+"Real costs of the machine (fuel, repairs, depreciation) and the rent it "
+"recovers from projects both land here: the balance shows whether the "
+"internal rate covers the machine."
+msgstr ""
+"التكاليف الفعلية للمعدة (وقود، إصلاح، إهلاك) والإيجار المسترد من المشاريع "
+"يتسجلوا هنا: الرصيد يوضح هل الإيجار الداخلي يغطي المعدة."
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/equipment.py:0
+msgid "Rent recovered - %s"
+msgstr "إيجار مسترد - %s"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: zc_project_controls
+#: model:ir.model.fields.selection,name:zc_project_controls.selection__res_company__zc_overhead_basis__revenue
+#: model:ir.model.fields.selection,name:zc_project_controls.selection__zc_overhead_allocation__basis__revenue
+msgid "Revenue of the period"
+msgstr "إيراد الفترة"
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/equipment.py:0
+#: code:addons/zc_project_controls/models/overhead.py:0
+msgid "Reversal of %s"
+msgstr "عكس %s"
+
+#. module: zc_project_controls
+#: model:ir.actions.act_window,name:zc_project_controls.action_zc_evm_curve
+#: model:ir.ui.menu,name:zc_project_controls.menu_zc_evm_curve
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_evm_curve_graph
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_evm_report_form
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_evm_report_list
+msgid "S-Curve"
+msgstr "منحنى S"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline__message_has_sms_error
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_charge__message_has_sms_error
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__message_has_sms_error
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_evm_report__spi
+msgid "SPI"
+msgstr "مؤشر أداء الجدول SPI"
+
+#. module: zc_project_controls
+#: model:ir.model,name:zc_project_controls.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "سطر أمر البيع"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet_line__d1
+msgid "Sat"
+msgstr "سبت"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_evm_report__sv
+msgid "Schedule Variance"
+msgstr "انحراف الجدول"
+
+#. module: zc_project_controls
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_labour_sheet_form
+msgid "Send to PM"
+msgstr "إرسال لمدير المشروع"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline_item__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_evm_curve__series
+msgid "Series"
+msgstr "السلسلة"
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/labour.py:0
+msgid ""
+"Set the daily labour service and payee in Settings > Contracting first."
+msgstr "حدد خدمة العمالة اليومية والمستلم من الإعدادات > المقاولات أولًا."
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/equipment.py:0
+msgid "Set the equipment rent accounts in Settings > Contracting first."
+msgstr "حدد حسابات إيجار المعدات من الإعدادات > المقاولات أولًا."
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/overhead.py:0
+msgid "Set the overhead accounts in Settings > Contracting first."
+msgstr "حدد حسابات المصروفات العمومية من الإعدادات > المقاولات أولًا."
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation_line__ratio
+msgid "Share %"
+msgstr "النصيب %"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet_line__sheet_id
+msgid "Sheet"
+msgstr "الكشف"
+
+#. module: zc_project_controls
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_baseline_form
+msgid "Spread over Months"
+msgstr "توزيع على الشهور"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline__state
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_charge__state
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_usage__state
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__state
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_overhead_allocation__state
+msgid "State"
+msgstr "الحالة"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_evm_report__status
+msgid "Status"
+msgstr "الحالة"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_evm_report__date
+msgid "Status Date"
+msgstr "تاريخ الحالة"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,help:zc_project_controls.field_zc_labour_sheet__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: zc_project_controls
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.hom_variation_order_form_zc
+msgid "Submit to Consultant"
+msgstr "تقديم للاستشاري"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_hom_variation_order__zc_submitted_date
+msgid "Submitted to Consultant"
+msgstr "تاريخ التقديم للاستشاري"
+
+#. module: zc_project_controls
+#: model:ir.model.fields.selection,name:zc_project_controls.selection__hom_variation_order__zc_stage__submitted
+msgid "Submitted to consultant"
+msgstr "مقدم للاستشاري"
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/variation.py:0
+msgid "Submitted to the consultant: %(a)s, time impact %(d)s days."
+msgstr "تم التقديم للاستشاري: %(a)s، أثر زمني %(d)s يوم."
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet_line__d2
+msgid "Sun"
+msgstr "أحد"
+
+#. module: zc_project_controls
+#: model:ir.model.fields.selection,name:zc_project_controls.selection__zc_baseline__state__superseded
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_baseline_form
+msgid "Superseded"
+msgstr "تم استبدالها"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_hom_variation_order__zc_quote_ids
+msgid "Supporting Quotes"
+msgstr "عروض أسعار داعمة"
+
+#. module: zc_project_controls
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_equipment_charge_form
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_overhead_allocation_form
+msgid "The journal entry will be reversed. Continue?"
+msgstr "سيتم عكس قيد اليومية. هل تريد المتابعة؟"
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/evm.py:0
+msgid "The programme finish is before its start."
+msgstr "نهاية البرنامج الزمني قبل بدايته."
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/labour.py:0
+msgid "The project has no analytic account."
+msgstr "المشروع ليس له حساب تحليلي."
+
+#. module: zc_project_controls
+#: model:ir.model.fields,help:zc_project_controls.field_hom_variation_order__zc_requires_agreement
+msgid ""
+"The rate must be agreed with the owner's consultant before the items can be "
+"certified."
+msgstr "لازم الاتفاق على السعر مع استشاري المالك قبل صرف البنود في المستخلص."
+
+#. module: zc_project_controls
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.hom_variation_order_form_zc
+msgid "The rates on the lines become the agreed contract rates. Continue?"
+msgstr "أسعار السطور هتبقى أسعار العقد المتفق عليها. هل تريد المتابعة؟"
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/equipment.py:0
+msgid ""
+"This usage is already charged to the project; cancel the monthly charge "
+"first."
+msgstr "هذا التشغيل محمّل بالفعل على المشروع؛ ألغِ التحميل الشهري أولًا."
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet_line__d6
+msgid "Thu"
+msgstr "خميس"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_hom_variation_order__zc_time_impact_days
+msgid "Time Impact (days)"
+msgstr "الأثر الزمني (يوم)"
+
+#. module: zc_project_controls
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.maintenance_equipment_form_zc
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_baseline_form
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_baseline_list
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_equipment_charge_form
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_equipment_charge_list
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_equipment_usage_list
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_evm_report_list
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_labour_sheet_form
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_labour_sheet_list
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_overhead_allocation_form
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_overhead_allocation_list
+msgid "Total"
+msgstr "الإجمالي"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__total_days
+msgid "Total Days"
+msgstr "إجمالي الأيام"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet_line__trade
+msgid "Trade"
+msgstr "المهنة"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet_line__d4
+msgid "Tue"
+msgstr "ثلاثاء"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,help:zc_project_controls.field_zc_labour_sheet__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_equipment_charge__usage_ids
+msgid "Usage"
+msgstr "التشغيل"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_maintenance_equipment__zc_usage_ids
+msgid "Usage Log"
+msgstr "سجل التشغيل"
+
+#. module: zc_project_controls
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_evm_report_form
+msgid "Value"
+msgstr "القيمة"
+
+#. module: zc_project_controls
+#: model:ir.model,name:zc_project_controls.model_hom_variation_order
+msgid "Variation Order"
+msgstr "أمر التغيير"
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/variation.py:0
+msgid "Variation Order %(vo)s - %(t)s"
+msgstr "أمر تغيير %(vo)s - %(t)s"
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/variation.py:0
+msgid "Variation Order %(vo)s - %(t)s (rate under negotiation)"
+msgstr "أمر تغيير %(vo)s - %(t)s (السعر تحت التفاوض)"
+
+#. module: zc_project_controls
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.res_config_settings_view_form_zc_pc
+msgid "Variation orders with the owner"
+msgstr "أوامر التغيير مع المالك"
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/control_tower.py:0
+msgid "Variation work executed before the rate is agreed"
+msgstr "أعمال تغيير منفذة قبل الاتفاق على السعر"
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/control_tower.py:0
+msgid "Variations at risk"
+msgstr "أوامر تغيير قبل الاتفاق"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_res_company__zc_vo_owner_agreement
+#: model:ir.model.fields,field_description:zc_project_controls.field_res_config_settings__zc_vo_owner_agreement
+msgid "Variations need the owner's agreed rate"
+msgstr "أوامر التغيير تحتاج سعرًا متفقًا عليه مع المالك"
+
+#. module: zc_project_controls
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.zc_labour_sheet_form
+msgid "Vendor Bill"
+msgstr "فاتورة المورد"
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/labour.py:0
+msgid "Vendor bill %s posted, pay it from the site cash."
+msgstr "تم ترحيل فاتورة المورد %s، اصرفها من خزينة الموقع."
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_baseline__version
+msgid "Version"
+msgstr "الإصدار"
+
+#. module: zc_project_controls
+#: model:ir.model.fields.selection,name:zc_project_controls.selection__zc_labour_sheet__state__submitted
+msgid "Waiting PM"
+msgstr "في انتظار مدير المشروع"
+
+#. module: zc_project_controls
+#: model:ir.model.fields.selection,name:zc_project_controls.selection__zc_evm_report__status__watch
+msgid "Watch"
+msgstr "متابعة"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet_line__d5
+msgid "Wed"
+msgstr "أربعاء"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__week_end
+msgid "Week End"
+msgstr "نهاية الأسبوع"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet__week_start
+msgid "Week Starting (Saturday)"
+msgstr "بداية الأسبوع (السبت)"
+
+#. module: zc_project_controls
+#: model:ir.model,name:zc_project_controls.model_zc_labour_sheet
+msgid "Weekly Daily-Labour Sheet"
+msgstr "كشف العمالة اليومية الأسبوعي"
+
+#. module: zc_project_controls
+#: model:ir.model,name:zc_project_controls.model_zc_labour_sheet_line
+msgid "Weekly Daily-Labour Sheet - Worker"
+msgstr "كشف العمالة اليومية - عامل"
+
+#. module: zc_project_controls
+#: model_terms:ir.ui.view,arch_db:zc_project_controls.res_config_settings_view_form_zc_pc
+msgid "Weekly sheets paid in cash, billed to the project."
+msgstr "كشوف أسبوعية تُصرف نقدًا وتُحمّل على المشروع."
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_zc_labour_sheet_line__worker
+msgid "Worker"
+msgstr "العامل"
+
+#. module: zc_project_controls
+#: model:ir.model.fields,help:zc_project_controls.field_zc_equipment_usage__days
+msgid "Working days (half day = 0.5)."
+msgstr "أيام التشغيل (نصف يوم = 0.5)."
+
+#. module: zc_project_controls
+#: model:ir.model.fields,field_description:zc_project_controls.field_sale_order_line__zc_variation_line_id
+msgid "Zc Variation Line"
+msgstr ""
+
+#. module: zc_project_controls
+#: model:ir.module.module,shortdesc:base.module_zc_project_controls
+msgid "Ziij Construction - Project Controls"
+msgstr "Ziij للمقاولات - ضبط المشروعات"
+
+#. module: zc_project_controls
+#. odoo-python
+#: code:addons/zc_project_controls/models/control_tower.py:0
+msgid "id"
+msgstr ""

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="zc_baseline_form" model="ir.ui.view">
+        <field name="name">zc.baseline.form</field>
+        <field name="model">zc.baseline</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_load_items" type="object" string="Load BOQ Items" invisible="state != 'draft'"/>
+                    <button name="action_generate" type="object" string="Spread over Months" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_approve" type="object" string="Approve Baseline" class="btn-primary" invisible="state != 'draft'"
+                            groups="project.group_project_manager"/>
+                    <button name="action_revise" type="object" string="New Revision" invisible="state != 'approved'"
+                            groups="project.group_project_manager"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,approved"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_curve" type="object" class="oe_stat_button" icon="fa-line-chart"
+                                string="Earned Value" invisible="state != 'approved'"/>
+                    </div>
+                    <widget name="web_ribbon" title="Superseded" bg_color="text-bg-secondary" invisible="state != 'superseded'"/>
+                    <div class="oe_title"><h1><field name="name" readonly="1"/></h1></div>
+                    <group>
+                        <group>
+                            <field name="sale_order_id" readonly="state != 'draft'" options="{'no_create': True}"/>
+                            <field name="project_id"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="company_id" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="date_start" readonly="state != 'draft'"/>
+                            <field name="date_end" readonly="state != 'draft'"/>
+                            <field name="version" readonly="1"/>
+                            <field name="approved_date" invisible="not approved_date"/>
+                            <field name="approved_by_id" invisible="not approved_by_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Programme per Item" name="items">
+                            <field name="item_ids" readonly="state != 'draft'">
+                                <list editable="bottom" create="0">
+                                    <field name="currency_id" column_invisible="1"/>
+                                    <field name="sale_line_id" readonly="1"/>
+                                    <field name="quantity" digits="[16,2]"/>
+                                    <field name="amount" sum="BAC"/>
+                                    <field name="date_start"/>
+                                    <field name="date_end"/>
+                                    <field name="curve"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Planned Value per Month" name="months">
+                            <field name="line_ids" readonly="1">
+                                <list>
+                                    <field name="currency_id" column_invisible="1"/>
+                                    <field name="month"/>
+                                    <field name="sale_line_id"/>
+                                    <field name="planned_qty" digits="[16,2]"/>
+                                    <field name="planned_value" sum="Total"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Notes" name="notes"><field name="note"/></page>
+                    </notebook>
+                    <group class="oe_subtotal_footer"><field name="amount_total"/></group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="zc_baseline_list" model="ir.ui.view">
+        <field name="name">zc.baseline.list</field>
+        <field name="model">zc.baseline</field>
+        <field name="arch" type="xml">
+            <list decoration-muted="state == 'superseded'" decoration-success="state == 'approved'">
+                <field name="name"/>
+                <field name="project_id"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="amount_total" sum="Total"/>
+                <field name="state" widget="badge" decoration-success="state == 'approved'"/>
+            </list>
+        </field>
+    </record>
+    <record id="action_zc_baseline" model="ir.actions.act_window">
+        <field name="name">Baselines</field>
+        <field name="res_model">zc.baseline</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="zc_evm_report_list" model="ir.ui.view">
+        <field name="name">zc.evm.report.list</field>
+        <field name="model">zc.evm.report</field>
+        <field name="arch" type="xml">
+            <list create="0" edit="0" delete="0" decoration-danger="status == 'critical'" decoration-warning="status == 'watch'">
+                <header>
+                    <button name="action_open_curve" type="object" string="S-Curve" class="btn-primary" display="always"/>
+                </header>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="project_id"/>
+                <field name="sale_order_id" optional="hide"/>
+                <field name="date" optional="hide"/>
+                <field name="bac" sum="Total"/>
+                <field name="planned_pct" string="Planned %"/>
+                <field name="earned_pct" string="Earned %"/>
+                <field name="pv" sum="Total"/>
+                <field name="ev" sum="Total"/>
+                <field name="ev_billed" sum="Total" optional="show"/>
+                <field name="ac" sum="Total"/>
+                <field name="sv" sum="Total" optional="show"/>
+                <field name="cv" sum="Total" optional="show"/>
+                <field name="spi" decoration-danger="spi &lt; 0.9 and pv" class="fw-bold"/>
+                <field name="cpi" decoration-danger="cpi &lt; 0.9 and ac" class="fw-bold"/>
+                <field name="eac" optional="show"/>
+                <field name="status" widget="badge" decoration-success="status == 'on_track'"
+                       decoration-warning="status == 'watch'" decoration-danger="status == 'critical'"/>
+            </list>
+        </field>
+    </record>
+    <record id="zc_evm_report_form" model="ir.ui.view">
+        <field name="name">zc.evm.report.form</field>
+        <field name="model">zc.evm.report</field>
+        <field name="arch" type="xml">
+            <form create="0" edit="0">
+                <header>
+                    <button name="action_open_curve" type="object" string="S-Curve" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <div class="oe_title"><h1><field name="project_id"/></h1></div>
+                    <group>
+                        <group string="Value">
+                            <field name="currency_id" invisible="1"/>
+                            <field name="bac"/><field name="pv"/><field name="ev"/><field name="ev_billed"/><field name="ac"/>
+                        </group>
+                        <group string="Performance">
+                            <field name="spi"/><field name="cpi"/><field name="sv"/><field name="cv"/><field name="eac"/>
+                            <field name="status" widget="badge"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_zc_evm_server" model="ir.actions.server">
+        <field name="name">Earned Value</field>
+        <field name="model_id" ref="model_zc_evm_report"/>
+        <field name="state">code</field>
+        <field name="code">action = model.action_refresh()</field>
+    </record>
+
+    <record id="zc_evm_curve_graph" model="ir.ui.view">
+        <field name="name">zc.evm.curve.graph</field>
+        <field name="model">zc.evm.curve</field>
+        <field name="arch" type="xml">
+            <graph type="line" stacked="0" disable_linking="1" string="S-Curve">
+                <field name="month" interval="month"/>
+                <field name="series"/>
+                <field name="value" type="measure"/>
+            </graph>
+        </field>
+    </record>
+    <record id="zc_evm_curve_list" model="ir.ui.view">
+        <field name="name">zc.evm.curve.list</field>
+        <field name="model">zc.evm.curve</field>
+        <field name="arch" type="xml">
+            <list create="0" edit="0" delete="0">
+                <field name="currency_id" column_invisible="1"/>
+                <field name="project_id"/>
+                <field name="month"/>
+                <field name="series"/>
+                <field name="value"/>
+            </list>
+        </field>
+    </record>
+    <record id="zc_evm_curve_search" model="ir.ui.view">
+        <field name="name">zc.evm.curve.search</field>
+        <field name="model">zc.evm.curve</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="project_id"/>
+                <group>
+                    <filter name="group_project" string="Project" context="{'group_by': 'project_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="action_zc_evm_curve" model="ir.actions.act_window">
+        <field name="name">S-Curve</field>
+        <field name="res_model">zc.evm.curve</field>
+        <field name="view_mode">graph,list</field>
+    </record>
+</odoo>

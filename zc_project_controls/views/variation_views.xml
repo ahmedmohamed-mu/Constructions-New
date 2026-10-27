@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hom_variation_order_form_zc" model="ir.ui.view">
+        <field name="name">hom.variation.order.form.zc</field>
+        <field name="model">hom.variation.order</field>
+        <field name="inherit_id" ref="hom_variation_order.hom_variation_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_zc_impact" type="object" string="Impact Statement"
+                        invisible="not zc_requires_agreement or zc_stage != 'instruction' or state in ('applied', 'rejected')"/>
+                <button name="action_zc_submit_owner" type="object" string="Submit to Consultant"
+                        invisible="not zc_requires_agreement or zc_stage not in ('instruction', 'impact') or state in ('applied', 'rejected')"/>
+                <button name="action_zc_negotiate" type="object" string="Negotiation"
+                        invisible="not zc_requires_agreement or zc_stage != 'submitted' or state in ('applied', 'rejected')"/>
+                <button name="action_zc_agree" type="object" string="Rate Agreed" class="btn-primary"
+                        invisible="not zc_requires_agreement or zc_stage not in ('submitted', 'negotiation') or state in ('applied', 'rejected')"
+                        confirm="The rates on the lines become the agreed contract rates. Continue?"/>
+            </xpath>
+            <xpath expr="//widget[@name='web_ribbon']" position="before">
+                <widget name="web_ribbon" title="Executing at risk" bg_color="text-bg-warning" invisible="not zc_provisional"/>
+            </xpath>
+            <xpath expr="//field[@name='line_ids']" position="attributes">
+                <attribute name="readonly">state != 'draft' and not zc_provisional</attribute>
+            </xpath>
+            <xpath expr="//notebook" position="before">
+                <group string="Owner / Consultant" name="zc_owner">
+                    <group>
+                        <field name="zc_requires_agreement" readonly="state == 'applied'"/>
+                        <field name="zc_stage" invisible="not zc_requires_agreement" widget="badge"/>
+                        <field name="zc_provisional" invisible="1"/>
+                        <field name="zc_instruction_date" invisible="not zc_requires_agreement"/>
+                        <field name="zc_time_impact_days" invisible="not zc_requires_agreement"/>
+                    </group>
+                    <group invisible="not zc_requires_agreement">
+                        <field name="zc_submitted_date"/>
+                        <field name="zc_proposed_amount"/>
+                        <field name="zc_agreed_amount" invisible="zc_stage != 'agreed'"/>
+                        <field name="zc_agreed_date" invisible="zc_stage != 'agreed'"/>
+                    </group>
+                </group>
+            </xpath>
+            <xpath expr="//page[@name='budget']" position="after">
+                <page string="Negotiation" name="zc_negotiation" invisible="not zc_requires_agreement">
+                    <field name="zc_quote_ids" widget="many2many_binary"/>
+                    <field name="zc_negotiation_note" placeholder="Meetings with the cost consultant, counter-offers..."/>
+                </page>
+            </xpath>
+        </field>
+    </record>
+    <record id="hom_variation_order_list_zc" model="ir.ui.view">
+        <field name="name">hom.variation.order.list.zc</field>
+        <field name="model">hom.variation.order</field>
+        <field name="inherit_id" ref="hom_variation_order.hom_variation_order_list"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='state']" position="before">
+                <field name="zc_provisional" column_invisible="1"/>
+                <field name="zc_stage" widget="badge" optional="show" decoration-warning="zc_provisional"
+                       decoration-success="zc_stage == 'agreed'"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_order_form_zc_provisional" model="ir.ui.view">
+        <field name="name">sale.order.form.zc.provisional</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//list[@name='sol_list']" position="attributes">
+                <attribute name="decoration-info">zc_provisional</attribute>
+            </xpath>
+            <xpath expr="//list[@name='sol_list']//column[@name='sol_qty']" position="after">
+                <field name="zc_provisional" column_invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

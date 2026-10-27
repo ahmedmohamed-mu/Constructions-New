@@ -219,7 +219,8 @@ class TestMaterialControl(AccountTestInvoicingCommon):
         self.env["stock.picking"]._zc_cron_return_alerts()
         self.assertEqual(len(picking.activity_ids), 1, "no duplicate alert")
         data = self.env["hom.control.tower"].get_dashboard_data()
-        self.assertTrue(any("supplier deadline" in a["text"] for a in data["alerts"]))
+        self.assertTrue(any(a["level"] == "danger" and a["action"] == "zc_material_control.action_zc_material_recon_server"
+                            for a in data["alerts"]), "return alert on the control tower (any language)")
 
     def test_interval_certificate(self):
         self.so.write({"hom_certificate_frequency": "interval", "zc_cert_interval_days": 20,

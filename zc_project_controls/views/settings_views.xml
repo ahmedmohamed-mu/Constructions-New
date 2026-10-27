@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_zc_pc" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.zc.pc</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="hom_contracting_base.res_config_settings_view_form_hom"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@name='hom_contracting']" position="inside">
+                <setting string="Overhead allocation" help="Head-office expenses charged to the projects by a journal entry.">
+                    <div class="content-group">
+                        <div class="row mt8"><label for="zc_overhead_basis" class="col-lg-5 o_light_label"/><field name="zc_overhead_basis"/></div>
+                        <div class="row"><label for="zc_overhead_account_id" class="col-lg-5 o_light_label"/><field name="zc_overhead_account_id"/></div>
+                        <div class="row"><label for="zc_overhead_absorbed_account_id" class="col-lg-5 o_light_label"/><field name="zc_overhead_absorbed_account_id"/></div>
+                        <div class="row"><label for="zc_overhead_journal_id" class="col-lg-5 o_light_label"/><field name="zc_overhead_journal_id"/></div>
+                    </div>
+                </setting>
+                <setting string="Equipment internal rent" help="Company machines charged to projects per working day.">
+                    <div class="content-group">
+                        <div class="row mt8"><label for="zc_equipment_cost_account_id" class="col-lg-5 o_light_label"/><field name="zc_equipment_cost_account_id"/></div>
+                        <div class="row"><label for="zc_equipment_recovery_account_id" class="col-lg-5 o_light_label"/><field name="zc_equipment_recovery_account_id"/></div>
+                    </div>
+                </setting>
+                <setting string="Variation orders with the owner" help="Owner cycle: instruction, impact, negotiation, agreed rate.">
+                    <field name="zc_vo_owner_agreement"/>
+                </setting>
+                <setting string="Daily labour" help="Weekly sheets paid in cash, billed to the project.">
+                    <div class="content-group">
+                        <div class="row mt8"><label for="zc_labour_product_id" class="col-lg-5 o_light_label"/><field name="zc_labour_product_id"/></div>
+                        <div class="row"><label for="zc_labour_partner_id" class="col-lg-5 o_light_label"/><field name="zc_labour_partner_id"/></div>
+                    </div>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>

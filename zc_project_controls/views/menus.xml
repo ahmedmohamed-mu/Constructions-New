@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_zc_controls_top" name="Project Controls" parent="hom_contracting_base.menu_hom_root" sequence="35"/>
+    <menuitem id="menu_zc_evm" name="Earned Value" parent="menu_zc_controls_top" sequence="10" action="action_zc_evm_server"/>
+    <menuitem id="menu_zc_evm_curve" name="S-Curve" parent="menu_zc_controls_top" sequence="15" action="action_zc_evm_curve"/>
+    <menuitem id="menu_zc_baseline" name="Baselines" parent="menu_zc_controls_top" sequence="20" action="action_zc_baseline"/>
+    <menuitem id="menu_zc_overhead" name="Overhead Allocation" parent="menu_zc_controls_top" sequence="30"
+              action="action_zc_overhead_allocation"/>
+    <menuitem id="menu_zc_equipment_charge" name="Equipment Rent Charges" parent="menu_zc_controls_top" sequence="40"
+              action="action_zc_equipment_charge"/>
+    <menuitem id="menu_zc_equipment_usage" name="Equipment Usage" parent="hom_contracting_base.menu_hom_site_top"
+              sequence="30" action="action_zc_equipment_usage"/>
+    <menuitem id="menu_zc_labour_sheet" name="Daily Labour Sheets" parent="hom_contracting_base.menu_hom_site_top"
+              sequence="40" action="action_zc_labour_sheet"/>
+</odoo>

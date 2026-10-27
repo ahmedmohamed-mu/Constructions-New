@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="maintenance_equipment_form_zc" model="ir.ui.view">
+        <field name="name">maintenance.equipment.form.zc</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Internal Rent" name="zc_rent">
+                    <group>
+                        <group>
+                            <field name="zc_currency_id" invisible="1"/>
+                            <field name="zc_daily_rate"/>
+                            <field name="zc_analytic_account_id"/>
+                            <button name="action_zc_create_cost_centre" type="object" string="Create Cost Centre"
+                                    class="btn-link" invisible="zc_analytic_account_id"/>
+                        </group>
+                    </group>
+                    <field name="zc_usage_ids" readonly="1">
+                        <list>
+                            <field name="currency_id" column_invisible="1"/>
+                            <field name="date"/>
+                            <field name="project_id"/>
+                            <field name="days" sum="Days"/>
+                            <field name="amount" sum="Total"/>
+                            <field name="state" widget="badge"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="zc_equipment_usage_list" model="ir.ui.view">
+        <field name="name">zc.equipment.usage.list</field>
+        <field name="model">zc.equipment.usage</field>
+        <field name="arch" type="xml">
+            <list editable="top" decoration-muted="state == 'charged'">
+                <field name="currency_id" column_invisible="1"/>
+                <field name="company_id" column_invisible="1"/>
+                <field name="date"/>
+                <field name="equipment_id" options="{'no_create': True}"/>
+                <field name="project_id" options="{'no_create': True}"/>
+                <field name="days" sum="Days"/>
+                <field name="rate"/>
+                <field name="amount" sum="Total"/>
+                <field name="operator" optional="show"/>
+                <field name="note" optional="hide"/>
+                <field name="charge_id" optional="hide" readonly="1"/>
+                <field name="state" widget="badge" decoration-success="state == 'charged'"/>
+            </list>
+        </field>
+    </record>
+    <record id="zc_equipment_usage_search" model="ir.ui.view">
+        <field name="name">zc.equipment.usage.search</field>
+        <field name="model">zc.equipment.usage</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="equipment_id"/>
+                <field name="project_id"/>
+                <filter name="open" string="Not charged" domain="[('state', '=', 'open')]"/>
+                <group>
+                    <filter name="group_project" string="Project" context="{'group_by': 'project_id'}"/>
+                    <filter name="group_equipment" string="Equipment" context="{'group_by': 'equipment_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="action_zc_equipment_usage" model="ir.actions.act_window">
+        <field name="name">Equipment Usage</field>
+        <field name="res_model">zc.equipment.usage</field>
+        <field name="view_mode">list,pivot</field>
+    </record>
+
+    <record id="zc_equipment_charge_form" model="ir.ui.view">
+        <field name="name">zc.equipment.charge.form</field>
+        <field name="model">zc.equipment.charge</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_load" type="object" string="Load Usage" invisible="state != 'draft'"/>
+                    <button name="action_post" type="object" string="Post Entry" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_cancel" type="object" string="Cancel (reverse)" invisible="state != 'posted'"
+                            confirm="The journal entry will be reversed. Continue?"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,posted"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_move" type="object" class="oe_stat_button" icon="fa-book"
+                                string="Journal Entry" invisible="not move_id"/>
+                    </div>
+                    <div class="oe_title"><h1><field name="name" readonly="1"/></h1></div>
+                    <group>
+                        <group>
+                            <field name="date_from" readonly="state != 'draft'"/>
+                            <field name="date_to" readonly="state != 'draft'"/>
+                        </group>
+                        <group>
+                            <field name="amount_total"/>
+                            <field name="move_id" invisible="1"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="company_id" invisible="1"/>
+                        </group>
+                    </group>
+                    <field name="usage_ids" readonly="1">
+                        <list>
+                            <field name="currency_id" column_invisible="1"/>
+                            <field name="date"/>
+                            <field name="equipment_id"/>
+                            <field name="project_id"/>
+                            <field name="days" sum="Days"/>
+                            <field name="rate"/>
+                            <field name="amount" sum="Total"/>
+                        </list>
+                    </field>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="zc_equipment_charge_list" model="ir.ui.view">
+        <field name="name">zc.equipment.charge.list</field>
+        <field name="model">zc.equipment.charge</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="amount_total" sum="Total"/>
+                <field name="move_id"/>
+                <field name="state" widget="badge" decoration-success="state == 'posted'"/>
+            </list>
+        </field>
+    </record>
+    <record id="action_zc_equipment_charge" model="ir.actions.act_window">
+        <field name="name">Equipment Rent Charges</field>
+        <field name="res_model">zc.equipment.charge</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

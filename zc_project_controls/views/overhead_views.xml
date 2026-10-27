@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="zc_overhead_allocation_form" model="ir.ui.view">
+        <field name="name">zc.overhead.allocation.form</field>
+        <field name="model">zc.overhead.allocation</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_compute" type="object" string="Compute Shares" invisible="state != 'draft'"/>
+                    <button name="action_post" type="object" string="Post Entry" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_cancel" type="object" string="Cancel (reverse)" invisible="state != 'posted'"
+                            confirm="The journal entry will be reversed. Continue?"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,posted"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_move" type="object" class="oe_stat_button" icon="fa-book"
+                                string="Journal Entry" invisible="not move_id"/>
+                    </div>
+                    <div class="oe_title"><h1><field name="name" readonly="1"/></h1></div>
+                    <group>
+                        <group>
+                            <field name="date_from" readonly="state != 'draft'"/>
+                            <field name="date_to" readonly="state != 'draft'"/>
+                            <field name="basis" readonly="state != 'draft'"/>
+                            <field name="move_id" invisible="1"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="company_id" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="pool_account_ids" widget="many2many_tags" readonly="state != 'draft'"/>
+                            <field name="pool_amount"/>
+                            <field name="amount" readonly="state != 'draft'"/>
+                        </group>
+                    </group>
+                    <field name="line_ids" readonly="state != 'draft'">
+                        <list editable="bottom" create="0">
+                            <field name="currency_id" column_invisible="1"/>
+                            <field name="project_id" readonly="1"/>
+                            <field name="basis_value" sum="Total" readonly="1"/>
+                            <field name="manual_pct" column_invisible="parent.basis != 'manual'"/>
+                            <field name="ratio" sum="Total"/>
+                            <field name="amount" sum="Total"/>
+                        </list>
+                    </field>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="zc_overhead_allocation_list" model="ir.ui.view">
+        <field name="name">zc.overhead.allocation.list</field>
+        <field name="model">zc.overhead.allocation</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="basis"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="amount" sum="Total"/>
+                <field name="move_id"/>
+                <field name="state" widget="badge" decoration-success="state == 'posted'"/>
+            </list>
+        </field>
+    </record>
+    <record id="action_zc_overhead_allocation" model="ir.actions.act_window">
+        <field name="name">Overhead Allocation</field>
+        <field name="res_model">zc.overhead.allocation</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>
