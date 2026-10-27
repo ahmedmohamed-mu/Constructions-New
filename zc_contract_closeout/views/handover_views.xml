@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="zc_handover_form" model="ir.ui.view">
+        <field name="name">zc.handover.form</field>
+        <field name="model">zc.handover</field>
+        <field name="arch" type="xml">
+            <form string="Handover Minutes">
+                <header>
+                    <button name="action_sign" type="object" string="Sign Minutes" class="btn-primary" invisible="state != 'draft'"
+                            confirm="Sign the handover minutes? Retention release and guarantees follow automatically."/>
+                    <button name="action_print_final_account" type="object" string="Final Account" invisible="kind != 'final'"/>
+                    <button name="action_cancel" type="object" string="Cancel" invisible="state == 'cancel'"/>
+                    <button name="action_draft" type="object" string="Reset to Draft" invisible="state != 'cancel'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,signed"/>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Signed" bg_color="text-bg-success" invisible="state != 'signed'"/>
+                    <div class="oe_title">
+                        <span class="text-muted"><field name="name" readonly="1"/></span>
+                        <h1><field name="kind" readonly="state != 'draft'"/></h1>
+                    </div>
+                    <group>
+                        <group string="Contract">
+                            <field name="sale_order_id" readonly="state != 'draft'" options="{'no_create': True}"/>
+                            <field name="partner_id"/>
+                            <field name="consultant_id"/>
+                            <field name="project_id"/>
+                            <field name="company_id" invisible="1"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                        <group string="Handover">
+                            <field name="date" readonly="state != 'draft'"/>
+                            <field name="dlp_months" invisible="kind != 'preliminary'" readonly="state != 'draft'"/>
+                            <field name="dlp_end" invisible="kind != 'preliminary'"/>
+                            <field name="user_id" widget="many2one_avatar_user"/>
+                            <field name="snag_open" decoration-danger="snag_open &gt; 0"/>
+                            <field name="retention_amount" invisible="not retention_amount"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Snag List" name="snags">
+                            <field name="snag_ids">
+                                <list editable="bottom" decoration-success="state == 'done'" decoration-danger="state == 'open' and due_date and due_date &lt; current_date">
+                                    <field name="name"/>
+                                    <field name="location" optional="show"/>
+                                    <field name="trade" optional="show"/>
+                                    <field name="subcontractor_id" optional="show"/>
+                                    <field name="user_id" widget="many2one_avatar_user" optional="show"/>
+                                    <field name="due_date"/>
+                                    <field name="done_date" optional="show"/>
+                                    <field name="state" widget="badge" decoration-success="state == 'done'" decoration-warning="state == 'open'"/>
+                                    <button name="action_done" type="object" string="Remedied" icon="fa-check" invisible="state != 'open'"/>
+                                    <button name="action_reopen" type="object" string="Reopen" icon="fa-undo" invisible="state != 'done'"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Committee &amp; Minutes" name="minutes">
+                            <field name="attendees" placeholder="Owner representative, consultant engineer, contractor project manager..."/>
+                            <field name="note"/>
+                        </page>
+                        <page string="Releases" name="releases" invisible="state != 'signed'">
+                            <group string="Retention release invoices / bills">
+                                <field name="release_move_ids" nolabel="1" colspan="2">
+                                    <list>
+                                        <field name="name"/>
+                                        <field name="partner_id"/>
+                                        <field name="move_type"/>
+                                        <field name="amount_total" sum="Total"/>
+                                        <field name="state" widget="badge"/>
+                                    </list>
+                                </field>
+                            </group>
+                            <group string="Letters of guarantee returned">
+                                <field name="guarantee_ids" nolabel="1" colspan="2">
+                                    <list>
+                                        <field name="name"/>
+                                        <field name="guarantee_type"/>
+                                        <field name="partner_id"/>
+                                        <field name="amount"/>
+                                        <field name="state" widget="badge"/>
+                                    </list>
+                                </field>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="zc_handover_list" model="ir.ui.view">
+        <field name="name">zc.handover.list</field>
+        <field name="model">zc.handover</field>
+        <field name="arch" type="xml">
+            <list decoration-success="state == 'signed'" decoration-muted="state == 'cancel'">
+                <field name="name"/>
+                <field name="kind"/>
+                <field name="sale_order_id"/>
+                <field name="project_id" optional="show"/>
+                <field name="date"/>
+                <field name="dlp_end" optional="show"/>
+                <field name="snag_open"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="retention_amount" sum="Total" optional="show"/>
+                <field name="state" widget="badge" decoration-success="state == 'signed'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="zc_handover_search" model="ir.ui.view">
+        <field name="name">zc.handover.search</field>
+        <field name="model">zc.handover</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="sale_order_id"/>
+                <field name="project_id"/>
+                <filter name="prelim" string="Preliminary" domain="[('kind', '=', 'preliminary')]"/>
+                <filter name="final" string="Final" domain="[('kind', '=', 'final')]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_zc_handover" model="ir.actions.act_window">
+        <field name="name">Handovers</field>
+        <field name="res_model">zc.handover</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No handover yet</p>
+            <p>Preliminary handover starts the defects liability period; the final handover releases the retention
+               and the guarantees and closes the final account.</p>
+        </field>
+    </record>
+
+    <record id="zc_handover_snag_list" model="ir.ui.view">
+        <field name="name">zc.handover.snag.list</field>
+        <field name="model">zc.handover.snag</field>
+        <field name="arch" type="xml">
+            <list editable="top" create="0" decoration-success="state == 'done'"
+                  decoration-danger="state == 'open' and due_date and due_date &lt; current_date">
+                <field name="handover_id" readonly="1"/>
+                <field name="sale_order_id" optional="show"/>
+                <field name="name"/>
+                <field name="location"/>
+                <field name="subcontractor_id"/>
+                <field name="user_id" widget="many2one_avatar_user"/>
+                <field name="due_date"/>
+                <field name="state" widget="badge" decoration-success="state == 'done'" decoration-warning="state == 'open'"/>
+                <button name="action_done" type="object" string="Remedied" icon="fa-check" invisible="state != 'open'"/>
+            </list>
+        </field>
+    </record>
+    <record id="action_zc_handover_snag" model="ir.actions.act_window">
+        <field name="name">Snag List</field>
+        <field name="res_model">zc.handover.snag</field>
+        <field name="view_mode">list</field>
+        <field name="context">{'search_default_open': 1}</field>
+    </record>
+    <record id="zc_handover_snag_search" model="ir.ui.view">
+        <field name="name">zc.handover.snag.search</field>
+        <field name="model">zc.handover.snag</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="subcontractor_id"/>
+                <filter name="open" string="Open" domain="[('state', '=', 'open')]"/>
+                <filter name="group_order" string="Contract" context="{'group_by': 'sale_order_id'}"/>
+            </search>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_zc_handover" name="Handovers" parent="hom_contracting_base.menu_hom_contracts_top"
+              sequence="40" action="action_zc_handover"/>
+    <menuitem id="menu_zc_snags" name="Snag List" parent="hom_contracting_base.menu_hom_site_top"
+              sequence="50" action="action_zc_handover_snag"/>
+</odoo>

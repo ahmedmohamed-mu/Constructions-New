@@ -1,0 +1,987 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* zc_contract_closeout
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-27 11:26+0000\n"
+"PO-Revision-Date: 2026-10-27 11:26+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: zc_contract_closeout
+#. odoo-python
+#: code:addons/zc_contract_closeout/models/handover.py:0
+msgid "%(kind)s signed: %(ho)s."
+msgstr "تم توقيع %(kind)s: %(ho)s."
+
+#. module: zc_contract_closeout
+#. odoo-python
+#: code:addons/zc_contract_closeout/models/handover.py:0
+msgid "%s already has a signed preliminary handover."
+msgstr "العقد %s له محضر استلام ابتدائي موقّع بالفعل."
+
+#. module: zc_contract_closeout
+#. odoo-python
+#: code:addons/zc_contract_closeout/models/handover.py:0
+msgid "%s snag(s) are still open: close them before the final handover."
+msgstr "يوجد %s ملاحظة مفتوحة: أغلقها قبل الاستلام النهائي."
+
+#. module: zc_contract_closeout
+#: model:ir.actions.report,print_report_name:zc_contract_closeout.action_report_final_account
+msgid "'الحساب الختامي - %s' % (object.name)"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.report_final_account_document
+msgid "<strong>الاستشاري:</strong>"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.report_final_account_document
+msgid "<strong>الاستلام الابتدائي:</strong>"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.report_final_account_document
+msgid "<strong>الاستلام النهائي:</strong>"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.report_final_account_document
+msgid "<strong>العقد:</strong>"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.report_final_account_document
+msgid "<strong>صاحب العمل:</strong>"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.report_final_account_document
+msgid "<strong>نهاية فترة الضمان:</strong>"
+msgstr ""
+
+#. module: zc_contract_closeout
+#. odoo-python
+#: code:addons/zc_contract_closeout/models/handover.py:0
+msgid "A release invoice of this handover is posted."
+msgstr "فاتورة رد المحتجز لهذا المحضر مُرحّلة."
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__activity_plans_ids
+msgid "Activity Plans"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: zc_contract_closeout
+#. odoo-python
+#: code:addons/zc_contract_closeout/models/handover.py:0
+msgid "Advance still to recover: %s - recover it in the final account."
+msgstr "دفعة مقدمة لم تُسترد بعد: %s - تُسترد في الحساب الختامي."
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover_snag__subcontractor_id
+msgid "By subcontractor"
+msgstr "على مقاول الباطن"
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.zc_handover_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields.selection,name:zc_contract_closeout.selection__zc_handover__state__cancel
+msgid "Cancelled"
+msgstr "ملغي"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_sale_order__zc_closeout_state
+msgid "Close-out"
+msgstr "إقفال العقد"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields.selection,name:zc_contract_closeout.selection__sale_order__zc_closeout_state__closed
+msgid "Closed (final handover)"
+msgstr "مُقفل (استلام نهائي)"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__attendees
+msgid "Committee"
+msgstr "لجنة الاستلام"
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.zc_handover_form
+msgid "Committee & Minutes"
+msgstr "اللجنة والمحضر"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__consultant_id
+msgid "Consultant"
+msgstr "الاستشاري"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__sale_order_id
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover_snag__sale_order_id
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.zc_handover_form
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.zc_handover_snag_search
+msgid "Contract"
+msgstr "العقد"
+
+#. module: zc_contract_closeout
+#: model:ir.model,name:zc_contract_closeout.model_hom_control_tower
+msgid "Contracting Control Tower"
+msgstr "برج التحكم - المقاولات"
+
+#. module: zc_contract_closeout
+#: model:ir.actions.server,name:zc_contract_closeout.cron_zc_dlp_reminder_ir_actions_server
+msgid "Contracting: defects liability period ending"
+msgstr "المقاولات: قرب انتهاء فترة الضمان"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__create_uid
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover_snag__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__create_date
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover_snag__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_sale_order__zc_dlp_months
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__dlp_months
+msgid "Defects liability (months)"
+msgstr "فترة الضمان (شهور)"
+
+#. module: zc_contract_closeout
+#. odoo-python
+#: code:addons/zc_contract_closeout/models/control_tower.py:0
+msgid "Defects liability ended: final handover and retention release due"
+msgstr "انتهت فترة الضمان: الاستلام النهائي ورد المحتجز مستحقان"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_sale_order__zc_dlp_end
+msgid "Defects liability ends"
+msgstr "نهاية فترة الضمان"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields.selection,name:zc_contract_closeout.selection__sale_order__zc_closeout_state__dlp
+msgid "Defects liability period"
+msgstr "فترة الضمان"
+
+#. module: zc_contract_closeout
+#. odoo-python
+#: code:addons/zc_contract_closeout/models/sale_order.py:0
+msgid "Defects liability period ends on %s."
+msgstr "تنتهي فترة الضمان في %s."
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_hom_control_tower__display_name
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_sale_order__display_name
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__display_name
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover_snag__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover_snag__done_date
+msgid "Done Date"
+msgstr "تاريخ المعالجة"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields.selection,name:zc_contract_closeout.selection__zc_handover__state__draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover_snag__due_date
+msgid "Due Date"
+msgstr "الموعد"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__dlp_end
+msgid "End of defects liability"
+msgstr "نهاية فترة الضمان"
+
+#. module: zc_contract_closeout
+#. odoo-python
+#: code:addons/zc_contract_closeout/models/handover.py:0
+msgid "Extend %s to cover the defects liability period"
+msgstr "مد الخطاب %s ليغطي فترة الضمان"
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.zc_handover_search
+msgid "Final"
+msgstr "نهائي"
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.zc_handover_form
+msgid "Final Account"
+msgstr "الحساب الختامي"
+
+#. module: zc_contract_closeout
+#: model:ir.actions.report,name:zc_contract_closeout.action_report_final_account
+msgid "Final Account (الحساب الختامي)"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.view_order_form_zc_closeout
+msgid "Final Handover"
+msgstr "استلام نهائي"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_sale_order__zc_final_handover_id
+#: model:ir.model.fields.selection,name:zc_contract_closeout.selection__zc_handover__kind__final
+msgid "Final handover"
+msgstr "استلام نهائي"
+
+#. module: zc_contract_closeout
+#. odoo-python
+#: code:addons/zc_contract_closeout/models/handover.py:0
+msgid "Final handover %s"
+msgstr "استلام نهائي %s"
+
+#. module: zc_contract_closeout
+#. odoo-python
+#: code:addons/zc_contract_closeout/models/control_tower.py:0
+#: model:ir.model.fields.selection,name:zc_contract_closeout.selection__sale_order__zc_closeout_state__dlp_over
+msgid "Final handover due"
+msgstr "استلام نهائي مستحق"
+
+#. module: zc_contract_closeout
+#. odoo-python
+#: code:addons/zc_contract_closeout/models/sale_order.py:0
+msgid "Final handover due - %s"
+msgstr "استلام نهائي مستحق - %s"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_sale_order__zc_final_date
+msgid "Final handover on"
+msgstr "تاريخ الاستلام النهائي"
+
+#. module: zc_contract_closeout
+#. odoo-python
+#: code:addons/zc_contract_closeout/models/handover.py:0
+msgid "Finish the certificates in progress first: %s"
+msgstr "أنهِ المستخلصات الجارية أولًا: %s"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover_snag__user_id
+msgid "Follow-up"
+msgstr "المتابعة"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: zc_contract_closeout
+#. odoo-python
+#: code:addons/zc_contract_closeout/models/control_tower.py:0
+msgid "Guarantees expiring before the end of the defects liability period"
+msgstr "خطابات ضمان تنتهي قبل نهاية فترة الضمان"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__guarantee_ids
+msgid "Guarantees returned"
+msgstr "خطابات الضمان المرتدة"
+
+#. module: zc_contract_closeout
+#. odoo-python
+#: code:addons/zc_contract_closeout/models/control_tower.py:0
+msgid "Guarantees to extend"
+msgstr "خطابات ضمان للمد"
+
+#. module: zc_contract_closeout
+#. odoo-python
+#: code:addons/zc_contract_closeout/models/handover.py:0
+msgid ""
+"Guarantees to extend before the end of the defects liability period: %s"
+msgstr "خطابات ضمان يجب مدها قبل نهاية فترة الضمان: %s"
+
+#. module: zc_contract_closeout
+#. odoo-python
+#: code:addons/zc_contract_closeout/models/sale_order.py:0
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover_snag__handover_id
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.zc_handover_form
+msgid "Handover"
+msgstr "محضر استلام"
+
+#. module: zc_contract_closeout
+#: model:ir.model,name:zc_contract_closeout.model_zc_handover
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.zc_handover_form
+msgid "Handover Minutes"
+msgstr "محضر استلام"
+
+#. module: zc_contract_closeout
+#. odoo-python
+#: code:addons/zc_contract_closeout/models/control_tower.py:0
+msgid "Handover snags past their due date"
+msgstr "ملاحظات استلام متأخرة عن موعدها"
+
+#. module: zc_contract_closeout
+#. odoo-python
+#: code:addons/zc_contract_closeout/models/sale_order.py:0
+#: model:ir.actions.act_window,name:zc_contract_closeout.action_zc_handover
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_sale_order__zc_handover_ids
+#: model:ir.ui.menu,name:zc_contract_closeout.menu_zc_handover
+msgid "Handovers"
+msgstr "محاضر الاستلام"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_hom_control_tower__id
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_sale_order__id
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__id
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover_snag__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,help:zc_contract_closeout.field_zc_handover__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,help:zc_contract_closeout.field_zc_handover__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,help:zc_contract_closeout.field_zc_handover__message_has_error
+#: model:ir.model.fields,help:zc_contract_closeout.field_zc_handover__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__kind
+msgid "Kind"
+msgstr "النوع"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__write_uid
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover_snag__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__write_date
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover_snag__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.zc_handover_form
+msgid "Letters of guarantee returned"
+msgstr "خطابات الضمان المرتدة"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover_snag__location
+msgid "Location"
+msgstr "الموقع"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,help:zc_contract_closeout.field_zc_handover__dlp_months
+msgid "Maintenance period between the preliminary and the final handover."
+msgstr "فترة الصيانة بين الاستلام الابتدائي والنهائي."
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,help:zc_contract_closeout.field_zc_handover__activity_type_icon
+msgid "Material Symbols icon e.g. checklist"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__note
+msgid "Minutes"
+msgstr "المحضر"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: zc_contract_closeout
+#. odoo-python
+#: code:addons/zc_contract_closeout/models/handover.py:0
+msgid "New"
+msgstr "جديد"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model_terms:ir.actions.act_window,help:zc_contract_closeout.action_zc_handover
+msgid "No handover yet"
+msgstr "لا توجد محاضر استلام بعد"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,help:zc_contract_closeout.field_zc_handover__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,help:zc_contract_closeout.field_zc_handover__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields.selection,name:zc_contract_closeout.selection__zc_handover_snag__state__open
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.zc_handover_snag_search
+msgid "Open"
+msgstr "مفتوحة"
+
+#. module: zc_contract_closeout
+#. odoo-python
+#: code:addons/zc_contract_closeout/models/control_tower.py:0
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__snag_open
+msgid "Open snags"
+msgstr "ملاحظات مفتوحة"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__partner_id
+msgid "Owner"
+msgstr "المالك"
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.zc_handover_form
+msgid ""
+"Owner representative, consultant engineer, contractor project manager..."
+msgstr "مندوب المالك، مهندس الاستشاري، مدير مشروع المقاول..."
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,help:zc_contract_closeout.field_zc_handover__attendees
+msgid "Owner, consultant and contractor representatives."
+msgstr "ممثلو المالك والاستشاري والمقاول."
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,help:zc_contract_closeout.field_sale_order__zc_retention_prelim_pct
+msgid ""
+"Part of the retention paid back at the preliminary handover (e.g. 50%); the "
+"rest at the final handover."
+msgstr ""
+"جزء المحتجز الذي يُرد عند الاستلام الابتدائي (مثلًا 50%)، والباقي عند "
+"النهائي."
+
+#. module: zc_contract_closeout
+#. odoo-python
+#: code:addons/zc_contract_closeout/models/handover.py:0
+msgid "Post the retention release %s"
+msgstr "رحّل فاتورة رد المحتجز %s"
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.zc_handover_search
+msgid "Preliminary"
+msgstr "ابتدائي"
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.view_order_form_zc_closeout
+msgid "Preliminary Handover"
+msgstr "استلام ابتدائي"
+
+#. module: zc_contract_closeout
+#: model:ir.module.module,summary:base.module_zc_contract_closeout
+msgid ""
+"Preliminary and final handover minutes with snag lists, the defects "
+"liability period, retention release (owner and subcontractors), return of "
+"the performance guarantees and the final account (الحساب الختامي) of the "
+"contract."
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_sale_order__zc_prelim_handover_id
+#: model:ir.model.fields.selection,name:zc_contract_closeout.selection__zc_handover__kind__preliminary
+msgid "Preliminary handover"
+msgstr "استلام ابتدائي"
+
+#. module: zc_contract_closeout
+#. odoo-python
+#: code:addons/zc_contract_closeout/models/handover.py:0
+msgid "Preliminary handover %s"
+msgstr "استلام ابتدائي %s"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_sale_order__zc_prelim_date
+msgid "Preliminary handover on"
+msgstr "تاريخ الاستلام الابتدائي"
+
+#. module: zc_contract_closeout
+#: model_terms:ir.actions.act_window,help:zc_contract_closeout.action_zc_handover
+msgid ""
+"Preliminary handover starts the defects liability period; the final handover releases the retention\n"
+"               and the guarantees and closes the final account."
+msgstr ""
+"الاستلام الابتدائي يبدأ فترة الضمان، والاستلام النهائي يرد المحتجز وخطابات "
+"الضمان ويقفل الحساب الختامي."
+
+#. module: zc_contract_closeout
+#. odoo-python
+#: code:addons/zc_contract_closeout/models/handover.py:0
+msgid "Prepare the final handover of %s"
+msgstr "جهّز الاستلام النهائي لـ %s"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__project_id
+msgid "Project"
+msgstr "المشروع"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__user_id
+msgid "Project Manager"
+msgstr "مدير المشروع"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__rating_ids
+msgid "Ratings"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__release_move_ids
+msgid "Release invoices / bills"
+msgstr "فواتير رد المحتجز"
+
+#. module: zc_contract_closeout
+#. odoo-python
+#: code:addons/zc_contract_closeout/models/handover.py:0
+msgid "Released with the final handover %s."
+msgstr "تم الرد مع الاستلام النهائي %s."
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.zc_handover_form
+msgid "Releases"
+msgstr "المرتدات"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover_snag__name
+msgid "Remark"
+msgstr "الملاحظة"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields.selection,name:zc_contract_closeout.selection__zc_handover_snag__state__done
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.zc_handover_form
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.zc_handover_snag_list
+msgid "Remedied"
+msgstr "تمت المعالجة"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,help:zc_contract_closeout.field_zc_handover_snag__subcontractor_id
+msgid "Remedied by (and at the cost of) this subcontractor."
+msgstr "يعالجها مقاول الباطن وعلى حسابه."
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.zc_handover_form
+msgid "Reopen"
+msgstr "إعادة فتح"
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.zc_handover_form
+msgid "Reset to Draft"
+msgstr "إرجاع لمسودة"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.zc_handover_form
+msgid "Retention release invoices / bills"
+msgstr "فواتير رد المحتجز"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__retention_amount
+msgid "Retention released"
+msgstr "المحتجز المرتد"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_sale_order__zc_retention_prelim_pct
+msgid "Retention released at preliminary handover %"
+msgstr "نسبة رد المحتجز عند الاستلام الابتدائي %"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model:ir.model,name:zc_contract_closeout.model_sale_order
+msgid "Sales Order"
+msgstr "أمر البيع"
+
+#. module: zc_contract_closeout
+#. odoo-python
+#: code:addons/zc_contract_closeout/models/handover.py:0
+msgid "Settle the quantity claims first (agree or accept the cut): %s"
+msgstr "سوِّ مطالبات الكميات أولًا (اتفاق أو قبول التخفيض): %s"
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.zc_handover_form
+msgid "Sign Minutes"
+msgstr "توقيع المحضر"
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.zc_handover_form
+msgid ""
+"Sign the handover minutes? Retention release and guarantees follow "
+"automatically."
+msgstr "توقيع محضر الاستلام؟ سيتم رد المحتجز وخطابات الضمان تلقائيًا."
+
+#. module: zc_contract_closeout
+#. odoo-python
+#: code:addons/zc_contract_closeout/models/handover.py:0
+msgid "Sign the preliminary handover of %s first."
+msgstr "وقّع الاستلام الابتدائي لـ %s أولًا."
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields.selection,name:zc_contract_closeout.selection__zc_handover__state__signed
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.zc_handover_form
+msgid "Signed"
+msgstr "موقّع"
+
+#. module: zc_contract_closeout
+#: model:ir.model,name:zc_contract_closeout.model_zc_handover_snag
+msgid "Snag (handover remark)"
+msgstr "ملاحظة استلام"
+
+#. module: zc_contract_closeout
+#: model:ir.actions.act_window,name:zc_contract_closeout.action_zc_handover_snag
+#: model:ir.ui.menu,name:zc_contract_closeout.menu_zc_snags
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.zc_handover_form
+msgid "Snag List"
+msgstr "ملاحظات الاستلام"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__snag_total
+msgid "Snag Total"
+msgstr "إجمالي الملاحظات"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__snag_ids
+msgid "Snag list"
+msgstr "ملاحظات الاستلام"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover__state
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover_snag__state
+msgid "State"
+msgstr "الحالة"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,help:zc_contract_closeout.field_zc_handover__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: zc_contract_closeout
+#. odoo-python
+#: code:addons/zc_contract_closeout/models/handover.py:0
+msgid ""
+"The defects liability period ends on %s: close the snags, invite the "
+"consultant and prepare the final account."
+msgstr ""
+"تنتهي فترة الضمان في %s: أغلق الملاحظات وادعُ الاستشاري وجهّز الحساب "
+"الختامي."
+
+#. module: zc_contract_closeout
+#. odoo-python
+#: code:addons/zc_contract_closeout/models/handover.py:0
+msgid ""
+"The guarantee expires on %(e)s, the defects liability period ends on %(d)s."
+msgstr "ينتهي الخطاب في %(e)s وتنتهي فترة الضمان في %(d)s."
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.zc_handover_form
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.zc_handover_list
+msgid "Total"
+msgstr "الإجمالي"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,field_description:zc_contract_closeout.field_zc_handover_snag__trade
+msgid "Trade"
+msgstr "التخصص"
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields,help:zc_contract_closeout.field_zc_handover__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model:ir.model.fields.selection,name:zc_contract_closeout.selection__sale_order__zc_closeout_state__running
+msgid "Under execution"
+msgstr "تحت التنفيذ"
+
+#. module: zc_contract_closeout
+#: model:ir.module.module,shortdesc:base.module_zc_contract_closeout
+msgid "Ziij Construction - Contract Close-out"
+msgstr "Ziij للمقاولات - إقفال العقود"
+
+#. module: zc_contract_closeout
+#. odoo-python
+#: code:addons/zc_contract_closeout/models/control_tower.py:0
+msgid "id"
+msgstr ""
+
+#. module: zc_contract_closeout
+#. odoo-python
+#: code:addons/zc_contract_closeout/models/sale_order.py:0
+msgid "sale_order_id"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.report_final_account_document
+msgid "أوامر التغيير المعتمدة ("
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.report_final_account_document
+msgid "أولًا: قيمة العقد"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.report_final_account_document
+msgid "إجمالي المحصّل"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.report_final_account_document
+msgid "إجمالي المفوتر (شامل الضريبة)"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.report_final_account_document
+msgid "الاستشاري<br/><br/>.............."
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.report_final_account_document
+msgid "البند"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.report_final_account_document
+msgid "الحساب الختامي / المستخلص الختامي"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.report_final_account_document
+msgid "الدفعة المقدمة المتبقية بدون استرداد"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.report_final_account_document
+msgid "الدفعة المقدمة المصروفة"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.report_final_account_document
+msgid "الرصيد المستحق للمقاول"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.report_final_account_document
+msgid "الفئة"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.report_final_account_document
+msgid "الفرق"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.report_final_account_document
+msgid "القيمة النهائية"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.report_final_account_document
+msgid "الكمية النهائية"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.report_final_account_document
+msgid "المقاول<br/><br/>.............."
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.report_final_account_document
+msgid "الوحدة"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.report_final_account_document
+msgid "ثالثًا: التسوية المالية"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.report_final_account_document
+msgid "ثانيًا: الكميات النهائية"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.report_final_account_document
+msgid "خصومات:"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.report_final_account_document
+msgid "صاحب العمل<br/><br/>.............."
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.report_final_account_document
+msgid "عدد المستخلصات المصروفة"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.report_final_account_document
+msgid "قيمة الأعمال المنفذة فعليًا (الكميات النهائية)"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.report_final_account_document
+msgid "قيمة العقد الأصلية"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.report_final_account_document
+msgid "قيمة العقد النهائية"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.report_final_account_document
+msgid "كميات خفّضها الاستشاري وتم التنازل عنها"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.report_final_account_document
+msgid "كمية العقد"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.report_final_account_document
+msgid "محتجز ضمان الأعمال المحتجز"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.report_final_account_document
+msgid "محتجز ضمان الأعمال المرتد"
+msgstr ""
+
+#. module: zc_contract_closeout
+#: model_terms:ir.ui.view,arch_db:zc_contract_closeout.report_final_account_document
+msgid ""
+"يقر الطرفان بأن هذا الحساب ختامي ونهائي عن جميع الأعمال المنفذة بالعقد، وبرد خطابات الضمان\n"
+"                    ومحتجز ضمان الأعمال بعد الاستلام النهائي."
+msgstr ""

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_final_account" model="ir.actions.report">
+        <field name="name">Final Account (الحساب الختامي)</field>
+        <field name="model">sale.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">zc_contract_closeout.report_final_account</field>
+        <field name="print_report_name">'الحساب الختامي - %s' % (object.name)</field>
+        <field name="binding_model_id" ref="sale.model_sale_order"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_final_account_document">
+        <t t-call="web.external_layout">
+            <t t-set="fa" t-value="o._zc_final_account()"/>
+            <t t-set="M" t-value="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
+            <t t-set="F" t-value="{'widget': 'float', 'precision': 2}"/>
+            <div class="page" dir="rtl" style="text-align:right">
+                <h2>الحساب الختامي / المستخلص الختامي</h2>
+                <table class="table table-sm table-borderless">
+                    <tr>
+                        <td><strong>صاحب العمل:</strong> <span t-out="o.partner_id.name"/></td>
+                        <td><strong>الاستشاري:</strong> <span t-out="o.hom_consultant_id.name or '-'"/></td>
+                        <td><strong>العقد:</strong> <span t-out="o.name"/> <span t-out="o.client_order_ref or ''"/></td>
+                    </tr>
+                    <tr>
+                        <td><strong>الاستلام الابتدائي:</strong> <span t-out="o.zc_prelim_date or '-'"/></td>
+                        <td><strong>نهاية فترة الضمان:</strong> <span t-out="o.zc_dlp_end or '-'"/></td>
+                        <td><strong>الاستلام النهائي:</strong> <span t-out="o.zc_final_date or '-'"/></td>
+                    </tr>
+                </table>
+
+                <h5>أولًا: قيمة العقد</h5>
+                <table class="table table-sm" style="width:70%">
+                    <tr><td>قيمة العقد الأصلية</td><td class="text-end"><span t-out="fa['original']" t-options="M"/></td></tr>
+                    <tr><td>أوامر التغيير المعتمدة (<span t-out="len(fa['vos'])"/>)</td><td class="text-end"><span t-out="fa['variations']" t-options="M"/></td></tr>
+                    <tr class="fw-bold"><td>قيمة العقد النهائية</td><td class="text-end"><span t-out="fa['contract']" t-options="M"/></td></tr>
+                    <tr class="fw-bold"><td>قيمة الأعمال المنفذة فعليًا (الكميات النهائية)</td><td class="text-end"><span t-out="fa['final_work']" t-options="M"/></td></tr>
+                </table>
+
+                <h5>ثانيًا: الكميات النهائية</h5>
+                <table class="table table-sm table-bordered" style="font-size:10px">
+                    <style>.zc-head th{color:#fff !important;background:transparent !important}</style>
+                    <thead class="zc-head" t-attf-style="background:{{ o.company_id.secondary_color or '#1F1F1F' }};color:#fff"><tr>
+                        <th style="width:36%">البند</th><th>الوحدة</th><th class="text-end">كمية العقد</th>
+                        <th class="text-end">الكمية النهائية</th><th class="text-end">الفئة</th>
+                        <th class="text-end">القيمة النهائية</th><th class="text-end">الفرق</th>
+                    </tr></thead>
+                    <tbody>
+                        <tr t-foreach="fa['boq']" t-as="r">
+                            <td><span t-out="r['code']"/> <span t-out="r['name']"/></td>
+                            <td><span t-out="r['uom']"/></td>
+                            <td class="text-end"><span t-out="r['contract_qty']" t-options="F"/></td>
+                            <td class="text-end"><span t-out="r['final_qty']" t-options="F"/></td>
+                            <td class="text-end"><span t-out="r['price']" t-options="F"/></td>
+                            <td class="text-end"><span t-out="r['final_amount']" t-options="M"/></td>
+                            <td class="text-end"><span t-out="r['variance']" t-options="M"/></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h5>ثالثًا: التسوية المالية</h5>
+                <table class="table table-sm" style="width:70%">
+                    <tr><td>عدد المستخلصات المصروفة</td><td class="text-end"><span t-out="len(fa['certificates'])"/></td></tr>
+                    <tr><td>الدفعة المقدمة المصروفة</td><td class="text-end"><span t-out="fa['advance']" t-options="M"/></td></tr>
+                    <tr><td>الدفعة المقدمة المتبقية بدون استرداد</td><td class="text-end"><span t-out="fa['advance_outstanding']" t-options="M"/></td></tr>
+                    <tr><td>محتجز ضمان الأعمال المحتجز</td><td class="text-end"><span t-out="fa['retention_held']" t-options="M"/></td></tr>
+                    <tr><td>محتجز ضمان الأعمال المرتد</td><td class="text-end"><span t-out="fa['retention_released']" t-options="M"/></td></tr>
+                    <tr t-foreach="fa['deductions'].items()" t-as="d"><td>خصومات: <span t-out="d[0]"/></td><td class="text-end"><span t-out="d[1]" t-options="M"/></td></tr>
+                    <tr><td>كميات خفّضها الاستشاري وتم التنازل عنها</td><td class="text-end"><span t-out="fa['claims_waived']" t-options="M"/></td></tr>
+                    <tr class="fw-bold"><td>إجمالي المفوتر (شامل الضريبة)</td><td class="text-end"><span t-out="fa['invoiced']" t-options="M"/></td></tr>
+                    <tr><td>إجمالي المحصّل</td><td class="text-end"><span t-out="fa['collected']" t-options="M"/></td></tr>
+                    <tr class="fw-bold"><td>الرصيد المستحق للمقاول</td><td class="text-end"><span t-out="fa['balance']" t-options="M"/></td></tr>
+                </table>
+                <p class="small text-muted">
+                    يقر الطرفان بأن هذا الحساب ختامي ونهائي عن جميع الأعمال المنفذة بالعقد، وبرد خطابات الضمان
+                    ومحتجز ضمان الأعمال بعد الاستلام النهائي.
+                </p>
+                <div class="row mt-5 text-center">
+                    <div class="col-4">المقاول<br/><br/>..............</div>
+                    <div class="col-4">الاستشاري<br/><br/>..............</div>
+                    <div class="col-4">صاحب العمل<br/><br/>..............</div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_final_account">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="zc_contract_closeout.report_final_account_document" t-lang="'ar_001'"/>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form_zc_closeout" model="ir.ui.view">
+        <field name="name">sale.order.form.zc.closeout</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="hom_contracting_base.view_order_form_hom_contract"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_zc_handover" type="object" string="Preliminary Handover"
+                        invisible="hom_project_type != 'contracting' or state != 'sale' or zc_prelim_handover_id"/>
+                <button name="action_zc_handover" type="object" string="Final Handover" class="btn-primary"
+                        invisible="hom_project_type != 'contracting' or not zc_prelim_handover_id or zc_final_handover_id"/>
+            </xpath>
+            <xpath expr="//field[@name='hom_retention_balance']" position="after">
+                <field name="zc_closeout_state" widget="badge" invisible="hom_project_type != 'contracting' or state != 'sale'"
+                       decoration-info="zc_closeout_state == 'dlp'" decoration-danger="zc_closeout_state == 'dlp_over'"
+                       decoration-success="zc_closeout_state == 'closed'"/>
+                <field name="zc_dlp_months" invisible="hom_project_type != 'contracting'"/>
+                <field name="zc_retention_prelim_pct" invisible="hom_project_type != 'contracting'"/>
+                <field name="zc_prelim_handover_id" invisible="not zc_prelim_handover_id"/>
+                <field name="zc_dlp_end" invisible="not zc_prelim_handover_id"/>
+                <field name="zc_final_handover_id" invisible="not zc_final_handover_id"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
