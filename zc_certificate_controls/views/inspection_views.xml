@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="zc_inspection_request_form" model="ir.ui.view">
+        <field name="name">zc.inspection.request.form</field>
+        <field name="model">zc.inspection.request</field>
+        <field name="arch" type="xml">
+            <form string="Work Inspection Request">
+                <header>
+                    <button name="action_submit" type="object" string="Send to Consultant" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_approve" type="object" string="Approved" class="btn-primary" invisible="state != 'submitted'"/>
+                    <button name="action_approve_comments" type="object" string="Approved with Comments" invisible="state != 'submitted'"/>
+                    <button name="action_reject" type="object" string="Rejected" invisible="state != 'submitted'"/>
+                    <button name="action_reinspect" type="object" string="Request Re-inspection" class="btn-primary" invisible="state != 'rejected'"/>
+                    <button name="action_cancel" type="object" string="Cancel" invisible="state in ('cancel', 'approved', 'approved_comments')"/>
+                    <button name="action_draft" type="object" string="Reset to Draft" invisible="state != 'cancel'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,submitted,approved"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_measurements" type="object" class="oe_stat_button" icon="location_on">
+                            <field name="measurement_count" widget="statinfo" string="Executed work"/>
+                        </button>
+                    </div>
+                    <widget name="web_ribbon" title="Approved" bg_color="text-bg-success" invisible="state not in ('approved', 'approved_comments')"/>
+                    <widget name="web_ribbon" title="Rejected" bg_color="text-bg-danger" invisible="state != 'rejected'"/>
+                    <div class="oe_title">
+                        <span class="text-muted"><field name="name" readonly="1"/></span>
+                        <h1><field name="title" placeholder="e.g. Ceiling gypsum boards - 1st floor corridors" readonly="state != 'draft'"/></h1>
+                    </div>
+                    <group>
+                        <group string="Work">
+                            <field name="sale_order_id" readonly="state != 'draft'" options="{'no_create': True}"/>
+                            <field name="project_id"/>
+                            <field name="location" readonly="state != 'draft'"/>
+                            <field name="inspection_type" widget="radio" options="{'horizontal': true}" readonly="state != 'draft'"/>
+                            <field name="user_id" widget="many2one_avatar_user"/>
+                            <field name="company_id" invisible="1"/>
+                        </group>
+                        <group string="Consultant">
+                            <field name="consultant_id"/>
+                            <field name="date_requested"/>
+                            <field name="date_due" decoration-danger="is_overdue"/>
+                            <field name="is_overdue" invisible="1"/>
+                            <field name="date_inspected" readonly="state not in ('submitted', 'approved', 'approved_comments', 'rejected')"/>
+                            <field name="inspector"/>
+                            <field name="previous_id" invisible="not previous_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Executed work" name="work">
+                            <field name="quantity_summary" class="fw-bold"/>
+                            <field name="measurement_ids" readonly="state != 'draft'"
+                                   domain="[('sale_order_id', '=', sale_order_id), ('state', '!=', 'certified')]">
+                                <list>
+                                    <field name="date"/>
+                                    <field name="sale_line_id"/>
+                                    <field name="location"/>
+                                    <field name="quantity" sum="Total"/>
+                                    <field name="product_uom_id" string="Unit"/>
+                                    <field name="state" widget="badge"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Consultant comments" name="comments">
+                            <field name="consultant_comments" placeholder="Comments of the consultant inspector..."/>
+                            <group><field name="attachment_note"/></group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="zc_inspection_request_list" model="ir.ui.view">
+        <field name="name">zc.inspection.request.list</field>
+        <field name="model">zc.inspection.request</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="is_overdue" decoration-success="state in ('approved', 'approved_comments')" decoration-muted="state == 'cancel'">
+                <field name="name"/>
+                <field name="title"/>
+                <field name="project_id" optional="show"/>
+                <field name="location" optional="show"/>
+                <field name="quantity_summary" optional="show"/>
+                <field name="inspection_type" optional="hide"/>
+                <field name="date_requested" optional="show"/>
+                <field name="date_due" optional="show"/>
+                <field name="is_overdue" column_invisible="1"/>
+                <field name="user_id" widget="many2one_avatar_user" optional="show"/>
+                <field name="state" widget="badge" decoration-info="state == 'submitted'" decoration-success="state in ('approved', 'approved_comments')"
+                       decoration-danger="state == 'rejected'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="zc_inspection_request_kanban" model="ir.ui.view">
+        <field name="name">zc.inspection.request.kanban</field>
+        <field name="model">zc.inspection.request</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" quick_create="false" group_create="false" records_draggable="false">
+                <field name="is_overdue"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="name" class="small text-muted"/>
+                        <field name="title" class="fw-bold"/>
+                        <field name="quantity_summary" class="small"/>
+                        <footer>
+                            <field name="date_due" class="small" t-att-class="record.is_overdue.raw_value ? 'text-danger fw-bold' : 'text-muted'"/>
+                            <field name="user_id" widget="many2one_avatar_user" class="ms-auto"/>
+                        </footer>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="zc_inspection_request_search" model="ir.ui.view">
+        <field name="name">zc.inspection.request.search</field>
+        <field name="model">zc.inspection.request</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="title"/>
+                <field name="project_id"/>
+                <filter name="waiting" string="Waiting consultant" domain="[('state', '=', 'submitted')]"/>
+                <filter name="overdue" string="Overdue" domain="[('is_overdue', '=', True)]"/>
+                <filter name="rejected" string="Rejected" domain="[('state', '=', 'rejected')]"/>
+                <separator/>
+                <filter name="group_project" string="Project" context="{'group_by': 'project_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_zc_inspection_request" model="ir.actions.act_window">
+        <field name="name">Inspection Requests (WIR)</field>
+        <field name="res_model">zc.inspection.request</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No inspection request yet</p>
+            <p>Select executed work in Site Measurements and use "Request Inspection": the consultant's approval
+               is the gate before the work is certified.</p>
+        </field>
+    </record>
+
+    <!-- site measurement: inspection status + request action -->
+    <record id="hom_site_measurement_list_zc_cc" model="ir.ui.view">
+        <field name="name">hom.site.measurement.list.zc.cc</field>
+        <field name="model">hom.site.measurement</field>
+        <field name="inherit_id" ref="hom_progress_billing.hom_site_measurement_list"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='certificate_id']" position="before">
+                <field name="zc_wir_id" optional="show" readonly="1"/>
+                <field name="zc_wir_state" widget="badge" optional="show" decoration-success="zc_wir_state in ('approved', 'approved_comments')"
+                       decoration-info="zc_wir_state == 'submitted'" decoration-danger="zc_wir_state == 'rejected'"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="hom_site_measurement_form_zc_cc" model="ir.ui.view">
+        <field name="name">hom.site.measurement.form.zc.cc</field>
+        <field name="model">hom.site.measurement</field>
+        <field name="inherit_id" ref="hom_progress_billing.hom_site_measurement_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='certificate_id']" position="before">
+                <field name="zc_wir_id" readonly="1"/>
+                <field name="zc_wir_state" widget="badge" invisible="not zc_wir_id"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="hom_site_measurement_search_zc_cc" model="ir.ui.view">
+        <field name="name">hom.site.measurement.search.zc.cc</field>
+        <field name="model">hom.site.measurement</field>
+        <field name="inherit_id" ref="hom_progress_billing.hom_site_measurement_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='open']" position="after">
+                <filter name="no_inspection" string="Waiting inspection" domain="[('zc_inspection_ok', '=', False)]"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="action_zc_request_inspection" model="ir.actions.server">
+        <field name="name">Request Inspection (WIR)</field>
+        <field name="model_id" ref="hom_progress_billing.model_hom_site_measurement"/>
+        <field name="binding_model_id" ref="hom_progress_billing.model_hom_site_measurement"/>
+        <field name="binding_view_types">list,form</field>
+        <field name="state">code</field>
+        <field name="code">action = records.action_zc_request_inspection()</field>
+    </record>
+</odoo>

@@ -1,0 +1,1679 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* zc_certificate_controls
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-27 10:31+0000\n"
+"PO-Revision-Date: 2026-10-27 10:31+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.hom_progress_certificate_form_zc_cc
+msgid ""
+"\"On the certificate invoice\": penalties, utilities... reduce the invoice.\n"
+"                        \"Withheld at payment\": withholding tax and social insurance stay on the invoice and are settled\n"
+"                        against the receivable when the owner pays."
+msgstr ""
+"\"على فاتورة المستخلص\": الغرامات والاستهلاكات... تُخفض الفاتورة.\n"
+"\"يُخصم عند الصرف\": ضريبة الخصم والتأمينات تبقى الفاتورة بقيمتها وتُسوّى مقابل رصيد العميل عند السداد."
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields.selection,name:zc_certificate_controls.selection__zc_deduction_type__method__percent
+msgid "% of the work of the certificate"
+msgstr "% من أعمال المستخلص"
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.report_progress_certificate_document_zc_cc
+msgid "%) - يُخصم عند الصرف"
+msgstr ""
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/inspection.py:0
+msgid "%s (re-inspection)"
+msgstr "%s (إعادة معاينة)"
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/deduction.py:0
+msgid "%s is already fully settled."
+msgstr "%s مسددة بالكامل بالفعل."
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/subcontract.py:0
+msgid "%s is not waiting for the technical office."
+msgstr "%s ليس في انتظار المكتب الفني."
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/subcontract.py:0
+msgid "%s must be checked by the technical office (QS) first."
+msgstr "يجب مراجعة %s من المكتب الفني (الحصر) أولًا."
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/certificate.py:0
+msgid ""
+"%s site measurement(s) are not certified yet: their work inspection request "
+"(WIR) is not approved by the consultant."
+msgstr ""
+"%s حصر موقع لم يدخل المستخلص: طلب الاستلام (WIR) غير معتمد من الاستشاري."
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/inspection.py:0
+msgid "(not set on the contract)"
+msgstr "(غير محدد على العقد)"
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.hom_subcontract_certificate_form_zc_cc
+msgid ""
+"<strong>Approval chain:</strong> site engineer → technical office (QS) → project manager → accounts.\n"
+"                    Now with:"
+msgstr ""
+"<strong>دورة الاعتماد:</strong> مهندس الموقع ← المكتب الفني (الحصر) ← مدير المشروع ← الحسابات.\n"
+"الآن عند:"
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.hom_progress_certificate_form_zc_cc
+msgid ""
+"<strong>Consultant review:</strong> enter the quantities the consultant certifies in\n"
+"                    \"Cumulative Qty\" (and the reason in \"Consultant's reason\"). The difference is kept as a quantity claim."
+msgstr ""
+"<strong>مراجعة الاستشاري:</strong> أدخل الكميات التي اعتمدها الاستشاري في "
+"\"الكمية التراكمية\" (والسبب في \"سبب الاستشاري\"). يُحفظ الفرق كمطالبة "
+"كميات."
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/deduction.py:0
+msgid "A settled deduction cannot be deleted."
+msgstr "لا يمكن حذف خصم تمت تسويته."
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.zc_quantity_dispute_list
+msgid "Accept cut"
+msgstr "قبول التخفيض"
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.zc_quantity_dispute_form
+msgid "Accept the cut"
+msgstr "قبول التخفيض"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields.selection,name:zc_certificate_controls.selection__zc_quantity_dispute__state__waived
+msgid "Accepted (waived)"
+msgstr "مقبول (تنازل)"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_deduction_type__account_id
+msgid "Account"
+msgstr "الحساب"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__message_needaction
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_quantity_dispute__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_deduction_type__active
+msgid "Active"
+msgstr "نشط"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__activity_plans_ids
+msgid "Activity Plans"
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_certificate_deduction__amount
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_quantity_dispute__amount
+msgid "Amount"
+msgstr "المبلغ"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__date_due
+msgid "Answer due"
+msgstr "موعد الرد"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,help:zc_certificate_controls.field_sale_order__zc_deduction_type_ids
+msgid ""
+"Applied on every certificate of this contract (e.g. withholding tax 1%, "
+"social insurance 5% for government owners)."
+msgstr ""
+"تُطبّق على كل مستخلص لهذا العقد (مثل الخصم تحت حساب الضريبة 1%، والتأمينات "
+"5% للجهات الحكومية)."
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,help:zc_certificate_controls.field_purchase_order__zc_deduction_type_ids
+msgid ""
+"Applied on every certificate of this subcontract (e.g. withholding tax)."
+msgstr "تُطبّق على كل مستخلص لهذا العقد (مثل الخصم تحت حساب الضريبة)."
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_subcontract_certificate__zc_review_stage
+msgid "Approval step"
+msgstr "مرحلة الاعتماد"
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.hom_subcontract_certificate_form_zc_cc
+msgid "Approvals"
+msgstr "الاعتمادات"
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/subcontract.py:0
+msgid "Approve subcontractor certificate %s"
+msgstr "اعتماد مستخلص مقاول الباطن %s"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields.selection,name:zc_certificate_controls.selection__hom_subcontract_certificate__zc_review_stage__done
+#: model:ir.model.fields.selection,name:zc_certificate_controls.selection__zc_inspection_request__state__approved
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.zc_inspection_request_form
+msgid "Approved"
+msgstr "معتمد"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_subcontract_certificate__zc_pm_user_id
+msgid "Approved by (PM)"
+msgstr "اعتمده (مدير المشروع)"
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.zc_inspection_request_form
+msgid "Approved with Comments"
+msgstr "معتمد بملاحظات"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields.selection,name:zc_certificate_controls.selection__zc_inspection_request__state__approved_comments
+msgid "Approved with comments"
+msgstr "معتمد بملاحظات"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__attachment_note
+msgid "Attached"
+msgstr "المرفقات"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__message_attachment_count
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_quantity_dispute__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_quantity_dispute__sale_line_id
+msgid "BOQ Item"
+msgstr "بند المقايسة"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_subcontract_certificate__zc_amount_deduct_invoice
+msgid "Back-charges & other deductions"
+msgstr "خصومات على المقاول وأخرى"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_certificate_deduction__base_amount
+msgid "Base"
+msgstr "الأساس"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,help:zc_certificate_controls.field_zc_deduction_type__analytic
+msgid ""
+"Book the line with the project analytic account (cost or cost recovery)."
+msgstr "تسجيل البند على الحساب التحليلي للمشروع (تكلفة أو استرداد تكلفة)."
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.hom_progress_certificate_form_zc_cc
+msgid ""
+"Book the withholding tax / social insurance the owner deducted against the "
+"receivable."
+msgstr ""
+"تسجيل الخصم تحت حساب الضريبة / التأمينات التي خصمها المالك مقابل رصيد "
+"العميل."
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.zc_inspection_request_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields.selection,name:zc_certificate_controls.selection__zc_inspection_request__state__cancel
+msgid "Cancelled"
+msgstr "ملغي"
+
+#. module: zc_certificate_controls
+#: model:ir.model,name:zc_certificate_controls.model_zc_certificate_deduction
+msgid "Certificate Deduction"
+msgstr "خصم على المستخلص"
+
+#. module: zc_certificate_controls
+#: model:ir.model,name:zc_certificate_controls.model_zc_deduction_type
+msgid "Certificate Deduction Type"
+msgstr "نوع خصم المستخلص"
+
+#. module: zc_certificate_controls
+#: model:ir.actions.act_window,name:zc_certificate_controls.action_zc_deduction_type
+#: model:ir.ui.menu,name:zc_certificate_controls.menu_zc_deduction_types
+msgid "Certificate Deductions"
+msgstr "خصومات المستخلصات"
+
+#. module: zc_certificate_controls
+#: model:ir.model,name:zc_certificate_controls.model_zc_deduction_mixin
+msgid "Certificate deductions"
+msgstr "خصومات المستخلصات"
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/control_tower.py:0
+msgid "Certificates at the consultant"
+msgstr "مستخلصات عند الاستشاري"
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/control_tower.py:0
+msgid "Certificates held at the consultant beyond the contractual period"
+msgstr "مستخلصات محجوزة عند الاستشاري بعد المدة التعاقدية"
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.hom_progress_certificate_form_zc_cc
+msgid "Certified"
+msgstr "المعتمد"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_progress_certificate__zc_approved_date
+msgid "Certified on"
+msgstr "تاريخ الاعتماد"
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.hom_subcontract_certificate_form_zc_cc
+msgid "Charge Materials Issued"
+msgstr "تحميل الخامات المنصرفة"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_deduction_type__analytic
+msgid "Charge the project"
+msgstr "تحميل على المشروع"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_stock_picking__zc_charge_partner_id
+msgid "Charge to subcontractor"
+msgstr "تُحمّل على مقاول الباطن"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_stock_picking__zc_charge_deduction_id
+msgid "Charged in"
+msgstr "تم تحميلها في"
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/subcontract.py:0
+msgid "Check quantities and deductions: %s"
+msgstr "مراجعة الكميات والخصومات: %s"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_subcontract_certificate__zc_qs_user_id
+msgid "Checked by (QS)"
+msgstr "راجعه (الحصر)"
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/subcontract.py:0
+msgid "Checked by the technical office (%s)."
+msgstr "تمت المراجعة من المكتب الفني (%s)."
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_subcontract_certificate__zc_qs_date
+msgid "Checked on"
+msgstr "تاريخ المراجعة"
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.zc_quantity_dispute_form
+msgid "Claim again"
+msgstr "المطالبة مجددًا"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_progress_certificate_line__zc_claimed_qty
+msgid "Claimed again"
+msgstr "مُطالب به مجددًا"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields.selection,name:zc_certificate_controls.selection__zc_quantity_dispute__state__closed
+msgid "Closed"
+msgstr "مغلق"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_deduction_type__code
+msgid "Code"
+msgstr "الكود"
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.zc_inspection_request_form
+msgid "Comments of the consultant inspector..."
+msgstr "ملاحظات مهندس الاستشاري..."
+
+#. module: zc_certificate_controls
+#: model:ir.model,name:zc_certificate_controls.model_res_company
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_certificate_deduction__company_id
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_deduction_type__company_id
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__company_id
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_quantity_dispute__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: zc_certificate_controls
+#: model:ir.model,name:zc_certificate_controls.model_res_config_settings
+msgid "Config Settings"
+msgstr "تهيئة الإعدادات"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__consultant_id
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.zc_inspection_request_form
+msgid "Consultant"
+msgstr "الاستشاري"
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.hom_progress_certificate_form_zc_cc
+msgid "Consultant Certified"
+msgstr "اعتماد الاستشاري"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__consultant_comments
+msgid "Consultant Comments"
+msgstr "ملاحظات الاستشاري"
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.hom_progress_certificate_form_zc_cc
+msgid "Consultant Review"
+msgstr "مراجعة الاستشاري"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_progress_certificate__zc_consultant_ref
+msgid "Consultant approval ref."
+msgstr "رقم خطاب اعتماد الاستشاري"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_res_company__zc_consultant_review_days
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_res_config_settings__zc_consultant_review_days
+msgid "Consultant certifies within (days)"
+msgstr "مدة اعتماد الاستشاري للمستخلص (يوم)"
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.zc_inspection_request_form
+msgid "Consultant comments"
+msgstr "ملاحظات الاستشاري"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_progress_certificate__zc_consultant_due
+msgid "Consultant due"
+msgstr "موعد اعتماد الاستشاري"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__inspector
+msgid "Consultant inspector"
+msgstr "مهندس الاستشاري"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_progress_certificate_line__zc_cut_reason
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_quantity_dispute__reason
+msgid "Consultant's reason"
+msgstr "سبب الاستشاري"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__sale_order_id
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_quantity_dispute__sale_order_id
+msgid "Contract"
+msgstr "العقد"
+
+#. module: zc_certificate_controls
+#: model:ir.model,name:zc_certificate_controls.model_hom_control_tower
+msgid "Contracting Control Tower"
+msgstr "برج التحكم - المقاولات"
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/subcontract.py:0
+msgid ""
+"Create a subcontractor deduction type with code MAT (materials issued)."
+msgstr "أنشئ نوع خصم لمقاولي الباطن بالكود MAT (خامات منصرفة)."
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_certificate_deduction__create_uid
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_deduction_type__create_uid
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__create_uid
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_quantity_dispute__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_certificate_deduction__create_date
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_deduction_type__create_date
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__create_date
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_quantity_dispute__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,help:zc_certificate_controls.field_hom_progress_certificate_line__zc_submitted_qty
+msgid "Cumulative quantity submitted to the consultant."
+msgstr "الكمية التراكمية المقدمة للاستشاري."
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_stock_picking__zc_company_currency_id
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_certificate_deduction__currency_id
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_quantity_dispute__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_progress_certificate_line__zc_cut_amount
+msgid "Cut"
+msgstr "قيمة التخفيض"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_progress_certificate_line__zc_cut_qty
+msgid "Cut Qty"
+msgstr "الكمية المخفضة"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_progress_certificate__zc_amount_cut
+msgid "Cut by consultant"
+msgstr "تخفيض الاستشاري"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_quantity_dispute__certificate_id
+msgid "Cut in certificate"
+msgstr "خُفّضت في المستخلص"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_progress_certificate__zc_days_at_consultant
+msgid "Days at consultant"
+msgstr "أيام عند الاستشاري"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_progress_certificate__zc_deduction_ids
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_subcontract_certificate__zc_deduction_ids
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.hom_progress_certificate_form_zc_cc
+msgid "Deductions"
+msgstr "الخصومات"
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.hom_subcontract_certificate_form_zc_cc
+msgid "Deductions & Back-charges"
+msgstr "الخصومات والتحميلات على المقاول"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_deduction_type__default_pct
+msgid "Default %"
+msgstr "النسبة الافتراضية %"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_certificate_deduction__name
+msgid "Description"
+msgstr "الوصف"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_control_tower__display_name
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_progress_certificate__display_name
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_progress_certificate_line__display_name
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_site_measurement__display_name
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_subcontract_certificate__display_name
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_purchase_order__display_name
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_res_company__display_name
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_sale_order__display_name
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_stock_picking__display_name
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_certificate_deduction__display_name
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_deduction_mixin__display_name
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_deduction_type__display_name
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__display_name
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_quantity_dispute__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields.selection,name:zc_certificate_controls.selection__zc_inspection_request__state__draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/deduction.py:0
+msgid "Enter deductions as positive amounts."
+msgstr "أدخل الخصومات بقيم موجبة."
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/inspection.py:0
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__measurement_ids
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.zc_inspection_request_form
+msgid "Executed work"
+msgstr "الأعمال المنفذة"
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/control_tower.py:0
+msgid "Executed work not certifiable yet (no approved inspection)"
+msgstr "أعمال منفذة لا يمكن صرفها بعد (بدون استلام معتمد)"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_progress_certificate__zc_expected_cash
+msgid "Expected cash"
+msgstr "المتوقع تحصيله"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields.selection,name:zc_certificate_controls.selection__zc_deduction_type__method__fixed
+msgid "Fixed amount"
+msgstr "مبلغ ثابت"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__message_follower_ids
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_quantity_dispute__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__message_partner_ids
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_quantity_dispute__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__has_message
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_quantity_dispute__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields.selection,name:zc_certificate_controls.selection__zc_inspection_request__inspection_type__hold
+msgid "Hold point"
+msgstr "نقطة توقف"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,help:zc_certificate_controls.field_zc_inspection_request__inspection_type
+msgid ""
+"Hold point: no further work until the consultant approves.\n"
+"Witness point: work goes on while the consultant observes."
+msgstr ""
+"نقطة توقف: لا يستكمل العمل قبل موافقة الاستشاري.\n"
+"نقطة مشاهدة: يستمر العمل أثناء حضور الاستشاري."
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_control_tower__id
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_progress_certificate__id
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_progress_certificate_line__id
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_site_measurement__id
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_subcontract_certificate__id
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_purchase_order__id
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_res_company__id
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_res_config_settings__id
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_sale_order__id
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_stock_picking__id
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_certificate_deduction__id
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_deduction_mixin__id
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_deduction_type__id
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__id
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_quantity_dispute__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,help:zc_certificate_controls.field_zc_inspection_request__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,help:zc_certificate_controls.field_zc_inspection_request__message_needaction
+#: model:ir.model.fields,help:zc_certificate_controls.field_zc_quantity_dispute__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,help:zc_certificate_controls.field_zc_inspection_request__message_has_error
+#: model:ir.model.fields,help:zc_certificate_controls.field_zc_inspection_request__message_has_sms_error
+#: model:ir.model.fields,help:zc_certificate_controls.field_zc_quantity_dispute__message_has_error
+#: model:ir.model.fields,help:zc_certificate_controls.field_zc_quantity_dispute__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_site_measurement__zc_inspection_ok
+msgid "Inspected"
+msgstr "تم الاستلام"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__date_inspected
+msgid "Inspected on"
+msgstr "تاريخ المعاينة"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_site_measurement__zc_wir_state
+msgid "Inspection"
+msgstr "الاستلام"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_site_measurement__zc_wir_id
+msgid "Inspection (WIR)"
+msgstr "طلب الاستلام (WIR)"
+
+#. module: zc_certificate_controls
+#: model:ir.actions.act_window,name:zc_certificate_controls.action_zc_inspection_request
+#: model:ir.ui.menu,name:zc_certificate_controls.menu_zc_wir
+msgid "Inspection Requests (WIR)"
+msgstr "طلبات استلام الأعمال (WIR)"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__inspection_type
+msgid "Inspection Type"
+msgstr "نوع المعاينة"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_res_company__zc_wir_required
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_res_config_settings__zc_wir_required
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.res_config_settings_view_form_zc_cc
+msgid "Inspection before certification"
+msgstr "الاستلام قبل الصرف في المستخلص"
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/inspection.py:0
+msgid "Inspection requested from the consultant %s."
+msgstr "تم طلب الاستلام من الاستشاري %s."
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/control_tower.py:0
+msgid "Inspection requests (WIR) not answered by the consultant"
+msgstr "طلبات استلام (WIR) لم يرد عليها الاستشاري"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,help:zc_certificate_controls.field_hom_progress_certificate__zc_expected_cash
+msgid "Invoice total (with VAT) less what the owner withholds at payment."
+msgstr "إجمالي الفاتورة (شامل الضريبة) ناقص ما يخصمه المالك عند الصرف."
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__message_is_follower
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_quantity_dispute__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__is_overdue
+msgid "Is Overdue"
+msgstr "متأخر"
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.res_config_settings_view_form_zc_cc
+msgid "Journal of the entries settling withholding tax and social insurance."
+msgstr "دفتر قيود تسوية الخصم تحت حساب الضريبة والتأمينات."
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_certificate_deduction__write_uid
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_deduction_type__write_uid
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__write_uid
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_quantity_dispute__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_certificate_deduction__write_date
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_deduction_type__write_date
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__write_date
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_quantity_dispute__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/control_tower.py:0
+msgid "Late inspections"
+msgstr "استلامات متأخرة"
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/inspection.py:0
+msgid "Link the executed work (site measurements) to inspect."
+msgstr "اربط الأعمال المنفذة (حصر الموقع) المطلوب استلامها."
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__location
+msgid "Location / Zone"
+msgstr "الموقع / المنطقة"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,help:zc_certificate_controls.field_zc_inspection_request__activity_type_icon
+msgid "Material Symbols icon e.g. checklist"
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_stock_picking__zc_charge_amount
+msgid "Material cost"
+msgstr "تكلفة الخامات"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,help:zc_certificate_controls.field_stock_picking__zc_charge_partner_id
+msgid ""
+"Material issued from our stores to a subcontractor whose subcontract "
+"includes the material: its cost is deducted from the subcontractor's next "
+"certificate."
+msgstr ""
+"خامات منصرفة من مخازن الشركة لمقاول باطن عقده شامل الخامات: تُخصم تكلفتها من"
+" مستخلصه التالي."
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/subcontract.py:0
+msgid "Materials are charged on a draft or submitted certificate."
+msgstr "تُحمّل الخامات على مستخلص مسودة أو مقدَّم."
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_certificate_deduction__picking_ids
+msgid "Materials issued"
+msgstr "الخامات المنصرفة"
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/subcontract.py:0
+msgid "Materials issued from our stores charged: %(a)s (%(p)s)."
+msgstr "تم تحميل الخامات المنصرفة من المخازن: %(a)s (%(p)s)."
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__measurement_count
+msgid "Measurement Count"
+msgstr "عدد الحصر"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__message_has_error
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_quantity_dispute__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__message_ids
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_quantity_dispute__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_certificate_deduction__method
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_deduction_type__method
+msgid "Method"
+msgstr "طريقة الحساب"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_deduction_type__name
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__name
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_quantity_dispute__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_progress_certificate__zc_amount_payable
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_subcontract_certificate__zc_amount_payable
+msgid "Net certificate (before VAT)"
+msgstr "صافي المستخلص (قبل الضريبة)"
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/dispute.py:0
+#: code:addons/zc_certificate_controls/models/inspection.py:0
+msgid "New"
+msgstr "جديد"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model_terms:ir.actions.act_window,help:zc_certificate_controls.action_zc_inspection_request
+msgid "No inspection request yet"
+msgstr "لا توجد طلبات استلام بعد"
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/subcontract.py:0
+msgid "No material issued to %s is waiting to be charged."
+msgstr "لا توجد خامات منصرفة لـ %s في انتظار التحميل."
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/deduction.py:0
+msgid "No withholding to settle."
+msgstr "لا توجد خصومات للتسوية."
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_deduction_type__note
+msgid "Note"
+msgstr "ملاحظة"
+
+#. module: zc_certificate_controls
+#: model_terms:ir.actions.act_window,help:zc_certificate_controls.action_zc_quantity_dispute
+msgid "Nothing cut by the consultant"
+msgstr "لا توجد تخفيضات من الاستشاري"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__message_needaction_counter
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_quantity_dispute__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__message_has_error_counter
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_quantity_dispute__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,help:zc_certificate_controls.field_zc_inspection_request__message_needaction_counter
+#: model:ir.model.fields,help:zc_certificate_controls.field_zc_quantity_dispute__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,help:zc_certificate_controls.field_zc_inspection_request__message_has_error_counter
+#: model:ir.model.fields,help:zc_certificate_controls.field_zc_quantity_dispute__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields.selection,name:zc_certificate_controls.selection__zc_deduction_type__timing__invoice
+msgid "On the certificate invoice / bill"
+msgstr "على فاتورة المستخلص"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,help:zc_certificate_controls.field_zc_certificate_deduction__timing
+#: model:ir.model.fields,help:zc_certificate_controls.field_zc_deduction_type__timing
+msgid ""
+"On the invoice / bill: the deduction is a line of the certificate invoice or bill (penalties, utilities, back-charges, materials issued).\n"
+"Withheld at payment: the invoice keeps its full value and the amount is withheld when it is paid (withholding tax, social insurance); it is settled against the receivable or payable."
+msgstr ""
+"على الفاتورة: الخصم بند في فاتورة المستخلص (غرامات، استهلاكات، تحميلات، خامات منصرفة).\n"
+"عند الصرف: تبقى الفاتورة بقيمتها ويُخصم المبلغ عند السداد (ضريبة الخصم، التأمينات) ويُسوّى مقابل رصيد العميل أو المورد."
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/inspection.py:0
+msgid "Only a rejected request is re-inspected."
+msgstr "إعادة المعاينة للطلبات المرفوضة فقط."
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/dispute.py:0
+msgid "Only open claims can be waived."
+msgstr "يمكن التنازل عن المطالبات المفتوحة فقط."
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.res_config_settings_view_form_zc_cc
+msgid "Only work approved by the consultant (WIR) enters the certificates."
+msgstr "لا يدخل المستخلص إلا ما استلمه الاستشاري (WIR)."
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.zc_quantity_dispute_search
+msgid "Open"
+msgstr "مفتوحة"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields.selection,name:zc_certificate_controls.selection__zc_quantity_dispute__state__open
+msgid "Open - to claim"
+msgstr "مفتوحة - للمطالبة"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_progress_certificate__zc_amount_deduct_invoice
+msgid "Other deductions"
+msgstr "خصومات أخرى"
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.zc_inspection_request_search
+msgid "Overdue"
+msgstr "متأخر"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_quantity_dispute__partner_id
+msgid "Owner"
+msgstr "المالك"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_certificate_deduction__owner_cert_id
+msgid "Owner Cert"
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model:ir.model,name:zc_certificate_controls.model_hom_progress_certificate
+msgid "Owner Progress Certificate"
+msgstr "مستخلص المالك"
+
+#. module: zc_certificate_controls
+#: model:ir.model,name:zc_certificate_controls.model_hom_progress_certificate_line
+msgid "Owner Progress Certificate Line"
+msgstr "بند مستخلص المالك"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields.selection,name:zc_certificate_controls.selection__zc_deduction_type__scope__owner
+msgid "Owner certificate"
+msgstr "مستخلص المالك"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_sale_order__zc_deduction_type_ids
+msgid "Owner deductions"
+msgstr "خصومات المالك"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,help:zc_certificate_controls.field_zc_deduction_type__account_id
+msgid ""
+"Owner, withheld: the asset to recover (e.g. WHT receivable).\n"
+"Owner, on invoice: the project cost charged (penalty, utilities).\n"
+"Subcontractor, on bill: the project cost recovered.\n"
+"Subcontractor, withheld: the liability to pay to the authority."
+msgstr ""
+"المالك - عند الصرف: أصل يُسترد (مثل ضريبة الخصم لدى العملاء).\n"
+"المالك - على الفاتورة: تكلفة على المشروع (غرامة، استهلاكات).\n"
+"المقاول - على الفاتورة: استرداد تكلفة المشروع.\n"
+"المقاول - عند الصرف: التزام يُسدد للجهة."
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,help:zc_certificate_controls.field_zc_certificate_deduction__reference
+msgid "Penalty letter, delivery notes, violation report..."
+msgstr "خطاب الغرامة، أذون الصرف، محضر المخالفة..."
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,help:zc_certificate_controls.field_zc_inspection_request__attachment_note
+msgid "Photos, test results, check-lists sent with the request."
+msgstr "صور ونتائج اختبارات وقوائم فحص مرفقة بالطلب."
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/deduction.py:0
+msgid "Post %s first."
+msgstr "رحّل %s أولًا."
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.hom_subcontract_certificate_form_zc_cc
+msgid "Prepared by (site)"
+msgstr "أعده (الموقع)"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_quantity_dispute__price_unit
+msgid "Price Unit"
+msgstr "سعر الوحدة"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_quantity_dispute__product_id
+msgid "Product"
+msgstr "المنتج"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__project_id
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_quantity_dispute__project_id
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.zc_inspection_request_search
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.zc_quantity_dispute_search
+msgid "Project"
+msgstr "المشروع"
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.hom_subcontract_certificate_form_zc_cc
+msgid "Project Manager Approve"
+msgstr "اعتماد مدير المشروع"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields.selection,name:zc_certificate_controls.selection__hom_subcontract_certificate__zc_review_stage__pm
+msgid "Project manager"
+msgstr "مدير المشروع"
+
+#. module: zc_certificate_controls
+#: model:ir.model,name:zc_certificate_controls.model_purchase_order
+msgid "Purchase Order"
+msgstr "أمر شراء"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_quantity_dispute__qty
+msgid "Qty cut"
+msgstr "الكمية المخفضة"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__quantity_summary
+msgid "Quantities"
+msgstr "الكميات"
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/control_tower.py:0
+msgid "Quantities cut by the consultant - to claim"
+msgstr "كميات خفّضها الاستشاري - للمطالبة"
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/certificate.py:0
+msgid "Quantities cut by the consultant before are claimed again: %s"
+msgstr "إعادة المطالبة بكميات خفّضها الاستشاري سابقًا: %s"
+
+#. module: zc_certificate_controls
+#: model:ir.model,name:zc_certificate_controls.model_zc_quantity_dispute
+msgid "Quantity Claim (cut by the consultant)"
+msgstr "مطالبة كميات (تخفيض الاستشاري)"
+
+#. module: zc_certificate_controls
+#: model:ir.actions.act_window,name:zc_certificate_controls.action_zc_quantity_dispute
+#: model:ir.ui.menu,name:zc_certificate_controls.menu_zc_disputes
+msgid "Quantity Claims"
+msgstr "مطالبات الكميات"
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/control_tower.py:0
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_progress_certificate__zc_dispute_ids
+msgid "Quantity claims"
+msgstr "مطالبات الكميات"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,help:zc_certificate_controls.field_hom_progress_certificate_line__zc_claimed_qty
+msgid ""
+"Quantity cut by the consultant in an earlier certificate, claimed again "
+"here."
+msgstr "كمية خفّضها الاستشاري في مستخلص سابق ويُطالب بها هنا."
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__rating_ids
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_quantity_dispute__rating_ids
+msgid "Ratings"
+msgstr ""
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/inspection.py:0
+msgid "Re-inspection"
+msgstr "إعادة المعاينة"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__previous_id
+msgid "Re-inspection of"
+msgstr "إعادة معاينة لـ"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_quantity_dispute__recovered_amount
+msgid "Recovered Amount"
+msgstr "القيمة المستردة"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_quantity_dispute__recovered_qty
+msgid "Recovered Qty"
+msgstr "الكمية المستردة"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_certificate_deduction__reference
+msgid "Reference"
+msgstr "المرجع"
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.zc_inspection_request_form
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.zc_inspection_request_search
+msgid "Rejected"
+msgstr "مرفوض"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields.selection,name:zc_certificate_controls.selection__zc_inspection_request__state__rejected
+msgid "Rejected - re-inspect"
+msgstr "مرفوض - إعادة معاينة"
+
+#. module: zc_certificate_controls
+#: model:ir.actions.server,name:zc_certificate_controls.action_zc_request_inspection
+msgid "Request Inspection (WIR)"
+msgstr "طلب استلام (WIR)"
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.zc_inspection_request_form
+msgid "Request Re-inspection"
+msgstr "طلب إعادة معاينة"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__date_requested
+msgid "Requested on"
+msgstr "تاريخ الطلب"
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.zc_inspection_request_form
+msgid "Reset to Draft"
+msgstr "إرجاع لمسودة"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields.selection,name:zc_certificate_controls.selection__zc_quantity_dispute__state__resubmitted
+msgid "Resubmitted"
+msgstr "أعيد تقديمها"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_quantity_dispute__resubmit_cert_id
+msgid "Resubmitted in"
+msgstr "أعيد تقديمها في"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__message_has_sms_error
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_quantity_dispute__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model:ir.model,name:zc_certificate_controls.model_sale_order
+msgid "Sales Order"
+msgstr "أمر البيع"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_deduction_type__scope
+msgid "Scope"
+msgstr "النطاق"
+
+#. module: zc_certificate_controls
+#: model_terms:ir.actions.act_window,help:zc_certificate_controls.action_zc_inspection_request
+msgid ""
+"Select executed work in Site Measurements and use \"Request Inspection\": the consultant's approval\n"
+"               is the gate before the work is certified."
+msgstr ""
+"اختر الأعمال المنفذة من حصر الموقع واضغط \"طلب استلام\": اعتماد الاستشاري هو"
+" بوابة صرف الأعمال في المستخلص."
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/inspection.py:0
+msgid "Select work of one contract at a time."
+msgstr "اختر أعمال عقد واحد في كل مرة."
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.zc_inspection_request_form
+msgid "Send to Consultant"
+msgstr "إرسال للاستشاري"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_certificate_deduction__sequence
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_deduction_type__sequence
+msgid "Sequence"
+msgstr "التسلسل"
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.hom_progress_certificate_form_zc_cc
+msgid "Settle Owner Withholdings"
+msgstr "تسوية خصومات المالك"
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.hom_subcontract_certificate_form_zc_cc
+msgid "Settle Withholding Tax"
+msgstr "تسوية ضريبة الخصم"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_certificate_deduction__settled_move_id
+msgid "Settled by"
+msgstr "تمت التسوية بـ"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__user_id
+msgid "Site Engineer"
+msgstr "مهندس الموقع"
+
+#. module: zc_certificate_controls
+#: model:ir.model,name:zc_certificate_controls.model_hom_site_measurement
+msgid "Site Measurement"
+msgstr "حصر الموقع"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields.selection,name:zc_certificate_controls.selection__hom_subcontract_certificate__zc_review_stage__site
+msgid "Site engineer"
+msgstr "مهندس الموقع"
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.res_config_settings_view_form_zc_cc
+msgid "Site engineer, technical office (QS), project manager, then accounts."
+msgstr "مهندس الموقع، ثم المكتب الفني (الحصر)، ثم مدير المشروع، ثم الحسابات."
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,help:zc_certificate_controls.field_res_company__zc_wir_required
+#: model:ir.model.fields,help:zc_certificate_controls.field_res_config_settings__zc_wir_required
+msgid ""
+"Site measurements enter an owner or subcontractor certificate only after the"
+" consultant has approved their work inspection request (WIR)."
+msgstr ""
+"لا يدخل حصر الموقع مستخلص المالك أو المقاول إلا بعد اعتماد الاستشاري لطلب "
+"الاستلام (WIR)."
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__state
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_quantity_dispute__state
+msgid "State"
+msgstr "الحالة"
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.zc_inspection_request_search
+msgid "Status"
+msgstr "الحالة"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,help:zc_certificate_controls.field_zc_inspection_request__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_certificate_deduction__sub_cert_id
+msgid "Sub Cert"
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model:ir.model,name:zc_certificate_controls.model_hom_subcontract_certificate
+msgid "Subcontractor Progress Certificate"
+msgstr "مستخلص مقاول الباطن"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_subcontract_certificate__zc_multi_approval
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_res_company__zc_sub_multi_approval
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_res_config_settings__zc_sub_multi_approval
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.res_config_settings_view_form_zc_cc
+msgid "Subcontractor approval chain"
+msgstr "دورة اعتماد مستخلص المقاول"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields.selection,name:zc_certificate_controls.selection__zc_deduction_type__scope__subcontract
+msgid "Subcontractor certificate"
+msgstr "مستخلص مقاول الباطن"
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/control_tower.py:0
+msgid "Subcontractor certificates"
+msgstr "مستخلصات مقاولي الباطن"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,help:zc_certificate_controls.field_hom_subcontract_certificate__zc_multi_approval
+#: model:ir.model.fields,help:zc_certificate_controls.field_res_company__zc_sub_multi_approval
+#: model:ir.model.fields,help:zc_certificate_controls.field_res_config_settings__zc_sub_multi_approval
+msgid ""
+"Subcontractor certificates are checked by the technical office (quantity "
+"surveyor) and approved by the project manager before they can be billed."
+msgstr ""
+"يراجع المكتب الفني (الحصر) مستخلص المقاول ويعتمده مدير المشروع قبل إصدار "
+"الفاتورة."
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/control_tower.py:0
+msgid "Subcontractor certificates in the approval chain"
+msgstr "مستخلصات مقاولين في دورة الاعتماد"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_purchase_order__zc_deduction_type_ids
+msgid "Subcontractor deductions"
+msgstr "خصومات المقاول"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_progress_certificate__zc_amount_submitted
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_progress_certificate_line__zc_submitted_amount
+msgid "Submitted"
+msgstr "المقدَّم"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_progress_certificate_line__zc_submitted_qty
+msgid "Submitted Qty"
+msgstr "الكمية المقدمة"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_progress_certificate__zc_submitted_date
+msgid "Submitted on"
+msgstr "تاريخ التقديم"
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.hom_progress_certificate_form_zc_cc
+msgid "Submitted vs certified"
+msgstr "المقدَّم مقابل المعتمد"
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.hom_subcontract_certificate_form_zc_cc
+msgid "Technical Office Checked"
+msgstr "تمت مراجعة المكتب الفني"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_res_company__zc_qs_user_id
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_res_config_settings__zc_qs_user_id
+#: model:ir.model.fields.selection,name:zc_certificate_controls.selection__hom_subcontract_certificate__zc_review_stage__qs
+msgid "Technical office (QS)"
+msgstr "المكتب الفني (الحصر)"
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/subcontract.py:0
+msgid ""
+"Technical office check of the subcontractor certificate (quantities against "
+"the site measurements, back-charges, materials issued)."
+msgstr ""
+"مراجعة المكتب الفني لمستخلص المقاول (الكميات مقابل حصر الموقع، الخصومات، "
+"الخامات المنصرفة)."
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/certificate.py:0
+msgid "The consultant cannot certify more than submitted for %s."
+msgstr "لا يمكن للاستشاري اعتماد أكثر من المقدَّم للبند %s."
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/certificate.py:0
+msgid ""
+"The consultant certified %(c)s less than submitted; %(n)s quantity claim(s) "
+"opened and carried to the next certificate."
+msgstr ""
+"اعتمد الاستشاري أقل من المقدَّم بقيمة %(c)s؛ تم فتح %(n)s مطالبة كميات "
+"تُرحّل للمستخلص التالي."
+
+#. module: zc_certificate_controls
+#: model:ir.module.module,summary:base.module_zc_certificate_controls
+msgid ""
+"The consultant gate and the money gate of the certificate cycle: work "
+"inspection requests (WIR) as a hold point before any quantity is certified, "
+"quantities submitted vs certified with the consultant's cuts tracked as "
+"quantity claims, owner and subcontractor deductions (withholding tax, social"
+" insurance, penalties, utilities, back-charges, materials issued to "
+"subcontractors), withholdings settled against the receivable / payable, and "
+"the subcontractor approval chain (site - technical office - project "
+"manager)."
+msgstr ""
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/inspection.py:0
+msgid "The selected work is already under inspection."
+msgstr "الأعمال المختارة تحت الاستلام بالفعل."
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/deduction.py:0
+msgid "The withholdings (%(w)s) exceed the open amount of %(m)s (%(o)s)."
+msgstr "الخصومات (%(w)s) أكبر من الرصيد المفتوح لـ %(m)s (%(o)s)."
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.hom_progress_certificate_form_zc_cc
+msgid "Timeline"
+msgstr "الجدول الزمني"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_certificate_deduction__timing
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_deduction_type__timing
+msgid "Timing"
+msgstr "توقيت الخصم"
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.hom_progress_certificate_form_zc_cc
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.hom_progress_certificate_list_zc_cc
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.hom_subcontract_certificate_form_zc_cc
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.hom_subcontract_certificate_list_zc_cc
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.zc_inspection_request_form
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.zc_quantity_dispute_list
+msgid "Total"
+msgstr "الإجمالي"
+
+#. module: zc_certificate_controls
+#: model:ir.model,name:zc_certificate_controls.model_stock_picking
+msgid "Transfer"
+msgstr "تحويل"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_certificate_deduction__type_id
+msgid "Type"
+msgstr "النوع"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,help:zc_certificate_controls.field_zc_inspection_request__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_quantity_dispute__product_uom_id
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.zc_inspection_request_form
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.zc_quantity_dispute_list
+msgid "Unit"
+msgstr "الوحدة"
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/inspection.py:0
+msgid "Unsupported search."
+msgstr "بحث غير مدعوم."
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_res_company__zc_wir_review_days
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_res_config_settings__zc_wir_review_days
+msgid "WIR answer within (days)"
+msgstr "مدة رد الاستشاري على الاستلام (يوم)"
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/inspection.py:0
+msgid "WIR rejected: correct and re-inspect %s"
+msgstr "استلام مرفوض: صحح الأعمال وأعد المعاينة %s"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields.selection,name:zc_certificate_controls.selection__zc_inspection_request__state__submitted
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.zc_inspection_request_search
+msgid "Waiting consultant"
+msgstr "في انتظار الاستشاري"
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.hom_site_measurement_search_zc_cc
+msgid "Waiting inspection"
+msgstr "في انتظار الاستلام"
+
+#. module: zc_certificate_controls
+#: model_terms:ir.actions.act_window,help:zc_certificate_controls.action_zc_quantity_dispute
+msgid ""
+"When the consultant certifies less than submitted, the difference is recorded here and claimed again\n"
+"               in the next certificate."
+msgstr ""
+"عندما يعتمد الاستشاري أقل من المقدَّم يُسجل الفرق هنا ويُطالب به في المستخلص"
+" التالي."
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_subcontract_certificate__zc_amount_withholding
+#: model:ir.model.fields.selection,name:zc_certificate_controls.selection__zc_deduction_type__timing__payment
+msgid "Withheld at payment"
+msgstr "يُخصم عند الصرف"
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/deduction.py:0
+msgid "Withheld by %(p)s on %(m)s"
+msgstr "خصمها %(p)s من %(m)s"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_progress_certificate__zc_amount_withholding
+msgid "Withheld by the owner"
+msgstr "يخصمها المالك عند الصرف"
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/deduction.py:0
+msgid "Withheld from %(p)s on %(m)s"
+msgstr "مخصومة من %(p)s على %(m)s"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_res_company__zc_settlement_journal_id
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_res_config_settings__zc_settlement_journal_id
+msgid "Withholding settlement journal"
+msgstr "دفتر تسوية الخصومات"
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.res_config_settings_view_form_zc_cc
+msgid "Withholdings"
+msgstr "الخصومات عند الصرف"
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/deduction.py:0
+msgid "Withholdings - %s"
+msgstr "تسوية خصومات - %s"
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/deduction.py:0
+msgid "Withholdings settled by %s."
+msgstr "تمت تسوية الخصومات بالقيد %s."
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields.selection,name:zc_certificate_controls.selection__zc_inspection_request__inspection_type__witness
+msgid "Witness point"
+msgstr "نقطة مشاهدة"
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.zc_inspection_request_form
+msgid "Work"
+msgstr "الأعمال"
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/inspection.py:0
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.zc_inspection_request_form
+msgid "Work Inspection Request"
+msgstr "طلب استلام أعمال"
+
+#. module: zc_certificate_controls
+#: model:ir.model,name:zc_certificate_controls.model_zc_inspection_request
+msgid "Work Inspection Request (WIR)"
+msgstr "طلب استلام أعمال (WIR)"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_zc_inspection_request__title
+msgid "Work inspected"
+msgstr "الأعمال المطلوب استلامها"
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/inspection.py:0
+msgid "Work of this request is already certified."
+msgstr "أعمال هذا الطلب صُرفت في مستخلص بالفعل."
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/control_tower.py:0
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_progress_certificate__zc_wir_blocked
+msgid "Work waiting inspection"
+msgstr "أعمال في انتظار الاستلام"
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_progress_certificate_line__zc_net_price
+msgid "Zc Net Price"
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_progress_certificate__zc_withholding_open
+#: model:ir.model.fields,field_description:zc_certificate_controls.field_hom_subcontract_certificate__zc_withholding_open
+msgid "Zc Withholding Open"
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model:ir.module.module,shortdesc:base.module_zc_certificate_controls
+msgid "Ziij Construction - Certificate Controls"
+msgstr "Ziij للمقاولات - ضبط المستخلصات"
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.zc_inspection_request_form
+msgid "e.g. Ceiling gypsum boards - 1st floor corridors"
+msgstr "مثال: أسقف جبسية - ممرات الدور الأول"
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/control_tower.py:0
+msgid "id"
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.hom_progress_certificate_form_zc_cc
+msgid ""
+"site measurement(s) of this contract are waiting\n"
+"                    for the consultant's inspection (WIR) and stay out of this certificate."
+msgstr ""
+"حصر موقع لهذا العقد في انتظار استلام الاستشاري (WIR) ولن يدخل هذا المستخلص."
+
+#. module: zc_certificate_controls
+#. odoo-python
+#: code:addons/zc_certificate_controls/models/inspection.py:0
+msgid "zc_wir_id"
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.report_progress_certificate_document_zc_cc
+msgid "ثالثًا: خصومات أخرى"
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.report_progress_certificate_document_zc_cc
+msgid "صافي المستخلص قبل الضريبة"
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.report_progress_certificate_document_zc_cc
+msgid "قيمة الأعمال المقدَّمة:"
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.report_progress_certificate_document_zc_cc
+msgid ""
+"—\n"
+"                    الفرق محفوظ كمطالبة:"
+msgstr ""
+
+#. module: zc_certificate_controls
+#: model_terms:ir.ui.view,arch_db:zc_certificate_controls.report_progress_certificate_document_zc_cc
+msgid ""
+"—\n"
+"                    المعتمد من الاستشاري:"
+msgstr ""

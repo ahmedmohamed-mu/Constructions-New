@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="zc_quantity_dispute_list" model="ir.ui.view">
+        <field name="name">zc.quantity.dispute.list</field>
+        <field name="model">zc.quantity.dispute</field>
+        <field name="arch" type="xml">
+            <list decoration-warning="state == 'open'" decoration-success="state == 'closed'" decoration-muted="state == 'waived'">
+                <field name="name"/>
+                <field name="certificate_id"/>
+                <field name="project_id" optional="show"/>
+                <field name="product_id"/>
+                <field name="qty"/>
+                <field name="product_uom_id" string="Unit"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="amount" sum="Total"/>
+                <field name="reason" optional="show"/>
+                <field name="resubmit_cert_id" optional="show"/>
+                <field name="recovered_amount" sum="Total" optional="show"/>
+                <field name="state" widget="badge" decoration-warning="state == 'open'" decoration-info="state == 'resubmitted'"
+                       decoration-success="state == 'closed'"/>
+                <button name="action_waive" type="object" string="Accept cut" icon="fa-check" invisible="state != 'open'"/>
+            </list>
+        </field>
+    </record>
+    <record id="zc_quantity_dispute_form" model="ir.ui.view">
+        <field name="name">zc.quantity.dispute.form</field>
+        <field name="model">zc.quantity.dispute</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_waive" type="object" string="Accept the cut" invisible="state != 'open'"/>
+                    <button name="action_reopen" type="object" string="Claim again" invisible="state != 'waived'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="open,resubmitted,closed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title"><h1><field name="name" readonly="1"/></h1></div>
+                    <group>
+                        <group>
+                            <field name="certificate_id" readonly="1"/>
+                            <field name="project_id"/>
+                            <field name="partner_id"/>
+                            <field name="sale_line_id" readonly="1"/>
+                        </group>
+                        <group>
+                            <label for="qty"/>
+                            <div class="o_row"><field name="qty" readonly="1"/><field name="product_uom_id"/></div>
+                            <field name="price_unit" readonly="1"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="amount"/>
+                            <field name="reason"/>
+                            <field name="resubmit_cert_id"/>
+                            <field name="recovered_qty"/>
+                            <field name="recovered_amount"/>
+                        </group>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="zc_quantity_dispute_search" model="ir.ui.view">
+        <field name="name">zc.quantity.dispute.search</field>
+        <field name="model">zc.quantity.dispute</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="project_id"/>
+                <field name="product_id"/>
+                <filter name="open" string="Open" domain="[('state', '=', 'open')]"/>
+                <separator/>
+                <filter name="group_project" string="Project" context="{'group_by': 'project_id'}"/>
+            </search>
+        </field>
+    </record>
+    <record id="action_zc_quantity_dispute" model="ir.actions.act_window">
+        <field name="name">Quantity Claims</field>
+        <field name="res_model">zc.quantity.dispute</field>
+        <field name="view_mode">list,form,pivot</field>
+        <field name="context">{'search_default_open': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Nothing cut by the consultant</p>
+            <p>When the consultant certifies less than submitted, the difference is recorded here and claimed again
+               in the next certificate.</p>
+        </field>
+    </record>
+</odoo>

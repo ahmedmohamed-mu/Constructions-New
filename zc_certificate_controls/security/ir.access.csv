@@ -1,0 +1,6 @@
+id,name,model_id,group_id/id,operation,domain
+access_zc_wir_user,wir user,zc.inspection.request,base.group_user,crud,
+access_zc_dispute_user,dispute user,zc.quantity.dispute,base.group_user,crud,
+access_zc_ded_type_user,deduction type user,zc.deduction.type,base.group_user,r,
+access_zc_ded_type_acc,deduction type accountant,zc.deduction.type,account.group_account_manager,crud,
+access_zc_ded_user,deduction user,zc.certificate.deduction,base.group_user,crud,

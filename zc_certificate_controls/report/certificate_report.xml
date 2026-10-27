@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_progress_certificate_document_zc_cc" inherit_id="hom_progress_billing.report_progress_certificate_document">
+        <xpath expr="//table[@style='width:60%']" position="after">
+            <t t-set="ded_inv" t-value="o.zc_deduction_ids.filtered(lambda d: d.timing == 'invoice' and d.amount)"/>
+            <t t-set="ded_pay" t-value="o.zc_deduction_ids.filtered(lambda d: d.timing == 'payment' and d.amount)"/>
+            <t t-if="ded_inv or ded_pay">
+                <h5>ثالثًا: خصومات أخرى</h5>
+                <table class="table table-sm" style="width:60%">
+                    <tr t-foreach="ded_inv" t-as="d">
+                        <td><span t-out="d.type_id.with_context(lang='ar_001').name"/> <span t-if="d.reference" class="text-muted">(<span t-out="d.reference"/>)</span></td>
+                        <td class="text-end">-<span t-out="d.amount" t-options="M"/></td>
+                    </tr>
+                    <tr t-if="ded_inv" class="fw-bold"><td>صافي المستخلص قبل الضريبة</td><td class="text-end"><span t-out="o.zc_amount_payable" t-options="M"/></td></tr>
+                    <tr t-foreach="ded_pay" t-as="d">
+                        <td><span t-out="d.type_id.with_context(lang='ar_001').name"/> (<span t-out="'%g' % d.pct"/>%) - يُخصم عند الصرف</td>
+                        <td class="text-end">-<span t-out="d.amount" t-options="M"/></td>
+                    </tr>
+                </table>
+            </t>
+            <t t-if="o.zc_amount_cut">
+                <p class="small">
+                    قيمة الأعمال المقدَّمة: <span t-out="o.zc_amount_submitted" t-options="M"/> —
+                    المعتمد من الاستشاري: <span t-out="o.amount_current" t-options="M"/> —
+                    الفرق محفوظ كمطالبة: <span t-out="o.zc_amount_cut" t-options="M"/>
+                </p>
+            </t>
+        </xpath>
+    </template>
+</odoo>

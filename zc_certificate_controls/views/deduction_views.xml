@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="zc_deduction_type_list" model="ir.ui.view">
+        <field name="name">zc.deduction.type.list</field>
+        <field name="model">zc.deduction.type</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="scope"/>
+                <field name="timing"/>
+                <field name="method"/>
+                <field name="default_pct"/>
+                <field name="account_id"/>
+                <field name="analytic"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <field name="active" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+    <record id="action_zc_deduction_type" model="ir.actions.act_window">
+        <field name="name">Certificate Deductions</field>
+        <field name="res_model">zc.deduction.type</field>
+        <field name="view_mode">list</field>
+    </record>
+</odoo>

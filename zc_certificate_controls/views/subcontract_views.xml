@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hom_subcontract_certificate_form_zc_cc" model="ir.ui.view">
+        <field name="name">hom.subcontract.certificate.form.zc.cc</field>
+        <field name="model">hom.subcontract.certificate</field>
+        <field name="inherit_id" ref="hom_subcontract_billing.hom_subcontract_certificate_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_approve']" position="before">
+                <button name="action_zc_qs_check" type="object" string="Technical Office Checked" class="btn-primary"
+                        invisible="state != 'submitted' or zc_review_stage != 'qs'"/>
+                <button name="action_zc_load_materials" type="object" string="Charge Materials Issued"
+                        invisible="state not in ('draft', 'submitted')"/>
+            </xpath>
+            <xpath expr="//button[@name='action_approve']" position="attributes">
+                <attribute name="invisible">state != 'submitted' or (zc_multi_approval and zc_review_stage == 'qs')</attribute>
+                <attribute name="string">Project Manager Approve</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_create_bill']" position="after">
+                <button name="action_zc_settle_withholdings" type="object" string="Settle Withholding Tax"
+                        invisible="not zc_withholding_open" groups="account.group_account_invoice"/>
+            </xpath>
+            <xpath expr="//sheet" position="before">
+                <div class="alert alert-info mb-0" role="alert" invisible="not zc_multi_approval or state != 'submitted'">
+                    <strong>Approval chain:</strong> site engineer → technical office (QS) → project manager → accounts.
+                    Now with: <field name="zc_review_stage" class="d-inline fw-bold" readonly="1"/>
+                </div>
+            </xpath>
+            <xpath expr="//group[hasclass('oe_subtotal_footer')]/field[@name='amount_net']" position="after">
+                <field name="zc_amount_deduct_invoice" invisible="not zc_amount_deduct_invoice"/>
+                <field name="zc_amount_payable" class="oe_subtotal_footer_separator" invisible="not zc_amount_deduct_invoice"/>
+                <field name="zc_amount_withholding" invisible="not zc_amount_withholding"/>
+                <field name="zc_withholding_open" invisible="1"/>
+                <field name="zc_multi_approval" invisible="1"/>
+            </xpath>
+            <xpath expr="//page[@name='lines']" position="after">
+                <page string="Deductions &amp; Back-charges" name="zc_deductions">
+                    <field name="zc_deduction_ids" readonly="state not in ('draft', 'submitted')">
+                        <list editable="bottom">
+                            <field name="sequence" widget="handle"/>
+                            <field name="type_id" domain="[('scope', '=', 'subcontract'), ('company_id', '=', parent.company_id)]"
+                                   options="{'no_create': True}"/>
+                            <field name="name" optional="show"/>
+                            <field name="timing" optional="show"/>
+                            <field name="method" column_invisible="1"/>
+                            <field name="currency_id" column_invisible="1"/>
+                            <field name="pct" invisible="method != 'percent'"/>
+                            <field name="amount" sum="Total" readonly="method == 'percent'"/>
+                            <field name="reference" optional="show"/>
+                            <field name="settled_move_id" optional="show" readonly="1"/>
+                        </list>
+                    </field>
+                </page>
+                <page string="Approvals" name="zc_approvals" invisible="not zc_multi_approval">
+                    <group>
+                        <field name="user_id" string="Prepared by (site)"/>
+                        <field name="zc_qs_user_id"/>
+                        <field name="zc_qs_date"/>
+                        <field name="zc_pm_user_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hom_subcontract_certificate_list_zc_cc" model="ir.ui.view">
+        <field name="name">hom.subcontract.certificate.list.zc.cc</field>
+        <field name="model">hom.subcontract.certificate</field>
+        <field name="inherit_id" ref="hom_subcontract_billing.hom_subcontract_certificate_list"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='state']" position="before">
+                <field name="zc_amount_deduct_invoice" sum="Total" optional="show"/>
+                <field name="zc_review_stage" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="purchase_order_form_zc_cc" model="ir.ui.view">
+        <field name="name">purchase.order.form.zc.cc</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_ref']" position="after">
+                <field name="zc_deduction_type_ids" widget="many2many_tags" invisible="not hom_is_subcontract"
+                       options="{'no_create': True}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

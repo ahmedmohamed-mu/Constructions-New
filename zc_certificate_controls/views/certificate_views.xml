@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hom_progress_certificate_form_zc_cc" model="ir.ui.view">
+        <field name="name">hom.progress.certificate.form.zc.cc</field>
+        <field name="model">hom.progress.certificate</field>
+        <field name="inherit_id" ref="hom_progress_billing.hom_progress_certificate_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_approve']" position="attributes">
+                <attribute name="string">Consultant Certified</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_create_invoice']" position="after">
+                <button name="action_zc_settle_withholdings" type="object" string="Settle Owner Withholdings"
+                        invisible="not zc_withholding_open" groups="account.group_account_invoice"
+                        help="Book the withholding tax / social insurance the owner deducted against the receivable."/>
+            </xpath>
+            <xpath expr="//sheet" position="before">
+                <div class="alert alert-warning mb-0" role="alert" invisible="not zc_wir_blocked">
+                    <field name="zc_wir_blocked" class="d-inline fw-bold"/> site measurement(s) of this contract are waiting
+                    for the consultant's inspection (WIR) and stay out of this certificate.
+                </div>
+                <div class="alert alert-info mb-0" role="alert" invisible="state != 'submitted'">
+                    <strong>Consultant review:</strong> enter the quantities the consultant certifies in
+                    "Cumulative Qty" (and the reason in "Consultant's reason"). The difference is kept as a quantity claim.
+                </div>
+            </xpath>
+            <xpath expr="//field[@name='line_ids']" position="attributes">
+                <attribute name="readonly">state not in ('draft', 'submitted')</attribute>
+            </xpath>
+            <xpath expr="//field[@name='line_ids']/list/field[@name='cumulative_qty']" position="before">
+                <field name="zc_submitted_qty" digits="[16,2]" readonly="1" column_invisible="parent.state == 'draft'" optional="show"/>
+            </xpath>
+            <xpath expr="//field[@name='line_ids']/list/field[@name='amount_current']" position="after">
+                <field name="zc_claimed_qty" digits="[16,2]" readonly="1" optional="hide"/>
+                <field name="zc_cut_qty" digits="[16,2]" column_invisible="parent.state == 'draft'" optional="show"
+                       decoration-danger="zc_cut_qty &gt; 0"/>
+                <field name="zc_cut_amount" sum="Total" column_invisible="parent.state == 'draft'" optional="show"
+                       decoration-danger="zc_cut_amount &gt; 0"/>
+                <field name="zc_cut_reason" column_invisible="parent.state == 'draft'" optional="show"/>
+            </xpath>
+            <xpath expr="//field[@name='line_ids']/list/field[@name='previous_qty']" position="attributes">
+                <attribute name="readonly">1</attribute>
+            </xpath>
+            <xpath expr="//group[hasclass('oe_subtotal_footer')]/field[@name='amount_net']" position="after">
+                <field name="zc_amount_deduct_invoice" invisible="not zc_amount_deduct_invoice"/>
+                <field name="zc_amount_payable" class="oe_subtotal_footer_separator" invisible="not zc_amount_deduct_invoice"/>
+                <field name="zc_amount_withholding" invisible="not zc_amount_withholding"/>
+                <field name="zc_expected_cash" invisible="not invoice_id" class="fw-bold"/>
+                <field name="zc_withholding_open" invisible="1"/>
+            </xpath>
+            <xpath expr="//page[@name='lines']" position="after">
+                <page string="Deductions" name="zc_deductions">
+                    <field name="zc_deduction_ids" readonly="state not in ('draft', 'submitted')" context="{'default_owner_cert_id': id}">
+                        <list editable="bottom">
+                            <field name="sequence" widget="handle"/>
+                            <field name="type_id" domain="[('scope', '=', 'owner'), ('company_id', '=', parent.company_id)]"
+                                   options="{'no_create': True}"/>
+                            <field name="name" optional="show"/>
+                            <field name="timing" optional="show"/>
+                            <field name="method" column_invisible="1"/>
+                            <field name="currency_id" column_invisible="1"/>
+                            <field name="pct" invisible="method != 'percent'"/>
+                            <field name="amount" sum="Total" readonly="method == 'percent'"/>
+                            <field name="reference" optional="show"/>
+                            <field name="settled_move_id" optional="show" readonly="1"/>
+                        </list>
+                    </field>
+                    <p class="text-muted small">
+                        "On the certificate invoice": penalties, utilities... reduce the invoice.
+                        "Withheld at payment": withholding tax and social insurance stay on the invoice and are settled
+                        against the receivable when the owner pays.
+                    </p>
+                </page>
+                <page string="Consultant Review" name="zc_review" invisible="state == 'draft'">
+                    <group>
+                        <group string="Timeline">
+                            <field name="zc_submitted_date"/>
+                            <field name="zc_consultant_due"/>
+                            <field name="zc_approved_date"/>
+                            <field name="zc_days_at_consultant"/>
+                            <field name="zc_consultant_ref"/>
+                        </group>
+                        <group string="Submitted vs certified">
+                            <field name="zc_amount_submitted"/>
+                            <field name="amount_current" string="Certified"/>
+                            <field name="zc_amount_cut" decoration-danger="zc_amount_cut &gt; 0"/>
+                        </group>
+                    </group>
+                    <field name="zc_dispute_ids" readonly="1">
+                        <list>
+                            <field name="name"/>
+                            <field name="product_id"/>
+                            <field name="qty"/>
+                            <field name="currency_id" column_invisible="1"/>
+                            <field name="amount" sum="Total"/>
+                            <field name="reason"/>
+                            <field name="state" widget="badge"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hom_progress_certificate_list_zc_cc" model="ir.ui.view">
+        <field name="name">hom.progress.certificate.list.zc.cc</field>
+        <field name="model">hom.progress.certificate</field>
+        <field name="inherit_id" ref="hom_progress_billing.hom_progress_certificate_list"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='amount_net']" position="after">
+                <field name="zc_amount_cut" sum="Total" optional="show"/>
+                <field name="zc_consultant_due" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_order_form_zc_cc" model="ir.ui.view">
+        <field name="name">sale.order.form.zc.cc</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='payment_term_id']" position="after">
+                <field name="zc_deduction_type_ids" widget="many2many_tags" invisible="hom_project_type != 'contracting'"
+                       options="{'no_create': True}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

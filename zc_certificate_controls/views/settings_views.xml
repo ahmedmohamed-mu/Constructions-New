@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_zc_cc" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.zc.cc</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="hom_contracting_base.res_config_settings_view_form_hom"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@name='hom_contracting']" position="inside">
+                <setting string="Inspection before certification" help="Only work approved by the consultant (WIR) enters the certificates.">
+                    <field name="zc_wir_required"/>
+                    <div class="content-group">
+                        <div class="row mt8"><label for="zc_wir_review_days" class="col-lg-5 o_light_label"/><field name="zc_wir_review_days"/></div>
+                        <div class="row"><label for="zc_consultant_review_days" class="col-lg-5 o_light_label"/><field name="zc_consultant_review_days"/></div>
+                    </div>
+                </setting>
+                <setting string="Subcontractor approval chain" help="Site engineer, technical office (QS), project manager, then accounts.">
+                    <field name="zc_sub_multi_approval"/>
+                    <div class="content-group" invisible="not zc_sub_multi_approval">
+                        <div class="row mt8"><label for="zc_qs_user_id" class="col-lg-5 o_light_label"/><field name="zc_qs_user_id"/></div>
+                    </div>
+                </setting>
+                <setting string="Withholdings" help="Journal of the entries settling withholding tax and social insurance.">
+                    <field name="zc_settlement_journal_id"/>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>
