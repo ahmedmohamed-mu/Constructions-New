@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- subcontractor claims -->
+    <record id="zc_claim_form_sub" model="ir.ui.view">
+        <field name="name">zc.claim.form.sub</field>
+        <field name="model">zc.claim</field>
+        <field name="inherit_id" ref="zc_claims_escalation.zc_claim_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_pass_to_owner" type="object" string="Pass to the owner (back-to-back)"
+                        invisible="claimant != 'sub' or owner_claim_id"/>
+            </xpath>
+            <xpath expr="//field[@name='sale_order_id']" position="before">
+                <field name="claimant" widget="radio" options="{'horizontal': true}" readonly="state != 'event'"/>
+                <field name="subcontract_id" invisible="claimant != 'sub'" required="claimant == 'sub'"
+                       options="{'no_create': True}"/>
+                <field name="sub_partner_id" invisible="claimant != 'sub'"/>
+            </xpath>
+            <xpath expr="//field[@name='variation_id']" position="after">
+                <field name="owner_claim_id" invisible="claimant != 'sub'"/>
+                <field name="sub_claim_ids" widget="many2many_tags" invisible="claimant != 'us' or not sub_claim_ids"/>
+                <field name="bill_id" invisible="not bill_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="zc_claim_list_sub" model="ir.ui.view">
+        <field name="name">zc.claim.list.sub</field>
+        <field name="model">zc.claim</field>
+        <field name="inherit_id" ref="zc_claims_escalation.zc_claim_list"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='claim_type']" position="before">
+                <field name="claimant" optional="show" widget="badge" decoration-warning="claimant == 'sub'"/>
+                <field name="sub_partner_id" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- handover documents -->
+    <record id="zc_handover_form_docs" model="ir.ui.view">
+        <field name="name">zc.handover.form.docs</field>
+        <field name="model">zc.handover</field>
+        <field name="inherit_id" ref="zc_contract_closeout.zc_handover_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='snag_open']" position="after">
+                <field name="document_missing" decoration-danger="document_missing &gt; 0"/>
+            </xpath>
+            <xpath expr="//page[@name='snags']" position="after">
+                <page string="Handover documents" name="documents">
+                    <button name="action_load_documents" type="object" string="Load the standard checklist"
+                            class="btn-link" invisible="document_ids or state != 'draft'"/>
+                    <field name="document_ids">
+                        <list editable="bottom" decoration-success="received" decoration-danger="required and not received">
+                            <field name="sequence" widget="handle"/>
+                            <field name="doc_type"/>
+                            <field name="name"/>
+                            <field name="required"/>
+                            <field name="received"/>
+                            <field name="date"/>
+                            <field name="reference"/>
+                            <field name="partner_id"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- safety on the daily report -->
+    <record id="view_zc_daily_report_form_safety" model="ir.ui.view">
+        <field name="name">zc.daily.report.form.safety</field>
+        <field name="model">zc.daily.report</field>
+        <field name="inherit_id" ref="zc_site_records.view_zc_daily_report_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='delays']" position="after">
+                <page string="Safety" name="safety">
+                    <group>
+                        <group>
+                            <field name="toolbox_talk"/>
+                            <field name="permits"/>
+                            <field name="incident"/>
+                        </group>
+                        <group>
+                            <field name="safety_observations"/>
+                            <field name="incident_note" invisible="incident == 'none'" required="incident != 'none'"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_zc_daily_report_list_safety" model="ir.ui.view">
+        <field name="name">zc.daily.report.list.safety</field>
+        <field name="model">zc.daily.report</field>
+        <field name="inherit_id" ref="zc_site_records.view_zc_daily_report_list"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='delay_hours']" position="after">
+                <field name="incident" optional="show" widget="badge" decoration-danger="incident in ('medical', 'lost_time')"
+                       decoration-warning="incident in ('near_miss', 'first_aid')"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_zc_sub_claims" model="ir.actions.act_window">
+        <field name="name">Subcontractor Claims</field>
+        <field name="res_model">zc.claim</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('claimant', '=', 'sub')]</field>
+        <field name="context">{'default_claimant': 'sub'}</field>
+    </record>
+    <menuitem id="menu_zc_sub_claims" name="Subcontractor Claims" parent="hom_contracting_base.menu_hom_contracts_top"
+              action="action_zc_sub_claims" sequence="31"/>
+</odoo>

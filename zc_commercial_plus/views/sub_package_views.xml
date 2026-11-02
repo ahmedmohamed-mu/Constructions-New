@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_zc_sub_package_form" model="ir.ui.view">
+        <field name="name">zc.sub.package.form</field>
+        <field name="model">zc.sub.package</field>
+        <field name="arch" type="xml">
+            <form string="Subcontract Package">
+                <header>
+                    <button name="action_request_offers" type="object" string="Request offers" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_award" type="object" string="Award to the lowest offer" class="btn-primary" invisible="state != 'tender'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,tender,awarded"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_offers" type="object" class="oe_stat_button" icon="fa-files-o" invisible="not rfq_ids">
+                            <span class="o_stat_text">Offers</span>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                        <h3><field name="title" placeholder="e.g. Gypsum ceilings - labour only"/></h3>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="sale_order_id" readonly="state != 'draft'"/>
+                            <field name="product_id"/>
+                            <field name="deadline"/>
+                            <field name="awarded_id" invisible="not awarded_id"/>
+                        </group>
+                        <group>
+                            <field name="partner_ids" widget="many2many_tags" readonly="state != 'draft'"/>
+                            <field name="budget_amount"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Items" name="items">
+                            <field name="sale_line_ids" readonly="state != 'draft'">
+                                <list>
+                                    <field name="product_id"/>
+                                    <field name="product_uom_qty"/>
+                                    <field name="price_unit"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Comparison" name="comparison">
+                            <field name="comparison_html" nolabel="1"/>
+                            <div class="text-muted small">Prices in red are above the installation budget of the item.
+                                Enter each subcontractor's prices on his offer (Offers button), then award.</div>
+                            <field name="rfq_ids">
+                                <list create="0">
+                                    <field name="partner_id"/>
+                                    <field name="amount_untaxed" sum="Total"/>
+                                    <field name="state" widget="badge"/>
+                                    <button name="action_zc_award" type="object" string="Award" icon="fa-trophy"
+                                            invisible="state not in ('draft', 'sent')"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Scope" name="scope"><field name="scope"/></page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_zc_sub_package_list" model="ir.ui.view">
+        <field name="name">zc.sub.package.list</field>
+        <field name="model">zc.sub.package</field>
+        <field name="arch" type="xml">
+            <list string="Subcontract Packages">
+                <field name="currency_id" column_invisible="1"/>
+                <field name="name"/>
+                <field name="title"/>
+                <field name="sale_order_id"/>
+                <field name="deadline"/>
+                <field name="budget_amount"/>
+                <field name="awarded_id"/>
+                <field name="state" widget="badge" decoration-success="state == 'awarded'" decoration-info="state == 'tender'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_zc_sub_package" model="ir.actions.act_window">
+        <field name="name">Subcontract Packages</field>
+        <field name="res_model">zc.sub.package</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_zc_sub_package" name="Subcontract Packages (offers)" parent="hom_contracting_base.menu_hom_contracts_top"
+              action="action_zc_sub_package" sequence="25"/>
+</odoo>

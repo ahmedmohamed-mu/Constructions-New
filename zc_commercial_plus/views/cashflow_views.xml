@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_zc_cashflow_list" model="ir.ui.view">
+        <field name="name">zc.cashflow.line.list</field>
+        <field name="model">zc.cashflow.line</field>
+        <field name="arch" type="xml">
+            <list string="Cash-Flow Forecast" create="0" delete="0" decoration-danger="cumulative &lt; 0">
+                <header>
+                    <button name="action_refresh" type="object" string="Refresh forecast" class="btn-primary" display="always"/>
+                </header>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="sale_order_id"/>
+                <field name="month_label"/>
+                <field name="kind"/>
+                <field name="amount" sum="Net"/>
+                <field name="cumulative"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_zc_cashflow_pivot" model="ir.ui.view">
+        <field name="name">zc.cashflow.line.pivot</field>
+        <field name="model">zc.cashflow.line</field>
+        <field name="arch" type="xml">
+            <pivot string="Cash-Flow Forecast" sample="1">
+                <field name="kind" type="row"/>
+                <field name="month_label" type="col"/>
+                <field name="amount" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_zc_cashflow_graph" model="ir.ui.view">
+        <field name="name">zc.cashflow.line.graph</field>
+        <field name="model">zc.cashflow.line</field>
+        <field name="arch" type="xml">
+            <graph string="Cash-Flow Forecast" type="bar" stacked="1">
+                <field name="month_label" type="row"/>
+                <field name="direction" type="col"/>
+                <field name="amount" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_zc_cashflow_search" model="ir.ui.view">
+        <field name="name">zc.cashflow.line.search</field>
+        <field name="model">zc.cashflow.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="sale_order_id"/>
+                <filter name="cash_in" string="Cash in" domain="[('direction', '=', 'in')]"/>
+                <filter name="cash_out" string="Cash out" domain="[('direction', '=', 'out')]"/>
+                <group>
+                    <filter name="by_contract" string="Contract" context="{'group_by': 'sale_order_id'}"/>
+                    <filter name="by_month" string="Month" context="{'group_by': 'month_label'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_zc_cashflow" model="ir.actions.act_window">
+        <field name="name">Cash-Flow Forecast</field>
+        <field name="res_model">zc.cashflow.line</field>
+        <field name="view_mode">pivot,graph,list</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Press "Refresh forecast" from the list view</p>
+            <p>Owner collections (open invoices, the rest of the contract along the baseline, retention) against
+                supplier and subcontractor payments (open bills, committed orders, budget not ordered yet).</p>
+        </field>
+    </record>
+
+    <record id="action_server_zc_cashflow_refresh" model="ir.actions.server">
+        <field name="name">Cash-Flow Forecast</field>
+        <field name="model_id" ref="model_zc_cashflow_line"/>
+        <field name="state">code</field>
+        <field name="code">action = model.action_refresh()</field>
+    </record>
+
+    <menuitem id="menu_zc_cashflow" name="Cash-Flow Forecast" parent="hom_contracting_base.menu_hom_finance_top"
+              action="action_server_zc_cashflow_refresh" sequence="5"/>
+</odoo>

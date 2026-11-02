@@ -8,7 +8,8 @@ class ZcMyWork(models.TransientModel):
     _name = "zc.my.work"
     _description = "My Work"
 
-    user_id = fields.Many2one("res.users", default=lambda self: self.env.user, readonly=True)
+    user_id = fields.Many2one("res.users", string="Work of", default=lambda self: self.env.user, required=True,
+                              help="Managers can look at the list of another user (site engineer, QS, PM, accounts).")
     date = fields.Date(default=fields.Date.context_today, readonly=True)
     line_ids = fields.One2many("zc.my.work.line", "work_id", readonly=True)
     total = fields.Integer(compute="_compute_total")
@@ -24,6 +25,12 @@ class ZcMyWork(models.TransientModel):
         return {"type": "ir.actions.act_window", "name": _("My Work"), "res_model": self._name, "res_id": rec.id,
                 "view_mode": "form", "target": "current",
                 "views": [(self.env.ref("zc_my_work.view_zc_my_work_form").id, "form")]}
+
+    @api.onchange("user_id")
+    def _onchange_user_id(self):
+        if self.user_id:
+            rows = self._zc_items(self.user_id, self.date or fields.Date.context_today(self))
+            self.line_ids = [(5, 0, 0)] + [(0, 0, row) for row in rows if row["count"]]
 
     def action_refresh(self):
         self._refresh()

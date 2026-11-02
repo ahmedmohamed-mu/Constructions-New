@@ -10,7 +10,7 @@
                 </header>
                 <sheet>
                     <div class="oe_title">
-                        <h1><field name="user_id" readonly="1" options="{'no_open': True}"/></h1>
+                        <h1><field name="user_id" options="{'no_open': True, 'no_create': True}"/></h1>
                         <div class="text-muted"><field name="date" readonly="1"/> · <field name="total"/> items waiting</div>
                     </div>
                     <field name="line_ids" nolabel="1">

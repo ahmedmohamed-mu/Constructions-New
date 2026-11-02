@@ -1,0 +1,920 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* zc_commercial_plus
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-02 19:03+0000\n"
+"PO-Revision-Date: 2026-11-02 19:03+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: zc_commercial_plus
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.view_zc_sub_package_form
+msgid "<span class=\"o_stat_text\">Offers</span>"
+msgstr "<span class=\"o_stat_text\">العروض</span>"
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/sub_claim.py:0
+msgid "A subcontractor claim needs its subcontract."
+msgstr "مطالبة الباطن لازم يتحدد عقدها."
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__activity_plans_ids
+msgid "Activity Plans"
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/sub_claim.py:0
+msgid "Already billed: %s"
+msgstr "اتفوترت قبل كده: %s"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_handover_document__doc_type__asbuilt
+msgid "As-built drawings"
+msgstr "رسومات ما تم تنفيذه (As-built)"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.view_zc_sub_package_form
+msgid "Award"
+msgstr "ترسية"
+
+#. module: zc_commercial_plus
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.view_zc_sub_package_form
+msgid "Award to the lowest offer"
+msgstr "الترسية على أقل عرض"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_sub_package__state__awarded
+msgid "Awarded"
+msgstr "تمت الترسية"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__awarded_id
+msgid "Awarded to"
+msgstr "الترسية على"
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/sub_package.py:0
+msgid "Awarded to %(p)s for %(a)s."
+msgstr "اترسّت على %(p)s بقيمة %(a)s."
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__sale_line_ids
+msgid "BOQ items"
+msgstr "بنود المقايسة"
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/sub_package.py:0
+msgid "Budget rate"
+msgstr "سعر الميزانية"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_sub_package__state__cancel
+msgid "Cancelled"
+msgstr "ملغي"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_cashflow_line__direction__in
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.view_zc_cashflow_search
+msgid "Cash in"
+msgstr "متحصلات"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_cashflow_line__direction__out
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.view_zc_cashflow_search
+msgid "Cash out"
+msgstr "مدفوعات"
+
+#. module: zc_commercial_plus
+#: model:ir.actions.act_window,name:zc_commercial_plus.action_zc_cashflow
+#: model:ir.actions.server,name:zc_commercial_plus.action_server_zc_cashflow_refresh
+#: model:ir.ui.menu,name:zc_commercial_plus.menu_zc_cashflow
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.view_zc_cashflow_graph
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.view_zc_cashflow_list
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.view_zc_cashflow_pivot
+msgid "Cash-Flow Forecast"
+msgstr "التدفق النقدي المتوقع"
+
+#. module: zc_commercial_plus
+#: model:ir.module.module,summary:base.module_zc_commercial_plus
+msgid ""
+"Cash-flow forecast per contract (owner collections versus supplier and "
+"subcontractor payments, peak funding), subcontractor packages with offers "
+"compared against the item budget and awarded, subcontractor claims against "
+"us passed back-to-back to the owner, the handover documents checklist (as-"
+"built, O&M manuals, warranties, tests) and site safety on the daily report."
+msgstr ""
+"توقع التدفق النقدي لكل عقد (تحصيل المالك مقابل مدفوعات الموردين والمقاولين، "
+"وأقصى احتياج تمويلي)، وحزم الباطن ومقارنة العروض بالميزانية والترسية، "
+"ومطالبات الباطن علينا وتحويلها للمالك، وقائمة مستندات التسليم، والسلامة في "
+"التقرير اليومي."
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/sub_package.py:0
+msgid "Choose the BOQ items and the subcontractors to invite."
+msgstr "اختار البنود ومقاولي الباطن المدعوين."
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/sub_claim.py:0
+msgid "Claim %s"
+msgstr "مطالبة %s"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_claim__claimant
+msgid "Claimant"
+msgstr "صاحب المطالبة"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_cashflow_line__company_id
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__comparison_html
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.view_zc_sub_package_form
+msgid "Comparison"
+msgstr "المقارنة"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_cashflow_line__sale_order_id
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__sale_order_id
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.view_zc_cashflow_search
+msgid "Contract"
+msgstr "العقد"
+
+#. module: zc_commercial_plus
+#: model:ir.model,name:zc_commercial_plus.model_zc_cashflow_line
+msgid "Contract Cash-Flow Forecast"
+msgstr "التدفق النقدي المتوقع للعقد"
+
+#. module: zc_commercial_plus
+#: model:ir.model,name:zc_commercial_plus.model_hom_control_tower
+msgid "Contracting Control Tower"
+msgstr "برج التحكم للمقاولات"
+
+#. module: zc_commercial_plus
+#: model:ir.model,name:zc_commercial_plus.model_zc_claim
+msgid "Contractor Claim (EOT / cost)"
+msgstr "مطالبة المقاول (مدة / تكلفة)"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_cashflow_line__create_uid
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_handover_document__create_uid
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_cashflow_line__create_date
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_handover_document__create_date
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_cashflow_line__cumulative
+msgid "Cumulative (contract)"
+msgstr "التراكمي (للعقد)"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_cashflow_line__currency_id
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/safety.py:0
+msgid "Describe the incident and the actions taken."
+msgstr "اكتب الحادثة والإجراءات اللي اتعملت."
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_cashflow_line__direction
+msgid "Direction"
+msgstr "الاتجاه"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_hom_control_tower__display_name
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_purchase_order__display_name
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_cashflow_line__display_name
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_claim__display_name
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_daily_report__display_name
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_handover__display_name
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_handover_document__display_name
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_handover_document__doc_type
+msgid "Doc Type"
+msgstr "نوع المستند"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_handover_document__name
+msgid "Document"
+msgstr "المستند"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_sub_package__state__draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/sub_package.py:0
+msgid "Enter the prices of the offers first."
+msgstr "دخّل أسعار العروض الأول."
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_daily_report__incident__first_aid
+msgid "First aid"
+msgstr "إسعافات أولية"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_cashflow_line__kind__in_future
+msgid "Future certificates (remaining contract)"
+msgstr "مستخلصات قادمة (باقي العقد)"
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/handover_docs.py:0
+msgid "Hand over these documents before signing: %s"
+msgstr "سلّم المستندات دي قبل التوقيع: %s"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_handover_document__received
+msgid "Handed over"
+msgstr "اتسلّم"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_handover_document__handover_id
+msgid "Handover"
+msgstr "محضر التسليم"
+
+#. module: zc_commercial_plus
+#: model:ir.model,name:zc_commercial_plus.model_zc_handover_document
+msgid "Handover Document"
+msgstr "مستند تسليم"
+
+#. module: zc_commercial_plus
+#: model:ir.model,name:zc_commercial_plus.model_zc_handover
+msgid "Handover Minutes"
+msgstr "محضر التسليم"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_handover__document_ids
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.zc_handover_form_docs
+msgid "Handover documents"
+msgstr "مستندات التسليم"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,help:zc_commercial_plus.field_zc_daily_report__permits
+msgid "Hot work, work at height, excavation..."
+msgstr "أعمال ساخنة، عمل على ارتفاع، حفر..."
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_hom_control_tower__id
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_purchase_order__id
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_cashflow_line__id
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_claim__id
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_daily_report__id
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_handover__id
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_handover_document__id
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,help:zc_commercial_plus.field_zc_sub_package__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,help:zc_commercial_plus.field_zc_sub_package__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,help:zc_commercial_plus.field_zc_sub_package__message_has_error
+#: model:ir.model.fields,help:zc_commercial_plus.field_zc_sub_package__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_daily_report__incident
+msgid "Incident"
+msgstr "الحوادث"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_daily_report__incident_note
+msgid "Incident description & actions"
+msgstr "وصف الحادثة والإجراءات"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__partner_ids
+msgid "Invited subcontractors"
+msgstr "المقاولين المدعوين"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/sub_package.py:0
+msgid "Item"
+msgstr "البند"
+
+#. module: zc_commercial_plus
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.view_zc_sub_package_form
+msgid "Items"
+msgstr "البنود"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_cashflow_line__kind
+msgid "Kind"
+msgstr "النوع"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__budget_amount
+msgid "Labour budget of the items"
+msgstr "ميزانية مصنعية البنود"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_cashflow_line__write_uid
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_handover_document__write_uid
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_cashflow_line__write_date
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_handover_document__write_date
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.zc_handover_form_docs
+msgid "Load the standard checklist"
+msgstr "تحميل قائمة المستندات القياسية"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_daily_report__incident__lost_time
+msgid "Lost-time injury"
+msgstr "إصابة مع توقف عن العمل"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,help:zc_commercial_plus.field_zc_sub_package__activity_type_icon
+msgid "Material Symbols icon e.g. checklist"
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_daily_report__incident__medical
+msgid "Medical treatment"
+msgstr "علاج طبي"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_cashflow_line__month
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.view_zc_cashflow_search
+msgid "Month"
+msgstr "الشهر"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_daily_report__incident__near_miss
+msgid "Near miss"
+msgstr "حادثة وشيكة"
+
+#. module: zc_commercial_plus
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.view_zc_cashflow_list
+msgid "Net"
+msgstr "الصافي"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_cashflow_line__amount
+msgid "Net cash"
+msgstr "صافي النقدية"
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/sub_package.py:0
+msgid "New"
+msgstr "جديد"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_daily_report__incident__none
+msgid "No incident"
+msgstr "بدون حوادث"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,help:zc_commercial_plus.field_zc_sub_package__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,help:zc_commercial_plus.field_zc_sub_package__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/sub_package.py:0
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__rfq_ids
+msgid "Offers"
+msgstr "العروض"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__deadline
+msgid "Offers due"
+msgstr "موعد العروض"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_sub_package__state__tender
+msgid "Offers requested"
+msgstr "العروض مطلوبة"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_handover_document__date
+msgid "On"
+msgstr "في"
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/sub_claim.py:0
+msgid "Only a subcontractor claim is passed to the owner."
+msgstr "مطالبة الباطن بس هي اللي بتتحول للمالك."
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/sub_claim.py:0
+msgid "Only an agreed amount is billed."
+msgstr "بيتفوتر المبلغ المتفق عليه بس."
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/sub_claim.py:0
+msgid "Opened from the subcontractor claim %s."
+msgstr "اتفتحت من مطالبة الباطن %s."
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_handover_document__doc_type__om_manual
+msgid "Operation & maintenance manuals"
+msgstr "كتيبات التشغيل والصيانة"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_cashflow_line__kind__out_committed
+msgid "Orders committed, not billed yet"
+msgstr "أوامر ملتزم بيها ولسه ما اتفوترتش"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_handover_document__doc_type__other
+msgid "Other"
+msgstr "أخرى"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_claim__claimant__us
+msgid "Our claim to the owner"
+msgstr "مطالبتنا للمالك"
+
+#. module: zc_commercial_plus
+#: model_terms:ir.actions.act_window,help:zc_commercial_plus.action_zc_cashflow
+msgid ""
+"Owner collections (open invoices, the rest of the contract along the baseline, retention) against\n"
+"                supplier and subcontractor payments (open bills, committed orders, budget not ordered yet)."
+msgstr ""
+"تحصيل المالك (فواتير مفتوحة، وباقي العقد حسب البرنامج الزمني، والمحتجز) "
+"مقابل مدفوعات الموردين والمقاولين (فواتير مفتوحة، وأوامر ملتزم بيها، "
+"وميزانية لسه ما اتطلبتش)."
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_cashflow_line__kind__in_open
+msgid "Owner invoices to collect"
+msgstr "فواتير مالك للتحصيل"
+
+#. module: zc_commercial_plus
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.zc_claim_form_sub
+msgid "Pass to the owner (back-to-back)"
+msgstr "تحويل للمالك (Back-to-Back)"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_claim__owner_claim_id
+msgid "Passed to the owner as"
+msgstr "اتحولت للمالك كـ"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_cashflow_line__month_label
+msgid "Period"
+msgstr "الفترة"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,help:zc_commercial_plus.field_zc_cashflow_line__amount
+msgid "Positive = collected, negative = paid."
+msgstr "موجب = متحصل، سالب = مدفوع."
+
+#. module: zc_commercial_plus
+#: model_terms:ir.actions.act_window,help:zc_commercial_plus.action_zc_cashflow
+msgid "Press \"Refresh forecast\" from the list view"
+msgstr "اضغط \"تحديث التوقع\" من شاشة القائمة"
+
+#. module: zc_commercial_plus
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.view_zc_sub_package_form
+msgid ""
+"Prices in red are above the installation budget of the item.\n"
+"                                Enter each subcontractor's prices on his offer (Offers button), then award."
+msgstr ""
+"الأسعار باللون الأحمر أعلى من ميزانية مصنعية البند. دخّل أسعار كل مقاول على "
+"عرضه (زرار العروض)، وبعدين رسّي."
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_cashflow_line__project_id
+msgid "Project"
+msgstr "المشروع"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_handover_document__partner_id
+msgid "Provided by"
+msgstr "مقدم من"
+
+#. module: zc_commercial_plus
+#: model:ir.model,name:zc_commercial_plus.model_purchase_order
+msgid "Purchase Order"
+msgstr "أمر الشراء"
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/sub_package.py:0
+msgid "Qty"
+msgstr "الكمية"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__rating_ids
+msgid "Ratings"
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.view_zc_cashflow_list
+msgid "Refresh forecast"
+msgstr "تحديث التوقع"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_cashflow_line__kind__out_budget
+msgid "Remaining budget not ordered yet"
+msgstr "باقي الميزانية اللي لسه ما اتطلبتش"
+
+#. module: zc_commercial_plus
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.view_zc_sub_package_form
+msgid "Request offers"
+msgstr "طلب العروض"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_handover_document__required
+msgid "Required"
+msgstr "إلزامي"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_handover__document_missing
+msgid "Required documents missing"
+msgstr "مستندات إلزامية ناقصة"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_cashflow_line__kind__in_retention
+msgid "Retention release"
+msgstr "رد المحتجز"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.view_zc_daily_report_form_safety
+msgid "Safety"
+msgstr "السلامة"
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/control_tower.py:0
+msgid "Safety incidents"
+msgstr "حوادث السلامة"
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/control_tower.py:0
+msgid "Safety incidents with injury in the last 30 days"
+msgstr "حوادث سلامة فيها إصابات آخر 30 يوم"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_daily_report__safety_observations
+msgid "Safety observations"
+msgstr "ملاحظات السلامة"
+
+#. module: zc_commercial_plus
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.view_zc_sub_package_form
+msgid "Scope"
+msgstr "النطاق"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__scope
+msgid "Scope & responsibilities"
+msgstr "النطاق والمسؤوليات"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_handover_document__sequence
+msgid "Sequence"
+msgstr "الترتيب"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__product_id
+msgid "Service bought"
+msgstr "الخدمة المشتراة"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_claim__bill_id
+msgid "Settlement bill"
+msgstr "فاتورة التسوية"
+
+#. module: zc_commercial_plus
+#: model:ir.model,name:zc_commercial_plus.model_zc_daily_report
+msgid "Site Daily Report"
+msgstr "التقرير اليومي للموقع"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_handover_document__doc_type__spares
+msgid "Spare parts & keys handed over"
+msgstr "تسليم قطع الغيار والمفاتيح"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__state
+msgid "State"
+msgstr "الحالة"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,help:zc_commercial_plus.field_zc_sub_package__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_claim__subcontract_id
+msgid "Subcontract"
+msgstr "عقد الباطن"
+
+#. module: zc_commercial_plus
+#: model:ir.model,name:zc_commercial_plus.model_zc_sub_package
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.view_zc_sub_package_form
+msgid "Subcontract Package"
+msgstr "حزمة أعمال باطن"
+
+#. module: zc_commercial_plus
+#: model:ir.actions.act_window,name:zc_commercial_plus.action_zc_sub_package
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.view_zc_sub_package_list
+msgid "Subcontract Packages"
+msgstr "حزم أعمال الباطن"
+
+#. module: zc_commercial_plus
+#: model:ir.ui.menu,name:zc_commercial_plus.menu_zc_sub_package
+msgid "Subcontract Packages (offers)"
+msgstr "حزم الباطن (مقارنة العروض)"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_purchase_order__zc_package_id
+msgid "Subcontract package"
+msgstr "حزمة الباطن"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_claim__sub_partner_id
+msgid "Subcontractor"
+msgstr "مقاول الباطن"
+
+#. module: zc_commercial_plus
+#: model:ir.actions.act_window,name:zc_commercial_plus.action_zc_sub_claims
+#: model:ir.ui.menu,name:zc_commercial_plus.menu_zc_sub_claims
+msgid "Subcontractor Claims"
+msgstr "مطالبات مقاولي الباطن"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_claim__claimant__sub
+msgid "Subcontractor claim to us"
+msgstr "مطالبة مقاول باطن علينا"
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/control_tower.py:0
+msgid "Subcontractor claims"
+msgstr "مطالبات الباطن"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_claim__sub_claim_ids
+msgid "Subcontractor claims behind it"
+msgstr "مطالبات الباطن وراها"
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/control_tower.py:0
+msgid "Subcontractor claims not answered or not passed to the owner"
+msgstr "مطالبات باطن ما اتردش عليها أو ما اتحولتش للمالك"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_cashflow_line__kind__out_open
+msgid "Supplier & subcontractor bills to pay"
+msgstr "فواتير موردين ومقاولين للسداد"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_handover_document__doc_type__warranty
+msgid "Supplier warranties"
+msgstr "ضمانات الموردين"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_handover_document__doc_type__test
+msgid "Test & commissioning certificates"
+msgstr "شهادات الاختبار والتشغيل"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__title
+msgid "Title"
+msgstr "العنوان"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_daily_report__toolbox_talk
+msgid "Toolbox talk held"
+msgstr "اجتماع السلامة اليومي اتعمل"
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/sub_package.py:0
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.view_zc_sub_package_form
+msgid "Total"
+msgstr "الإجمالي"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_handover_document__doc_type__training
+msgid "Training of the owner's staff"
+msgstr "تدريب فريق المالك"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_handover_document__reference
+msgid "Transmittal / ref."
+msgstr "خطاب التسليم / المرجع"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,help:zc_commercial_plus.field_zc_sub_package__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,help:zc_commercial_plus.field_zc_sub_package__scope
+msgid ""
+"Who supplies, stores and tests the materials, wastage, payment conditions..."
+msgstr "مين بيورّد ويخزّن ويختبر الخامات، والهالك، وشروط الدفع..."
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_daily_report__permits
+msgid "Work permits issued"
+msgstr "تصاريح العمل الصادرة"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,help:zc_commercial_plus.field_zc_claim__sub_partner_id
+msgid "You can find a vendor by its Name, TIN, Email or Internal Reference."
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model:ir.module.module,shortdesc:base.module_zc_commercial_plus
+msgid "Ziij Construction - Commercial & Close-out Plus"
+msgstr "Ziij Construction - التجاري والإقفال (إضافات)"
+
+#. module: zc_commercial_plus
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.view_zc_sub_package_form
+msgid "e.g. Gypsum ceilings - labour only"
+msgstr "مثال: أسقف جبسية - مصنعية فقط"
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/control_tower.py:0
+#: code:addons/zc_commercial_plus/models/sub_package.py:0
+msgid "id"
+msgstr ""
