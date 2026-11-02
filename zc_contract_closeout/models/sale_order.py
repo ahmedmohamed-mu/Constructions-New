@@ -108,7 +108,7 @@ class SaleOrder(models.Model):
         invoices = self.invoice_ids.filtered(lambda m: m.state == "posted") | \
             self.hom_retention_release_ids.filtered(lambda m: m.state == "posted")
         invoiced = sum(m.amount_total * (-1 if m.move_type == "out_refund" else 1) for m in invoices)
-        residual = sum(m.amount_residual * (-1 if m.move_type == "out_refund" else 1) for m in invoices)
+        residual = sum(m._zc_open_amount() * (-1 if m.move_type == "out_refund" else 1) for m in invoices)
         claims = self.env["zc.quantity.dispute"].sudo().search([("sale_order_id", "=", self.id)])
         return {
             "original": sum(r["contract_amount"] for r in boq) - vo_amount, "variations": vo_amount,
@@ -136,3 +136,19 @@ class SaleOrder(models.Model):
                                         date_deadline=order.zc_dlp_end,
                                         summary=_("Final handover due - %s", order.name),
                                         note=_("Defects liability period ends on %s.", order.zc_dlp_end))
+
+
+class AccountMove(models.Model):
+    _inherit = "account.move"
+
+    def _zc_open_amount(self):
+        """Amount still to collect. A payment registered on a bank journal without an outstanding account has no
+        journal entry until the bank statement is matched (the invoice is 'In payment' and its residual does not
+        move): it is deducted here from the payments matched to the invoice."""
+        self.ensure_one()
+        residual = self.amount_residual
+        if residual and "matched_payment_ids" in self._fields:
+            pending = self.matched_payment_ids.filtered(
+                lambda p: not p.move_id and p.state not in ("draft", "canceled", "rejected"))
+            residual -= sum(abs(p.amount_company_currency_signed) for p in pending)
+        return max(residual, 0.0)

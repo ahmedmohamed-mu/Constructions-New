@@ -99,3 +99,21 @@ class TestClaimsEscalation(AccountTestInvoicingCommon):
         self.assertAlmostEqual(soon.invoice_id.amount_untaxed, 30000)
         soon.action_dispute()
         self.assertEqual(soon.state, "dispute")
+
+    def test_eot_needs_a_completion_date(self):
+        """A new contract whose project has no planned dates cannot silently swallow an extension of time."""
+        today = fields.Date.context_today(self.env.user)
+        claim = self.env["zc.claim"].create({"sale_order_id": self.so.id, "title": "Late access", "claim_type": "both",
+                                             "event_date": today - timedelta(days=5), "days_claimed": 7,
+                                             "amount_claimed": 1000})
+        claim.action_notify()
+        claim.action_submit()
+        dates = {"date_start": self.project.date_start, "date": self.project.date}
+        self.project.write({"date_start": False, "date": False})
+        with self.assertRaises(UserError):
+            claim.action_agree()
+        self.assertEqual(claim.state, "submitted")
+        self.project.write(dates)
+        claim.action_agree()
+        self.assertEqual(claim.state, "agreed")
+        self.assertEqual(self.project.date, dates["date"] + timedelta(days=7))

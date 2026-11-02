@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_zc_item_card_form" model="ir.ui.view">
+        <field name="name">sale.order.line.zc.item.card</field>
+        <field name="model">sale.order.line</field>
+        <field name="priority">100</field>
+        <field name="arch" type="xml">
+            <form string="Item Card" create="0" edit="0" delete="0" duplicate="0">
+                <header>
+                    <field name="zc_ic_status" widget="badge" decoration-success="zc_ic_status == 'ok'"
+                           decoration-warning="zc_ic_status == 'warn'" decoration-danger="zc_ic_status == 'loss'"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_zc_ic_purchases" type="object" class="oe_stat_button" icon="fa-shopping-cart"
+                                invisible="not zc_ic_po_count">
+                            <field name="zc_ic_po_count" widget="statinfo" string="Purchases"/>
+                        </button>
+                        <button name="action_zc_ic_measurements" type="object" class="oe_stat_button" icon="fa-pencil-square-o"
+                                invisible="not zc_ic_measure_count">
+                            <field name="zc_ic_measure_count" widget="statinfo" string="Measurements"/>
+                        </button>
+                        <button name="action_zc_ic_wirs" type="object" class="oe_stat_button" icon="fa-check-square-o"
+                                invisible="not zc_ic_wir_count">
+                            <field name="zc_ic_wir_count" widget="statinfo" string="WIRs"/>
+                        </button>
+                        <button name="action_zc_ic_certificates" type="object" class="oe_stat_button" icon="fa-file-text-o"
+                                invisible="not zc_ic_cert_count">
+                            <field name="zc_ic_cert_count" widget="statinfo" string="Owner Certificates"/>
+                        </button>
+                        <button name="action_zc_ic_sub_certificates" type="object" class="oe_stat_button" icon="fa-users"
+                                invisible="not zc_ic_sub_cert_count">
+                            <field name="zc_ic_sub_cert_count" widget="statinfo" string="Sub. Certificates"/>
+                        </button>
+                        <button name="action_zc_ic_invoices" type="object" class="oe_stat_button" icon="fa-money"
+                                invisible="not zc_ic_invoice_count">
+                            <field name="zc_ic_invoice_count" widget="statinfo" string="Invoices"/>
+                        </button>
+                        <button name="action_zc_ic_bills" type="object" class="oe_stat_button" icon="fa-pencil-square"
+                                invisible="not zc_ic_bill_count">
+                            <field name="zc_ic_bill_count" widget="statinfo" string="Bills"/>
+                        </button>
+                        <button name="action_zc_ic_disputes" type="object" class="oe_stat_button" icon="fa-balance-scale"
+                                invisible="not zc_ic_dispute_count">
+                            <field name="zc_ic_dispute_count" widget="statinfo" string="Quantity Claims"/>
+                        </button>
+                        <button name="action_zc_ic_variations" type="object" class="oe_stat_button" icon="fa-random"
+                                invisible="not zc_ic_vo_count">
+                            <field name="zc_ic_vo_count" widget="statinfo" string="Variations"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="product_id" string="BOQ Item"/>
+                        <h1><field name="product_id" readonly="1" options="{'no_open': True}"/></h1>
+                        <div class="text-muted">
+                            <field name="order_id" readonly="1" class="oe_inline"/>
+                        </div>
+                    </div>
+                    <field name="currency_id" invisible="1"/>
+                    <field name="display_type" invisible="1"/>
+                    <group>
+                        <group string="1. Sold &amp; budget">
+                            <field name="product_uom_qty" string="Contract Qty" readonly="1"/>
+                            <field name="product_uom_id" string="Unit" readonly="1" options="{'no_open': True}"/>
+                            <field name="price_unit" string="Selling Rate" readonly="1"/>
+                            <field name="zc_ic_sold"/>
+                            <field name="zc_ic_budget_cost"/>
+                            <field name="zc_ic_budget_margin"/>
+                            <field name="zc_ic_budget_margin_pct" widget="percentage" options="{'factor': 0.01}"/>
+                        </group>
+                        <group string="2. Bought &amp; executed by">
+                            <field name="zc_ic_sub_partner_ids" widget="many2many_tags" readonly="1"/>
+                            <field name="zc_ic_committed"/>
+                            <field name="zc_ic_over_budget_lines" decoration-danger="zc_ic_over_budget_lines &gt; 0"/>
+                            <field name="zc_ic_billed_cost"/>
+                            <field name="zc_ic_paid_cost"/>
+                        </group>
+                        <group string="3. Site &amp; consultant">
+                            <field name="zc_ic_measured_qty"/>
+                            <field name="zc_ic_accepted_qty"/>
+                            <field name="zc_ic_submitted_qty"/>
+                            <field name="qty_delivered" string="Certified Qty" readonly="1"/>
+                            <field name="zc_ic_progress_pct" widget="progressbar"/>
+                            <field name="zc_ic_cut_qty" decoration-warning="zc_ic_cut_qty &gt; 0"/>
+                            <field name="zc_ic_cut_amount" decoration-warning="zc_ic_cut_amount &gt; 0"/>
+                        </group>
+                        <group string="4. Subcontractor (back-to-back)">
+                            <field name="zc_ic_sub_certified_qty"/>
+                            <field name="zc_ic_sub_certified_amount"/>
+                        </group>
+                        <group string="5. Owner money">
+                            <field name="zc_ic_certified_amount"/>
+                            <field name="zc_ic_invoiced_amount"/>
+                            <field name="zc_ic_collected_amount"/>
+                            <field name="zc_ic_overdue_amount" decoration-danger="zc_ic_overdue_amount &gt; 0"/>
+                        </group>
+                        <group string="6. Expected at completion">
+                            <field name="zc_ic_forecast_cost"/>
+                            <field name="zc_ic_forecast_margin"/>
+                            <field name="zc_ic_forecast_margin_pct" widget="percentage" options="{'factor': 0.01}"/>
+                            <field name="zc_ic_margin_drift" decoration-danger="zc_ic_margin_drift &lt; 0"
+                                   decoration-success="zc_ic_margin_drift &gt; 0"/>
+                        </group>
+                    </group>
+                    <separator string="Cost breakdown (budget, ordered, received)"/>
+                    <field name="zc_cost_line_ids" readonly="1">
+                        <list>
+                            <field name="currency_id" column_invisible="1"/>
+                            <field name="cost_type"/>
+                            <field name="product_id"/>
+                            <field name="name"/>
+                            <field name="qty_per_unit"/>
+                            <field name="unit_cost"/>
+                            <field name="budget_qty"/>
+                            <field name="ordered_qty"/>
+                            <field name="received_qty"/>
+                            <field name="budget_amount" sum="Budget"/>
+                            <field name="committed_amount" sum="Committed"/>
+                        </list>
+                    </field>
+                    <div class="text-muted small mt-2">
+                        Forecast final cost = what is already ordered for each budget line + what the budget still has to
+                        buy at the budget rate, plus anything ordered for the item outside the budget lines. Collected and
+                        overdue amounts follow the payment of each owner invoice that contains the item.
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_zc_item_card_list" model="ir.ui.view">
+        <field name="name">sale.order.line.zc.item.card.list</field>
+        <field name="model">sale.order.line</field>
+        <field name="priority">100</field>
+        <field name="arch" type="xml">
+            <list string="Item Cards" create="0" delete="0" edit="0"
+                  decoration-danger="zc_ic_status == 'loss'" decoration-warning="zc_ic_status == 'warn'">
+                <field name="currency_id" column_invisible="1"/>
+                <field name="order_id"/>
+                <field name="product_id"/>
+                <field name="product_uom_qty" string="Qty"/>
+                <field name="price_subtotal" string="Sold" sum="Sold"/>
+                <field name="zc_ic_progress_pct" widget="progressbar"/>
+                <field name="zc_ic_certified_amount"/>
+                <field name="zc_ic_collected_amount"/>
+                <field name="zc_ic_budget_margin"/>
+                <field name="zc_ic_forecast_margin"/>
+                <field name="zc_ic_margin_drift"/>
+                <field name="zc_ic_status" widget="badge" decoration-success="zc_ic_status == 'ok'"
+                       decoration-warning="zc_ic_status == 'warn'" decoration-danger="zc_ic_status == 'loss'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_zc_item_cards" model="ir.actions.act_window">
+        <field name="name">Item Cards</field>
+        <field name="res_model">sale.order.line</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('order_id.state', '=', 'sale'), ('display_type', '=', False),
+            ('is_downpayment', '=', False), ('order_id.hom_project_type', '=', 'contracting')]</field>
+        <field name="context">{'create': False, 'delete': False}</field>
+        <field name="view_ids" eval="[Command.clear(),
+            Command.create({'view_mode': 'list', 'view_id': ref('view_zc_item_card_list')}),
+            Command.create({'view_mode': 'form', 'view_id': ref('view_zc_item_card_form')})]"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No contract items yet</p>
+            <p>Every BOQ item of a confirmed contract: what it was sold for, its budget, what was bought, executed,
+                certified, paid and collected, and the margin expected at completion.</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_zc_item_cards" name="Item Cards" parent="hom_project_dossier.menu_hom_reports_top"
+              action="action_zc_item_cards" sequence="5"/>
+
+    <record id="view_order_form_zc_item_card" model="ir.ui.view">
+        <field name="name">sale.order.form.zc.item.card</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_zc_item_cards" type="object" class="oe_stat_button" icon="fa-id-card-o"
+                        invisible="state != 'sale' or hom_project_type != 'contracting'">
+                    <field name="zc_ic_item_count" widget="statinfo" string="Item Cards"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>

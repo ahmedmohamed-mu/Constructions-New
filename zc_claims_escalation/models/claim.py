@@ -120,6 +120,14 @@ class ZcClaim(models.Model):
                                       summary=_("Follow up the engineer's answer on %s", rec.name))
 
     def _determine(self, state):
+        if state in ("agreed", "partial"):
+            for rec in self.filtered(lambda r: r.state == "submitted"):
+                days = rec.days_granted or (rec.days_claimed if state == "agreed" else 0)
+                if days and rec.claim_type in ("eot", "both") and rec.project_id and not rec.project_id.date:
+                    raise UserError(_(
+                        "Project %s has no planned completion date, so the %s days of extension cannot be added. "
+                        "Set the project start and end dates first, then record the engineer's determination.",
+                        rec.project_id.display_name, days))
         for rec in self.filtered(lambda r: r.state == "submitted"):
             vals = {"state": state, "determination_date": rec.determination_date or fields.Date.context_today(self)}
             if state == "agreed":

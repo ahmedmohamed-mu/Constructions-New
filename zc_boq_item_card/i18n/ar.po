@@ -1,0 +1,494 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* zc_boq_item_card
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-02 13:14+0000\n"
+"PO-Revision-Date: 2026-11-02 13:14+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: zc_boq_item_card
+#: model_terms:ir.ui.view,arch_db:zc_boq_item_card.view_zc_item_card_form
+msgid "1. Sold & budget"
+msgstr "1. البيع والميزانية"
+
+#. module: zc_boq_item_card
+#: model_terms:ir.ui.view,arch_db:zc_boq_item_card.view_zc_item_card_form
+msgid "2. Bought & executed by"
+msgstr "2. المشتريات ومين بينفذ"
+
+#. module: zc_boq_item_card
+#: model_terms:ir.ui.view,arch_db:zc_boq_item_card.view_zc_item_card_form
+msgid "3. Site & consultant"
+msgstr "3. الموقع والاستشاري"
+
+#. module: zc_boq_item_card
+#: model_terms:ir.ui.view,arch_db:zc_boq_item_card.view_zc_item_card_form
+msgid "4. Subcontractor (back-to-back)"
+msgstr "4. مقاول الباطن (Back-to-Back)"
+
+#. module: zc_boq_item_card
+#: model_terms:ir.ui.view,arch_db:zc_boq_item_card.view_zc_item_card_form
+msgid "5. Owner money"
+msgstr "5. فلوس المالك"
+
+#. module: zc_boq_item_card
+#: model_terms:ir.ui.view,arch_db:zc_boq_item_card.view_zc_item_card_form
+msgid "6. Expected at completion"
+msgstr "6. المتوقع عند النهاية"
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order_line__zc_ic_accepted_qty
+msgid "Accepted (WIR passed)"
+msgstr "مقبول (استلام WIR معتمد)"
+
+#. module: zc_boq_item_card
+#: model_terms:ir.ui.view,arch_db:zc_boq_item_card.view_zc_item_card_form
+msgid "BOQ Item"
+msgstr "بند المقايسة"
+
+#. module: zc_boq_item_card
+#: model:ir.model,name:zc_boq_item_card.model_zc_boq_cost_line
+msgid "BOQ Item Cost Breakdown"
+msgstr "تحليل تكلفة البند"
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order_line__zc_ic_billed_cost
+msgid "Billed by suppliers & subcontractors"
+msgstr "مفوتر من الموردين والمقاولين"
+
+#. module: zc_boq_item_card
+#: model_terms:ir.ui.view,arch_db:zc_boq_item_card.view_zc_item_card_form
+msgid "Bills"
+msgstr "فواتير الموردين"
+
+#. module: zc_boq_item_card
+#: model_terms:ir.ui.view,arch_db:zc_boq_item_card.view_zc_item_card_form
+msgid "Budget"
+msgstr "الميزانية"
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order_line__zc_ic_budget_cost
+msgid "Budget Cost"
+msgstr "تكلفة الميزانية"
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order_line__zc_ic_budget_margin
+msgid "Budget Margin"
+msgstr "هامش الميزانية"
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order_line__zc_ic_budget_margin_pct
+msgid "Budget Margin %"
+msgstr "نسبة هامش الميزانية"
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order_line__zc_ic_progress_pct
+msgid "Certified %"
+msgstr "نسبة المعتمد"
+
+#. module: zc_boq_item_card
+#: model_terms:ir.ui.view,arch_db:zc_boq_item_card.view_zc_item_card_form
+msgid "Certified Qty"
+msgstr "الكمية المعتمدة"
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order_line__zc_ic_sub_certified_qty
+msgid "Certified to subcontractors"
+msgstr "المعتمد لمقاولي الباطن"
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order_line__zc_ic_certified_amount
+msgid "Certified value"
+msgstr "قيمة المعتمد"
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order_line__zc_ic_margin_drift
+msgid "Change vs Budget"
+msgstr "التغير عن الميزانية"
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order_line__zc_ic_collected_amount
+msgid "Collected"
+msgstr "المحصّل"
+
+#. module: zc_boq_item_card
+#: model_terms:ir.ui.view,arch_db:zc_boq_item_card.view_zc_item_card_form
+msgid "Committed"
+msgstr "الملتزم به"
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order_line__zc_ic_committed
+msgid "Committed (POs & subcontracts)"
+msgstr "الملتزم به (أوامر شراء وعقود باطن)"
+
+#. module: zc_boq_item_card
+#: model_terms:ir.ui.view,arch_db:zc_boq_item_card.view_zc_item_card_form
+msgid "Contract Qty"
+msgstr "كمية العقد"
+
+#. module: zc_boq_item_card
+#: model_terms:ir.ui.view,arch_db:zc_boq_item_card.view_zc_item_card_form
+msgid "Cost breakdown (budget, ordered, received)"
+msgstr "تحليل التكلفة (الميزانية، المطلوب، المستلم)"
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order_line__zc_ic_cut_qty
+msgid "Cut by consultant (open claims)"
+msgstr "تخفيضات الاستشاري (مطالبات مفتوحة)"
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_purchase_order_line__display_name
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order__display_name
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order_line__display_name
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_zc_boq_cost_line__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: zc_boq_item_card
+#: model_terms:ir.actions.act_window,help:zc_boq_item_card.action_zc_item_cards
+msgid ""
+"Every BOQ item of a confirmed contract: what it was sold for, its budget, what was bought, executed,\n"
+"                certified, paid and collected, and the margin expected at completion."
+msgstr ""
+"كل بند في عقد معتمد: اتباع بكام، ميزانيته، اتشترى له إيه، اتنفذ واتعمد "
+"واتدفع واتحصّل كام، والهامش المتوقع عند النهاية."
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order_line__zc_ic_measured_qty
+msgid "Executed (site measurement)"
+msgstr "المنفّذ (حصر الموقع)"
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order_line__zc_ic_sub_partner_ids
+msgid "Executed by"
+msgstr "المنفّذ"
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order_line__zc_ic_forecast_cost
+msgid "Forecast Final Cost"
+msgstr "التكلفة النهائية المتوقعة"
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order_line__zc_ic_forecast_margin
+msgid "Forecast Margin"
+msgstr "الهامش المتوقع"
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order_line__zc_ic_forecast_margin_pct
+msgid "Forecast Margin %"
+msgstr "نسبة الهامش المتوقع"
+
+#. module: zc_boq_item_card
+#: model_terms:ir.ui.view,arch_db:zc_boq_item_card.view_zc_item_card_form
+msgid ""
+"Forecast final cost = what is already ordered for each budget line + what the budget still has to\n"
+"                        buy at the budget rate, plus anything ordered for the item outside the budget lines. Collected and\n"
+"                        overdue amounts follow the payment of each owner invoice that contains the item."
+msgstr ""
+"التكلفة النهائية المتوقعة = المطلوب فعلًا لكل سطر ميزانية + اللي لسه "
+"الميزانية هتشتريه بسعر الميزانية، + أي طلب للبند خارج سطور الميزانية. "
+"المحصّل والمتأخر محسوبين بنسبة سداد كل فاتورة مالك فيها البند."
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_purchase_order_line__id
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order__id
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order_line__id
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_zc_boq_cost_line__id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: zc_boq_item_card
+#. odoo-python
+#: code:addons/zc_boq_item_card/models/sale_order_line.py:0
+msgid "Inspection Requests"
+msgstr "طلبات الاستلام"
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order_line__zc_ic_invoiced_amount
+msgid "Invoiced to owner"
+msgstr "المفوتر للمالك"
+
+#. module: zc_boq_item_card
+#: model_terms:ir.ui.view,arch_db:zc_boq_item_card.view_zc_item_card_form
+msgid "Invoices"
+msgstr "فواتير المالك"
+
+#. module: zc_boq_item_card
+#: model_terms:ir.ui.view,arch_db:zc_boq_item_card.view_zc_item_card_form
+msgid "Item Card"
+msgstr "بطاقة البند"
+
+#. module: zc_boq_item_card
+#. odoo-python
+#: code:addons/zc_boq_item_card/models/sale_order_line.py:0
+msgid "Item Card - %s"
+msgstr "بطاقة البند - %s"
+
+#. module: zc_boq_item_card
+#: model:ir.actions.act_window,name:zc_boq_item_card.action_zc_item_cards
+#: model:ir.ui.menu,name:zc_boq_item_card.menu_zc_item_cards
+#: model_terms:ir.ui.view,arch_db:zc_boq_item_card.view_order_form_zc_item_card
+#: model_terms:ir.ui.view,arch_db:zc_boq_item_card.view_zc_item_card_list
+msgid "Item Cards"
+msgstr "بطاقات البنود"
+
+#. module: zc_boq_item_card
+#. odoo-python
+#: code:addons/zc_boq_item_card/models/sale_order_line.py:0
+msgid "Item Cards - %s"
+msgstr "بطاقات البنود - %s"
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order_line__zc_ic_status
+msgid "Item Health"
+msgstr "حالة البند"
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields.selection,name:zc_boq_item_card.selection__sale_order_line__zc_ic_status__loss
+msgid "Loss"
+msgstr "خسارة"
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields.selection,name:zc_boq_item_card.selection__sale_order_line__zc_ic_status__warn
+msgid "Margin eroding"
+msgstr "الهامش بيتآكل"
+
+#. module: zc_boq_item_card
+#: model_terms:ir.ui.view,arch_db:zc_boq_item_card.view_zc_item_card_form
+msgid "Measurements"
+msgstr "الحصر"
+
+#. module: zc_boq_item_card
+#: model_terms:ir.actions.act_window,help:zc_boq_item_card.action_zc_item_cards
+msgid "No contract items yet"
+msgstr "لا توجد بنود عقود بعد"
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields.selection,name:zc_boq_item_card.selection__sale_order_line__zc_ic_status__ok
+msgid "On budget"
+msgstr "في حدود الميزانية"
+
+#. module: zc_boq_item_card
+#: model:ir.module.module,summary:base.module_zc_boq_item_card
+msgid ""
+"One screen per contract item (بطاقة البند): what it was sold for, its "
+"budget, who executes it, what was bought, executed, accepted, certified to "
+"the owner and to the subcontractor, invoiced, paid and collected, and the "
+"margin expected at completion, with a button to every source document."
+msgstr ""
+"شاشة واحدة لكل بند في العقد: اتباع بكام، ميزانيته، مين بينفذه، اتشترى له "
+"إيه، اتنفذ واتقبل واتعمد للمالك وللباطن، اتفوتر واتدفع واتحصّل كام، والهامش "
+"المتوقع عند النهاية، مع زرار لكل مستند."
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order_line__zc_ic_cut_amount
+msgid "Open quantity claims"
+msgstr "مطالبات كميات مفتوحة"
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order_line__zc_ic_over_budget_lines
+msgid "Orders above budget"
+msgstr "أوامر فوق الميزانية"
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order_line__zc_ic_overdue_amount
+msgid "Overdue"
+msgstr "متأخر السداد"
+
+#. module: zc_boq_item_card
+#. odoo-python
+#: code:addons/zc_boq_item_card/models/sale_order_line.py:0
+#: model_terms:ir.ui.view,arch_db:zc_boq_item_card.view_zc_item_card_form
+msgid "Owner Certificates"
+msgstr "مستخلصات المالك"
+
+#. module: zc_boq_item_card
+#. odoo-python
+#: code:addons/zc_boq_item_card/models/sale_order_line.py:0
+msgid "Owner Invoices"
+msgstr "فواتير المالك"
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order_line__zc_ic_paid_cost
+msgid "Paid"
+msgstr "المدفوع"
+
+#. module: zc_boq_item_card
+#: model:ir.model,name:zc_boq_item_card.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "بند أمر الشراء"
+
+#. module: zc_boq_item_card
+#: model_terms:ir.ui.view,arch_db:zc_boq_item_card.view_zc_item_card_form
+msgid "Purchases"
+msgstr "المشتريات"
+
+#. module: zc_boq_item_card
+#. odoo-python
+#: code:addons/zc_boq_item_card/models/sale_order_line.py:0
+msgid "Purchases & Subcontracts"
+msgstr "المشتريات وعقود الباطن"
+
+#. module: zc_boq_item_card
+#: model_terms:ir.ui.view,arch_db:zc_boq_item_card.view_zc_item_card_list
+msgid "Qty"
+msgstr "الكمية"
+
+#. module: zc_boq_item_card
+#. odoo-python
+#: code:addons/zc_boq_item_card/models/purchase.py:0
+msgid "Qty %(q)s > item quantity still open %(a)s"
+msgstr "الكمية %(q)s أكبر من المتبقي في البند %(a)s"
+
+#. module: zc_boq_item_card
+#. odoo-python
+#: code:addons/zc_boq_item_card/models/sale_order_line.py:0
+#: model_terms:ir.ui.view,arch_db:zc_boq_item_card.view_zc_item_card_form
+msgid "Quantity Claims"
+msgstr "مطالبات الكميات"
+
+#. module: zc_boq_item_card
+#. odoo-python
+#: code:addons/zc_boq_item_card/models/purchase.py:0
+msgid "Rate %(p)s > installation budget %(b)s"
+msgstr "السعر %(p)s أعلى من ميزانية المصنعية %(b)s"
+
+#. module: zc_boq_item_card
+#: model:ir.model,name:zc_boq_item_card.model_sale_order
+msgid "Sales Order"
+msgstr "أمر البيع"
+
+#. module: zc_boq_item_card
+#: model:ir.model,name:zc_boq_item_card.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "بند أمر البيع"
+
+#. module: zc_boq_item_card
+#: model_terms:ir.ui.view,arch_db:zc_boq_item_card.view_zc_item_card_form
+msgid "Selling Rate"
+msgstr "سعر البيع"
+
+#. module: zc_boq_item_card
+#. odoo-python
+#: code:addons/zc_boq_item_card/models/sale_order_line.py:0
+msgid "Site Measurements"
+msgstr "حصر الموقع"
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order_line__zc_ic_sold
+#: model_terms:ir.ui.view,arch_db:zc_boq_item_card.view_zc_item_card_list
+msgid "Sold"
+msgstr "قيمة البيع"
+
+#. module: zc_boq_item_card
+#: model_terms:ir.ui.view,arch_db:zc_boq_item_card.view_zc_item_card_form
+msgid "Sub. Certificates"
+msgstr "مستخلصات الباطن"
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order_line__zc_ic_sub_certified_amount
+msgid "Subcontract work certified"
+msgstr "أعمال الباطن المعتمدة"
+
+#. module: zc_boq_item_card
+#. odoo-python
+#: code:addons/zc_boq_item_card/models/sale_order_line.py:0
+msgid "Subcontractor Certificates"
+msgstr "مستخلصات مقاولي الباطن"
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order_line__zc_ic_submitted_qty
+msgid "Submitted to consultant"
+msgstr "المقدَّم للاستشاري"
+
+#. module: zc_boq_item_card
+#. odoo-python
+#: code:addons/zc_boq_item_card/models/sale_order_line.py:0
+msgid "Supplier & Subcontractor Bills"
+msgstr "فواتير الموردين والمقاولين"
+
+#. module: zc_boq_item_card
+#: model_terms:ir.ui.view,arch_db:zc_boq_item_card.view_zc_item_card_form
+msgid "Unit"
+msgstr "الوحدة"
+
+#. module: zc_boq_item_card
+#. odoo-python
+#: code:addons/zc_boq_item_card/models/sale_order_line.py:0
+msgid "Variation Orders"
+msgstr "أوامر التغيير"
+
+#. module: zc_boq_item_card
+#: model_terms:ir.ui.view,arch_db:zc_boq_item_card.view_zc_item_card_form
+msgid "Variations"
+msgstr "أوامر التغيير"
+
+#. module: zc_boq_item_card
+#: model_terms:ir.ui.view,arch_db:zc_boq_item_card.view_zc_item_card_form
+msgid "WIRs"
+msgstr "طلبات الاستلام"
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order_line__zc_ic_bill_count
+msgid "Zc Ic Bill Count"
+msgstr "عدد Bill"
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order_line__zc_ic_cert_count
+msgid "Zc Ic Cert Count"
+msgstr "عدد Cert"
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order_line__zc_ic_dispute_count
+msgid "Zc Ic Dispute Count"
+msgstr "عدد Dispute"
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order_line__zc_ic_invoice_count
+msgid "Zc Ic Invoice Count"
+msgstr "عدد Invoice"
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order__zc_ic_item_count
+msgid "Zc Ic Item Count"
+msgstr "عدد Item"
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order_line__zc_ic_measure_count
+msgid "Zc Ic Measure Count"
+msgstr "عدد Measure"
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order_line__zc_ic_po_count
+msgid "Zc Ic Po Count"
+msgstr "عدد Po"
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order_line__zc_ic_sub_cert_count
+msgid "Zc Ic Sub Cert Count"
+msgstr "عدد Sub Cert"
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order_line__zc_ic_vo_count
+msgid "Zc Ic Vo Count"
+msgstr "عدد Vo"
+
+#. module: zc_boq_item_card
+#: model:ir.model.fields,field_description:zc_boq_item_card.field_sale_order_line__zc_ic_wir_count
+msgid "Zc Ic Wir Count"
+msgstr "عدد Wir"
+
+#. module: zc_boq_item_card
+#: model:ir.module.module,shortdesc:base.module_zc_boq_item_card
+msgid "Ziij Construction - BOQ Item Card"
+msgstr "Ziij Construction - بطاقة البند"
