@@ -1,0 +1,3 @@
+id,name,model_id,group_id/id,operation,domain
+access_zc_tender_criterion_user,tender criterion user,zc.tender.criterion,base.group_user,crud,
+access_zc_tender_clarification_user,tender clarification user,zc.tender.clarification,base.group_user,crud,

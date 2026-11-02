@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="crm_lead_form_zc_tender" model="ir.ui.view">
+        <field name="name">crm.lead.form.zc.tender</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_zc_bid" type="object" string="Decide: BID" class="btn-primary"
+                        invisible="not zc_is_tender or zc_decision != 'open'" groups="sales_team.group_sale_manager"/>
+                <button name="action_zc_no_bid" type="object" string="Decide: NO BID"
+                        invisible="not zc_is_tender or zc_decision != 'open'" groups="sales_team.group_sale_manager"/>
+                <button name="action_zc_bid_bond" type="object" string="Issue bid bond"
+                        invisible="not zc_is_tender or zc_decision != 'bid' or zc_bid_bond_id"/>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="Tender" name="zc_tender">
+                    <group>
+                        <group>
+                            <field name="zc_is_tender"/>
+                            <field name="zc_tender_ref" invisible="not zc_is_tender"/>
+                            <field name="zc_tender_type" invisible="not zc_is_tender"/>
+                            <field name="zc_pricing_basis" invisible="not zc_is_tender"/>
+                            <field name="zc_submission_deadline" invisible="not zc_is_tender"/>
+                            <field name="zc_days_left" invisible="not zc_is_tender or not zc_submission_deadline"/>
+                            <field name="zc_site_visit_date" invisible="not zc_is_tender"/>
+                            <field name="zc_clarification_deadline" invisible="not zc_is_tender"/>
+                        </group>
+                        <group invisible="not zc_is_tender">
+                            <field name="company_currency" invisible="1"/>
+                            <field name="zc_duration_months"/>
+                            <field name="zc_estimated_cost"/>
+                            <field name="zc_expected_margin"/>
+                            <field name="zc_expected_margin_pct"/>
+                            <field name="zc_peak_funding"/>
+                            <field name="zc_bid_bond_amount"/>
+                            <field name="zc_bid_bond_id"/>
+                        </group>
+                    </group>
+                    <div invisible="not zc_is_tender">
+                        <separator string="Bid / No-Bid assessment (1 = poor ... 5 = excellent)"/>
+                        <button name="action_zc_load_criteria" type="object" string="Load the criteria" class="btn-link"
+                                invisible="zc_criterion_ids"/>
+                        <field name="zc_criterion_ids">
+                            <list editable="bottom" create="0">
+                                <field name="criterion"/>
+                                <field name="score"/>
+                                <field name="note"/>
+                            </list>
+                        </field>
+                        <group>
+                            <group>
+                                <field name="zc_score" widget="progressbar"/>
+                                <field name="zc_decision" widget="badge" decoration-success="zc_decision == 'bid'"
+                                       decoration-danger="zc_decision == 'no_bid'"/>
+                                <field name="zc_decision_by_id" invisible="not zc_decision_by_id"/>
+                                <field name="zc_decision_date" invisible="not zc_decision_date"/>
+                            </group>
+                            <group>
+                                <field name="zc_decision_note"/>
+                            </group>
+                        </group>
+                        <separator string="Clarifications &amp; addenda"/>
+                        <field name="zc_clarification_ids">
+                            <list editable="bottom">
+                                <field name="date"/>
+                                <field name="question"/>
+                                <field name="answer"/>
+                                <field name="is_addendum"/>
+                                <field name="price_impact"/>
+                                <field name="reference"/>
+                            </list>
+                        </field>
+                    </div>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="crm_lead_list_zc_tender" model="ir.ui.view">
+        <field name="name">crm.lead.list.zc.tender</field>
+        <field name="model">crm.lead</field>
+        <field name="priority">100</field>
+        <field name="arch" type="xml">
+            <list string="Tenders" decoration-danger="zc_days_left &lt; 3 and zc_decision != 'no_bid'">
+                <field name="company_currency" column_invisible="1"/>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="zc_tender_ref"/>
+                <field name="zc_submission_deadline"/>
+                <field name="zc_days_left"/>
+                <field name="expected_revenue" sum="Value"/>
+                <field name="zc_expected_margin_pct"/>
+                <field name="zc_score"/>
+                <field name="zc_decision" widget="badge" decoration-success="zc_decision == 'bid'"
+                       decoration-danger="zc_decision == 'no_bid'"/>
+                <field name="stage_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_zc_tenders" model="ir.actions.act_window">
+        <field name="name">Tenders</field>
+        <field name="res_model">crm.lead</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('zc_is_tender', '=', True)]</field>
+        <field name="context">{'default_zc_is_tender': True, 'default_type': 'opportunity'}</field>
+        <field name="view_ids" eval="[Command.clear(), Command.create({'view_mode': 'list', 'view_id': ref('crm_lead_list_zc_tender')})]"/>
+    </record>
+
+    <menuitem id="menu_zc_tenders" name="Tenders" parent="hom_contracting_base.menu_hom_contracts_top"
+              action="action_zc_tenders" sequence="1"/>
+
+    <record id="view_order_form_zc_handover_exec" model="ir.ui.view">
+        <field name="name">sale.order.form.zc.handover.exec</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_zc_handover_to_execution" type="object" string="Hand over to execution"
+                        invisible="state != 'sale' or zc_handed_over or hom_project_type != 'contracting'"/>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="Tender handover" name="zc_tender_handover" invisible="hom_project_type != 'contracting'">
+                    <group>
+                        <group string="What the price assumed">
+                            <field name="zc_tender_assumptions" nolabel="1" colspan="2"/>
+                        </group>
+                        <group string="Excluded from our scope">
+                            <field name="zc_tender_exclusions" nolabel="1" colspan="2"/>
+                        </group>
+                    </group>
+                    <group string="Risks">
+                        <field name="zc_tender_risks" nolabel="1" colspan="2"/>
+                    </group>
+                    <group>
+                        <group string="Ready to start">
+                            <field name="zc_ready_contract"/>
+                            <field name="zc_ready_budget"/>
+                            <field name="zc_ready_baseline"/>
+                            <field name="zc_ready_dates"/>
+                            <field name="zc_ready_guarantee"/>
+                            <field name="zc_ready_store"/>
+                        </group>
+                        <group string="Budget reference">
+                            <field name="zc_handed_over"/>
+                            <field name="zc_handover_date" invisible="not zc_handed_over"/>
+                            <field name="zc_tender_budget" invisible="not zc_handed_over"/>
+                            <field name="zc_budget_vs_tender" invisible="not zc_handed_over"
+                                   decoration-danger="zc_budget_vs_tender &gt; 0" decoration-success="zc_budget_vs_tender &lt; 0"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

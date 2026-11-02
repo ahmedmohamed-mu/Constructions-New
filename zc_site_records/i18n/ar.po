@@ -1,0 +1,1192 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* zc_site_records
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-02 13:33+0000\n"
+"PO-Revision-Date: 2026-11-02 13:33+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: zc_site_records
+#. odoo-python
+#: code:addons/zc_site_records/models/rfi.py:0
+msgid "%(r)s: %(s)s"
+msgstr "%(r)s: %(s)s"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__message_needaction
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__message_needaction
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__activity_ids
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__activity_ids
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__activity_ids
+msgid "Activities"
+msgstr "الأنشطة"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__activity_exception_decoration
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__activity_exception_decoration
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__activity_plans_ids
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__activity_plans_ids
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__activity_plans_ids
+msgid "Activity Plans"
+msgstr ""
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__activity_state
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__activity_state
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__activity_type_icon
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__activity_type_icon
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__answer
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_rfi_form
+msgid "Answer"
+msgstr "الرد"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__answer_date
+msgid "Answer Date"
+msgstr "تاريخ الرد"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__due_date
+msgid "Answer due"
+msgstr "موعد الرد"
+
+#. module: zc_site_records
+#: model:ir.model.fields.selection,name:zc_site_records.selection__zc_rfi__state__answered
+msgid "Answered"
+msgstr "تم الرد"
+
+#. module: zc_site_records
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_daily_report_form
+msgid "Approve (PM)"
+msgstr "اعتماد (مدير المشروع)"
+
+#. module: zc_site_records
+#: model:ir.model.fields.selection,name:zc_site_records.selection__zc_daily_report__state__approved
+msgid "Approved by PM"
+msgstr "معتمد من مدير المشروع"
+
+#. module: zc_site_records
+#: model:ir.model.fields.selection,name:zc_site_records.selection__zc_rfi__discipline__arch
+msgid "Architecture"
+msgstr "معماري"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__message_attachment_count
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__message_attachment_count
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report_work__sale_line_id
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__sale_line_id
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__sale_line_id
+msgid "BOQ item"
+msgstr "بند المقايسة"
+
+#. module: zc_site_records
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_daily_report_form
+msgid "Back to draft"
+msgstr "إرجاع لمسودة"
+
+#. module: zc_site_records
+#. odoo-python
+#: code:addons/zc_site_records/models/ncr.py:0
+msgid "Back-charge added to %s."
+msgstr "تم إضافة التحميل على %s."
+
+#. module: zc_site_records
+#. odoo-python
+#: code:addons/zc_site_records/models/ncr.py:0
+msgid "Back-charge of %(a)s to be deducted on the next certificate of %(s)s."
+msgstr "تحميل بقيمة %(a)s يُخصم في المستخلص القادم لـ %(s)s."
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__backcharge_amount
+msgid "Back-charge to responsible party"
+msgstr "تحميل على الطرف المسؤول"
+
+#. module: zc_site_records
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_ncr_list
+msgid "Back-charges"
+msgstr "التحميلات"
+
+#. module: zc_site_records
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_ncr_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: zc_site_records
+#: model:ir.model.fields.selection,name:zc_site_records.selection__zc_ncr__state__cancel
+msgid "Cancelled"
+msgstr "ملغي"
+
+#. module: zc_site_records
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_ncr_form
+msgid "Cause & correction"
+msgstr "السبب والمعالجة"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__delay_cause
+msgid "Cause of delay"
+msgstr "سبب التأخير"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__deduction_id
+msgid "Charged in"
+msgstr "محمّل في"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__claim_id
+msgid "Claim"
+msgstr "المطالبة"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__claim_id
+msgid "Claim opened"
+msgstr "المطالبة المفتوحة"
+
+#. module: zc_site_records
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_rfi_form
+msgid "Close"
+msgstr "إغلاق"
+
+#. module: zc_site_records
+#: model:ir.model.fields.selection,name:zc_site_records.selection__zc_rfi__state__closed
+msgid "Closed"
+msgstr "مغلق"
+
+#. module: zc_site_records
+#: model:ir.model,name:zc_site_records.model_res_company
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__company_id
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__company_id
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__consultant_id
+#: model:ir.model.fields.selection,name:zc_site_records.selection__zc_ncr__source__consultant
+msgid "Consultant"
+msgstr "الاستشاري"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__sale_order_id
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report_work__sale_order_id
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__sale_order_id
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__sale_order_id
+msgid "Contract"
+msgstr "العقد"
+
+#. module: zc_site_records
+#: model:ir.model,name:zc_site_records.model_hom_control_tower
+msgid "Contracting Control Tower"
+msgstr "برج التحكم للمقاولات"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__proposal
+msgid "Contractor's proposal"
+msgstr "مقترح المقاول"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__due_date
+msgid "Correct by"
+msgstr "المعالجة قبل"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__corrective_action
+msgid "Corrective Action"
+msgstr "الإجراء التصحيحي"
+
+#. module: zc_site_records
+#: model:ir.model.fields.selection,name:zc_site_records.selection__zc_ncr__state__action
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_ncr_form
+msgid "Corrective action done"
+msgstr "تم الإجراء التصحيحي"
+
+#. module: zc_site_records
+#: model:ir.model.fields.selection,name:zc_site_records.selection__zc_rfi__impact__cost
+msgid "Cost"
+msgstr "تكلفة"
+
+#. module: zc_site_records
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_rfi_form
+msgid "Create variation order"
+msgstr "إنشاء أمر تغيير"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__create_uid
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report_equipment__create_uid
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report_labour__create_uid
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report_work__create_uid
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__create_uid
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__create_date
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report_equipment__create_date
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report_labour__create_date
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report_work__create_date
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__create_date
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: zc_site_records
+#: model:ir.model,name:zc_site_records.model_zc_daily_report_equipment
+msgid "Daily Report - Equipment"
+msgstr "التقرير اليومي - المعدات"
+
+#. module: zc_site_records
+#: model:ir.model,name:zc_site_records.model_zc_daily_report_labour
+msgid "Daily Report - Labour"
+msgstr "التقرير اليومي - العمالة"
+
+#. module: zc_site_records
+#: model:ir.model,name:zc_site_records.model_zc_daily_report_work
+msgid "Daily Report - Work Done"
+msgstr "التقرير اليومي - الأعمال المنفذة"
+
+#. module: zc_site_records
+#. odoo-python
+#: code:addons/zc_site_records/models/daily_report.py:0
+msgid "Daily report %s"
+msgstr "تقرير يومي %s"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__date
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__days_late
+msgid "Days Late"
+msgstr "أيام التأخير"
+
+#. module: zc_site_records
+#. odoo-python
+#: code:addons/zc_site_records/models/ncr.py:0
+msgid "Describe the corrective action taken."
+msgstr "اكتب الإجراء التصحيحي اللي اتعمل."
+
+#. module: zc_site_records
+#. odoo-python
+#: code:addons/zc_site_records/models/daily_report.py:0
+msgid "Describe the obstacle first."
+msgstr "اكتب العائق الأول."
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report_equipment__name
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__description
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_ncr_form
+msgid "Description"
+msgstr "الوصف"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__discipline
+msgid "Discipline"
+msgstr "التخصص"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_hom_control_tower__display_name
+#: model:ir.model.fields,field_description:zc_site_records.field_res_company__display_name
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__display_name
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report_equipment__display_name
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report_labour__display_name
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report_work__display_name
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_inspection_request__display_name
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__display_name
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report_work__partner_id
+msgid "Done by (subcontractor)"
+msgstr "المنفّذ (مقاول باطن)"
+
+#. module: zc_site_records
+#: model:ir.model.fields.selection,name:zc_site_records.selection__zc_daily_report__state__draft
+#: model:ir.model.fields.selection,name:zc_site_records.selection__zc_rfi__state__draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__equipment_ids
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report_equipment__equipment_id
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_daily_report_form
+msgid "Equipment"
+msgstr "المعدات"
+
+#. module: zc_site_records
+#: model:ir.model.fields.selection,name:zc_site_records.selection__zc_daily_report__weather__hot
+msgid "Extreme heat"
+msgstr "حرارة شديدة"
+
+#. module: zc_site_records
+#: model:ir.model.fields,help:zc_site_records.field_zc_daily_report__delays
+msgid "Facts written on the day: the evidence of any later claim."
+msgstr "وقائع مكتوبة في نفس اليوم: دليل أي مطالبة بعد كده."
+
+#. module: zc_site_records
+#: model:ir.model.fields.selection,name:zc_site_records.selection__zc_rfi__discipline__finish
+msgid "Finishes"
+msgstr "تشطيبات"
+
+#. module: zc_site_records
+#. odoo-python
+#: code:addons/zc_site_records/models/rfi.py:0
+msgid "Follow up the consultant's answer to %s"
+msgstr "تابع رد الاستشاري على %s"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__message_follower_ids
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__message_follower_ids
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__message_follower_ids
+msgid "Followers"
+msgstr "المتابعون"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__message_partner_ids
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__message_partner_ids
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__wir_id
+msgid "From inspection"
+msgstr "من طلب الاستلام"
+
+#. module: zc_site_records
+#. odoo-python
+#: code:addons/zc_site_records/models/daily_report.py:0
+msgid "From site daily report %(r)s: %(t)s (hours lost: %(h)s)"
+msgstr "من التقرير اليومي %(r)s: %(t)s (ساعات ضائعة: %(h)s)"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__has_message
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__has_message
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report_labour__hours
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_daily_report_form
+msgid "Hours"
+msgstr "الساعات"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report_equipment__hours_worked
+msgid "Hours Worked"
+msgstr "ساعات التشغيل"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__delay_hours
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_daily_report_list
+msgid "Hours lost"
+msgstr "الساعات الضائعة"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_hom_control_tower__id
+#: model:ir.model.fields,field_description:zc_site_records.field_res_company__id
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__id
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report_equipment__id
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report_labour__id
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report_work__id
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_inspection_request__id
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__id
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__activity_exception_icon
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__activity_exception_icon
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: zc_site_records
+#: model:ir.model.fields,help:zc_site_records.field_zc_daily_report__activity_exception_icon
+#: model:ir.model.fields,help:zc_site_records.field_zc_ncr__activity_exception_icon
+#: model:ir.model.fields,help:zc_site_records.field_zc_rfi__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: zc_site_records
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_daily_report_form
+msgid "Idle"
+msgstr "عطل"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report_equipment__hours_idle
+msgid "Idle / breakdown hours"
+msgstr "ساعات توقف / أعطال"
+
+#. module: zc_site_records
+#: model:ir.model.fields,help:zc_site_records.field_zc_daily_report__message_needaction
+#: model:ir.model.fields,help:zc_site_records.field_zc_ncr__message_needaction
+#: model:ir.model.fields,help:zc_site_records.field_zc_rfi__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: zc_site_records
+#: model:ir.model.fields,help:zc_site_records.field_zc_daily_report__message_has_error
+#: model:ir.model.fields,help:zc_site_records.field_zc_daily_report__message_has_sms_error
+#: model:ir.model.fields,help:zc_site_records.field_zc_ncr__message_has_error
+#: model:ir.model.fields,help:zc_site_records.field_zc_ncr__message_has_sms_error
+#: model:ir.model.fields,help:zc_site_records.field_zc_rfi__message_has_error
+#: model:ir.model.fields,help:zc_site_records.field_zc_rfi__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__impact
+msgid "Impact"
+msgstr "الأثر"
+
+#. module: zc_site_records
+#: model:ir.model.fields.selection,name:zc_site_records.selection__zc_daily_report_work__stage__installed
+msgid "Installed"
+msgstr "مركّب"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__instructions
+msgid "Instructions received on site"
+msgstr "تعليمات مستلمة في الموقع"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__message_is_follower
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__message_is_follower
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__labour_ids
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_daily_report_form
+msgid "Labour"
+msgstr "العمالة"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__write_uid
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report_equipment__write_uid
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report_labour__write_uid
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report_work__write_uid
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__write_uid
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__write_date
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report_equipment__write_date
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report_labour__write_date
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report_work__write_date
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__write_date
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: zc_site_records
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_rfi_form
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_rfi_search
+msgid "Late"
+msgstr "متأخر"
+
+#. module: zc_site_records
+#. odoo-python
+#: code:addons/zc_site_records/models/control_tower.py:0
+msgid "Late NCRs"
+msgstr "حالات عدم مطابقة متأخرة"
+
+#. module: zc_site_records
+#. odoo-python
+#: code:addons/zc_site_records/models/control_tower.py:0
+msgid "Late RFIs"
+msgstr "استفسارات فنية متأخرة"
+
+#. module: zc_site_records
+#: model:ir.model.fields.selection,name:zc_site_records.selection__zc_rfi__discipline__mep
+msgid "MEP"
+msgstr "كهروميكانيكال"
+
+#. module: zc_site_records
+#: model:ir.model.fields,help:zc_site_records.field_zc_daily_report__activity_type_icon
+#: model:ir.model.fields,help:zc_site_records.field_zc_ncr__activity_type_icon
+#: model:ir.model.fields,help:zc_site_records.field_zc_rfi__activity_type_icon
+msgid "Material Symbols icon e.g. checklist"
+msgstr ""
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report_work__measurement_id
+msgid "Measurement"
+msgstr "الحصر"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__measurement_count
+msgid "Measurement Count"
+msgstr "عدد الحصر"
+
+#. module: zc_site_records
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_daily_report_form
+msgid "Measurements"
+msgstr "الحصر"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__message_has_error
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__message_has_error
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__message_ids
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__message_ids
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__message_ids
+msgid "Messages"
+msgstr "الرسائل"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__my_activity_date_deadline
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__my_activity_date_deadline
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_res_company__zc_ncr_close_days
+msgid "NCR corrective action within (days)"
+msgstr "معالجة عدم المطابقة خلال (يوم)"
+
+#. module: zc_site_records
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_ncr_list
+msgid "NCRs"
+msgstr "حالات عدم المطابقة"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__name
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__name
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: zc_site_records
+#. odoo-python
+#: code:addons/zc_site_records/models/daily_report.py:0
+#: code:addons/zc_site_records/models/ncr.py:0
+#: code:addons/zc_site_records/models/rfi.py:0
+msgid "New"
+msgstr "جديد"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__activity_date_deadline
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__activity_date_deadline
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__activity_summary
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__activity_summary
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__activity_type_id
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__activity_type_id
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: zc_site_records
+#. odoo-python
+#: code:addons/zc_site_records/models/control_tower.py:0
+msgid "No daily report"
+msgstr "بدون تقرير يومي"
+
+#. module: zc_site_records
+#: model:ir.model.fields.selection,name:zc_site_records.selection__zc_rfi__impact__none
+msgid "No impact"
+msgstr "بدون أثر"
+
+#. module: zc_site_records
+#: model:ir.model,name:zc_site_records.model_zc_ncr
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_ncr_form
+msgid "Non-Conformance Report"
+msgstr "تقرير عدم مطابقة"
+
+#. module: zc_site_records
+#: model:ir.actions.act_window,name:zc_site_records.action_zc_ncr
+#: model:ir.ui.menu,name:zc_site_records.menu_zc_ncr
+msgid "Non-Conformances (NCR)"
+msgstr "عدم المطابقة (NCR)"
+
+#. module: zc_site_records
+#. odoo-python
+#: code:addons/zc_site_records/models/control_tower.py:0
+msgid "Non-conformances not corrected on time"
+msgstr "حالات عدم مطابقة لم تُعالج في موعدها"
+
+#. module: zc_site_records
+#: model:ir.model.fields.selection,name:zc_site_records.selection__zc_daily_report__weather__normal
+msgid "Normal"
+msgstr "عادي"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report_work__note
+msgid "Note"
+msgstr "ملاحظة"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__message_needaction_counter
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__message_needaction_counter
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__message_has_error_counter
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__message_has_error_counter
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: zc_site_records
+#: model:ir.model.fields,help:zc_site_records.field_zc_daily_report__message_needaction_counter
+#: model:ir.model.fields,help:zc_site_records.field_zc_ncr__message_needaction_counter
+#: model:ir.model.fields,help:zc_site_records.field_zc_rfi__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: zc_site_records
+#: model:ir.model.fields,help:zc_site_records.field_zc_daily_report__message_has_error_counter
+#: model:ir.model.fields,help:zc_site_records.field_zc_ncr__message_has_error_counter
+#: model:ir.model.fields,help:zc_site_records.field_zc_rfi__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__delays
+msgid "Obstacles & delays"
+msgstr "العوائق والتأخيرات"
+
+#. module: zc_site_records
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_daily_report_form
+msgid "Obstacles & instructions"
+msgstr "العوائق والتعليمات"
+
+#. module: zc_site_records
+#: model:ir.model.constraint,message:zc_site_records.constraint_zc_daily_report_unique_day
+msgid "One daily report per contract and day."
+msgstr "تقرير يومي واحد لكل عقد في اليوم."
+
+#. module: zc_site_records
+#: model:ir.model.fields.selection,name:zc_site_records.selection__zc_ncr__state__open
+msgid "Open"
+msgstr "مفتوح"
+
+#. module: zc_site_records
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_rfi_form
+msgid "Open a claim"
+msgstr "فتح مطالبة"
+
+#. module: zc_site_records
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_daily_report_form
+msgid "Open a claim from this delay"
+msgstr "فتح مطالبة من التأخير ده"
+
+#. module: zc_site_records
+#: model:ir.model.fields.selection,name:zc_site_records.selection__zc_rfi__discipline__other
+msgid "Other"
+msgstr "أخرى"
+
+#. module: zc_site_records
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_rfi_form
+msgid "Our proposal"
+msgstr "مقترحنا"
+
+#. module: zc_site_records
+#: model:ir.model.fields.selection,name:zc_site_records.selection__zc_ncr__source__internal
+msgid "Our quality control"
+msgstr "الجودة عندنا"
+
+#. module: zc_site_records
+#: model:ir.model.fields.selection,name:zc_site_records.selection__zc_ncr__responsible__own
+msgid "Our team"
+msgstr "فريقنا"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__overdue
+msgid "Overdue"
+msgstr "متأخر"
+
+#. module: zc_site_records
+#: model:ir.model.fields.selection,name:zc_site_records.selection__zc_ncr__source__owner
+msgid "Owner"
+msgstr "المالك"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__project_id
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__project_id
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__project_id
+msgid "Project"
+msgstr "المشروع"
+
+#. module: zc_site_records
+#. odoo-python
+#: code:addons/zc_site_records/models/control_tower.py:0
+msgid "Projects without a site daily report since %s"
+msgstr "مشاريع بدون تقرير يومي من %s"
+
+#. module: zc_site_records
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_daily_report_form
+msgid ""
+"Quantities entered here become site measurements on submit: the\n"
+"                                certificate reads them, nobody types them again."
+msgstr ""
+"الكميات اللي تتسجل هنا بتتحول لحصر موقع عند التقديم: المستخلص بيقراها من "
+"هناك، ومحدش بيكتبها تاني."
+
+#. module: zc_site_records
+#. odoo-python
+#: code:addons/zc_site_records/models/daily_report.py:0
+msgid "Quantities of this report are already in a certificate."
+msgstr "كميات التقرير ده دخلت مستخلص بالفعل."
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report_work__quantity
+msgid "Quantity"
+msgstr "الكمية"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__question
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_rfi_form
+msgid "Question"
+msgstr "السؤال"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_res_company__zc_rfi_answer_days
+msgid "RFI answer within (days)"
+msgstr "الرد على الاستفسار الفني خلال (يوم)"
+
+#. module: zc_site_records
+#: model:ir.actions.act_window,name:zc_site_records.action_zc_rfi
+#: model:ir.ui.menu,name:zc_site_records.menu_zc_rfi
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_rfi_list
+msgid "RFIs"
+msgstr "الاستفسارات الفنية (RFI)"
+
+#. module: zc_site_records
+#. odoo-python
+#: code:addons/zc_site_records/models/control_tower.py:0
+msgid "RFIs unanswered by the consultant past their due date"
+msgstr "استفسارات فنية الاستشاري ما ردش عليها في موعدها"
+
+#. module: zc_site_records
+#: model:ir.model.fields.selection,name:zc_site_records.selection__zc_daily_report__weather__rain
+msgid "Rain"
+msgstr "أمطار"
+
+#. module: zc_site_records
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_wir_form_ncr
+msgid "Raise NCR"
+msgstr "تسجيل عدم مطابقة"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__user_id
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__user_id
+msgid "Raised by"
+msgstr "مقدم من"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__rating_ids
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__rating_ids
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__rating_ids
+msgid "Ratings"
+msgstr ""
+
+#. module: zc_site_records
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_rfi_form
+msgid "Record answer"
+msgstr "تسجيل الرد"
+
+#. module: zc_site_records
+#. odoo-python
+#: code:addons/zc_site_records/models/daily_report.py:0
+msgid "Record the work done, the labour or the obstacles of the day first."
+msgstr "سجّل الأعمال المنفذة أو العمالة أو عوائق اليوم الأول."
+
+#. module: zc_site_records
+#. odoo-python
+#: code:addons/zc_site_records/models/ncr.py:0
+msgid "Rejected inspection %s"
+msgstr "استلام مرفوض %s"
+
+#. module: zc_site_records
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_ncr_form
+msgid "Reopen"
+msgstr "إعادة فتح"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report_equipment__report_id
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report_labour__report_id
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report_work__report_id
+msgid "Report"
+msgstr "التقرير"
+
+#. module: zc_site_records
+#: model:ir.model,name:zc_site_records.model_zc_rfi
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_rfi_form
+msgid "Request for Information"
+msgstr "استفسار فني (RFI)"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__responsible
+msgid "Responsible"
+msgstr "المسؤول"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__activity_user_id
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__activity_user_id
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__partner_id
+msgid "Responsible party"
+msgstr "الطرف المسؤول"
+
+#. module: zc_site_records
+#. odoo-python
+#: code:addons/zc_site_records/models/daily_report.py:0
+msgid "Review the site daily report %s"
+msgstr "راجع التقرير اليومي %s"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__root_cause
+msgid "Root Cause"
+msgstr "السبب الجذري"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__message_has_sms_error
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__message_has_sms_error
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: zc_site_records
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_rfi_form
+msgid "Send to consultant"
+msgstr "إرسال للاستشاري"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__date
+msgid "Sent on"
+msgstr "تاريخ الإرسال"
+
+#. module: zc_site_records
+#: model:ir.model.fields.selection,name:zc_site_records.selection__zc_rfi__state__sent
+msgid "Sent to consultant"
+msgstr "مرسل للاستشاري"
+
+#. module: zc_site_records
+#: model:ir.model,name:zc_site_records.model_zc_daily_report
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_daily_report_form
+msgid "Site Daily Report"
+msgstr "التقرير اليومي للموقع"
+
+#. module: zc_site_records
+#: model:ir.actions.act_window,name:zc_site_records.action_zc_daily_report
+#: model:ir.ui.menu,name:zc_site_records.menu_zc_daily_report
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_daily_report_list
+msgid "Site Daily Reports"
+msgstr "التقارير اليومية للموقع"
+
+#. module: zc_site_records
+#. odoo-python
+#: code:addons/zc_site_records/models/daily_report.py:0
+msgid "Site Measurements"
+msgstr "حصر الموقع"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__user_id
+msgid "Site engineer"
+msgstr "مهندس الموقع"
+
+#. module: zc_site_records
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_company_form_zc_site
+msgid "Site records"
+msgstr "سجلات الموقع"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__source
+msgid "Source"
+msgstr "المصدر"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report_work__stage
+msgid "Stage"
+msgstr "المرحلة"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__state
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__state
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__state
+msgid "State"
+msgstr "الحالة"
+
+#. module: zc_site_records
+#: model:ir.model.fields,help:zc_site_records.field_zc_daily_report__activity_state
+#: model:ir.model.fields,help:zc_site_records.field_zc_ncr__activity_state
+#: model:ir.model.fields,help:zc_site_records.field_zc_rfi__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: zc_site_records
+#: model:ir.model.fields.selection,name:zc_site_records.selection__zc_rfi__discipline__struct
+msgid "Structure"
+msgstr "إنشائي"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__subcontract_id
+msgid "Subcontract"
+msgstr "عقد الباطن"
+
+#. module: zc_site_records
+#: model:ir.model.fields.selection,name:zc_site_records.selection__zc_ncr__responsible__subcontractor
+msgid "Subcontractor"
+msgstr "مقاول باطن"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report_labour__partner_id
+msgid "Subcontractor (empty = own)"
+msgstr "مقاول الباطن (فاضي = عمالتنا)"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__subject
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_rfi_form
+msgid "Subject"
+msgstr "الموضوع"
+
+#. module: zc_site_records
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_daily_report_form
+msgid "Submit"
+msgstr "تقديم"
+
+#. module: zc_site_records
+#: model:ir.model.fields.selection,name:zc_site_records.selection__zc_daily_report__state__submitted
+msgid "Submitted"
+msgstr "مقدم"
+
+#. module: zc_site_records
+#: model:ir.model.fields.selection,name:zc_site_records.selection__zc_daily_report_work__stage__supplied
+msgid "Supplied only"
+msgstr "توريد فقط"
+
+#. module: zc_site_records
+#: model:ir.model.fields.selection,name:zc_site_records.selection__zc_ncr__responsible__supplier
+msgid "Supplier"
+msgstr "مورد"
+
+#. module: zc_site_records
+#. odoo-python
+#: code:addons/zc_site_records/models/ncr.py:0
+msgid "The corrective action must be done before verification."
+msgstr "لازم الإجراء التصحيحي يتعمل قبل التحقق."
+
+#. module: zc_site_records
+#: model:ir.module.module,summary:base.module_zc_site_records
+msgid ""
+"The site diary (التقرير اليومي) that feeds the measurements, the labour and "
+"equipment hours and the evidence of delays for claims; requests for "
+"information (RFI) to the consultant with answer deadlines and their "
+"time/cost impact; and non-conformance reports (NCR) from inspection to "
+"verified close-out, with back-charges to the responsible subcontractor."
+msgstr ""
+"التقرير اليومي للموقع اللي بيغذي الحصر وساعات العمالة والمعدات ودليل التأخير"
+" للمطالبات؛ الاستفسارات الفنية (RFI) للاستشاري بمواعيد الرد وأثرها على الوقت"
+" والتكلفة؛ وتقارير عدم المطابقة (NCR) من الاستلام لحد الإغلاق بعد التحقق، مع"
+" التحميل على مقاول الباطن المسؤول."
+
+#. module: zc_site_records
+#: model:ir.model.fields.selection,name:zc_site_records.selection__zc_rfi__impact__time
+msgid "Time"
+msgstr "وقت"
+
+#. module: zc_site_records
+#: model:ir.model.fields.selection,name:zc_site_records.selection__zc_rfi__impact__both
+msgid "Time & cost"
+msgstr "وقت وتكلفة"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__title
+msgid "Title"
+msgstr "العنوان"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report_labour__trade
+msgid "Trade"
+msgstr "المهنة"
+
+#. module: zc_site_records
+#: model:ir.model.fields,help:zc_site_records.field_zc_daily_report__activity_exception_decoration
+#: model:ir.model.fields,help:zc_site_records.field_zc_ncr__activity_exception_decoration
+#: model:ir.model.fields,help:zc_site_records.field_zc_rfi__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report_work__product_uom_id
+msgid "Unit"
+msgstr "الوحدة"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_rfi__variation_id
+msgid "Variation"
+msgstr "أمر التغيير"
+
+#. module: zc_site_records
+#: model:ir.model.fields.selection,name:zc_site_records.selection__zc_ncr__state__closed
+msgid "Verified & closed"
+msgstr "تم التحقق والإغلاق"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__verified_by_id
+msgid "Verified By"
+msgstr "تم التحقق بواسطة"
+
+#. module: zc_site_records
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_ncr_form
+msgid "Verify & close"
+msgstr "تحقق وأغلق"
+
+#. module: zc_site_records
+#. odoo-python
+#: code:addons/zc_site_records/models/ncr.py:0
+msgid "Verify the correction of %s"
+msgstr "تحقق من معالجة %s"
+
+#. module: zc_site_records
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_rfi_search
+msgid "Waiting for the consultant"
+msgstr "في انتظار الاستشاري"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__weather
+msgid "Weather"
+msgstr "الطقس"
+
+#. module: zc_site_records
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_ncr_form
+msgid "What is wrong"
+msgstr "إيه المشكلة"
+
+#. module: zc_site_records
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_daily_report_form
+msgid "What stopped or slowed the work today, and who caused it"
+msgstr "إيه اللي وقّف أو أخّر الشغل النهارده، ومين السبب"
+
+#. module: zc_site_records
+#: model:ir.model.fields.selection,name:zc_site_records.selection__zc_daily_report__weather__wind
+msgid "Wind / sand storm"
+msgstr "رياح / عاصفة ترابية"
+
+#. module: zc_site_records
+#: model:ir.model,name:zc_site_records.model_zc_inspection_request
+msgid "Work Inspection Request (WIR)"
+msgstr "طلب استلام أعمال (WIR)"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__work_ids
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_daily_report_form
+msgid "Work done"
+msgstr "الأعمال المنفذة"
+
+#. module: zc_site_records
+#. odoo-python
+#: code:addons/zc_site_records/models/ncr.py:0
+msgid "Work rejected at inspection %s."
+msgstr "الأعمال اترفضت في الاستلام %s."
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report_labour__count
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_daily_report_form
+#: model_terms:ir.ui.view,arch_db:zc_site_records.view_zc_daily_report_list
+msgid "Workers"
+msgstr "العمال"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report__labour_total
+msgid "Workers on site"
+msgstr "العمالة في الموقع"
+
+#. module: zc_site_records
+#. odoo-python
+#: code:addons/zc_site_records/models/rfi.py:0
+msgid "Write the consultant's answer first."
+msgstr "اكتب رد الاستشاري الأول."
+
+#. module: zc_site_records
+#: model:ir.module.module,shortdesc:base.module_zc_site_records
+msgid "Ziij Construction - Site Records"
+msgstr "Ziij Construction - سجلات الموقع"
+
+#. module: zc_site_records
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_daily_report_work__location
+#: model:ir.model.fields,field_description:zc_site_records.field_zc_ncr__location
+msgid "Zone / floor"
+msgstr "المنطقة / الدور"
+
+#. module: zc_site_records
+#. odoo-python
+#: code:addons/zc_site_records/models/control_tower.py:0
+#: code:addons/zc_site_records/models/daily_report.py:0
+msgid "id"
+msgstr ""

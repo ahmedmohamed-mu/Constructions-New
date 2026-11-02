@@ -3,7 +3,7 @@
     "summary": "One screen per contract item (بطاقة البند): what it was sold for, its budget, who executes it, what "
                "was bought, executed, accepted, certified to the owner and to the subcontractor, invoiced, paid and "
                "collected, and the margin expected at completion, with a button to every source document.",
-    "version": "20.0.1.0.0",
+    "version": "20.0.1.0.1",
     "category": "Services/Project",
     "author": "Ziij AI",
     "license": "OPL-1",

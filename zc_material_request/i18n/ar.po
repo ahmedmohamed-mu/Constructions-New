@@ -1,0 +1,636 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* zc_material_request
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-02 13:36+0000\n"
+"PO-Revision-Date: 2026-11-02 13:36+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: zc_material_request
+#: model:ir.model.fields.selection,name:zc_material_request.selection__zc_material_request_line__budget_check__over
+msgid "Above budget"
+msgstr "فوق الميزانية"
+
+#. module: zc_material_request
+#: model_terms:ir.ui.view,arch_db:zc_material_request.view_picking_form_zc_qc
+msgid "Accept technically"
+msgstr "قبول فني"
+
+#. module: zc_material_request
+#: model:ir.model.fields.selection,name:zc_material_request.selection__stock_picking__zc_qc_state__accepted
+msgid "Accepted"
+msgstr "مقبول"
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__activity_plans_ids
+msgid "Activity Plans"
+msgstr ""
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: zc_material_request
+#. odoo-python
+#: code:addons/zc_material_request/models/material_request.py:0
+msgid "Add the materials you need."
+msgstr "ضيف الخامات المطلوبة."
+
+#. module: zc_material_request
+#: model_terms:ir.ui.view,arch_db:zc_material_request.view_zc_material_request_form
+msgid "Approve (PM)"
+msgstr "اعتماد (مدير المشروع)"
+
+#. module: zc_material_request
+#. odoo-python
+#: code:addons/zc_material_request/models/material_request.py:0
+msgid "Approve material request %s"
+msgstr "اعتمد طلب المواد %s"
+
+#. module: zc_material_request
+#: model:ir.model.fields.selection,name:zc_material_request.selection__zc_material_request__state__approved
+msgid "Approved"
+msgstr "معتمد"
+
+#. module: zc_material_request
+#. odoo-python
+#: code:addons/zc_material_request/models/material_request.py:0
+msgid "Approved above the item budget for: %s"
+msgstr "اتعمد فوق ميزانية البند لـ: %s"
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: zc_material_request
+#: model_terms:ir.ui.view,arch_db:zc_material_request.view_zc_material_request_form
+msgid "Back to draft"
+msgstr "إرجاع لمسودة"
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request_line__budget_check
+msgid "Budget Check"
+msgstr "مراجعة الميزانية"
+
+#. module: zc_material_request
+#: model_terms:ir.ui.view,arch_db:zc_material_request.view_zc_material_request_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: zc_material_request
+#: model:ir.model.fields.selection,name:zc_material_request.selection__zc_material_request__state__cancel
+msgid "Cancelled"
+msgstr "ملغي"
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__sale_order_id
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request_line__sale_order_id
+msgid "Contract"
+msgstr "العقد"
+
+#. module: zc_material_request
+#: model:ir.model,name:zc_material_request.model_hom_control_tower
+msgid "Contracting Control Tower"
+msgstr "برج التحكم للمقاولات"
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__create_uid
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request_line__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__create_date
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request_line__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: zc_material_request
+#: model:ir.model.fields,help:zc_material_request.field_zc_material_request_line__uom_id
+msgid "Default unit of measure used for all stock operations."
+msgstr ""
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_hom_control_tower__display_name
+#: model:ir.model.fields,field_description:zc_material_request.field_stock_picking__display_name
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__display_name
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request_line__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: zc_material_request
+#: model:ir.model.fields.selection,name:zc_material_request.selection__zc_material_request__state__draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request_line__sale_line_id
+msgid "For BOQ item"
+msgstr "لبند المقايسة"
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_hom_control_tower__id
+#: model:ir.model.fields,field_description:zc_material_request.field_stock_picking__id
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__id
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request_line__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: zc_material_request
+#: model:ir.model.fields,help:zc_material_request.field_zc_material_request__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: zc_material_request
+#: model:ir.model.fields,help:zc_material_request.field_zc_material_request__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: zc_material_request
+#: model:ir.model.fields,help:zc_material_request.field_zc_material_request__message_has_error
+#: model:ir.model.fields,help:zc_material_request.field_zc_material_request__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request_line__available_other_qty
+msgid "In other stores"
+msgstr "في مخازن تانية"
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request_line__available_site_qty
+msgid "In site store"
+msgstr "في مخزن الموقع"
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_stock_picking__zc_qc_user_id
+msgid "Inspected by"
+msgstr "فحص بواسطة"
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_stock_picking__zc_qc_date
+msgid "Inspected on"
+msgstr "تاريخ الفحص"
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_stock_picking__zc_qc_note
+msgid "Inspection notes"
+msgstr "ملاحظات الفحص"
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__write_uid
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request_line__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__write_date
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request_line__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__late
+#: model_terms:ir.ui.view,arch_db:zc_material_request.view_zc_material_request_form
+msgid "Late"
+msgstr "متأخر"
+
+#. module: zc_material_request
+#. odoo-python
+#: code:addons/zc_material_request/models/control_tower.py:0
+msgid "Late material requests"
+msgstr "طلبات مواد متأخرة"
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__line_ids
+msgid "Line"
+msgstr "البند"
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request_line__product_id
+msgid "Material"
+msgstr "الخامة"
+
+#. module: zc_material_request
+#: model_terms:ir.ui.view,arch_db:zc_material_request.view_zc_material_request_form
+msgid "Material Request"
+msgstr "طلب مواد"
+
+#. module: zc_material_request
+#: model:ir.actions.act_window,name:zc_material_request.action_zc_material_request
+#: model:ir.ui.menu,name:zc_material_request.menu_zc_material_request
+#: model_terms:ir.ui.view,arch_db:zc_material_request.view_zc_material_request_list
+msgid "Material Requests"
+msgstr "طلبات المواد"
+
+#. module: zc_material_request
+#: model:ir.model.fields,help:zc_material_request.field_zc_material_request__activity_type_icon
+msgid "Material Symbols icon e.g. checklist"
+msgstr ""
+
+#. module: zc_material_request
+#. odoo-python
+#: code:addons/zc_material_request/models/control_tower.py:0
+msgid "Material requests not served by the date needed on site"
+msgstr "طلبات مواد ما اتوفرتش في التاريخ المطلوب للموقع"
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__date_needed
+msgid "Needed on site by"
+msgstr "مطلوب في الموقع قبل"
+
+#. module: zc_material_request
+#. odoo-python
+#: code:addons/zc_material_request/models/material_request.py:0
+msgid "New"
+msgstr "جديد"
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: zc_material_request
+#: model:ir.model.fields.selection,name:zc_material_request.selection__zc_material_request_line__budget_check__none
+msgid "No item budget"
+msgstr "بدون ميزانية للبند"
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request_line__note
+msgid "Note"
+msgstr "ملاحظة"
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: zc_material_request
+#: model:ir.model.fields,help:zc_material_request.field_zc_material_request__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: zc_material_request
+#: model:ir.model.fields,help:zc_material_request.field_zc_material_request__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: zc_material_request
+#. odoo-python
+#: code:addons/zc_material_request/models/material_request.py:0
+msgid "Only an approved request can be processed."
+msgstr "الطلب لازم يتعمد الأول."
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request_line__ordered_qty
+msgid "Ordered"
+msgstr "المطلوب شراؤه"
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__picking_count
+msgid "Picking Count"
+msgstr "عدد التحويلات"
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__project_id
+msgid "Project"
+msgstr "المشروع"
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__purchase_count
+msgid "Purchase Count"
+msgstr "عدد المشتريات"
+
+#. module: zc_material_request
+#: model:ir.module.module,summary:base.module_zc_material_request
+msgid ""
+"Purchasing starts from a documented site need (طلب مواد): the site engineer "
+"asks for a material, a quantity, a date and a BOQ item; the project manager "
+"approves; the request is served from the site store, transferred from "
+"another store, or turned into a request for quotation checked against the "
+"item budget. Receipts are accepted or rejected technically before the "
+"material can be used."
+msgstr ""
+"المشتريات بتبدأ من احتياج موثق من الموقع (طلب مواد): مهندس الموقع يطلب خامة "
+"وكمية وتاريخ وبند؛ مدير المشروع يعتمد؛ والطلب يتوفر من مخزن الموقع أو يتحول "
+"من مخزن تاني أو يتحول لطلب عرض سعر متراجع على ميزانية البند. والاستلام "
+"بيتقبل أو يترفض فنيًا قبل الاستخدام."
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request_line__quantity
+msgid "Quantity"
+msgstr "الكمية"
+
+#. module: zc_material_request
+#: model_terms:ir.ui.view,arch_db:zc_material_request.view_zc_material_request_form
+msgid "RFQs"
+msgstr "طلبات عروض الأسعار"
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__rating_ids
+msgid "Ratings"
+msgstr ""
+
+#. module: zc_material_request
+#. odoo-python
+#: code:addons/zc_material_request/models/control_tower.py:0
+msgid "Receipts to inspect"
+msgstr "استلامات للفحص"
+
+#. module: zc_material_request
+#. odoo-python
+#: code:addons/zc_material_request/models/control_tower.py:0
+msgid "Receipts waiting for technical acceptance more than 2 days"
+msgstr "استلامات مستنية القبول الفني أكتر من يومين"
+
+#. module: zc_material_request
+#: model_terms:ir.ui.view,arch_db:zc_material_request.view_picking_form_zc_qc
+msgid "Reject & return"
+msgstr "رفض وإرجاع"
+
+#. module: zc_material_request
+#: model:ir.model.fields.selection,name:zc_material_request.selection__stock_picking__zc_qc_state__rejected
+msgid "Rejected"
+msgstr "مرفوض"
+
+#. module: zc_material_request
+#. odoo-python
+#: code:addons/zc_material_request/models/stock.py:0
+msgid "Rejected at technical inspection: %s"
+msgstr "اترفض في الفحص الفني: %s"
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request_line__request_id
+msgid "Request"
+msgstr "الطلب"
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__user_id
+msgid "Requested by"
+msgstr "مقدم من"
+
+#. module: zc_material_request
+#. odoo-python
+#: code:addons/zc_material_request/models/material_request.py:0
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__purchase_ids
+msgid "Requests for quotation"
+msgstr "طلبات عروض الأسعار"
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: zc_material_request
+#: model:ir.model.fields.selection,name:zc_material_request.selection__zc_material_request__state__done
+msgid "Served / ordered"
+msgstr "اتوفر / اتطلب"
+
+#. module: zc_material_request
+#. odoo-python
+#: code:addons/zc_material_request/models/material_request.py:0
+msgid "Set the site store of the project (Project > Site Store) first."
+msgstr "حدد مخزن الموقع للمشروع (المشروع > مخزن الموقع) الأول."
+
+#. module: zc_material_request
+#: model:ir.model,name:zc_material_request.model_zc_material_request
+msgid "Site Material Request"
+msgstr "طلب مواد للموقع"
+
+#. module: zc_material_request
+#: model:ir.model,name:zc_material_request.model_zc_material_request_line
+msgid "Site Material Request Line"
+msgstr "بند طلب مواد"
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__warehouse_id
+msgid "Site store"
+msgstr "مخزن الموقع"
+
+#. module: zc_material_request
+#. odoo-python
+#: code:addons/zc_material_request/models/material_request.py:0
+msgid "Source a vendor for: %s"
+msgstr "دوّر على مورد لـ: %s"
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__state
+msgid "State"
+msgstr "الحالة"
+
+#. module: zc_material_request
+#: model:ir.model.fields,help:zc_material_request.field_zc_material_request__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request_line__allowed_qty
+msgid "Still allowed by budget"
+msgstr "المتبقي المسموح بالميزانية"
+
+#. module: zc_material_request
+#: model_terms:ir.ui.view,arch_db:zc_material_request.view_zc_material_request_form
+msgid ""
+"Stock in the site store is used first, then stock in other stores is\n"
+"                        transferred, and only the rest is bought - checked against the BOQ item budget."
+msgstr ""
+"بنستخدم مخزون مخزن الموقع الأول، وبعدين بنحوّل من المخازن التانية، واللي "
+"فاضل بس هو اللي بيتشترى، ومتراجع على ميزانية البند."
+
+#. module: zc_material_request
+#: model_terms:ir.ui.view,arch_db:zc_material_request.view_zc_material_request_form
+msgid "Submit"
+msgstr "تقديم"
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_stock_picking__zc_qc_state
+msgid "Technical acceptance"
+msgstr "القبول الفني"
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request_line__to_transfer_qty
+msgid "To transfer"
+msgstr "للتحويل"
+
+#. module: zc_material_request
+#: model:ir.model,name:zc_material_request.model_stock_picking
+msgid "Transfer"
+msgstr "تحويل"
+
+#. module: zc_material_request
+#: model_terms:ir.ui.view,arch_db:zc_material_request.view_zc_material_request_form
+msgid "Transfer / order"
+msgstr "تحويل / شراء"
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request_line__transferred_qty
+msgid "Transferred Qty"
+msgstr "الكمية المحولة"
+
+#. module: zc_material_request
+#. odoo-python
+#: code:addons/zc_material_request/models/material_request.py:0
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__picking_ids
+#: model_terms:ir.ui.view,arch_db:zc_material_request.view_zc_material_request_form
+msgid "Transfers"
+msgstr "التحويلات"
+
+#. module: zc_material_request
+#: model:ir.model.fields,help:zc_material_request.field_zc_material_request__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request_line__uom_id
+msgid "Unit"
+msgstr "الوحدة"
+
+#. module: zc_material_request
+#: model:ir.model.fields.selection,name:zc_material_request.selection__zc_material_request__state__submitted
+msgid "Waiting PM approval"
+msgstr "في انتظار مدير المشروع"
+
+#. module: zc_material_request
+#: model:ir.model.fields.selection,name:zc_material_request.selection__stock_picking__zc_qc_state__pending
+msgid "Waiting technical acceptance"
+msgstr "في انتظار القبول الفني"
+
+#. module: zc_material_request
+#: model:ir.model.fields.selection,name:zc_material_request.selection__zc_material_request_line__budget_check__ok
+msgid "Within budget"
+msgstr "في حدود الميزانية"
+
+#. module: zc_material_request
+#. odoo-python
+#: code:addons/zc_material_request/models/stock.py:0
+msgid ""
+"Write why the material is rejected (specification, damage, quantity...)."
+msgstr "اكتب سبب رفض الخامة (مواصفة، تلف، كمية...)."
+
+#. module: zc_material_request
+#: model:ir.module.module,shortdesc:base.module_zc_material_request
+msgid "Ziij Construction - Material Requests"
+msgstr "Ziij Construction - طلبات المواد"
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__location
+msgid "Zone / floor"
+msgstr "المنطقة / الدور"
+
+#. module: zc_material_request
+#. odoo-python
+#: code:addons/zc_material_request/models/control_tower.py:0
+#: code:addons/zc_material_request/models/material_request.py:0
+msgid "id"
+msgstr ""

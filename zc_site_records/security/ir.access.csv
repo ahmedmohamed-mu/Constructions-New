@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_zc_daily_report_user,daily report user,zc.daily.report,base.group_user,crud,
+access_zc_daily_report_work_user,daily report work user,zc.daily.report.work,base.group_user,crud,
+access_zc_daily_report_labour_user,daily report labour user,zc.daily.report.labour,base.group_user,crud,
+access_zc_daily_report_equipment_user,daily report equipment user,zc.daily.report.equipment,base.group_user,crud,
+access_zc_rfi_user,rfi user,zc.rfi,base.group_user,crud,
+access_zc_ncr_user,ncr user,zc.ncr,base.group_user,crud,

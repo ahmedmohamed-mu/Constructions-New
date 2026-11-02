@@ -60,13 +60,13 @@
                     <field name="display_type" invisible="1"/>
                     <group>
                         <group string="1. Sold &amp; budget">
-                            <field name="product_uom_qty" string="Contract Qty" readonly="1"/>
+                            <field digits="[16, 2]" name="product_uom_qty" string="Contract Qty" readonly="1"/>
                             <field name="product_uom_id" string="Unit" readonly="1" options="{'no_open': True}"/>
                             <field name="price_unit" string="Selling Rate" readonly="1"/>
                             <field name="zc_ic_sold"/>
                             <field name="zc_ic_budget_cost"/>
                             <field name="zc_ic_budget_margin"/>
-                            <field name="zc_ic_budget_margin_pct" widget="percentage" options="{'factor': 0.01}"/>
+                            <field name="zc_ic_budget_margin_pct" widget="percentage"/>
                         </group>
                         <group string="2. Bought &amp; executed by">
                             <field name="zc_ic_sub_partner_ids" widget="many2many_tags" readonly="1"/>
@@ -76,16 +76,16 @@
                             <field name="zc_ic_paid_cost"/>
                         </group>
                         <group string="3. Site &amp; consultant">
-                            <field name="zc_ic_measured_qty"/>
-                            <field name="zc_ic_accepted_qty"/>
-                            <field name="zc_ic_submitted_qty"/>
-                            <field name="qty_delivered" string="Certified Qty" readonly="1"/>
+                            <field digits="[16, 2]" name="zc_ic_measured_qty"/>
+                            <field digits="[16, 2]" name="zc_ic_accepted_qty"/>
+                            <field digits="[16, 2]" name="zc_ic_submitted_qty"/>
+                            <field digits="[16, 2]" name="qty_delivered" string="Certified Qty" readonly="1"/>
                             <field name="zc_ic_progress_pct" widget="progressbar"/>
-                            <field name="zc_ic_cut_qty" decoration-warning="zc_ic_cut_qty &gt; 0"/>
+                            <field digits="[16, 2]" name="zc_ic_cut_qty" decoration-warning="zc_ic_cut_qty &gt; 0"/>
                             <field name="zc_ic_cut_amount" decoration-warning="zc_ic_cut_amount &gt; 0"/>
                         </group>
                         <group string="4. Subcontractor (back-to-back)">
-                            <field name="zc_ic_sub_certified_qty"/>
+                            <field digits="[16, 2]" name="zc_ic_sub_certified_qty"/>
                             <field name="zc_ic_sub_certified_amount"/>
                         </group>
                         <group string="5. Owner money">
@@ -97,7 +97,7 @@
                         <group string="6. Expected at completion">
                             <field name="zc_ic_forecast_cost"/>
                             <field name="zc_ic_forecast_margin"/>
-                            <field name="zc_ic_forecast_margin_pct" widget="percentage" options="{'factor': 0.01}"/>
+                            <field name="zc_ic_forecast_margin_pct" widget="percentage"/>
                             <field name="zc_ic_margin_drift" decoration-danger="zc_ic_margin_drift &lt; 0"
                                    decoration-success="zc_ic_margin_drift &gt; 0"/>
                         </group>

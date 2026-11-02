@@ -1,0 +1,415 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* zc_my_work
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-02 13:45+0000\n"
+"PO-Revision-Date: 2026-11-02 13:45+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: zc_my_work
+#: model:ir.model.fields.selection,name:zc_my_work.selection__zc_my_work_line__role__accounts
+msgid "Accounts"
+msgstr "الحسابات"
+
+#. module: zc_my_work
+#. odoo-python
+#: code:addons/zc_my_work/models/my_work.py:0
+msgid "Approved owner certificates to invoice"
+msgstr "مستخلصات مالك معتمدة للفوترة"
+
+#. module: zc_my_work
+#. odoo-python
+#: code:addons/zc_my_work/models/my_work.py:0
+msgid "Approved subcontractor certificates to bill"
+msgstr "مستخلصات باطن معتمدة للفوترة"
+
+#. module: zc_my_work
+#. odoo-python
+#: code:addons/zc_my_work/models/my_work.py:0
+msgid "Claim deadlines within 14 days"
+msgstr "مواعيد مطالبات خلال 14 يوم"
+
+#. module: zc_my_work
+#: model:ir.model.fields,field_description:zc_my_work.field_zc_my_work_line__count
+msgid "Count"
+msgstr "العدد"
+
+#. module: zc_my_work
+#: model:ir.model.fields,field_description:zc_my_work.field_zc_my_work__create_uid
+#: model:ir.model.fields,field_description:zc_my_work.field_zc_my_work_line__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: zc_my_work
+#: model:ir.model.fields,field_description:zc_my_work.field_zc_my_work__create_date
+#: model:ir.model.fields,field_description:zc_my_work.field_zc_my_work_line__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: zc_my_work
+#. odoo-python
+#: code:addons/zc_my_work/models/my_work.py:0
+msgid "Daily reports to approve"
+msgstr "تقارير يومية للاعتماد"
+
+#. module: zc_my_work
+#: model:ir.model.fields,field_description:zc_my_work.field_zc_my_work__date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: zc_my_work
+#: model:ir.model.fields,field_description:zc_my_work.field_zc_my_work__display_name
+#: model:ir.model.fields,field_description:zc_my_work.field_zc_my_work_line__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: zc_my_work
+#: model:ir.model.fields,field_description:zc_my_work.field_zc_my_work_line__domain
+msgid "Domain"
+msgstr ""
+
+#. module: zc_my_work
+#. odoo-python
+#: code:addons/zc_my_work/models/my_work.py:0
+msgid "Draft retention releases to post"
+msgstr "فواتير رد محتجز مسودة للترحيل"
+
+#. module: zc_my_work
+#: model:ir.model.fields.selection,name:zc_my_work.selection__zc_my_work_line__role__all
+msgid "Everyone"
+msgstr "الكل"
+
+#. module: zc_my_work
+#: model:ir.model.fields,field_description:zc_my_work.field_zc_my_work__id
+#: model:ir.model.fields,field_description:zc_my_work.field_zc_my_work_line__id
+msgid "ID"
+msgstr ""
+
+#. module: zc_my_work
+#: model:ir.model.fields.selection,name:zc_my_work.selection__zc_my_work_line__level__info
+msgid "Info"
+msgstr "معلومة"
+
+#. module: zc_my_work
+#: model:ir.model.fields,field_description:zc_my_work.field_zc_my_work__write_uid
+#: model:ir.model.fields,field_description:zc_my_work.field_zc_my_work_line__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: zc_my_work
+#: model:ir.model.fields,field_description:zc_my_work.field_zc_my_work__write_date
+#: model:ir.model.fields,field_description:zc_my_work.field_zc_my_work_line__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: zc_my_work
+#: model:ir.model.fields,field_description:zc_my_work.field_zc_my_work_line__level
+msgid "Level"
+msgstr "الأهمية"
+
+#. module: zc_my_work
+#: model:ir.model.fields,field_description:zc_my_work.field_zc_my_work__line_ids
+msgid "Line"
+msgstr ""
+
+#. module: zc_my_work
+#. odoo-python
+#: code:addons/zc_my_work/models/my_work.py:0
+msgid "Material requests to approve"
+msgstr "طلبات مواد للاعتماد"
+
+#. module: zc_my_work
+#. odoo-python
+#: code:addons/zc_my_work/models/my_work.py:0
+msgid "Measured work without an inspection request (WIR)"
+msgstr "أعمال محصورة من غير طلب استلام (WIR)"
+
+#. module: zc_my_work
+#: model:ir.model.fields,field_description:zc_my_work.field_zc_my_work_line__model
+msgid "Model"
+msgstr ""
+
+#. module: zc_my_work
+#. odoo-python
+#: code:addons/zc_my_work/models/my_work.py:0
+msgid "My RFIs late at the consultant"
+msgstr "استفساراتي المتأخرة عند الاستشاري"
+
+#. module: zc_my_work
+#. odoo-python
+#: code:addons/zc_my_work/models/my_work.py:0
+#: model:ir.actions.server,name:zc_my_work.action_zc_my_work
+#: model:ir.model,name:zc_my_work.model_zc_my_work
+#: model:ir.ui.menu,name:zc_my_work.menu_zc_my_work
+#: model_terms:ir.ui.view,arch_db:zc_my_work.view_zc_my_work_form
+msgid "My Work"
+msgstr "شغلي"
+
+#. module: zc_my_work
+#: model:ir.model,name:zc_my_work.model_zc_my_work_line
+msgid "My Work Line"
+msgstr "بند شغلي"
+
+#. module: zc_my_work
+#. odoo-python
+#: code:addons/zc_my_work/models/my_work.py:0
+msgid "My activities due today"
+msgstr "أنشطتي النهارده"
+
+#. module: zc_my_work
+#. odoo-python
+#: code:addons/zc_my_work/models/my_work.py:0
+msgid "My activities overdue"
+msgstr "أنشطتي المتأخرة"
+
+#. module: zc_my_work
+#. odoo-python
+#: code:addons/zc_my_work/models/my_work.py:0
+msgid "My daily reports still in draft"
+msgstr "تقاريري اليومية لسه مسودة"
+
+#. module: zc_my_work
+#. odoo-python
+#: code:addons/zc_my_work/models/my_work.py:0
+msgid "My inspections rejected: correct and re-inspect"
+msgstr "استلاماتي المرفوضة: صلّح واطلب معاينة تاني"
+
+#. module: zc_my_work
+#. odoo-python
+#: code:addons/zc_my_work/models/my_work.py:0
+msgid "Non-conformances to correct"
+msgstr "حالات عدم مطابقة للمعالجة"
+
+#. module: zc_my_work
+#: model_terms:ir.ui.view,arch_db:zc_my_work.view_zc_my_work_form
+msgid "Nothing is waiting for you."
+msgstr "مفيش حاجة مستنياك."
+
+#. module: zc_my_work
+#: model:ir.module.module,summary:base.module_zc_my_work
+msgid ""
+"One screen per user (قائمة شغلي): what is waiting for me today across the "
+"contracting cycle - inspections to request, certificates at my review stage,"
+" purchase exceptions and material requests to approve, non-conformances and "
+"RFIs to follow, claim deadlines, reports to approve and my late activities -"
+" each line opening the documents behind it."
+msgstr ""
+"شاشة واحدة لكل مستخدم (قائمة شغلي): المطلوب منه النهارده في دورة المقاولات، "
+"وكل سطر بيفتح المستندات اللي وراه."
+
+#. module: zc_my_work
+#: model_terms:ir.ui.view,arch_db:zc_my_work.view_zc_my_work_form
+msgid "Open"
+msgstr "فتح"
+
+#. module: zc_my_work
+#. odoo-python
+#: code:addons/zc_my_work/models/my_work.py:0
+msgid "Overdue owner invoices"
+msgstr "فواتير مالك متأخرة"
+
+#. module: zc_my_work
+#. odoo-python
+#: code:addons/zc_my_work/models/my_work.py:0
+msgid "Owner certificates in draft"
+msgstr "مستخلصات مالك مسودة"
+
+#. module: zc_my_work
+#: model:ir.model.fields.selection,name:zc_my_work.selection__zc_my_work_line__role__pm
+msgid "Project manager"
+msgstr "مدير المشروع"
+
+#. module: zc_my_work
+#. odoo-python
+#: code:addons/zc_my_work/models/my_work.py:0
+msgid "Purchase exceptions to decide (above budget)"
+msgstr "استثناءات شراء محتاجة قرار (فوق الميزانية)"
+
+#. module: zc_my_work
+#. odoo-python
+#: code:addons/zc_my_work/models/my_work.py:0
+msgid "Quantity claims open (consultant cuts)"
+msgstr "مطالبات كميات مفتوحة (تخفيضات الاستشاري)"
+
+#. module: zc_my_work
+#: model_terms:ir.ui.view,arch_db:zc_my_work.view_zc_my_work_form
+msgid "Refresh"
+msgstr "تحديث"
+
+#. module: zc_my_work
+#: model:ir.model.fields,field_description:zc_my_work.field_zc_my_work_line__role
+msgid "Role"
+msgstr "الدور"
+
+#. module: zc_my_work
+#: model:ir.model.fields,field_description:zc_my_work.field_zc_my_work_line__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: zc_my_work
+#: model:ir.model.fields.selection,name:zc_my_work.selection__zc_my_work_line__role__site
+msgid "Site"
+msgstr "الموقع"
+
+#. module: zc_my_work
+#. odoo-python
+#: code:addons/zc_my_work/models/my_work.py:0
+msgid "Snags to close"
+msgstr "ملاحظات للإغلاق"
+
+#. module: zc_my_work
+#. odoo-python
+#: code:addons/zc_my_work/models/my_work.py:0
+msgid "Subcontractor certificates to approve"
+msgstr "مستخلصات باطن للاعتماد"
+
+#. module: zc_my_work
+#. odoo-python
+#: code:addons/zc_my_work/models/my_work.py:0
+msgid "Subcontractor certificates to check (technical office)"
+msgstr "مستخلصات باطن للمراجعة (المكتب الفني)"
+
+#. module: zc_my_work
+#. odoo-python
+#: code:addons/zc_my_work/models/my_work.py:0
+msgid "Subcontractor certificates to prepare (draft)"
+msgstr "مستخلصات باطن للتجهيز (مسودة)"
+
+#. module: zc_my_work
+#: model:ir.model.fields.selection,name:zc_my_work.selection__zc_my_work_line__role__qs
+msgid "Technical office"
+msgstr "المكتب الفني"
+
+#. module: zc_my_work
+#: model:ir.model.fields,field_description:zc_my_work.field_zc_my_work__total
+msgid "Total"
+msgstr "الإجمالي"
+
+#. module: zc_my_work
+#: model:ir.model.fields.selection,name:zc_my_work.selection__zc_my_work_line__level__danger
+msgid "Urgent"
+msgstr "عاجل"
+
+#. module: zc_my_work
+#: model:ir.model.fields,field_description:zc_my_work.field_zc_my_work__user_id
+msgid "User"
+msgstr "المستخدم"
+
+#. module: zc_my_work
+#. odoo-python
+#: code:addons/zc_my_work/models/my_work.py:0
+msgid "Variation orders waiting for the owner's agreement"
+msgstr "أوامر تغيير مستنية موافقة المالك"
+
+#. module: zc_my_work
+#: model:ir.model.fields,field_description:zc_my_work.field_zc_my_work_line__name
+msgid "Waiting for me"
+msgstr "مستنيني"
+
+#. module: zc_my_work
+#: model:ir.model.fields.selection,name:zc_my_work.selection__zc_my_work_line__level__warning
+msgid "Warning"
+msgstr "تنبيه"
+
+#. module: zc_my_work
+#: model:ir.model.fields,field_description:zc_my_work.field_zc_my_work_line__work_id
+msgid "Work"
+msgstr ""
+
+#. module: zc_my_work
+#: model:ir.module.module,shortdesc:base.module_zc_my_work
+msgid "Ziij Construction - My Work"
+msgstr "Ziij Construction - شغلي"
+
+#. module: zc_my_work
+#. odoo-python
+#: code:addons/zc_my_work/models/my_work.py:0
+msgid "handover_id.sale_order_id"
+msgstr ""
+
+#. module: zc_my_work
+#. odoo-python
+#: code:addons/zc_my_work/models/my_work.py:0
+msgid "invoice_date_due"
+msgstr ""
+
+#. module: zc_my_work
+#. odoo-python
+#: code:addons/zc_my_work/models/my_work.py:0
+msgid "invoice_line_ids.product_id"
+msgstr ""
+
+#. module: zc_my_work
+#: model_terms:ir.ui.view,arch_db:zc_my_work.view_zc_my_work_form
+msgid "items waiting"
+msgstr "بند مستني"
+
+#. module: zc_my_work
+#. odoo-python
+#: code:addons/zc_my_work/models/my_work.py:0
+msgid "move_type"
+msgstr ""
+
+#. module: zc_my_work
+#. odoo-python
+#: code:addons/zc_my_work/models/my_work.py:0
+msgid "next_deadline"
+msgstr ""
+
+#. module: zc_my_work
+#. odoo-python
+#: code:addons/zc_my_work/models/my_work.py:0
+msgid "open"
+msgstr ""
+
+#. module: zc_my_work
+#. odoo-python
+#: code:addons/zc_my_work/models/my_work.py:0
+msgid "order_line.zc_boq_line_id.order_id"
+msgstr ""
+
+#. module: zc_my_work
+#. odoo-python
+#: code:addons/zc_my_work/models/my_work.py:0
+msgid "project_id"
+msgstr ""
+
+#. module: zc_my_work
+#. odoo-python
+#: code:addons/zc_my_work/models/my_work.py:0
+msgid "sale_order_id"
+msgstr ""
+
+#. module: zc_my_work
+#. odoo-python
+#: code:addons/zc_my_work/models/my_work.py:0
+msgid "state"
+msgstr ""
+
+#. module: zc_my_work
+#. odoo-python
+#: code:addons/zc_my_work/models/my_work.py:0
+msgid "user_id"
+msgstr ""
+
+#. module: zc_my_work
+#. odoo-python
+#: code:addons/zc_my_work/models/my_work.py:0
+msgid "zc_exception_state"
+msgstr ""
+
+#. module: zc_my_work
+#. odoo-python
+#: code:addons/zc_my_work/models/my_work.py:0
+msgid "zc_review_stage"
+msgstr ""

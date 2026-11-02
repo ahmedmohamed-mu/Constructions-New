@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ======================= Daily report ======================= -->
+    <record id="view_zc_daily_report_form" model="ir.ui.view">
+        <field name="name">zc.daily.report.form</field>
+        <field name="model">zc.daily.report</field>
+        <field name="arch" type="xml">
+            <form string="Site Daily Report">
+                <header>
+                    <button name="action_submit" type="object" string="Submit" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_approve" type="object" string="Approve (PM)" class="btn-primary" invisible="state != 'submitted'"/>
+                    <button name="action_open_claim" type="object" string="Open a claim from this delay" invisible="not delays or claim_id"/>
+                    <button name="action_draft" type="object" string="Back to draft" invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_measurements" type="object" class="oe_stat_button" icon="fa-pencil-square-o"
+                                invisible="not measurement_count">
+                            <field name="measurement_count" widget="statinfo" string="Measurements"/>
+                        </button>
+                    </div>
+                    <div class="oe_title"><h1><field name="name" readonly="1"/></h1></div>
+                    <group>
+                        <group>
+                            <field name="sale_order_id" readonly="state != 'draft'"/>
+                            <field name="project_id"/>
+                            <field name="date" readonly="state != 'draft'"/>
+                        </group>
+                        <group>
+                            <field name="user_id"/>
+                            <field name="weather"/>
+                            <field name="labour_total"/>
+                            <field name="claim_id" invisible="not claim_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Work done" name="work">
+                            <div class="text-muted mb-2">Quantities entered here become site measurements on submit: the
+                                certificate reads them, nobody types them again.</div>
+                            <field name="work_ids" readonly="state != 'draft'">
+                                <list editable="bottom">
+                                    <field name="sale_order_id" column_invisible="1"/>
+                                    <field name="sale_line_id"/>
+                                    <field name="location"/>
+                                    <field name="quantity"/>
+                                    <field name="product_uom_id"/>
+                                    <field name="stage"/>
+                                    <field name="partner_id"/>
+                                    <field name="note"/>
+                                    <field name="measurement_id" readonly="1"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Labour" name="labour">
+                            <field name="labour_ids" readonly="state != 'draft'">
+                                <list editable="bottom">
+                                    <field name="trade"/>
+                                    <field name="partner_id"/>
+                                    <field name="count" sum="Workers"/>
+                                    <field name="hours"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Equipment" name="equipment">
+                            <field name="equipment_ids" readonly="state != 'draft'">
+                                <list editable="bottom">
+                                    <field name="equipment_id"/>
+                                    <field name="name"/>
+                                    <field name="hours_worked" sum="Hours"/>
+                                    <field name="hours_idle" sum="Idle"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Obstacles &amp; instructions" name="delays">
+                            <group>
+                                <field name="delays" placeholder="What stopped or slowed the work today, and who caused it"/>
+                                <field name="delay_hours"/>
+                                <field name="delay_cause"/>
+                                <field name="instructions"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_zc_daily_report_list" model="ir.ui.view">
+        <field name="name">zc.daily.report.list</field>
+        <field name="model">zc.daily.report</field>
+        <field name="arch" type="xml">
+            <list string="Site Daily Reports">
+                <field name="date"/>
+                <field name="name"/>
+                <field name="sale_order_id"/>
+                <field name="user_id"/>
+                <field name="labour_total" sum="Workers"/>
+                <field name="delay_hours" sum="Hours lost"/>
+                <field name="state" widget="badge" decoration-success="state == 'approved'" decoration-info="state == 'submitted'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_zc_daily_report" model="ir.actions.act_window">
+        <field name="name">Site Daily Reports</field>
+        <field name="res_model">zc.daily.report</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ======================= RFI ======================= -->
+    <record id="view_zc_rfi_form" model="ir.ui.view">
+        <field name="name">zc.rfi.form</field>
+        <field name="model">zc.rfi</field>
+        <field name="arch" type="xml">
+            <form string="Request for Information">
+                <header>
+                    <button name="action_send" type="object" string="Send to consultant" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_answer" type="object" string="Record answer" class="btn-primary" invisible="state != 'sent'"/>
+                    <button name="action_create_variation" type="object" string="Create variation order"
+                            invisible="state != 'answered' or impact in ('none', 'time') or variation_id"/>
+                    <button name="action_create_claim" type="object" string="Open a claim"
+                            invisible="state not in ('sent', 'answered') or impact == 'none' or claim_id"/>
+                    <button name="action_close" type="object" string="Close" invisible="state != 'answered'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,sent,answered,closed"/>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Late" bg_color="text-bg-danger" invisible="not overdue"/>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                        <h3><field name="subject" placeholder="Subject"/></h3>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="sale_order_id"/>
+                            <field name="consultant_id"/>
+                            <field name="sale_line_id"/>
+                            <field name="discipline"/>
+                        </group>
+                        <group>
+                            <field name="user_id"/>
+                            <field name="date"/>
+                            <field name="due_date"/>
+                            <field name="days_late" invisible="not overdue"/>
+                            <field name="answer_date" invisible="state in ('draft', 'sent')"/>
+                            <field name="impact"/>
+                            <field name="variation_id" invisible="not variation_id"/>
+                            <field name="claim_id" invisible="not claim_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Question" name="question"><field name="question"/></page>
+                        <page string="Our proposal" name="proposal"><field name="proposal"/></page>
+                        <page string="Answer" name="answer"><field name="answer"/></page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_zc_rfi_list" model="ir.ui.view">
+        <field name="name">zc.rfi.list</field>
+        <field name="model">zc.rfi</field>
+        <field name="arch" type="xml">
+            <list string="RFIs" decoration-danger="overdue">
+                <field name="name"/>
+                <field name="subject"/>
+                <field name="sale_order_id"/>
+                <field name="discipline"/>
+                <field name="date"/>
+                <field name="due_date"/>
+                <field name="overdue" column_invisible="1"/>
+                <field name="impact"/>
+                <field name="state" widget="badge" decoration-success="state in ('answered', 'closed')" decoration-warning="state == 'sent'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_zc_rfi_search" model="ir.ui.view">
+        <field name="name">zc.rfi.search</field>
+        <field name="model">zc.rfi</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="subject"/>
+                <field name="sale_order_id"/>
+                <filter name="open" string="Waiting for the consultant" domain="[('state', '=', 'sent')]"/>
+                <filter name="late" string="Late" domain="[('overdue', '=', True)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_zc_rfi" model="ir.actions.act_window">
+        <field name="name">RFIs</field>
+        <field name="res_model">zc.rfi</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ======================= NCR ======================= -->
+    <record id="view_zc_ncr_form" model="ir.ui.view">
+        <field name="name">zc.ncr.form</field>
+        <field name="model">zc.ncr</field>
+        <field name="arch" type="xml">
+            <form string="Non-Conformance Report">
+                <header>
+                    <button name="action_done" type="object" string="Corrective action done" class="btn-primary" invisible="state != 'open'"/>
+                    <button name="action_verify" type="object" string="Verify &amp; close" class="btn-primary" invisible="state != 'action'"/>
+                    <button name="action_reopen" type="object" string="Reopen" invisible="state not in ('action', 'closed')"/>
+                    <button name="action_cancel" type="object" string="Cancel" invisible="state != 'open'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="open,action,closed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                        <h3><field name="title" placeholder="What is wrong"/></h3>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="sale_order_id"/>
+                            <field name="sale_line_id"/>
+                            <field name="location"/>
+                            <field name="wir_id"/>
+                            <field name="source"/>
+                        </group>
+                        <group>
+                            <field name="date"/>
+                            <field name="due_date"/>
+                            <field name="responsible"/>
+                            <field name="subcontract_id" invisible="responsible != 'subcontractor'"/>
+                            <field name="partner_id"/>
+                            <field name="backcharge_amount" invisible="responsible == 'own'"/>
+                            <field name="deduction_id" invisible="not deduction_id"/>
+                            <field name="verified_by_id" invisible="not verified_by_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description" name="description"><field name="description"/></page>
+                        <page string="Cause &amp; correction" name="correction">
+                            <group>
+                                <field name="root_cause"/>
+                                <field name="corrective_action"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_zc_ncr_list" model="ir.ui.view">
+        <field name="name">zc.ncr.list</field>
+        <field name="model">zc.ncr</field>
+        <field name="arch" type="xml">
+            <list string="NCRs">
+                <field name="currency_id" column_invisible="1"/>
+                <field name="name"/>
+                <field name="title"/>
+                <field name="sale_order_id"/>
+                <field name="responsible"/>
+                <field name="partner_id"/>
+                <field name="due_date"/>
+                <field name="backcharge_amount" sum="Back-charges"/>
+                <field name="state" widget="badge" decoration-success="state == 'closed'" decoration-danger="state == 'open'"
+                       decoration-warning="state == 'action'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_zc_ncr" model="ir.actions.act_window">
+        <field name="name">Non-Conformances (NCR)</field>
+        <field name="res_model">zc.ncr</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- WIR: raise an NCR from a rejected inspection -->
+    <record id="view_zc_wir_form_ncr" model="ir.ui.view">
+        <field name="name">zc.inspection.request.form.ncr</field>
+        <field name="model">zc.inspection.request</field>
+        <field name="inherit_id" ref="zc_certificate_controls.zc_inspection_request_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_zc_raise_ncr" type="object" string="Raise NCR" invisible="state != 'rejected'"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- company settings -->
+    <record id="view_company_form_zc_site" model="ir.ui.view">
+        <field name="name">res.company.form.zc.site</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Site records" name="zc_site_records">
+                    <group>
+                        <field name="zc_rfi_answer_days"/>
+                        <field name="zc_ncr_close_days"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <menuitem id="menu_zc_daily_report" name="Site Daily Reports" parent="hom_contracting_base.menu_hom_site_top"
+              action="action_zc_daily_report" sequence="1"/>
+    <menuitem id="menu_zc_rfi" name="RFIs" parent="hom_contracting_base.menu_hom_site_top"
+              action="action_zc_rfi" sequence="40"/>
+    <menuitem id="menu_zc_ncr" name="Non-Conformances (NCR)" parent="hom_contracting_base.menu_hom_site_top"
+              action="action_zc_ncr" sequence="45"/>
+</odoo>

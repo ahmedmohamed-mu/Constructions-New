@@ -207,7 +207,7 @@ class SaleOrderLine(models.Model):
                 "zc_ic_sold": sold,
                 "zc_ic_budget_cost": budget,
                 "zc_ic_budget_margin": budget_margin,
-                "zc_ic_budget_margin_pct": (budget_margin / sold * 100.0) if sold and costs else 0.0,
+                "zc_ic_budget_margin_pct": (budget_margin / sold) if sold and costs else 0.0,
                 "zc_ic_committed": committed,
                 "zc_ic_over_budget_lines": len(pols.filtered(
                     lambda p: p.zc_check in ("over_qty", "over_price", "over_both"))),
@@ -229,7 +229,7 @@ class SaleOrderLine(models.Model):
                 if line.product_uom_qty else 0.0,
                 "zc_ic_forecast_cost": forecast,
                 "zc_ic_forecast_margin": forecast_margin,
-                "zc_ic_forecast_margin_pct": (forecast_margin / sold * 100.0) if sold and forecast else 0.0,
+                "zc_ic_forecast_margin_pct": (forecast_margin / sold) if sold and forecast else 0.0,
                 "zc_ic_margin_drift": (forecast_margin - budget_margin) if forecast and costs else 0.0,
                 "zc_ic_status": status,
                 "zc_ic_po_count": len(pols.order_id),

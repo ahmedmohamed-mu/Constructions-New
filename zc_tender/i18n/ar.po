@@ -1,0 +1,615 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* zc_tender
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-02 13:44+0000\n"
+"PO-Revision-Date: 2026-11-02 13:44+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: zc_tender
+#: model:ir.model.fields,help:zc_tender.field_zc_tender_criterion__score
+msgid "1 = poor ... 5 = excellent"
+msgstr "1 = ضعيف ... 5 = ممتاز"
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_zc_tender_clarification__is_addendum
+msgid "Addendum (changes the tender)"
+msgstr "ملحق (يغيّر الطرح)"
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_zc_tender_clarification__price_impact
+msgid "Affects our price"
+msgstr "يؤثر على سعرنا"
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_zc_tender_clarification__answer
+msgid "Answer"
+msgstr "الرد"
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_sale_order__zc_ready_baseline
+msgid "Baseline programme approved"
+msgstr "البرنامج الزمني الأساسي معتمد"
+
+#. module: zc_tender
+#. odoo-python
+#: code:addons/zc_tender/models/handover.py:0
+msgid "Before the handover: %s."
+msgstr "قبل التسليم: %s."
+
+#. module: zc_tender
+#: model:ir.model.fields.selection,name:zc_tender.selection__crm_lead__zc_decision__bid
+msgid "Bid"
+msgstr "ندخل"
+
+#. module: zc_tender
+#. odoo-python
+#: code:addons/zc_tender/models/control_tower.py:0
+msgid "Bid / No-Bid"
+msgstr "ندخل / نعتذر"
+
+#. module: zc_tender
+#: model:ir.model,name:zc_tender.model_zc_tender_criterion
+msgid "Bid / No-Bid Criterion"
+msgstr "معيار قرار الدخول"
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_crm_lead__zc_criterion_ids
+msgid "Bid / No-Bid assessment"
+msgstr "تقييم قرار الدخول"
+
+#. module: zc_tender
+#: model_terms:ir.ui.view,arch_db:zc_tender.crm_lead_form_zc_tender
+msgid "Bid / No-Bid assessment (1 = poor ... 5 = excellent)"
+msgstr "تقييم قرار الدخول (1 = ضعيف ... 5 = ممتاز)"
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_crm_lead__zc_bid_bond_amount
+msgid "Bid bond"
+msgstr "التأمين الابتدائي"
+
+#. module: zc_tender
+#. odoo-python
+#: code:addons/zc_tender/models/tender.py:0
+msgid "Bid bond %s"
+msgstr "تأمين ابتدائي %s"
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_crm_lead__zc_bid_bond_id
+msgid "Bid bond issued"
+msgstr "خطاب الضمان الابتدائي"
+
+#. module: zc_tender
+#: model_terms:ir.ui.view,arch_db:zc_tender.view_order_form_zc_handover_exec
+msgid "Budget reference"
+msgstr "مرجع الميزانية"
+
+#. module: zc_tender
+#: model:ir.model.fields,help:zc_tender.field_crm_lead__zc_peak_funding
+msgid "Cash the project needs before the owner's payments cover the costs."
+msgstr "السيولة اللي المشروع محتاجها قبل ما دفعات المالك تغطي التكاليف."
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_crm_lead__zc_clarification_ids
+#: model_terms:ir.ui.view,arch_db:zc_tender.crm_lead_form_zc_tender
+msgid "Clarifications & addenda"
+msgstr "الاستفسارات والملاحق"
+
+#. module: zc_tender
+#: model:ir.model.fields.selection,name:zc_tender.selection__zc_tender_criterion__criterion__client
+msgid "Client: payment record and relationship"
+msgstr "العميل: سجل السداد والعلاقة"
+
+#. module: zc_tender
+#: model:ir.model.fields.selection,name:zc_tender.selection__zc_tender_criterion__criterion__risk
+msgid "Contract risks versus the expected return"
+msgstr "مخاطر العقد مقابل العائد"
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_sale_order__zc_ready_contract
+msgid "Contract signed"
+msgstr "العقد موقّع"
+
+#. module: zc_tender
+#: model:ir.model,name:zc_tender.model_hom_control_tower
+msgid "Contracting Control Tower"
+msgstr "برج التحكم للمقاولات"
+
+#. module: zc_tender
+#: model:ir.model.fields.selection,name:zc_tender.selection__crm_lead__zc_pricing_basis__cost_plus
+msgid "Cost plus fee"
+msgstr "تكلفة + أتعاب"
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_zc_tender_clarification__create_uid
+#: model:ir.model.fields,field_description:zc_tender.field_zc_tender_criterion__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_zc_tender_clarification__create_date
+#: model:ir.model.fields,field_description:zc_tender.field_zc_tender_criterion__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_zc_tender_criterion__criterion
+msgid "Criterion"
+msgstr "المعيار"
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_zc_tender_clarification__date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_crm_lead__zc_days_left
+msgid "Days to submission"
+msgstr "أيام على التقديم"
+
+#. module: zc_tender
+#: model_terms:ir.ui.view,arch_db:zc_tender.crm_lead_form_zc_tender
+msgid "Decide: BID"
+msgstr "القرار: ندخل"
+
+#. module: zc_tender
+#: model_terms:ir.ui.view,arch_db:zc_tender.crm_lead_form_zc_tender
+msgid "Decide: NO BID"
+msgstr "القرار: نعتذر"
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_crm_lead__zc_decision_by_id
+msgid "Decided by"
+msgstr "القرار بواسطة"
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_crm_lead__zc_decision
+msgid "Decision"
+msgstr "القرار"
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_crm_lead__zc_decision_note
+msgid "Decision reasoning"
+msgstr "أسباب القرار"
+
+#. module: zc_tender
+#. odoo-python
+#: code:addons/zc_tender/models/tender.py:0
+msgid "Decision: BID (score %(s).0f%%). %(n)s"
+msgstr "القرار: ندخل (التقييم %(s).0f%%). %(n)s"
+
+#. module: zc_tender
+#. odoo-python
+#: code:addons/zc_tender/models/tender.py:0
+msgid "Decision: NO BID. %s"
+msgstr "القرار: نعتذر. %s"
+
+#. module: zc_tender
+#: model:ir.model.fields.selection,name:zc_tender.selection__crm_lead__zc_tender_type__direct
+msgid "Direct invitation"
+msgstr "دعوة مباشرة"
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_crm_lead__display_name
+#: model:ir.model.fields,field_description:zc_tender.field_hom_control_tower__display_name
+#: model:ir.model.fields,field_description:zc_tender.field_sale_order__display_name
+#: model:ir.model.fields,field_description:zc_tender.field_zc_tender_clarification__display_name
+#: model:ir.model.fields,field_description:zc_tender.field_zc_tender_criterion__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_crm_lead__zc_duration_months
+msgid "Duration (months)"
+msgstr "المدة (شهور)"
+
+#. module: zc_tender
+#. odoo-python
+#: code:addons/zc_tender/models/tender.py:0
+msgid "Enter the bid bond amount."
+msgstr "اكتب قيمة التأمين الابتدائي."
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_crm_lead__zc_estimated_cost
+msgid "Estimated cost"
+msgstr "التكلفة التقديرية"
+
+#. module: zc_tender
+#: model_terms:ir.ui.view,arch_db:zc_tender.view_order_form_zc_handover_exec
+msgid "Excluded from our scope"
+msgstr "خارج نطاقنا"
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_sale_order__zc_tender_exclusions
+msgid "Exclusions"
+msgstr "الاستبعادات"
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_sale_order__zc_budget_vs_tender
+msgid "Execution budget vs tender"
+msgstr "ميزانية التنفيذ مقابل العرض"
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_crm_lead__zc_expected_margin
+msgid "Expected margin"
+msgstr "الهامش المتوقع"
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_crm_lead__zc_expected_margin_pct
+msgid "Expected margin %"
+msgstr "نسبة الهامش المتوقع"
+
+#. module: zc_tender
+#: model:ir.model.fields.selection,name:zc_tender.selection__zc_tender_criterion__criterion__experience
+msgid "Experience in this type of work"
+msgstr "الخبرة في نوع الأعمال"
+
+#. module: zc_tender
+#: model:ir.model.fields.selection,name:zc_tender.selection__zc_tender_criterion__criterion__capacity
+msgid "Free capacity of our teams and equipment"
+msgstr "الطاقة المتاحة من الفرق والمعدات"
+
+#. module: zc_tender
+#: model:ir.model.fields.selection,name:zc_tender.selection__zc_tender_criterion__criterion__funding
+msgid "Funding need versus our cash"
+msgstr "احتياج التمويل مقابل السيولة"
+
+#. module: zc_tender
+#: model_terms:ir.ui.view,arch_db:zc_tender.view_order_form_zc_handover_exec
+msgid "Hand over to execution"
+msgstr "التسليم للتنفيذ"
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_sale_order__zc_handed_over
+msgid "Handed over to execution"
+msgstr "اتسلّم للتنفيذ"
+
+#. module: zc_tender
+#. odoo-python
+#: code:addons/zc_tender/models/handover.py:0
+msgid "Handed over to execution. Tender budget frozen at %s."
+msgstr "اتسلّم للتنفيذ. ميزانية العرض اتثبتت على %s."
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_crm_lead__id
+#: model:ir.model.fields,field_description:zc_tender.field_hom_control_tower__id
+#: model:ir.model.fields,field_description:zc_tender.field_sale_order__id
+#: model:ir.model.fields,field_description:zc_tender.field_zc_tender_clarification__id
+#: model:ir.model.fields,field_description:zc_tender.field_zc_tender_criterion__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: zc_tender
+#: model_terms:ir.ui.view,arch_db:zc_tender.crm_lead_form_zc_tender
+msgid "Issue bid bond"
+msgstr "إصدار التأمين الابتدائي"
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_sale_order__zc_ready_budget
+msgid "Item budget priced"
+msgstr "ميزانية البنود متسعّرة"
+
+#. module: zc_tender
+#: model:ir.model.fields,help:zc_tender.field_sale_order__zc_tender_budget
+msgid ""
+"Item budget total when the tender was handed over: the reference the "
+"execution budget is compared with."
+msgstr ""
+"إجمالي ميزانية البنود وقت تسليم المناقصة: المرجع اللي بنقارن بيه ميزانية "
+"التنفيذ."
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_zc_tender_clarification__write_uid
+#: model:ir.model.fields,field_description:zc_tender.field_zc_tender_criterion__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_zc_tender_clarification__write_date
+#: model:ir.model.fields,field_description:zc_tender.field_zc_tender_criterion__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_crm_lead__zc_clarification_deadline
+msgid "Last day for clarifications"
+msgstr "آخر يوم للاستفسارات"
+
+#. module: zc_tender
+#: model:ir.model,name:zc_tender.model_crm_lead
+#: model:ir.model.fields,field_description:zc_tender.field_zc_tender_clarification__lead_id
+#: model:ir.model.fields,field_description:zc_tender.field_zc_tender_criterion__lead_id
+msgid "Lead"
+msgstr "عميل مهتم"
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_zc_tender_clarification__reference
+msgid "Letter / addendum ref."
+msgstr "رقم الخطاب / الملحق"
+
+#. module: zc_tender
+#: model:ir.model.fields.selection,name:zc_tender.selection__crm_lead__zc_tender_type__limited
+msgid "Limited tender"
+msgstr "مناقصة محدودة"
+
+#. module: zc_tender
+#: model_terms:ir.ui.view,arch_db:zc_tender.crm_lead_form_zc_tender
+msgid "Load the criteria"
+msgstr "تحميل المعايير"
+
+#. module: zc_tender
+#: model:ir.model.fields.selection,name:zc_tender.selection__crm_lead__zc_pricing_basis__lump_sum
+msgid "Lump sum"
+msgstr "مبلغ مقطوع"
+
+#. module: zc_tender
+#: model:ir.model.fields.selection,name:zc_tender.selection__crm_lead__zc_decision__no_bid
+msgid "No bid"
+msgstr "نعتذر"
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_zc_tender_criterion__note
+msgid "Note"
+msgstr "ملاحظة"
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_crm_lead__zc_peak_funding
+msgid "Peak funding need"
+msgstr "أقصى احتياج تمويلي"
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_sale_order__zc_ready_guarantee
+msgid "Performance / advance guarantee"
+msgstr "ضمان نهائي / دفعة مقدمة"
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_sale_order__zc_tender_assumptions
+msgid "Pricing assumptions"
+msgstr "افتراضات التسعير"
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_crm_lead__zc_pricing_basis
+msgid "Pricing basis"
+msgstr "أساس التسعير"
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_sale_order__zc_ready_dates
+msgid "Project dates set"
+msgstr "تواريخ المشروع محددة"
+
+#. module: zc_tender
+#. odoo-python
+#: code:addons/zc_tender/models/handover.py:0
+msgid "Project handed over: read the assumptions, exclusions and risks"
+msgstr "المشروع اتسلّم: اقرا الافتراضات والاستبعادات والمخاطر"
+
+#. module: zc_tender
+#: model:ir.model.fields.selection,name:zc_tender.selection__crm_lead__zc_tender_type__public
+msgid "Public tender"
+msgstr "مناقصة عامة"
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_zc_tender_clarification__question
+msgid "Question"
+msgstr "السؤال"
+
+#. module: zc_tender
+#: model_terms:ir.ui.view,arch_db:zc_tender.view_order_form_zc_handover_exec
+msgid "Ready to start"
+msgstr "جاهزية البدء"
+
+#. module: zc_tender
+#: model:ir.model.fields.selection,name:zc_tender.selection__zc_tender_criterion__criterion__schedule
+msgid "Realistic duration"
+msgstr "المدة واقعية"
+
+#. module: zc_tender
+#: model:ir.model.fields.selection,name:zc_tender.selection__crm_lead__zc_pricing_basis__remeasure
+msgid "Remeasurement (BOQ x rates)"
+msgstr "إعادة قياس (كميات × أسعار)"
+
+#. module: zc_tender
+#: model_terms:ir.ui.view,arch_db:zc_tender.view_order_form_zc_handover_exec
+msgid "Risks"
+msgstr "المخاطر"
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_sale_order__zc_tender_risks
+msgid "Risks priced / not priced"
+msgstr "المخاطر المسعّرة / غير المسعّرة"
+
+#. module: zc_tender
+#: model:ir.model,name:zc_tender.model_sale_order
+msgid "Sales Order"
+msgstr "أمر البيع"
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_zc_tender_criterion__score
+msgid "Score"
+msgstr "التقييم"
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_crm_lead__zc_score
+msgid "Score %"
+msgstr "نسبة التقييم"
+
+#. module: zc_tender
+#. odoo-python
+#: code:addons/zc_tender/models/tender.py:0
+msgid "Score every criterion of the assessment before deciding."
+msgstr "قيّم كل المعايير قبل القرار."
+
+#. module: zc_tender
+#: model:ir.model.constraint,message:zc_tender.constraint_zc_tender_criterion_score_range
+msgid "Scores go from 1 to 5."
+msgstr "التقييم من 1 لـ 5."
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_sale_order__zc_ready_store
+msgid "Site store assigned"
+msgstr "مخزن الموقع محدد"
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_crm_lead__zc_site_visit_date
+msgid "Site visit"
+msgstr "زيارة الموقع"
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_crm_lead__zc_submission_deadline
+msgid "Submission deadline"
+msgstr "موعد التقديم"
+
+#. module: zc_tender
+#. odoo-python
+#: code:addons/zc_tender/models/tender.py:0
+msgid "Take the Bid / No-Bid decision before pricing the tender."
+msgstr "خد قرار الدخول قبل تسعير المناقصة."
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_crm_lead__zc_is_tender
+#: model_terms:ir.ui.view,arch_db:zc_tender.crm_lead_form_zc_tender
+msgid "Tender"
+msgstr "مناقصة"
+
+#. module: zc_tender
+#: model:ir.model,name:zc_tender.model_zc_tender_clarification
+msgid "Tender Clarification / Addendum"
+msgstr "استفسار / ملحق مناقصة"
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_sale_order__zc_tender_budget
+msgid "Tender budget (frozen)"
+msgstr "ميزانية العرض (ثابتة)"
+
+#. module: zc_tender
+#: model_terms:ir.ui.view,arch_db:zc_tender.view_order_form_zc_handover_exec
+msgid "Tender handover"
+msgstr "التسليم من المناقصات"
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_crm_lead__zc_tender_ref
+msgid "Tender reference"
+msgstr "رقم المناقصة"
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_crm_lead__zc_tender_type
+msgid "Tender type"
+msgstr "نوع الطرح"
+
+#. module: zc_tender
+#: model:ir.actions.act_window,name:zc_tender.action_zc_tenders
+#: model:ir.ui.menu,name:zc_tender.menu_zc_tenders
+#: model_terms:ir.ui.view,arch_db:zc_tender.crm_lead_list_zc_tender
+msgid "Tenders"
+msgstr "المناقصات"
+
+#. module: zc_tender
+#. odoo-python
+#: code:addons/zc_tender/models/control_tower.py:0
+msgid "Tenders due"
+msgstr "مناقصات مستحقة"
+
+#. module: zc_tender
+#. odoo-python
+#: code:addons/zc_tender/models/control_tower.py:0
+msgid "Tenders to submit within 7 days"
+msgstr "مناقصات لازم تتقدم خلال 7 أيام"
+
+#. module: zc_tender
+#. odoo-python
+#: code:addons/zc_tender/models/control_tower.py:0
+msgid "Tenders waiting for the Bid / No-Bid decision"
+msgstr "مناقصات مستنية قرار الدخول"
+
+#. module: zc_tender
+#. odoo-python
+#: code:addons/zc_tender/models/tender.py:0
+msgid ""
+"The Bid / No-Bid decision is taken by management (Sales manager rights)."
+msgstr "قرار الدخول بتاخده الإدارة (صلاحية مدير المبيعات)."
+
+#. module: zc_tender
+#: model:ir.module.module,summary:base.module_zc_tender
+msgid ""
+"The tender file on the opportunity (submission deadline, site visit, "
+"clarifications and addenda, pricing basis, bid bond), a scored Bid / No-Bid "
+"decision approved by management, and the formal handover from tendering to "
+"the project team: assumptions, exclusions, risks, readiness checklist and "
+"the tender budget frozen as the reference for the execution budget."
+msgstr ""
+"ملف المناقصة على الفرصة (موعد التقديم، زيارة الموقع، الاستفسارات والملاحق، "
+"أساس التسعير، التأمين الابتدائي)، وقرار الدخول بالتقييم والاعتماد من "
+"الإدارة، والتسليم الرسمي من المناقصات لفريق المشروع: الافتراضات والاستبعادات"
+" والمخاطر وقائمة الجاهزية وتثبيت ميزانية العرض كمرجع."
+
+#. module: zc_tender
+#: model:ir.model.fields.selection,name:zc_tender.selection__crm_lead__zc_decision__open
+msgid "To decide"
+msgstr "لم يتقرر"
+
+#. module: zc_tender
+#: model_terms:ir.ui.view,arch_db:zc_tender.crm_lead_list_zc_tender
+msgid "Value"
+msgstr "القيمة"
+
+#. module: zc_tender
+#: model_terms:ir.ui.view,arch_db:zc_tender.view_order_form_zc_handover_exec
+msgid "What the price assumed"
+msgstr "افتراضات السعر"
+
+#. module: zc_tender
+#. odoo-python
+#: code:addons/zc_tender/models/tender.py:0
+msgid ""
+"Write why we do not bid: it is the memory for the next tender of this "
+"client."
+msgstr "اكتب ليه بنعتذر: ده ذاكرة المناقصة الجاية لنفس العميل."
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_crm_lead__zc_decision_date
+msgid "Zc Decision Date"
+msgstr ""
+
+#. module: zc_tender
+#: model:ir.model.fields,field_description:zc_tender.field_sale_order__zc_handover_date
+msgid "Zc Handover Date"
+msgstr ""
+
+#. module: zc_tender
+#: model:ir.module.module,shortdesc:base.module_zc_tender
+msgid "Ziij Construction - Tenders & Handover to Execution"
+msgstr "Ziij Construction - المناقصات والتسليم للتنفيذ"
+
+#. module: zc_tender
+#. odoo-python
+#: code:addons/zc_tender/models/handover.py:0
+msgid "confirmed contract"
+msgstr "عقد معتمد"
+
+#. module: zc_tender
+#. odoo-python
+#: code:addons/zc_tender/models/control_tower.py:0
+msgid "id"
+msgstr ""
+
+#. module: zc_tender
+#. odoo-python
+#: code:addons/zc_tender/models/handover.py:0
+msgid "item budget (price analysis)"
+msgstr "ميزانية البنود (تحليل الأسعار)"
+
+#. module: zc_tender
+#. odoo-python
+#: code:addons/zc_tender/models/handover.py:0
+msgid "project start and end dates"
+msgstr "تاريخ بداية ونهاية المشروع"

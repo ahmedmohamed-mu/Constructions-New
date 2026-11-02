@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="seq_zc_material_request" model="ir.sequence">
+            <field name="name">Material Request</field>
+            <field name="code">zc.material.request</field>
+            <field name="prefix">MR/%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_zc_material_request_form" model="ir.ui.view">
+        <field name="name">zc.material.request.form</field>
+        <field name="model">zc.material.request</field>
+        <field name="arch" type="xml">
+            <form string="Material Request">
+                <header>
+                    <button name="action_submit" type="object" string="Submit" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_approve" type="object" string="Approve (PM)" class="btn-primary" invisible="state != 'submitted'"/>
+                    <button name="action_process" type="object" string="Transfer / order" class="btn-primary" invisible="state != 'approved'"/>
+                    <button name="action_draft" type="object" string="Back to draft" invisible="state not in ('submitted', 'cancel')"/>
+                    <button name="action_cancel" type="object" string="Cancel" invisible="state in ('done', 'cancel')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,submitted,approved,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_pickings" type="object" class="oe_stat_button" icon="fa-truck" invisible="not picking_count">
+                            <field name="picking_count" widget="statinfo" string="Transfers"/>
+                        </button>
+                        <button name="action_view_purchases" type="object" class="oe_stat_button" icon="fa-shopping-cart" invisible="not purchase_count">
+                            <field name="purchase_count" widget="statinfo" string="RFQs"/>
+                        </button>
+                    </div>
+                    <widget name="web_ribbon" title="Late" bg_color="text-bg-danger" invisible="not late"/>
+                    <div class="oe_title"><h1><field name="name" readonly="1"/></h1></div>
+                    <group>
+                        <group>
+                            <field name="sale_order_id" readonly="state != 'draft'"/>
+                            <field name="project_id"/>
+                            <field name="warehouse_id"/>
+                            <field name="location"/>
+                        </group>
+                        <group>
+                            <field name="user_id"/>
+                            <field name="date"/>
+                            <field name="date_needed" readonly="state not in ('draft', 'submitted')"/>
+                        </group>
+                    </group>
+                    <field name="line_ids" readonly="state not in ('draft', 'submitted')">
+                        <list editable="bottom" decoration-danger="budget_check == 'over'">
+                            <field name="sale_order_id" column_invisible="1"/>
+                            <field name="sale_line_id"/>
+                            <field name="product_id"/>
+                            <field name="quantity"/>
+                            <field name="uom_id"/>
+                            <field name="available_site_qty"/>
+                            <field name="available_other_qty"/>
+                            <field name="allowed_qty"/>
+                            <field name="budget_check" widget="badge" decoration-success="budget_check == 'ok'"
+                                   decoration-danger="budget_check == 'over'"/>
+                            <field name="transferred_qty" optional="hide"/>
+                            <field name="ordered_qty" optional="hide"/>
+                            <field name="note"/>
+                        </list>
+                    </field>
+                    <div class="text-muted small">Stock in the site store is used first, then stock in other stores is
+                        transferred, and only the rest is bought - checked against the BOQ item budget.</div>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_zc_material_request_list" model="ir.ui.view">
+        <field name="name">zc.material.request.list</field>
+        <field name="model">zc.material.request</field>
+        <field name="arch" type="xml">
+            <list string="Material Requests" decoration-danger="late">
+                <field name="name"/>
+                <field name="sale_order_id"/>
+                <field name="user_id"/>
+                <field name="date"/>
+                <field name="date_needed"/>
+                <field name="late" column_invisible="1"/>
+                <field name="state" widget="badge" decoration-success="state == 'done'" decoration-warning="state in ('submitted', 'approved')"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_zc_material_request" model="ir.actions.act_window">
+        <field name="name">Material Requests</field>
+        <field name="res_model">zc.material.request</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_zc_material_request" name="Material Requests" parent="hom_contracting_base.menu_hom_site_top"
+              action="action_zc_material_request" sequence="15"/>
+
+    <record id="view_picking_form_zc_qc" model="ir.ui.view">
+        <field name="name">stock.picking.form.zc.qc</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_zc_qc_accept" type="object" string="Accept technically" class="btn-primary"
+                        invisible="zc_qc_state != 'pending'"/>
+                <button name="action_zc_qc_reject" type="object" string="Reject &amp; return"
+                        invisible="zc_qc_state != 'pending'"/>
+            </xpath>
+            <xpath expr="//field[@name='origin']" position="after">
+                <field name="zc_qc_state" widget="badge" invisible="not zc_qc_state"
+                       decoration-success="zc_qc_state == 'accepted'" decoration-danger="zc_qc_state == 'rejected'"
+                       decoration-warning="zc_qc_state == 'pending'"/>
+                <field name="zc_qc_note" invisible="not zc_qc_state"/>
+                <field name="zc_qc_user_id" invisible="not zc_qc_user_id"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
