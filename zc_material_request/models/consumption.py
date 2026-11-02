@@ -61,7 +61,7 @@ class HomSiteMeasurement(models.Model):
             return []
         out = []
         for cost in self.sale_line_id.sudo().zc_cost_line_ids:
-            if cost.cost_type != "material" or not cost.product_id.is_storable or not cost.qty_per_unit:
+            if cost.cost_type not in ("material", "accessory") or not cost.product_id.is_storable or not cost.qty_per_unit:
                 continue
             qty = float_round(self.quantity * cost.qty_per_unit, precision_digits=4)
             if qty > 0:
