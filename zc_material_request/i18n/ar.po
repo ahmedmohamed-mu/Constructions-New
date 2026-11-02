@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 20.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-02 13:36+0000\n"
-"PO-Revision-Date: 2026-11-02 13:36+0000\n"
+"POT-Creation-Date: 2026-11-02 14:11+0000\n"
+"PO-Revision-Date: 2026-11-02 14:11+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ar\n"
@@ -115,6 +115,7 @@ msgid "Cancelled"
 msgstr "ملغي"
 
 #. module: zc_material_request
+#: model:ir.model,name:zc_material_request.model_res_company
 #: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__company_id
 msgid "Company"
 msgstr "الشركة"
@@ -154,6 +155,9 @@ msgstr ""
 
 #. module: zc_material_request
 #: model:ir.model.fields,field_description:zc_material_request.field_hom_control_tower__display_name
+#: model:ir.model.fields,field_description:zc_material_request.field_hom_site_measurement__display_name
+#: model:ir.model.fields,field_description:zc_material_request.field_res_company__display_name
+#: model:ir.model.fields,field_description:zc_material_request.field_stock_move__display_name
 #: model:ir.model.fields,field_description:zc_material_request.field_stock_picking__display_name
 #: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__display_name
 #: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request_line__display_name
@@ -164,6 +168,16 @@ msgstr "اسم العرض"
 #: model:ir.model.fields.selection,name:zc_material_request.selection__zc_material_request__state__draft
 msgid "Draft"
 msgstr "مسودة"
+
+#. module: zc_material_request
+#: model:ir.model.fields,help:zc_material_request.field_res_company__zc_issue_on_measurement
+msgid ""
+"Each installed quantity measured on site prepares the issue of its materials"
+" from the site store (quantity x material per unit of the item's price "
+"analysis). The store keeper validates it."
+msgstr ""
+"كل كمية مركّبة في الحصر بتجهّز إذن صرف خاماتها من مخزن الموقع (الكمية × "
+"معامل الخامة في تحليل السعر)، وأمين المخزن بيعتمده."
 
 #. module: zc_material_request
 #: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__message_follower_ids
@@ -187,6 +201,9 @@ msgstr ""
 
 #. module: zc_material_request
 #: model:ir.model.fields,field_description:zc_material_request.field_hom_control_tower__id
+#: model:ir.model.fields,field_description:zc_material_request.field_hom_site_measurement__id
+#: model:ir.model.fields,field_description:zc_material_request.field_res_company__id
+#: model:ir.model.fields,field_description:zc_material_request.field_stock_move__id
 #: model:ir.model.fields,field_description:zc_material_request.field_stock_picking__id
 #: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__id
 #: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request_line__id
@@ -245,6 +262,42 @@ msgid "Is Follower"
 msgstr ""
 
 #. module: zc_material_request
+#. odoo-python
+#: code:addons/zc_material_request/models/consumption.py:0
+msgid "Issue for work measured on site"
+msgstr "صرف لأعمال محصورة في الموقع"
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_res_company__zc_issue_on_measurement
+msgid "Issue materials from the site measurement"
+msgstr "صرف الخامات تلقائيًا من حصر الموقع"
+
+#. module: zc_material_request
+#: model:ir.actions.server,name:zc_material_request.action_server_zc_issue_materials
+msgid "Issue materials from the site store"
+msgstr "صرف الخامات من مخزن الموقع"
+
+#. module: zc_material_request
+#: model:ir.model.fields.selection,name:zc_material_request.selection__hom_site_measurement__zc_issue_state__pending
+msgid "Issue waiting for the store"
+msgstr "إذن صرف في انتظار المخزن"
+
+#. module: zc_material_request
+#: model:ir.model.fields.selection,name:zc_material_request.selection__hom_site_measurement__zc_issue_state__done
+msgid "Issued"
+msgstr "اتصرف"
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_stock_move__zc_measurement_id
+msgid "Issued for measurement"
+msgstr "مصروف للحصر"
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request_line__issued_qty
+msgid "Issued from site store"
+msgstr "مصروف من مخزن الموقع"
+
+#. module: zc_material_request
 #: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__write_uid
 #: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request_line__write_uid
 msgid "Last Updated by"
@@ -297,9 +350,27 @@ msgstr ""
 
 #. module: zc_material_request
 #. odoo-python
+#: code:addons/zc_material_request/models/consumption.py:0
+#: model:ir.model.fields,field_description:zc_material_request.field_hom_site_measurement__zc_issue_state
+msgid "Material issue"
+msgstr "صرف الخامات"
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_hom_site_measurement__zc_issue_move_ids
+msgid "Material issues"
+msgstr "أذون الصرف"
+
+#. module: zc_material_request
+#. odoo-python
 #: code:addons/zc_material_request/models/control_tower.py:0
 msgid "Material requests not served by the date needed on site"
 msgstr "طلبات مواد ما اتوفرتش في التاريخ المطلوب للموقع"
+
+#. module: zc_material_request
+#. odoo-python
+#: code:addons/zc_material_request/models/control_tower.py:0
+msgid "Materials to issue"
+msgstr "خامات للصرف"
 
 #. module: zc_material_request
 #: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__message_has_error
@@ -333,6 +404,11 @@ msgid "New"
 msgstr "جديد"
 
 #. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: zc_material_request
 #: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__activity_date_deadline
 msgid "Next Activity Deadline"
 msgstr ""
@@ -353,9 +429,29 @@ msgid "No item budget"
 msgstr "بدون ميزانية للبند"
 
 #. module: zc_material_request
+#: model:ir.model.fields.selection,name:zc_material_request.selection__hom_site_measurement__zc_issue_state__none
+msgid "No stock material"
+msgstr "بدون خامات مخزنية"
+
+#. module: zc_material_request
+#: model:ir.model.fields.selection,name:zc_material_request.selection__hom_site_measurement__zc_issue_state__todo
+msgid "Not issued"
+msgstr "لم يُصرف"
+
+#. module: zc_material_request
 #: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request_line__note
 msgid "Note"
 msgstr "ملاحظة"
+
+#. module: zc_material_request
+#. odoo-python
+#: code:addons/zc_material_request/models/consumption.py:0
+msgid ""
+"Nothing to issue: the work has no stock material in its price analysis, is "
+"already issued, or the project has no site store."
+msgstr ""
+"مفيش حاجة تتصرف: البند مالوش خامات مخزنية في تحليل السعر، أو اتصرف قبل كده، "
+"أو المشروع مالوش مخزن موقع."
 
 #. module: zc_material_request
 #: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__message_needaction_counter
@@ -397,6 +493,11 @@ msgstr "عدد التحويلات"
 #: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__project_id
 msgid "Project"
 msgstr "المشروع"
+
+#. module: zc_material_request
+#: model:ir.model.fields,field_description:zc_material_request.field_res_company__zc_consumption_location_id
+msgid "Project consumption location"
+msgstr "موقع الاستهلاك في المشروع"
 
 #. module: zc_material_request
 #: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__purchase_count
@@ -510,6 +611,16 @@ msgid "Site Material Request Line"
 msgstr "بند طلب مواد"
 
 #. module: zc_material_request
+#: model:ir.model,name:zc_material_request.model_hom_site_measurement
+msgid "Site Measurement"
+msgstr "حصر الموقع"
+
+#. module: zc_material_request
+#: model_terms:ir.ui.view,arch_db:zc_material_request.view_company_form_zc_issue
+msgid "Site materials"
+msgstr "خامات الموقع"
+
+#. module: zc_material_request
 #: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request__warehouse_id
 msgid "Site store"
 msgstr "مخزن الموقع"
@@ -538,6 +649,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:zc_material_request.field_zc_material_request_line__allowed_qty
 msgid "Still allowed by budget"
 msgstr "المتبقي المسموح بالميزانية"
+
+#. module: zc_material_request
+#: model:ir.model,name:zc_material_request.model_stock_move
+msgid "Stock Move"
+msgstr "حركة المخزون"
 
 #. module: zc_material_request
 #: model_terms:ir.ui.view,arch_db:zc_material_request.view_zc_material_request_form
@@ -613,6 +729,12 @@ msgstr "في حدود الميزانية"
 
 #. module: zc_material_request
 #. odoo-python
+#: code:addons/zc_material_request/models/control_tower.py:0
+msgid "Work installed on site without a material issue from the store"
+msgstr "أعمال اتركبت في الموقع من غير إذن صرف خامات"
+
+#. module: zc_material_request
+#. odoo-python
 #: code:addons/zc_material_request/models/stock.py:0
 msgid ""
 "Write why the material is rejected (specification, damage, quantity...)."
@@ -630,6 +752,7 @@ msgstr "المنطقة / الدور"
 
 #. module: zc_material_request
 #. odoo-python
+#: code:addons/zc_material_request/models/consumption.py:0
 #: code:addons/zc_material_request/models/control_tower.py:0
 #: code:addons/zc_material_request/models/material_request.py:0
 msgid "id"

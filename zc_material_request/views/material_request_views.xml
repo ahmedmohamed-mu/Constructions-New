@@ -50,6 +50,7 @@
                             <field name="budget_check" widget="badge" decoration-success="budget_check == 'ok'"
                                    decoration-danger="budget_check == 'over'"/>
                             <field name="transferred_qty" optional="hide"/>
+                            <field name="issued_qty" optional="show"/>
                             <field name="ordered_qty" optional="hide"/>
                             <field name="note"/>
                         </list>
@@ -104,6 +105,42 @@
                        decoration-warning="zc_qc_state == 'pending'"/>
                 <field name="zc_qc_note" invisible="not zc_qc_state"/>
                 <field name="zc_qc_user_id" invisible="not zc_qc_user_id"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="hom_site_measurement_list_zc_issue" model="ir.ui.view">
+        <field name="name">hom.site.measurement.list.zc.issue</field>
+        <field name="model">hom.site.measurement</field>
+        <field name="inherit_id" ref="hom_progress_billing.hom_site_measurement_list"/>
+        <field name="arch" type="xml">
+            <xpath expr="//list" position="inside">
+                <field name="zc_issue_state" widget="badge" optional="show" decoration-success="zc_issue_state == 'done'"
+                       decoration-warning="zc_issue_state == 'pending'" decoration-danger="zc_issue_state == 'todo'"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_server_zc_issue_materials" model="ir.actions.server">
+        <field name="name">Issue materials from the site store</field>
+        <field name="model_id" ref="hom_progress_billing.model_hom_site_measurement"/>
+        <field name="binding_model_id" ref="hom_progress_billing.model_hom_site_measurement"/>
+        <field name="binding_view_types">list,form</field>
+        <field name="state">code</field>
+        <field name="code">action = records.action_zc_issue_materials()</field>
+    </record>
+
+    <record id="view_company_form_zc_issue" model="ir.ui.view">
+        <field name="name">res.company.form.zc.issue</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Site materials" name="zc_site_materials">
+                    <group>
+                        <field name="zc_issue_on_measurement"/>
+                        <field name="zc_consumption_location_id"/>
+                    </group>
+                </page>
             </xpath>
         </field>
     </record>

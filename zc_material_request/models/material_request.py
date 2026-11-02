@@ -87,18 +87,44 @@ class ZcMaterialRequest(models.Model):
                 raise UserError(_("Only an approved request can be processed."))
             if not rec.warehouse_id:
                 raise UserError(_("Set the site store of the project (Project > Site Store) first."))
+            rec._create_site_issue()
             rec._create_transfers()
             rec._create_rfqs()
             rec.state = "done"
         return True
+
+    def _create_site_issue(self):
+        """What the site store can serve leaves it now: issue voucher site store -> project consumption."""
+        self.ensure_one()
+        site = self.warehouse_id
+        rows = [(line, min(line.quantity, line.available_site_qty)) for line in self.line_ids
+                if line.product_id.is_storable and line.available_site_qty > 0]
+        rows = [(line, qty) for line, qty in rows if qty > 0]
+        if not rows:
+            return
+        dest = self.company_id._zc_consumption_location()
+        picking = self.env["stock.picking"].create({
+            "picking_type_id": site.int_type_id.id, "location_id": site.lot_stock_id.id,
+            "location_dest_id": dest.id, "origin": self.name,
+            "move_ids": [Command.create({
+                "product_id": line.product_id.id, "product_uom_qty": qty, "location_id": site.lot_stock_id.id,
+                "location_dest_id": dest.id, "description_picking": line.note or line.product_id.display_name})
+                for line, qty in rows]})
+        picking.action_confirm()
+        picking.action_assign()
+        self.picking_ids |= picking
+        for line, qty in rows:
+            line.issued_qty += qty
 
     def _create_transfers(self):
         self.ensure_one()
         site = self.warehouse_id
         Quant = self.env["stock.quant"].sudo()
         moves_by_wh = {}
-        for line in self.line_ids.filtered(lambda l: l.product_id.is_storable and l.to_transfer_qty > 0):
-            need = line.to_transfer_qty
+        for line in self.line_ids.filtered(lambda l: l.product_id.is_storable):
+            need = min(max(line.quantity - line.issued_qty, 0.0), line.available_other_qty)
+            if need <= 0:
+                continue
             quants = Quant.search([("product_id", "=", line.product_id.id), ("location_id.usage", "=", "internal"),
                                    ("company_id", "=", self.company_id.id), ("quantity", ">", 0)])
             for q in quants:
@@ -129,7 +155,7 @@ class ZcMaterialRequest(models.Model):
         by_vendor = {}
         account = self.project_id.account_id
         for line in self.line_ids:
-            qty = line.quantity - line.transferred_qty - line.available_site_qty
+            qty = line.quantity - line.transferred_qty - line.issued_qty
             if float_compare(qty, 0.0, precision_digits=4) <= 0:
                 continue
             vendor = line.product_id.seller_ids[:1].partner_id
@@ -183,6 +209,7 @@ class ZcMaterialRequestLine(models.Model):
     budget_check = fields.Selection([("ok", "Within budget"), ("over", "Above budget"), ("none", "No item budget")],
                                     compute="_compute_budget")
     transferred_qty = fields.Float(readonly=True, copy=False, digits="Product Unit")
+    issued_qty = fields.Float(string="Issued from site store", readonly=True, copy=False, digits="Product Unit")
     ordered_qty = fields.Float(string="Ordered", readonly=True, copy=False, digits="Product Unit")
 
     @api.depends("product_id", "quantity", "request_id.warehouse_id")
@@ -199,6 +226,10 @@ class ZcMaterialRequestLine(models.Model):
                         on_site += free
                     elif q.location_id.warehouse_id:
                         other += free
+            if on_site and line.request_id.sale_order_id:
+                # material already laid on this contract but not issued yet is not really available
+                on_site = max(on_site - self.env["hom.site.measurement"]._zc_unissued_qty(
+                    line.request_id.sale_order_id, line.product_id), 0.0)
             line.available_site_qty = on_site
             line.available_other_qty = other
             line.to_transfer_qty = min(max(line.quantity - on_site, 0.0), other)
