@@ -4,7 +4,7 @@
                "quantity, a date and a BOQ item; the project manager approves; the request is served from the site "
                "store, transferred from another store, or turned into a request for quotation checked against the "
                "item budget. Receipts are accepted or rejected technically before the material can be used.",
-    "version": "20.0.1.0.2",
+    "version": "20.0.1.0.3",
     "category": "Services/Project",
     "author": "Ziij AI",
     "license": "OPL-1",
@@ -15,4 +15,5 @@
         "views/material_request_views.xml",
     ],
     "installable": True,
+    "post_init_hook": "_zc_mr_post_init",
 }
