@@ -32,7 +32,7 @@ class ZcInspectionRequest(models.Model):
                                        default="hold", required=True,
                                        help="Hold point: no further work until the consultant approves.\n"
                                             "Witness point: work goes on while the consultant observes.")
-    sale_order_id = fields.Many2one("sale.order", string="Contract", required=True, check_company=True,
+    sale_order_id = fields.Many2one("sale.order", string="Contract", required=True,
                                     domain="[('hom_project_type', '=', 'contracting'), ('state', '=', 'sale')]")
     company_id = fields.Many2one(related="sale_order_id.company_id", store=True)
     project_id = fields.Many2one("project.project", compute="_compute_project_id", store=True)

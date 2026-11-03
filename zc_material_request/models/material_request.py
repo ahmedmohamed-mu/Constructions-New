@@ -10,7 +10,7 @@ class ZcMaterialRequest(models.Model):
     _order = "date desc, id desc"
 
     name = fields.Char(default=lambda self: _("New"), readonly=True, copy=False)
-    sale_order_id = fields.Many2one("sale.order", string="Contract", required=True, check_company=True,
+    sale_order_id = fields.Many2one("sale.order", string="Contract", required=True,
                                     domain="[('state', '=', 'sale'), ('hom_project_type', '=', 'contracting')]",
                                     tracking=True)
     project_id = fields.Many2one("project.project", compute="_compute_project", store=True)

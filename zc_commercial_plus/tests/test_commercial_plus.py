@@ -149,3 +149,10 @@ class TestCommercialPlus(AccountTestInvoicingCommon):
         alerts = self.env["hom.control.tower"]._alerts(self.env.company, today)
         self.assertTrue(any(a.get("action") and a["action"].get("res_model") == "zc.daily.report" for a in alerts
                             if isinstance(a.get("action"), dict)))
+
+    def test_contract_lists_are_not_empty_on_new_records(self):
+        """The forms pick the contract on a new record, whose company (related to the contract) is still empty."""
+        for model in ("zc.sub.package", "zc.daily.report", "zc.rfi", "zc.ncr", "zc.inspection.request",
+                      "zc.material.request", "zc.claim", "zc.handover", "hom.variation.order"):
+            field = self.env[model]._fields["sale_order_id"]
+            self.assertNotIn("company_id", str(field._description_domain(self.env)), model)

@@ -112,7 +112,7 @@ class ZcEscalation(models.Model):
     _check_company_auto = True
 
     name = fields.Char(default=lambda self: _("New"), readonly=True, copy=False)
-    sale_order_id = fields.Many2one("sale.order", string="Contract", required=True, check_company=True,
+    sale_order_id = fields.Many2one("sale.order", string="Contract", required=True,
                                     domain="[('zc_escalation', '=', True), ('state', '=', 'sale')]")
     company_id = fields.Many2one(related="sale_order_id.company_id", store=True)
     currency_id = fields.Many2one(related="sale_order_id.currency_id", store=True)

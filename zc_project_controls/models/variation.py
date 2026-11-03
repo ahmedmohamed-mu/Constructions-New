@@ -12,6 +12,9 @@ class HomVariationOrder(models.Model):
     """
     _inherit = "hom.variation.order"
 
+    # the company is related to the contract: checking the contract against it on a new record (no company yet)
+    # left the contract list empty in the form
+    sale_order_id = fields.Many2one(check_company=False)
     zc_requires_agreement = fields.Boolean(
         string="Owner Agreement Required", tracking=True,
         default=lambda self: self.env.company.zc_vo_owner_agreement,

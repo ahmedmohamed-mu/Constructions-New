@@ -12,7 +12,7 @@ class ZcNcr(models.Model):
 
     name = fields.Char(default=lambda self: _("New"), readonly=True, copy=False)
     title = fields.Char(required=True, tracking=True)
-    sale_order_id = fields.Many2one("sale.order", string="Contract", required=True, check_company=True,
+    sale_order_id = fields.Many2one("sale.order", string="Contract", required=True,
                                     domain="[('state', '=', 'sale'), ('hom_project_type', '=', 'contracting')]")
     project_id = fields.Many2one("project.project", compute="_compute_project_id", store=True)
     company_id = fields.Many2one(related="sale_order_id.company_id", store=True)

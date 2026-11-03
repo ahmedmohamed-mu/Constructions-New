@@ -17,7 +17,7 @@ class ZcHandover(models.Model):
                             required=True, default="preliminary", tracking=True)
     state = fields.Selection([("draft", "Draft"), ("signed", "Signed"), ("cancel", "Cancelled")],
                              default="draft", required=True, tracking=True, copy=False)
-    sale_order_id = fields.Many2one("sale.order", string="Contract", required=True, check_company=True,
+    sale_order_id = fields.Many2one("sale.order", string="Contract", required=True,
                                     domain="[('hom_project_type', '=', 'contracting'), ('state', '=', 'sale')]")
     company_id = fields.Many2one(related="sale_order_id.company_id", store=True)
     currency_id = fields.Many2one(related="sale_order_id.currency_id")
