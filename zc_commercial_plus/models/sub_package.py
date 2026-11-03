@@ -19,7 +19,7 @@ class ZcSubPackage(models.Model):
     company_id = fields.Many2one(related="sale_order_id.company_id", store=True)
     currency_id = fields.Many2one(related="sale_order_id.currency_id")
     sale_line_ids = fields.Many2many("sale.order.line", string="BOQ items",
-                                     domain="[('order_id', '=', sale_order_id), ('display_type', '=', False)]")
+                                     domain="[('order_id', '=', sale_order_id), ('display_type', '=', False), ('is_downpayment', '=', False)]")
     product_id = fields.Many2one("product.product", string="Service bought", required=True,
                                  domain="[('type', '=', 'service'), ('purchase_ok', '=', True)]")
     scope = fields.Html(string="Scope & responsibilities",

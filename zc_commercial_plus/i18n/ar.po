@@ -28,6 +28,11 @@ msgid "A subcontractor claim needs its subcontract."
 msgstr "مطالبة الباطن لازم يتحدد عقدها."
 
 #. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_boq_cost_template__cost_type__accessory
+msgid "Accessories"
+msgstr "إكسسوارات"
+
+#. module: zc_commercial_plus
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__message_needaction
 msgid "Action Needed"
 msgstr ""
@@ -100,9 +105,19 @@ msgid "Awarded to %(p)s for %(a)s."
 msgstr "اترسّت على %(p)s بقيمة %(a)s."
 
 #. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_boq_cost_template__product_tmpl_id
+msgid "BOQ item"
+msgstr "بند المقايسة"
+
+#. module: zc_commercial_plus
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__sale_line_ids
 msgid "BOQ items"
 msgstr "بنود المقايسة"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_boq_cost_template__unit_cost
+msgid "Budget Unit Cost"
+msgstr "تكلفة الوحدة في الميزانية"
 
 #. module: zc_commercial_plus
 #. odoo-python
@@ -169,6 +184,13 @@ msgid "Claimant"
 msgstr "صاحب المطالبة"
 
 #. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/automation.py:0
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.edit_project_zc_site
+msgid "Claims"
+msgstr "المطالبات"
+
+#. module: zc_commercial_plus
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_cashflow_line__company_id
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__company_id
 msgid "Company"
@@ -179,6 +201,11 @@ msgstr "الشركة"
 #: model_terms:ir.ui.view,arch_db:zc_commercial_plus.view_zc_sub_package_form
 msgid "Comparison"
 msgstr "المقارنة"
+
+#. module: zc_commercial_plus
+#: model:ir.model,name:zc_commercial_plus.model_res_partner
+msgid "Contact"
+msgstr "جهة الاتصال"
 
 #. module: zc_commercial_plus
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_cashflow_line__sale_order_id
@@ -193,6 +220,11 @@ msgid "Contract Cash-Flow Forecast"
 msgstr "التدفق النقدي المتوقع للعقد"
 
 #. module: zc_commercial_plus
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.sale_order_line_list_zc_pick
+msgid "Contract Qty"
+msgstr "كمية العقد"
+
+#. module: zc_commercial_plus
 #: model:ir.model,name:zc_commercial_plus.model_hom_control_tower
 msgid "Contracting Control Tower"
 msgstr "برج التحكم للمقاولات"
@@ -203,6 +235,17 @@ msgid "Contractor Claim (EOT / cost)"
 msgstr "مطالبة المقاول (مدة / تكلفة)"
 
 #. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_boq_cost_template__unit_total
+msgid "Cost per BOQ Unit"
+msgstr "التكلفة لكل وحدة بند"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_sale_order__zc_create_site_store
+msgid "Create a site store at the handover"
+msgstr "إنشاء مخزن موقع عند التسليم للتنفيذ"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_boq_cost_template__create_uid
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_cashflow_line__create_uid
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_handover_document__create_uid
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__create_uid
@@ -210,6 +253,7 @@ msgid "Created by"
 msgstr ""
 
 #. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_boq_cost_template__create_date
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_cashflow_line__create_date
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_handover_document__create_date
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__create_date
@@ -228,10 +272,20 @@ msgid "Currency"
 msgstr "العملة"
 
 #. module: zc_commercial_plus
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.edit_project_zc_site
+msgid "Daily Reports"
+msgstr "التقارير اليومية"
+
+#. module: zc_commercial_plus
 #. odoo-python
 #: code:addons/zc_commercial_plus/models/safety.py:0
 msgid "Describe the incident and the actions taken."
 msgstr "اكتب الحادثة والإجراءات اللي اتعملت."
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_boq_cost_template__name
+msgid "Description"
+msgstr "الوصف"
 
 #. module: zc_commercial_plus
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_cashflow_line__direction
@@ -240,7 +294,14 @@ msgstr "الاتجاه"
 
 #. module: zc_commercial_plus
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_hom_control_tower__display_name
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_product_template__display_name
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_project_project__display_name
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_purchase_order__display_name
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_purchase_order_line__display_name
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_res_partner__display_name
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_sale_order__display_name
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_sale_order_line__display_name
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_boq_cost_template__display_name
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_cashflow_line__display_name
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_claim__display_name
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_daily_report__display_name
@@ -292,6 +353,11 @@ msgid "Future certificates (remaining contract)"
 msgstr "مستخلصات قادمة (باقي العقد)"
 
 #. module: zc_commercial_plus
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.edit_project_zc_site
+msgid "Guarantees"
+msgstr "الضمانات"
+
+#. module: zc_commercial_plus
 #. odoo-python
 #: code:addons/zc_commercial_plus/models/handover_docs.py:0
 msgid "Hand over these documents before signing: %s"
@@ -335,7 +401,14 @@ msgstr "أعمال ساخنة، عمل على ارتفاع، حفر..."
 
 #. module: zc_commercial_plus
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_hom_control_tower__id
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_product_template__id
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_project_project__id
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_purchase_order__id
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_purchase_order_line__id
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_res_partner__id
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_sale_order__id
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_sale_order_line__id
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_boq_cost_template__id
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_cashflow_line__id
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_claim__id
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_daily_report__id
@@ -377,6 +450,27 @@ msgid "Incident description & actions"
 msgstr "وصف الحادثة والإجراءات"
 
 #. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/automation.py:0
+msgid "Inspection Requests"
+msgstr "طلبات الاستلام"
+
+#. module: zc_commercial_plus
+#: model:ir.ui.menu,name:zc_commercial_plus.menu_zc_wir_project
+msgid "Inspection Requests (WIR)"
+msgstr "طلبات الاستلام (WIR)"
+
+#. module: zc_commercial_plus
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.edit_project_zc_site
+msgid "Inspections (WIR)"
+msgstr "طلبات الاستلام (WIR)"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_boq_cost_template__cost_type__labour
+msgid "Installation / Labour"
+msgstr "تركيب / مصنعية"
+
+#. module: zc_commercial_plus
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__partner_ids
 msgid "Invited subcontractors"
 msgstr "المقاولين المدعوين"
@@ -408,6 +502,7 @@ msgid "Labour budget of the items"
 msgstr "ميزانية مصنعية البنود"
 
 #. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_boq_cost_template__write_uid
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_cashflow_line__write_uid
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_handover_document__write_uid
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__write_uid
@@ -415,11 +510,18 @@ msgid "Last Updated by"
 msgstr ""
 
 #. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_boq_cost_template__write_date
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_cashflow_line__write_date
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_handover_document__write_date
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__write_date
 msgid "Last Updated on"
 msgstr ""
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/automation.py:0
+msgid "Letters of Guarantee"
+msgstr "خطابات الضمان"
 
 #. module: zc_commercial_plus
 #: model_terms:ir.ui.view,arch_db:zc_commercial_plus.zc_handover_form_docs
@@ -430,6 +532,29 @@ msgstr "تحميل قائمة المستندات القياسية"
 #: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_daily_report__incident__lost_time
 msgid "Lost-time injury"
 msgstr "إصابة مع توقف عن العمل"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_sale_order__zc_markup_pct
+msgid "Markup %"
+msgstr "نسبة الإضافة (Markup) %"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_boq_cost_template__cost_type__material
+msgid "Material"
+msgstr "خامة"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_boq_cost_template__product_id
+msgid "Material / Service"
+msgstr "الخامة / الخدمة"
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/automation.py:0
+#: model:ir.ui.menu,name:zc_commercial_plus.menu_zc_material_request_project
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.edit_project_zc_site
+msgid "Material Requests"
+msgstr "طلبات المواد"
 
 #. module: zc_commercial_plus
 #: model:ir.model.fields,help:zc_commercial_plus.field_zc_sub_package__activity_type_icon
@@ -512,6 +637,12 @@ msgstr ""
 #: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_daily_report__incident__none
 msgid "No incident"
 msgstr "بدون حوادث"
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/automation.py:0
+msgid "No priced item to save."
+msgstr "لا يوجد بند مسعّر للحفظ."
 
 #. module: zc_commercial_plus
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__message_needaction_counter
@@ -634,6 +765,25 @@ msgid "Press \"Refresh forecast\" from the list view"
 msgstr "اضغط \"تحديث التوقع\" من شاشة القائمة"
 
 #. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_product_product__zc_cost_template_ids
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_product_template__zc_cost_template_ids
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.product_template_form_zc_cost_template
+msgid "Price analysis"
+msgstr "تحليل السعر"
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/automation.py:0
+msgid "Price the items first (Item Budget tab)."
+msgstr "سعّر البنود أولًا (تاب ميزانية البنود)."
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/automation.py:0
+msgid "Prices are set from the markup on a quotation only."
+msgstr "الأسعار تُحسب من نسبة الإضافة في عرض السعر فقط."
+
+#. module: zc_commercial_plus
 #: model_terms:ir.ui.view,arch_db:zc_commercial_plus.view_zc_sub_package_form
 msgid ""
 "Prices in red are above the installation budget of the item.\n"
@@ -643,6 +793,12 @@ msgstr ""
 "عرضه (زرار العروض)، وبعدين رسّي."
 
 #. module: zc_commercial_plus
+#: model:ir.model,name:zc_commercial_plus.model_product_template
+msgid "Product"
+msgstr "المنتج"
+
+#. module: zc_commercial_plus
+#: model:ir.model,name:zc_commercial_plus.model_project_project
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_cashflow_line__project_id
 msgid "Project"
 msgstr "المشروع"
@@ -658,10 +814,20 @@ msgid "Purchase Order"
 msgstr "أمر الشراء"
 
 #. module: zc_commercial_plus
+#: model:ir.model,name:zc_commercial_plus.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "بند أمر الشراء"
+
+#. module: zc_commercial_plus
 #. odoo-python
 #: code:addons/zc_commercial_plus/models/sub_package.py:0
 msgid "Qty"
 msgstr "الكمية"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_boq_cost_template__qty_per_unit
+msgid "Qty per BOQ Unit"
+msgstr "الكمية لكل وحدة بند"
 
 #. module: zc_commercial_plus
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__rating_ids
@@ -731,6 +897,21 @@ msgid "Safety observations"
 msgstr "ملاحظات السلامة"
 
 #. module: zc_commercial_plus
+#: model:ir.model,name:zc_commercial_plus.model_sale_order
+msgid "Sales Order"
+msgstr "أمر البيع"
+
+#. module: zc_commercial_plus
+#: model:ir.model,name:zc_commercial_plus.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "بند أمر المبيعات"
+
+#. module: zc_commercial_plus
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.view_order_form_zc_markup
+msgid "Save as the standard price analysis of these items"
+msgstr "احفظه كتحليل السعر القياسي لهذه البنود"
+
+#. module: zc_commercial_plus
 #: model_terms:ir.ui.view,arch_db:zc_commercial_plus.view_zc_sub_package_form
 msgid "Scope"
 msgstr "النطاق"
@@ -741,6 +922,18 @@ msgid "Scope & responsibilities"
 msgstr "النطاق والمسؤوليات"
 
 #. module: zc_commercial_plus
+#: model:ir.model.fields,help:zc_commercial_plus.field_sale_order__zc_markup_pct
+msgid "Selling price = budget unit cost x (1 + markup)."
+msgstr "سعر البيع = تكلفة الوحدة × (1 + نسبة الإضافة)."
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/automation.py:0
+msgid "Selling prices set from the item budget at a %s%% markup."
+msgstr "تم حساب أسعار البيع من ميزانية البنود بنسبة إضافة %s%%."
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_boq_cost_template__sequence
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_handover_document__sequence
 msgid "Sequence"
 msgstr "الترتيب"
@@ -751,9 +944,20 @@ msgid "Service bought"
 msgstr "الخدمة المشتراة"
 
 #. module: zc_commercial_plus
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.view_order_form_zc_markup
+msgid "Set prices from the markup"
+msgstr "احسب الأسعار من نسبة الإضافة"
+
+#. module: zc_commercial_plus
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_claim__bill_id
 msgid "Settlement bill"
 msgstr "فاتورة التسوية"
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/automation.py:0
+msgid "Site %s"
+msgstr "موقع %s"
 
 #. module: zc_commercial_plus
 #: model:ir.model,name:zc_commercial_plus.model_zc_daily_report
@@ -761,9 +965,48 @@ msgid "Site Daily Report"
 msgstr "التقرير اليومي للموقع"
 
 #. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/automation.py:0
+#: model:ir.ui.menu,name:zc_commercial_plus.menu_zc_daily_report_project
+msgid "Site Daily Reports"
+msgstr "تقارير الموقع اليومية"
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/automation.py:0
+msgid "Site store %(code)s created for the project."
+msgstr "تم إنشاء مخزن الموقع %(code)s للمشروع."
+
+#. module: zc_commercial_plus
 #: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_handover_document__doc_type__spares
 msgid "Spare parts & keys handed over"
 msgstr "تسليم قطع الغيار والمفاتيح"
+
+#. module: zc_commercial_plus
+#: model:ir.model,name:zc_commercial_plus.model_zc_boq_cost_template
+msgid "Standard Price Analysis of a BOQ Item"
+msgstr "تحليل السعر القياسي لبند"
+
+#. module: zc_commercial_plus
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.product_template_form_zc_cost_template
+msgid ""
+"Standard cost of one unit of this BOQ item. Every new contracting\n"
+"                        quotation line of this item starts its item budget from it."
+msgstr ""
+"التكلفة القياسية لوحدة واحدة من هذا البند. أي سطر جديد بهذا البند في عرض سعر"
+" مقاولات بيبدأ ميزانيته منها."
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_product_product__zc_template_unit_cost
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_product_template__zc_template_unit_cost
+msgid "Standard cost per unit"
+msgstr "التكلفة القياسية للوحدة"
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/automation.py:0
+msgid "Standard price analysis saved for: %s"
+msgstr "تم حفظ تحليل السعر القياسي لـ: %s"
 
 #. module: zc_commercial_plus
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__state
@@ -850,9 +1093,19 @@ msgid "Supplier warranties"
 msgstr "ضمانات الموردين"
 
 #. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_boq_cost_template__cost_type__other
+msgid "Taxes, insurance & other"
+msgstr "ضرائب وتأمينات وأخرى"
+
+#. module: zc_commercial_plus
 #: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_handover_document__doc_type__test
 msgid "Test & commissioning certificates"
 msgstr "شهادات الاختبار والتشغيل"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,help:zc_commercial_plus.field_sale_order__zc_create_site_store
+msgid "The project gets its own warehouse (receipts, transfers, issues)."
+msgstr "المشروع يأخذ مخزنه الخاص (استلام، تحويل، صرف)."
 
 #. module: zc_commercial_plus
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__title
@@ -867,6 +1120,8 @@ msgstr "اجتماع السلامة اليومي اتعمل"
 #. module: zc_commercial_plus
 #. odoo-python
 #: code:addons/zc_commercial_plus/models/sub_package.py:0
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.product_template_form_zc_cost_template
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.sale_order_line_list_zc_pick
 #: model_terms:ir.ui.view,arch_db:zc_commercial_plus.view_zc_sub_package_form
 msgid "Total"
 msgstr "الإجمالي"
@@ -882,9 +1137,19 @@ msgid "Transmittal / ref."
 msgstr "خطاب التسليم / المرجع"
 
 #. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_boq_cost_template__cost_type
+msgid "Type"
+msgstr "النوع"
+
+#. module: zc_commercial_plus
 #: model:ir.model.fields,help:zc_commercial_plus.field_zc_sub_package__activity_exception_decoration
 msgid "Type of the exception activity on record."
 msgstr ""
+
+#. module: zc_commercial_plus
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.sale_order_line_list_zc_pick
+msgid "Unit"
+msgstr "الوحدة"
 
 #. module: zc_commercial_plus
 #: model:ir.model.fields,help:zc_commercial_plus.field_zc_sub_package__scope
@@ -900,6 +1165,31 @@ msgstr "تصاريح العمل الصادرة"
 #. module: zc_commercial_plus
 #: model:ir.model.fields,help:zc_commercial_plus.field_zc_claim__sub_partner_id
 msgid "You can find a vendor by its Name, TIN, Email or Internal Reference."
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_project_project__zc_claim_count
+msgid "Zc Claim Count"
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_project_project__zc_daily_report_count
+msgid "Zc Daily Report Count"
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_project_project__zc_guarantee_count
+msgid "Zc Guarantee Count"
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_project_project__zc_material_request_count
+msgid "Zc Material Request Count"
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_project_project__zc_wir_count
+msgid "Zc Wir Count"
 msgstr ""
 
 #. module: zc_commercial_plus

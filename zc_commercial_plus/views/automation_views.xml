@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- standard price analysis on the BOQ item -->
+    <record id="product_template_form_zc_cost_template" model="ir.ui.view">
+        <field name="name">product.template.form.zc.cost.template</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Price analysis" name="zc_price_analysis" invisible="not sale_ok">
+                    <div class="text-muted mb-2">Standard cost of one unit of this BOQ item. Every new contracting
+                        quotation line of this item starts its item budget from it.</div>
+                    <field name="zc_cost_template_ids">
+                        <list editable="bottom">
+                            <field name="sequence" widget="handle"/>
+                            <field name="cost_type"/>
+                            <field name="product_id"/>
+                            <field name="name" optional="show"/>
+                            <field name="qty_per_unit"/>
+                            <field name="unit_cost"/>
+                            <field name="unit_total" sum="Total"/>
+                        </list>
+                    </field>
+                    <group class="oe_subtotal_footer">
+                        <field name="zc_template_unit_cost"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- markup and "save as standard" on the item budget tab -->
+    <record id="view_order_form_zc_markup" model="ir.ui.view">
+        <field name="name">sale.order.form.zc.markup</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="zc_material_control.view_order_form_zc_boq"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='zc_budget_margin']/.." position="before">
+                <group>
+                    <group>
+                        <label for="zc_markup_pct"/>
+                        <div class="o_row">
+                            <field name="zc_markup_pct" readonly="state not in ('draft', 'sent')"/>
+                            <button name="action_zc_apply_markup" type="object" string="Set prices from the markup"
+                                    class="btn-secondary" invisible="state not in ('draft', 'sent')"/>
+                        </div>
+                    </group>
+                    <group>
+                        <button name="action_zc_save_cost_templates" type="object" class="btn-link"
+                                string="Save as the standard price analysis of these items"
+                                invisible="not zc_cost_line_ids"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_order_form_zc_site_store" model="ir.ui.view">
+        <field name="name">sale.order.form.zc.site.store</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="zc_tender.view_order_form_zc_handover_exec"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='zc_ready_store']" position="after">
+                <field name="zc_create_site_store" invisible="zc_ready_store"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- BOQ items picked in a subcontract package: product, quantity, rate -->
+    <record id="sale_order_line_list_zc_pick" model="ir.ui.view">
+        <field name="name">sale.order.line.list.zc.pick</field>
+        <field name="model">sale.order.line</field>
+        <field name="priority">99</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="order_id"/>
+                <field name="product_id"/>
+                <field name="product_uom_qty" string="Contract Qty"/>
+                <field name="product_uom_id" string="Unit"/>
+                <field name="price_unit"/>
+                <field name="price_subtotal" sum="Total"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="zc_sub_package_form_pick" model="ir.ui.view">
+        <field name="name">zc.sub.package.form.pick</field>
+        <field name="model">zc.sub.package</field>
+        <field name="inherit_id" ref="zc_commercial_plus.view_zc_sub_package_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='sale_line_ids']" position="attributes">
+                <attribute name="context">{'list_view_ref': 'zc_commercial_plus.sale_order_line_list_zc_pick'}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- the project shows what its contract produces on site -->
+    <record id="edit_project_zc_site" model="ir.ui.view">
+        <field name="name">project.project.form.zc.site</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_zc_daily_reports" type="object" class="oe_stat_button" icon="fa-book"
+                        invisible="not zc_daily_report_count">
+                    <field name="zc_daily_report_count" widget="statinfo" string="Daily Reports"/>
+                </button>
+                <button name="action_zc_wirs" type="object" class="oe_stat_button" icon="fa-check-square-o"
+                        invisible="not zc_wir_count">
+                    <field name="zc_wir_count" widget="statinfo" string="Inspections (WIR)"/>
+                </button>
+                <button name="action_zc_material_requests" type="object" class="oe_stat_button" icon="fa-cubes"
+                        invisible="not zc_material_request_count">
+                    <field name="zc_material_request_count" widget="statinfo" string="Material Requests"/>
+                </button>
+                <button name="action_zc_claims" type="object" class="oe_stat_button" icon="fa-gavel"
+                        invisible="not zc_claim_count">
+                    <field name="zc_claim_count" widget="statinfo" string="Claims"/>
+                </button>
+                <button name="action_zc_guarantees" type="object" class="oe_stat_button" icon="fa-shield"
+                        invisible="not zc_guarantee_count">
+                    <field name="zc_guarantee_count" widget="statinfo" string="Guarantees"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- the Project app shows the same site records as Contracting -->
+    <menuitem id="menu_zc_daily_report_project" name="Site Daily Reports" parent="project.menu_main_pm"
+              action="zc_site_records.action_zc_daily_report" sequence="31"/>
+    <menuitem id="menu_zc_wir_project" name="Inspection Requests (WIR)" parent="project.menu_main_pm"
+              action="zc_certificate_controls.action_zc_inspection_request" sequence="32"/>
+    <menuitem id="menu_zc_material_request_project" name="Material Requests" parent="project.menu_main_pm"
+              action="zc_material_request.action_zc_material_request" sequence="33"/>
+</odoo>

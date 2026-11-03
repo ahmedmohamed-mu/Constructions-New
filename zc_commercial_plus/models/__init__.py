@@ -4,3 +4,4 @@ from . import sub_claim
 from . import handover_docs
 from . import safety
 from . import control_tower
+from . import automation
