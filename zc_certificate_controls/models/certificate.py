@@ -19,6 +19,8 @@ class HomProgressCertificate(models.Model):
     _inherit = ["hom.progress.certificate", "zc.deduction.mixin"]
     _name = "hom.progress.certificate"
 
+    # the company is related to the contract: checking the contract against it left the list empty on a new record
+    sale_order_id = fields.Many2one(check_company=False)
     zc_deduction_ids = fields.One2many("zc.certificate.deduction", "owner_cert_id", string="Deductions", copy=False)
     zc_amount_deduct_invoice = fields.Monetary(string="Other deductions", compute="_compute_zc_amounts", store=True)
     zc_amount_withholding = fields.Monetary(string="Withheld by the owner", compute="_compute_zc_amounts", store=True)

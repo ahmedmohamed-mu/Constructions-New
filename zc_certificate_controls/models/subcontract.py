@@ -30,6 +30,8 @@ class HomSubcontractCertificate(models.Model):
     ], string="Approval step", default="site", copy=False, tracking=True)
     zc_qs_user_id = fields.Many2one("res.users", string="Checked by (QS)", readonly=True, copy=False)
     zc_qs_date = fields.Date(string="Checked on", readonly=True, copy=False)
+    # the company is related to the subcontract: checking it against it left the list empty on a new record
+    purchase_order_id = fields.Many2one(check_company=False)
     zc_pm_user_id = fields.Many2one("res.users", string="Approved by (PM)", readonly=True, copy=False)
     zc_multi_approval = fields.Boolean(related="company_id.zc_sub_multi_approval")
 

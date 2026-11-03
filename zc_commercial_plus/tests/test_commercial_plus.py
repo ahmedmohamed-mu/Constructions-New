@@ -156,3 +156,7 @@ class TestCommercialPlus(AccountTestInvoicingCommon):
                       "zc.material.request", "zc.claim", "zc.handover", "hom.variation.order"):
             field = self.env[model]._fields["sale_order_id"]
             self.assertNotIn("company_id", str(field._description_domain(self.env)), model)
+        for model, fname in (("hom.progress.certificate", "sale_order_id"),
+                             ("hom.subcontract.certificate", "purchase_order_id")):
+            field = self.env[model]._fields[fname]
+            self.assertNotIn("company_id", str(field._description_domain(self.env)), model)
