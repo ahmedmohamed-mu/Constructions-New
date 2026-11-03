@@ -6,7 +6,7 @@
                "insurance, penalties, utilities, back-charges, materials issued to subcontractors), withholdings "
                "settled against the receivable / payable, and the subcontractor approval chain "
                "(site - technical office - project manager).",
-    "version": "20.0.1.0.1",
+    "version": "20.0.1.0.2",
     "category": "Services/Project",
     "author": "Ziij AI",
     "license": "OPL-1",

@@ -99,6 +99,24 @@ class TestCommercialPlus(AccountTestInvoicingCommon):
         self.assertEqual((claim.bill_id.move_type, claim.bill_id.partner_id), ("in_invoice", self.sub_a))
         self.assertAlmostEqual(claim.bill_id.amount_untaxed, 3000)
 
+    def test_sub_certificate_without_advance_matches_its_bill(self):
+        po = self.env["purchase.order"].create({
+            "partner_id": self.sub_b.id, "hom_is_subcontract": True, "hom_advance_recovery_pct": 10,
+            "order_line": [Command.create({"product_id": self.labour.id, "product_qty": 100, "price_unit": 68,
+                                           "hom_boq_line_id": self.so.order_line.id})]})
+        po.button_confirm()
+        self.env["hom.site.measurement"].create({"sale_line_id": self.so.order_line.id, "quantity": 40})
+        cert = self.env["hom.subcontract.certificate"].create({"purchase_order_id": po.id})
+        cert.action_load_items()
+        self.assertAlmostEqual(cert.amount_current, 40 * 68)
+        cert.action_submit()
+        if cert.zc_review_stage == "qs":
+            cert.action_zc_qs_check()
+        cert.action_approve()
+        cert.action_create_bill()
+        self.assertAlmostEqual(cert.amount_advance_recovery, 0, msg="no advance paid, nothing to recover")
+        self.assertAlmostEqual(cert.amount_net, cert.bill_id.amount_untaxed)
+
     def test_handover_documents_block_signature(self):
         ho = self.env["zc.handover"].create({"sale_order_id": self.so.id, "kind": "preliminary"})
         ho.action_load_documents()

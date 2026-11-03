@@ -33,6 +33,20 @@ class HomSubcontractCertificate(models.Model):
     zc_pm_user_id = fields.Many2one("res.users", string="Approved by (PM)", readonly=True, copy=False)
     zc_multi_approval = fields.Boolean(related="company_id.zc_sub_multi_approval")
 
+    @api.depends("line_ids.amount_current", "line_ids.amount_cumulative", "recovery_pct", "retention_pct",
+                 "bill_id.invoice_line_ids.price_subtotal")
+    def _compute_amounts(self):
+        """Once billed, the advance recovered by this certificate is the one on its bill: the subcontract's
+        remaining advance already excludes it, so it cannot cap it any more (and no advance = no recovery)."""
+        super()._compute_amounts()
+        for cert in self.filtered("bill_id"):
+            product = cert.company_id.hom_sub_advance_recovery_product_id
+            lines = cert.bill_id.invoice_line_ids.filtered(lambda l: product and l.product_id == product)
+            recovery = sum(lines.mapped("price_subtotal")) if cert.bill_id.state != "cancel" else 0.0
+            if cert.currency_id.compare_amounts(recovery, cert.amount_advance_recovery):
+                cert.amount_advance_recovery = recovery
+                cert.amount_net = cert.amount_current + recovery + cert.amount_retention
+
     @api.depends("zc_deduction_ids.amount", "zc_deduction_ids.timing", "amount_net")
     def _compute_zc_amounts(self):
         for cert in self:
