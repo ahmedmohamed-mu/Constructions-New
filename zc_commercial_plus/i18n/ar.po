@@ -63,10 +63,25 @@ msgid "Activity Type Icon"
 msgstr ""
 
 #. module: zc_commercial_plus
+#: model:ir.model.fields,help:zc_commercial_plus.field_zc_deduction_type__zc_auto_apply
+msgid ""
+"Added by itself to every new owner contract (owner deductions) or "
+"subcontract (subcontractor deductions), e.g. the withholding tax."
+msgstr ""
+"يُضاف تلقائيًا لكل عقد مالك جديد (خصومات المالك) أو عقد باطن (خصومات "
+"الباطن)، مثل ضريبة الخصم والتحصيل."
+
+#. module: zc_commercial_plus
 #. odoo-python
 #: code:addons/zc_commercial_plus/models/sub_claim.py:0
 msgid "Already billed: %s"
 msgstr "اتفوترت قبل كده: %s"
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/guarantee.py:0
+msgid "Already booked: %s"
+msgstr "متسجل بالفعل: %s"
 
 #. module: zc_commercial_plus
 #: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_handover_document__doc_type__asbuilt
@@ -115,6 +130,33 @@ msgid "BOQ items"
 msgstr "بنود المقايسة"
 
 #. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/guarantee.py:0
+msgid "Bank commission %s"
+msgstr "عمولة بنكية %s"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_hom_bank_guarantee__zc_bank_move_id
+msgid "Bank entry"
+msgstr "قيد البنك"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_hom_bank_guarantee__zc_journal_id
+msgid "Bank journal"
+msgstr "دفتر البنك"
+
+#. module: zc_commercial_plus
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.hom_bank_guarantee_form_zc_accounting
+msgid "Book in accounting"
+msgstr "سجّل في الحسابات"
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/guarantee.py:0
+msgid "Booked: cash margin %(m)s, commission %(c)s (%(e)s)."
+msgstr "تم التسجيل: هامش نقدي %(m)s، عمولة %(c)s (%(e)s)."
+
+#. module: zc_commercial_plus
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_boq_cost_template__unit_cost
 msgid "Budget Unit Cost"
 msgstr "تكلفة الوحدة في الميزانية"
@@ -135,6 +177,18 @@ msgstr "ملغي"
 #: model_terms:ir.ui.view,arch_db:zc_commercial_plus.view_zc_cashflow_search
 msgid "Cash in"
 msgstr "متحصلات"
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/guarantee.py:0
+msgid "Cash margin %s"
+msgstr "هامش نقدي %s"
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/guarantee.py:0
+msgid "Cash margin returned %s"
+msgstr "رد الهامش النقدي %s"
 
 #. module: zc_commercial_plus
 #: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_cashflow_line__direction__out
@@ -167,10 +221,21 @@ msgstr ""
 "التقرير اليومي."
 
 #. module: zc_commercial_plus
+#: model:ir.model,name:zc_commercial_plus.model_zc_deduction_type
+msgid "Certificate Deduction Type"
+msgstr "نوع خصم المستخلص"
+
+#. module: zc_commercial_plus
 #. odoo-python
 #: code:addons/zc_commercial_plus/models/sub_package.py:0
 msgid "Choose the BOQ items and the subcontractors to invite."
 msgstr "اختار البنود ومقاولي الباطن المدعوين."
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/guarantee.py:0
+msgid "Choose the bank journal of the guarantee."
+msgstr "اختار دفتر البنك للخطاب."
 
 #. module: zc_commercial_plus
 #. odoo-python
@@ -189,6 +254,11 @@ msgstr "صاحب المطالبة"
 #: model_terms:ir.ui.view,arch_db:zc_commercial_plus.edit_project_zc_site
 msgid "Claims"
 msgstr "المطالبات"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_hom_bank_guarantee__zc_commission_amount
+msgid "Commission for the period"
+msgstr "العمولة عن مدة الخطاب"
 
 #. module: zc_commercial_plus
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_cashflow_line__company_id
@@ -293,6 +363,7 @@ msgid "Direction"
 msgstr "الاتجاه"
 
 #. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_hom_bank_guarantee__display_name
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_hom_control_tower__display_name
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_product_template__display_name
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_project_project__display_name
@@ -305,6 +376,7 @@ msgstr "الاتجاه"
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_cashflow_line__display_name
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_claim__display_name
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_daily_report__display_name
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_deduction_type__display_name
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_handover__display_name
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_handover_document__display_name
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__display_name
@@ -400,6 +472,7 @@ msgid "Hot work, work at height, excavation..."
 msgstr "أعمال ساخنة، عمل على ارتفاع، حفر..."
 
 #. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_hom_bank_guarantee__id
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_hom_control_tower__id
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_product_template__id
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_project_project__id
@@ -412,6 +485,7 @@ msgstr "أعمال ساخنة، عمل على ارتفاع، حفر..."
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_cashflow_line__id
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_claim__id
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_daily_report__id
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_deduction_type__id
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_handover__id
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_handover_document__id
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__id
@@ -518,6 +592,23 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: zc_commercial_plus
+#: model:ir.model,name:zc_commercial_plus.model_hom_bank_guarantee
+msgid "Letter of Guarantee"
+msgstr "خطاب ضمان"
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/guarantee.py:0
+msgid "Letter of guarantee %s"
+msgstr "خطاب ضمان %s"
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/guarantee.py:0
+msgid "Letter of guarantee %s released"
+msgstr "إفراج عن خطاب ضمان %s"
+
+#. module: zc_commercial_plus
 #. odoo-python
 #: code:addons/zc_commercial_plus/models/automation.py:0
 msgid "Letters of Guarantee"
@@ -532,6 +623,11 @@ msgstr "تحميل قائمة المستندات القياسية"
 #: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_daily_report__incident__lost_time
 msgid "Lost-time injury"
 msgstr "إصابة مع توقف عن العمل"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_hom_bank_guarantee__zc_release_move_id
+msgid "Margin returned"
+msgstr "رد الهامش"
 
 #. module: zc_commercial_plus
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_sale_order__zc_markup_pct
@@ -645,6 +741,12 @@ msgid "No priced item to save."
 msgstr "لا يوجد بند مسعّر للحفظ."
 
 #. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/guarantee.py:0
+msgid "Nothing to book: no cash margin and no commission."
+msgstr "لا يوجد ما يُسجّل: لا هامش ولا عمولة."
+
+#. module: zc_commercial_plus
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__message_needaction_counter
 msgid "Number of Actions"
 msgstr ""
@@ -687,6 +789,11 @@ msgid "On"
 msgstr "في"
 
 #. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_deduction_type__zc_auto_apply
+msgid "On every new contract"
+msgstr "على كل عقد جديد"
+
+#. module: zc_commercial_plus
 #. odoo-python
 #: code:addons/zc_commercial_plus/models/sub_claim.py:0
 msgid "Only a subcontractor claim is passed to the owner."
@@ -697,6 +804,14 @@ msgstr "مطالبة الباطن بس هي اللي بتتحول للمالك."
 #: code:addons/zc_commercial_plus/models/sub_claim.py:0
 msgid "Only an agreed amount is billed."
 msgstr "بيتفوتر المبلغ المتفق عليه بس."
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/guarantee.py:0
+msgid ""
+"Only the guarantees we issue are booked: a guarantee received is not our "
+"money."
+msgstr "تُسجّل الخطابات الصادرة منا فقط؛ الخطاب المستلم مش فلوسنا."
 
 #. module: zc_commercial_plus
 #. odoo-python
@@ -713,6 +828,11 @@ msgstr "كتيبات التشغيل والصيانة"
 #: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_cashflow_line__kind__out_committed
 msgid "Orders committed, not billed yet"
 msgstr "أوامر ملتزم بيها ولسه ما اتفوترتش"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,help:zc_commercial_plus.field_hom_bank_guarantee__zc_commission_amount
+msgid "Original amount x yearly commission % x months covered / 12."
+msgstr "المبلغ الأصلي × نسبة العمولة السنوية × عدد الشهور / 12."
 
 #. module: zc_commercial_plus
 #: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_handover_document__doc_type__other

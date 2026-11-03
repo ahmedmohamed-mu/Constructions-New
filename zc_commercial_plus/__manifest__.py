@@ -4,7 +4,7 @@
                "funding), subcontractor packages with offers compared against the item budget and awarded, "
                "subcontractor claims against us passed back-to-back to the owner, the handover documents checklist "
                "(as-built, O&M manuals, warranties, tests) and site safety on the daily report.",
-    "version": "20.0.1.1.0",
+    "version": "20.0.1.2.0",
     "category": "Services/Project",
     "author": "Ziij AI",
     "license": "OPL-1",

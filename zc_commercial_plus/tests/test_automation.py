@@ -85,3 +85,34 @@ class TestContractAutomation(AccountTestInvoicingCommon):
             partner = self.env["res.partner"].with_context(default_name="New owner").new({})
             defaults = self.env["res.partner"].default_get(["country_id"])
             self.assertEqual(defaults.get("country_id"), self.env.company.country_id.id)
+
+    def test_guarantee_accounting_and_auto_withholding(self):
+        env = self.env
+        wht = env["zc.deduction.type"].create({"name": "WHT", "code": "TWHT", "scope": "owner", "timing": "payment",
+                                               "method": "percent", "default_pct": 1, "zc_auto_apply": True,
+                                               "account_id": env["account.account"].search(
+                                                   [("account_type", "=", "asset_current")], limit=1).id})
+        so = self._quotation()
+        self.assertIn(wht, so.zc_deduction_type_ids, "the withholding tax comes on every new contract")
+        so.action_confirm()
+        project = so.project_ids[:1]
+        if not project.account_id:
+            plan = env["account.analytic.plan"].search([], limit=1)
+            project.account_id = env["account.analytic.account"].create({"name": "LG", "plan_id": plan.id})
+        bank = env["account.journal"].search([("type", "=", "bank"), ("company_id", "=", env.company.id)], limit=1)
+        today = fields.Date.context_today(env.user)
+        g = env["hom.bank.guarantee"].create({
+            "name": "LG-T-1", "direction": "issued", "guarantee_type": "performance", "partner_id": self.owner.id,
+            "sale_order_id": so.id, "amount": 100000, "commission_pct": 1.5, "cash_margin": 10000,
+            "issue_date": today, "expiry_date": today + timedelta(days=365), "zc_journal_id": bank.id})
+        self.assertAlmostEqual(g.zc_commission_amount, 1500, delta=10)
+        g.action_zc_post_bank_entry()
+        move = g.zc_bank_move_id
+        self.assertEqual(move.state, "posted")
+        self.assertAlmostEqual(sum(move.line_ids.filtered(lambda l: l.account_id.code == "102030").mapped("debit")), 10000)
+        commission = move.line_ids.filtered(lambda l: l.account_id.code == "400019")
+        self.assertEqual(commission.analytic_distribution, {str(project.account_id.id): 100})
+        g.action_release()
+        self.assertEqual(g.state, "released")
+        self.assertAlmostEqual(sum(g.zc_release_move_id.line_ids.filtered(
+            lambda l: l.account_id.code == "102030").mapped("credit")), 10000)

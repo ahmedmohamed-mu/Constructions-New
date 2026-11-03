@@ -132,4 +132,34 @@
               action="zc_certificate_controls.action_zc_inspection_request" sequence="32"/>
     <menuitem id="menu_zc_material_request_project" name="Material Requests" parent="project.menu_main_pm"
               action="zc_material_request.action_zc_material_request" sequence="33"/>
+
+    <!-- guarantees we issue are booked: cash margin blocked, bank commission on the project -->
+    <record id="hom_bank_guarantee_form_zc_accounting" model="ir.ui.view">
+        <field name="name">hom.bank.guarantee.form.zc.accounting</field>
+        <field name="model">hom.bank.guarantee</field>
+        <field name="inherit_id" ref="hom_guarantees.hom_bank_guarantee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_zc_post_bank_entry" type="object" string="Book in accounting" class="btn-secondary"
+                        invisible="direction != 'issued' or zc_bank_move_id or state == 'released'"/>
+            </xpath>
+            <xpath expr="//field[@name='cash_margin']" position="after">
+                <field name="zc_commission_amount" invisible="direction != 'issued'"/>
+                <field name="zc_journal_id" invisible="direction != 'issued'"/>
+                <field name="zc_bank_move_id" invisible="not zc_bank_move_id"/>
+                <field name="zc_release_move_id" invisible="not zc_release_move_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="zc_deduction_type_list_auto" model="ir.ui.view">
+        <field name="name">zc.deduction.type.list.auto</field>
+        <field name="model">zc.deduction.type</field>
+        <field name="inherit_id" ref="zc_certificate_controls.zc_deduction_type_list"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='timing']" position="after">
+                <field name="zc_auto_apply"/>
+            </xpath>
+        </field>
+    </record>
 </odoo>

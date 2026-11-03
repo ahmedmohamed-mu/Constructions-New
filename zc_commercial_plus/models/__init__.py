@@ -5,3 +5,4 @@ from . import handover_docs
 from . import safety
 from . import control_tower
 from . import automation
+from . import guarantee
