@@ -53,8 +53,25 @@ class SaleOrderLine(models.Model):
     @api.model_create_multi
     def create(self, vals_list):
         lines = super().create(vals_list)
+        lines._zc_follow_contract_taxes()
         lines._zc_load_cost_template()
         return lines
+
+    def _zc_follow_contract_taxes(self):
+        """An item added to a running contract (variation order) is taxed like the contract's own items, not
+        with the product's default taxes."""
+        for line in self:
+            order = line.order_id
+            if line.display_type or line.is_downpayment or order.state != "sale" \
+                    or order.hom_project_type != "contracting":
+                continue
+            others = order.order_line.filtered(lambda l: l != line and not l.display_type and not l.is_downpayment
+                                               and l not in self)
+            taxes = {l.tax_ids for l in others}
+            if len(taxes) == 1:
+                contract_taxes = next(iter(taxes))
+                if line.tax_ids != contract_taxes:
+                    line.tax_ids = contract_taxes
 
     def _zc_load_cost_template(self):
         """A BOQ item added to a contracting quotation brings its standard price analysis (material x waste,

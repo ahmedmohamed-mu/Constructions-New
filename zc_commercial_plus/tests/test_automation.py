@@ -116,3 +116,12 @@ class TestContractAutomation(AccountTestInvoicingCommon):
         self.assertEqual(g.state, "released")
         self.assertAlmostEqual(sum(g.zc_release_move_id.line_ids.filtered(
             lambda l: l.account_id.code == "102030").mapped("credit")), 10000)
+
+    def test_variation_item_follows_contract_taxes(self):
+        so = self._quotation(10)  # contract items without tax
+        so.action_confirm()
+        taxed = self.env["product.product"].create({"name": "Marble", "type": "service", "invoice_policy": "delivery",
+                                                    "taxes_id": [Command.set(self.tax_sale_a.ids)]})
+        so.write({"order_line": [Command.create({"product_id": taxed.id, "product_uom_qty": 60, "price_unit": 1600})]})
+        added = so.order_line.filtered(lambda l: l.product_id == taxed)
+        self.assertFalse(added.tax_ids, "a variation item is taxed like the contract")
