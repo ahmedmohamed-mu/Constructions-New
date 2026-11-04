@@ -451,3 +451,8 @@ msgstr ""
 #: code:addons/zc_my_work/models/my_work.py:0
 msgid "zc_review_stage"
 msgstr ""
+
+#. module: zc_my_work
+#: code:addons/zc_my_work/models/my_work.py:0
+msgid "Press Refresh, then open the card again."
+msgstr "دوس تحديث وبعدين افتح الكارت تاني."

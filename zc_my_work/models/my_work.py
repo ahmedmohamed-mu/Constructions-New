@@ -11,7 +11,7 @@ class ZcMyWork(models.TransientModel):
     user_id = fields.Many2one("res.users", string="Work of", default=lambda self: self.env.user, required=True,
                               help="Managers can look at the list of another user (site engineer, QS, PM, accounts).")
     date = fields.Date(default=fields.Date.context_today, readonly=True)
-    line_ids = fields.One2many("zc.my.work.line", "work_id", readonly=True)
+    line_ids = fields.One2many("zc.my.work.line", "work_id")
     total = fields.Integer(compute="_compute_total")
     urgent_count = fields.Integer(string="Urgent", compute="_compute_total")
     warning_count = fields.Integer(string="To watch", compute="_compute_total")
@@ -154,6 +154,15 @@ class ZcMyWorkLine(models.TransientModel):
     domain = fields.Char()
 
     def action_open(self):
-        self.ensure_one()
-        return {"type": "ir.actions.act_window", "name": self.name, "res_model": self.model,
-                "view_mode": "list,form", "domain": safe_eval(self.domain), "target": "current"}
+        """The card carries its model and filter in the button context: a card drawn for another user before the
+        page is saved has no record on the server yet and still opens."""
+        ctx = self.env.context
+        rec = self[:1]
+        model = rec.model or ctx.get("zc_line_model")
+        domain = rec.domain or ctx.get("zc_line_domain")
+        name = rec.name or ctx.get("zc_line_name")
+        if not model or model not in self.env:
+            return {"type": "ir.actions.client", "tag": "display_notification",
+                    "params": {"type": "warning", "message": _("Press Refresh, then open the card again.")}}
+        return {"type": "ir.actions.act_window", "name": name, "res_model": model,
+                "view_mode": "list,form", "domain": safe_eval(domain or "[]"), "target": "current"}
