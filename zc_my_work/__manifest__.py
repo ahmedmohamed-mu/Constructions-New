@@ -4,7 +4,7 @@
                "inspections to request, certificates at my review stage, purchase exceptions and material requests to "
                "approve, non-conformances and RFIs to follow, claim deadlines, reports to approve and my late "
                "activities - each line opening the documents behind it.",
-    "version": "20.0.1.0.1",
+    "version": "20.0.1.1.0",
     "category": "Services/Project",
     "author": "Ziij AI",
     "license": "OPL-1",

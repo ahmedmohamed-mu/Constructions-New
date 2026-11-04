@@ -17,6 +17,15 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: zc_my_work
+#: model_terms:ir.ui.view,arch_db:zc_my_work.view_zc_my_work_form
+msgid ""
+"<div class=\"fs-1 text-success mb-2\">✓</div>\n"
+"                        Nothing is waiting for you."
+msgstr ""
+"<div class=\"fs-1 text-success mb-2\">✓</div>\n"
+"                        مفيش حاجة مستنياك النهارده."
+
+#. module: zc_my_work
 #: model:ir.model.fields.selection,name:zc_my_work.selection__zc_my_work_line__role__accounts
 msgid "Accounts"
 msgstr "الحسابات"
@@ -123,6 +132,15 @@ msgid "Line"
 msgstr ""
 
 #. module: zc_my_work
+#: model:ir.model.fields,help:zc_my_work.field_zc_my_work__user_id
+msgid ""
+"Managers can look at the list of another user (site engineer, QS, PM, "
+"accounts)."
+msgstr ""
+"المديرين يقدروا يشوفوا قائمة يوزر تاني (مهندس موقع، مكتب فني، مدير مشروع، "
+"حسابات)."
+
+#. module: zc_my_work
 #. odoo-python
 #: code:addons/zc_my_work/models/my_work.py:0
 msgid "Material requests to approve"
@@ -154,6 +172,12 @@ msgstr "استفساراتي المتأخرة عند الاستشاري"
 #: model_terms:ir.ui.view,arch_db:zc_my_work.view_zc_my_work_form
 msgid "My Work"
 msgstr "شغلي"
+
+#. module: zc_my_work
+#. odoo-python
+#: code:addons/zc_my_work/models/my_work.py:0
+msgid "My Work - %s"
+msgstr "شغلي - %s"
 
 #. module: zc_my_work
 #: model:ir.model,name:zc_my_work.model_zc_my_work_line
@@ -189,11 +213,6 @@ msgstr "استلاماتي المرفوضة: صلّح واطلب معاينة ت
 #: code:addons/zc_my_work/models/my_work.py:0
 msgid "Non-conformances to correct"
 msgstr "حالات عدم مطابقة للمعالجة"
-
-#. module: zc_my_work
-#: model_terms:ir.ui.view,arch_db:zc_my_work.view_zc_my_work_form
-msgid "Nothing is waiting for you."
-msgstr "مفيش حاجة مستنياك."
 
 #. module: zc_my_work
 #: model:ir.module.module,summary:base.module_zc_my_work
@@ -291,12 +310,26 @@ msgid "Technical office"
 msgstr "المكتب الفني"
 
 #. module: zc_my_work
+#: model:ir.model.fields,field_description:zc_my_work.field_zc_my_work__info_count
+#: model_terms:ir.ui.view,arch_db:zc_my_work.view_zc_my_work_form
+msgid "To do"
+msgstr "مطلوب"
+
+#. module: zc_my_work
+#: model:ir.model.fields,field_description:zc_my_work.field_zc_my_work__warning_count
+#: model_terms:ir.ui.view,arch_db:zc_my_work.view_zc_my_work_form
+msgid "To watch"
+msgstr "للمتابعة"
+
+#. module: zc_my_work
 #: model:ir.model.fields,field_description:zc_my_work.field_zc_my_work__total
 msgid "Total"
 msgstr "الإجمالي"
 
 #. module: zc_my_work
+#: model:ir.model.fields,field_description:zc_my_work.field_zc_my_work__urgent_count
 #: model:ir.model.fields.selection,name:zc_my_work.selection__zc_my_work_line__level__danger
+#: model_terms:ir.ui.view,arch_db:zc_my_work.view_zc_my_work_form
 msgid "Urgent"
 msgstr "عاجل"
 
@@ -305,6 +338,11 @@ msgstr "عاجل"
 #: code:addons/zc_my_work/models/my_work.py:0
 msgid "Variation orders waiting for the owner's agreement"
 msgstr "أوامر تغيير مستنية موافقة المالك"
+
+#. module: zc_my_work
+#: model_terms:ir.ui.view,arch_db:zc_my_work.view_zc_my_work_form
+msgid "Waiting for"
+msgstr "في انتظار"
 
 #. module: zc_my_work
 #: model:ir.model.fields,field_description:zc_my_work.field_zc_my_work_line__name
@@ -320,6 +358,11 @@ msgstr "تنبيه"
 #: model:ir.model.fields,field_description:zc_my_work.field_zc_my_work_line__work_id
 msgid "Work"
 msgstr ""
+
+#. module: zc_my_work
+#: model:ir.model.fields,field_description:zc_my_work.field_zc_my_work__user_id
+msgid "Work of"
+msgstr "شغل"
 
 #. module: zc_my_work
 #: model:ir.module.module,shortdesc:base.module_zc_my_work
@@ -346,8 +389,8 @@ msgstr ""
 
 #. module: zc_my_work
 #: model_terms:ir.ui.view,arch_db:zc_my_work.view_zc_my_work_form
-msgid "items waiting"
-msgstr "بند مستني"
+msgid "items"
+msgstr "مهام"
 
 #. module: zc_my_work
 #. odoo-python
@@ -408,17 +451,3 @@ msgstr ""
 #: code:addons/zc_my_work/models/my_work.py:0
 msgid "zc_review_stage"
 msgstr ""
-
-#. module: zc_my_work
-#: model:ir.model.fields,field_description:zc_my_work.field_zc_my_work__user_id
-msgid "Work of"
-msgstr "شغل"
-
-#. module: zc_my_work
-#: model:ir.model.fields,help:zc_my_work.field_zc_my_work__user_id
-msgid ""
-"Managers can look at the list of another user (site engineer, QS, PM, "
-"accounts)."
-msgstr ""
-"المديرين يقدروا يشوفوا قائمة يوزر تاني (مهندس موقع، مكتب فني، مدير مشروع، "
-"حسابات)."

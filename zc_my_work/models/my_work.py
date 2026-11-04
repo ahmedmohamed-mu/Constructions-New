@@ -13,10 +13,22 @@ class ZcMyWork(models.TransientModel):
     date = fields.Date(default=fields.Date.context_today, readonly=True)
     line_ids = fields.One2many("zc.my.work.line", "work_id", readonly=True)
     total = fields.Integer(compute="_compute_total")
+    urgent_count = fields.Integer(string="Urgent", compute="_compute_total")
+    warning_count = fields.Integer(string="To watch", compute="_compute_total")
+    info_count = fields.Integer(string="To do", compute="_compute_total")
 
+    @api.depends("line_ids.count", "line_ids.level")
     def _compute_total(self):
         for rec in self:
             rec.total = sum(rec.line_ids.mapped("count"))
+            rec.urgent_count = sum(rec.line_ids.filtered(lambda l: l.level == "danger").mapped("count"))
+            rec.warning_count = sum(rec.line_ids.filtered(lambda l: l.level == "warning").mapped("count"))
+            rec.info_count = sum(rec.line_ids.filtered(lambda l: l.level not in ("danger", "warning")).mapped("count"))
+
+    @api.depends("user_id")
+    def _compute_display_name(self):
+        for rec in self:
+            rec.display_name = _("My Work - %s", rec.user_id.name) if rec.user_id else _("My Work")
 
     @api.model
     def action_open(self):

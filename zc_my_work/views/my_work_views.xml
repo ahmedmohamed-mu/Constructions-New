@@ -9,21 +9,52 @@
                     <button name="action_refresh" type="object" string="Refresh" class="btn-primary"/>
                 </header>
                 <sheet>
-                    <div class="oe_title">
-                        <h1><field name="user_id" options="{'no_open': True, 'no_create': True}"/></h1>
-                        <div class="text-muted"><field name="date" readonly="1"/> · <field name="total"/> items waiting</div>
+                    <div class="d-flex flex-wrap align-items-end justify-content-between mb-3">
+                        <div class="oe_title mb-0">
+                            <div class="text-muted small">Waiting for</div>
+                            <h1 class="mb-0"><field name="user_id" options="{'no_open': True, 'no_create': True}"/></h1>
+                            <div class="text-muted"><field name="date" readonly="1"/> · <field name="total" class="fw-bold"/> items</div>
+                        </div>
+                        <div class="d-flex gap-2 mt-2">
+                            <div class="border border-danger rounded-3 px-3 py-2 text-center" style="min-width:96px">
+                                <div class="fs-2 fw-bold text-danger lh-1"><field name="urgent_count"/></div>
+                                <div class="small text-muted">Urgent</div>
+                            </div>
+                            <div class="border border-warning rounded-3 px-3 py-2 text-center" style="min-width:96px">
+                                <div class="fs-2 fw-bold text-warning lh-1"><field name="warning_count"/></div>
+                                <div class="small text-muted">To watch</div>
+                            </div>
+                            <div class="border border-info rounded-3 px-3 py-2 text-center" style="min-width:96px">
+                                <div class="fs-2 fw-bold text-info lh-1"><field name="info_count"/></div>
+                                <div class="small text-muted">To do</div>
+                            </div>
+                        </div>
                     </div>
-                    <field name="line_ids" nolabel="1">
-                        <list create="0" delete="0" decoration-danger="level == 'danger'"
-                              decoration-warning="level == 'warning'">
-                            <field name="role" widget="badge"/>
-                            <field name="name"/>
-                            <field name="count"/>
-                            <field name="level" column_invisible="1"/>
-                            <button name="action_open" type="object" string="Open" icon="fa-arrow-right"/>
-                        </list>
+                    <field name="line_ids" mode="kanban" nolabel="1">
+                        <kanban create="0" delete="0">
+                            <field name="level"/>
+                            <field name="role"/>
+                            <templates>
+                                <t t-name="card" class="p-0">
+                                    <div t-attf-class="d-flex align-items-center gap-3 p-3 h-100 border-start border-4 #{record.level.raw_value == 'danger' ? 'border-danger' : (record.level.raw_value == 'warning' ? 'border-warning' : 'border-info')}">
+                                        <div t-attf-class="fs-1 fw-bold lh-1 text-center #{record.level.raw_value == 'danger' ? 'text-danger' : (record.level.raw_value == 'warning' ? 'text-warning' : 'text-info')}" style="min-width:56px">
+                                            <field name="count"/>
+                                        </div>
+                                        <div class="flex-grow-1 overflow-hidden">
+                                            <field name="name" class="fw-bold d-block text-wrap"/>
+                                            <field name="role" widget="badge" class="mt-1"/>
+                                        </div>
+                                        <button name="action_open" type="object" class="btn btn-sm btn-outline-primary text-nowrap"
+                                                string="Open"/>
+                                    </div>
+                                </t>
+                            </templates>
+                        </kanban>
                     </field>
-                    <div class="text-muted small" invisible="line_ids">Nothing is waiting for you.</div>
+                    <div class="text-center text-muted py-5" invisible="line_ids">
+                        <div class="fs-1 text-success mb-2">✓</div>
+                        Nothing is waiting for you.
+                    </div>
                 </sheet>
             </form>
         </field>
