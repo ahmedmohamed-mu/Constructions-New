@@ -16,7 +16,7 @@
                             <field name="cost_type"/>
                             <field name="product_id"/>
                             <field name="name" optional="show"/>
-                            <field name="qty_per_unit"/>
+                            <field name="qty_per_unit" digits="[16, 3]"/>
                             <field name="unit_cost"/>
                             <field name="unit_total" sum="Total"/>
                         </list>

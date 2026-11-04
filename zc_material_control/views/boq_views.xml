@@ -14,7 +14,7 @@
                 </div>
             </xpath>
             <xpath expr="//list[@name='sol_list']//column[@name='sol_qty']" position="after">
-                <field name="zc_sd_qty" optional="show" invisible="display_type or is_downpayment"
+                <field name="zc_sd_qty" digits="[16, 3]" optional="show" invisible="display_type or is_downpayment"
                        column_invisible="parent.hom_project_type != 'contracting'"/>
             </xpath>
             <xpath expr="//notebook/page[@name='order_lines']" position="after">
@@ -32,13 +32,13 @@
                             <field name="cost_type"/>
                             <field name="product_id"/>
                             <field name="name" optional="hide"/>
-                            <field name="qty_per_unit"/>
+                            <field name="qty_per_unit" digits="[16, 3]"/>
                             <field name="unit_cost"/>
                             <field name="tolerance_pct" optional="show"/>
-                            <field name="budget_qty"/>
-                            <field name="allowed_qty" optional="hide"/>
-                            <field name="ordered_qty" decoration-danger="ordered_qty &gt; allowed_qty"/>
-                            <field name="received_qty" optional="show"/>
+                            <field name="budget_qty" digits="[16, 3]"/>
+                            <field name="allowed_qty" digits="[16, 3]" optional="hide"/>
+                            <field name="ordered_qty" digits="[16, 3]" decoration-danger="ordered_qty &gt; allowed_qty"/>
+                            <field name="received_qty" digits="[16, 3]" optional="show"/>
                             <field name="budget_amount" sum="Total"/>
                             <field name="committed_amount" sum="Total" optional="show"/>
                         </list>
@@ -62,12 +62,12 @@
                 <field name="currency_id" column_invisible="1"/>
                 <field name="cost_type"/>
                 <field name="product_id"/>
-                <field name="qty_per_unit"/>
+                <field name="qty_per_unit" digits="[16, 3]"/>
                 <field name="unit_cost"/>
                 <field name="tolerance_pct"/>
-                <field name="budget_qty"/>
-                <field name="ordered_qty"/>
-                <field name="received_qty"/>
+                <field name="budget_qty" digits="[16, 3]"/>
+                <field name="ordered_qty" digits="[16, 3]"/>
+                <field name="received_qty" digits="[16, 3]"/>
                 <field name="budget_amount" sum="Total"/>
                 <field name="committed_amount" sum="Total"/>
             </list>
@@ -89,7 +89,7 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='trade_account_id']" position="after">
                 <field name="zc_sale_line_id" options="{'no_create': True}" invisible="not sale_order_id"/>
-                <field name="zc_sd_qty" invisible="not zc_sale_line_id"/>
+                <field name="zc_sd_qty" digits="[16, 3]" invisible="not zc_sale_line_id"/>
                 <field name="zc_contract_qty" invisible="not zc_sale_line_id"/>
                 <field name="zc_qty_diff" invisible="not zc_sale_line_id or not zc_qty_diff"
                        decoration-danger="zc_qty_diff &gt; 0" decoration-success="zc_qty_diff &lt; 0"/>
