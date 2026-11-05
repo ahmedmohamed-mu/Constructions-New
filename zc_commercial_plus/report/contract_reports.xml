@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ================================================================== -->
+    <!-- Owner contract                                                       -->
+    <!-- ================================================================== -->
+    <record id="action_report_owner_contract" model="ir.actions.report">
+        <field name="name">Owner Contract (عقد المقاولة)</field>
+        <field name="model">sale.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">zc_commercial_plus.report_owner_contract</field>
+        <field name="print_report_name">'عقد مقاولة - %s' % (object.name)</field>
+        <field name="binding_model_id" ref="sale.model_sale_order"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="zc_contract_styles">
+        <style>
+            .zc-c { font-size: 11px; line-height: 1.6; }
+            .zc-c h2 { text-align: center; margin-bottom: 2px; }
+            .zc-c .zc-sub { text-align: center; color: #555; margin-bottom: 12px; }
+            .zc-c h5 { margin-top: 14px; margin-bottom: 4px; border-bottom: 1px solid #999; padding-bottom: 2px; }
+            .zc-c table.zc-boq { font-size: 10px; }
+            .zc-c table.zc-boq thead th { background: #2b2b2b !important; color: #fff !important; }
+            .zc-c tr.zc-sec td { background: #eee; font-weight: bold; }
+            .zc-c .zc-sign td { height: 70px; vertical-align: top; width: 50%; }
+            .zc-c .zc-box { border: 1px solid #bbb; padding: 6px 10px; margin: 6px 0; }
+        </style>
+    </template>
+
+    <template id="report_owner_contract_document">
+        <t t-call="web.external_layout">
+            <t t-set="c" t-value="o._zc_contract_print()"/>
+            <t t-set="M" t-value="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
+            <t t-set="Q" t-value="{'widget': 'float', 'precision': 2}"/>
+            <t t-call="zc_commercial_plus.zc_contract_styles"/>
+            <div class="page zc-c" dir="rtl" style="text-align:right">
+                <h2>عقد مقاولة أعمال</h2>
+                <div class="zc-sub">
+                    رقم العقد <strong t-out="o.name"/>
+                    <t t-if="o.client_order_ref"> · مرجع المالك <span t-out="o.client_order_ref"/></t>
+                    · بتاريخ <span t-out="o.date_order" t-options="{'widget': 'date'}"/>
+                </div>
+
+                <p>إنه في التاريخ المذكور أعلاه تحرّر هذا العقد بين كل من:</p>
+                <div class="zc-box">
+                    <strong>الطرف الأول (صاحب العمل):</strong> <span t-out="o.partner_id.commercial_partner_id.name"/>
+                    <t t-if="o.partner_id.contact_address"> · العنوان: <span t-out="o.partner_id.contact_address.replace('\n', ' - ')"/></t>
+                    <t t-if="o.partner_id.vat"> · رقم التسجيل الضريبي: <span t-out="o.partner_id.vat"/></t>
+                </div>
+                <div class="zc-box">
+                    <strong>الطرف الثاني (المقاول):</strong> <span t-out="o.company_id.name"/>
+                    <t t-if="o.company_id.partner_id.contact_address"> · العنوان: <span t-out="o.company_id.partner_id.contact_address.replace('\n', ' - ')"/></t>
+                    <t t-if="'company_registry' in o.company_id._fields and o.company_id.company_registry"> · سجل تجاري: <span t-out="o.company_id.company_registry"/></t>
+                    <t t-if="o.company_id.vat"> · رقم التسجيل الضريبي: <span t-out="o.company_id.vat"/></t>
+                </div>
+                <div class="zc-box" t-if="o.hom_consultant_id">
+                    <strong>الاستشاري (ممثل صاحب العمل):</strong> <span t-out="o.hom_consultant_id.name"/>
+                </div>
+                <p>وقد اتفق الطرفان، وهما بكامل أهليتهما القانونية للتعاقد، على ما يلي:</p>
+
+                <h5>البند الأول: موضوع العقد</h5>
+                <p>يتعهد الطرف الثاني بتنفيذ أعمال مشروع
+                    <strong t-out="c['project'].name if c['project'] else o.name"/>
+                    طبقًا لجدول الكميات والأسعار المرفق (الملحق رقم 1، عدد <span t-out="c['items']"/> بند)، والمواصفات الفنية
+                    والرسومات المعتمدة، وتعليمات الاستشاري، وبما يتفق مع الأصول الفنية وقواعد السلامة.</p>
+
+                <h5>البند الثاني: مدة التنفيذ</h5>
+                <p t-if="c['start'] and c['end']">مدة تنفيذ الأعمال <strong t-out="c['days']"/> يومًا تبدأ من
+                    <strong t-out="c['start']" t-options="{'widget': 'date'}"/> وتنتهي في
+                    <strong t-out="c['end']" t-options="{'widget': 'date'}"/>، ولا تُمد إلا بأمر تغيير أو مطالبة زمنية
+                    معتمدة كتابةً من صاحب العمل.</p>
+                <p t-else="">تُحدد مدة التنفيذ بالبرنامج الزمني المعتمد من الاستشاري.</p>
+
+                <h5>البند الثالث: قيمة العقد</h5>
+                <table class="table table-sm" style="width:75%">
+                    <tr t-if="c['vo_total']"><td>القيمة الأصلية</td><td class="text-end"><span t-out="c['original']" t-options="M"/></td></tr>
+                    <tr t-if="c['vo_total']"><td>أوامر التغيير المطبقة</td><td class="text-end"><span t-out="c['vo_total']" t-options="M"/></td></tr>
+                    <tr><td>قيمة الأعمال (قبل الضريبة)</td><td class="text-end"><span t-out="c['untaxed']" t-options="M"/></td></tr>
+                    <tr><td>ضريبة القيمة المضافة</td><td class="text-end"><span t-out="c['tax']" t-options="M"/></td></tr>
+                    <tr class="fw-bold"><td>إجمالي قيمة العقد</td><td class="text-end"><span t-out="c['total']" t-options="M"/></td></tr>
+                </table>
+                <p>فقط <strong t-out="c['words']"/> لا غير. والكميات الواردة بجدول الكميات تقديرية، وتتم المحاسبة على
+                    الكميات المنفذة فعليًا والمعتمدة من الاستشاري بفئات العقد.</p>
+
+                <h5>البند الرابع: الدفعة المقدمة</h5>
+                <p t-if="o.hom_advance_pct">يصرف صاحب العمل للمقاول دفعة مقدمة بنسبة <strong t-out="o.hom_advance_pct"/>%
+                    من قيمة الأعمال بمبلغ <strong t-out="c['advance']" t-options="M"/>، مقابل خطاب ضمان دفعة مقدمة بنفس
+                    القيمة، وتُسترد بنفس النسبة من كل مستخلص حتى استردادها بالكامل.</p>
+                <p t-else="">لا توجد دفعة مقدمة في هذا العقد.</p>
+
+                <h5>البند الخامس: المستخلصات وطريقة الدفع</h5>
+                <p>تُقدَّم المستخلصات بصفة <strong t-out="c['frequency']"/>، على أساس الكميات المنفذة والمقاسة بالموقع والمعتمدة
+                    بطلبات الاستلام (WIR) من الاستشاري، ويُخصم من كل مستخلص: استرداد الدفعة المقدمة، والمحتجز، والخصومات
+                    الواردة بالبند السابع.</p>
+
+                <h5>البند السادس: التأمين المحتجز (Retention)</h5>
+                <p>يُحتجز <strong t-out="o.hom_retention_pct"/>% من قيمة كل مستخلص ضمانًا لحسن التنفيذ،
+                    <t t-if="c['prelim_pct']">يُرد منه <strong t-out="c['prelim_pct']"/>% عند الاستلام الابتدائي و</t>يُرد
+                    <t t-if="c['prelim_pct']">الباقي</t><t t-else="">بالكامل</t> عند الاستلام النهائي بعد انتهاء فترة الضمان.</p>
+
+                <h5>البند السابع: الخصومات</h5>
+                <table class="table table-sm table-bordered" t-if="c['deductions']">
+                    <thead><tr><th>البيان</th><th>القيمة</th><th>التوقيت</th><th>ملاحظات</th></tr></thead>
+                    <tbody>
+                        <tr t-foreach="c['deductions']" t-as="d">
+                            <td t-out="d['name']"/><td t-out="d['value']"/><td t-out="d['timing']"/><td t-out="d['note']"/>
+                        </tr>
+                    </tbody>
+                </table>
+                <p t-else="">لا توجد خصومات أخرى غير ما ينص عليه القانون.</p>
+
+                <h5>البند الثامن: خطابات الضمان</h5>
+                <p>يقدم المقاول خطاب ضمان حسن تنفيذ ساري حتى نهاية فترة الضمان، وخطاب ضمان للدفعة المقدمة إن وُجدت.</p>
+                <table class="table table-sm table-bordered" t-if="c['guarantees']">
+                    <thead><tr><th>رقم الخطاب</th><th>النوع</th><th>البنك</th><th class="text-end">القيمة</th><th>تاريخ الانتهاء</th></tr></thead>
+                    <tbody>
+                        <tr t-foreach="c['guarantees']" t-as="g">
+                            <td t-out="g['name']"/><td t-out="g['type']"/><td t-out="g['bank']"/>
+                            <td class="text-end"><span t-out="g['amount']" t-options="M"/></td>
+                            <td><span t-out="g['expiry']" t-options="{'widget': 'date'}"/></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h5>البند التاسع: الأعمال الإضافية وأوامر التغيير</h5>
+                <p>لا يجوز للمقاول تنفيذ أي أعمال إضافية أو تعديلات إلا بأمر تغيير كتابي معتمد يحدد البنود والكميات والأسعار
+                    وأثره على مدة التنفيذ، وتُحاسب البنود الجديدة بالأسعار المتفق عليها بعد اعتمادها.</p>
+                <table class="table table-sm table-bordered" t-if="c['vos']">
+                    <thead><tr><th>أمر التغيير</th><th>البيان</th><th>الحالة</th><th class="text-end">القيمة</th><th class="text-end">أثر المدة (يوم)</th></tr></thead>
+                    <tbody>
+                        <tr t-foreach="c['vos']" t-as="v">
+                            <td t-out="v.name"/><td t-out="v.title"/>
+                            <td><t t-if="v.state == 'applied'">مطبق</t><t t-else="">معتمد - السعر تحت الاتفاق</t></td>
+                            <td class="text-end"><span t-out="v.amount_total" t-options="M"/></td>
+                            <td class="text-end"><span t-out="v.zc_time_impact_days or 0"/></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <t t-if="c['escalation']">
+                    <h5>البند العاشر: فروق الأسعار</h5>
+                    <p>تُحسب فروق الأسعار من تاريخ الأساس <strong t-out="c['escalation']['base']" t-options="{'widget': 'date'}"/>
+                        عند تجاوز التغير <strong t-out="c['escalation']['threshold']"/>%، طبقًا للمعادلة التالية
+                        (الجزء الثابت <span t-out="round(c['escalation']['fixed'], 2)"/>%):</p>
+                    <ul><li t-foreach="c['escalation']['formula']" t-as="f"><span t-out="f['name']"/>: <span t-out="f['weight']"/>%</li></ul>
+                </t>
+
+                <h5>البند <t t-if="c['escalation']">الحادي عشر</t><t t-else="">العاشر</t>: الاستلام وفترة الضمان</h5>
+                <p>يتم الاستلام الابتدائي بعد إتمام الأعمال وإصلاح الملاحظات وتسليم الرسومات حسب التنفيذ وكتيبات التشغيل
+                    والضمانات، وتبدأ فترة ضمان مدتها <strong t-out="c['dlp']"/> شهرًا يلتزم خلالها المقاول بإصلاح أي عيوب،
+                    ثم يتم الاستلام النهائي ورد المحتجز وخطاب حسن التنفيذ.</p>
+
+                <h5>البند <t t-if="c['escalation']">الثاني عشر</t><t t-else="">الحادي عشر</t>: أحكام عامة</h5>
+                <p>يُعتبر جدول الكميات والمواصفات والرسومات وأوامر التغيير المعتمدة جزءًا لا يتجزأ من هذا العقد، ويختص بنظر أي
+                    نزاع ينشأ عنه المحاكم المختصة بعد استنفاد طرق التسوية الودية.</p>
+                <div t-if="not is_html_empty(o.note)" t-out="o.note"/>
+
+                <p style="page-break-before: always"/>
+                <h5>الملحق رقم 1: جدول الكميات والأسعار</h5>
+                <table class="table table-sm table-bordered zc-boq">
+                    <thead><tr>
+                        <th>م</th><th>الكود</th><th style="width:40%">البيان</th><th>الوحدة</th>
+                        <th class="text-end">الكمية</th><th class="text-end">الفئة</th><th class="text-end">الإجمالي</th>
+                    </tr></thead>
+                    <tbody>
+                        <t t-foreach="c['rows']" t-as="r">
+                            <tr t-if="r.get('section')" class="zc-sec"><td colspan="7" t-out="r['section']"/></tr>
+                            <tr t-elif="r.get('note')"><td colspan="7"><em t-out="r['note']"/></td></tr>
+                            <tr t-else="">
+                                <td t-out="r['n']"/><td t-out="r['code']"/>
+                                <td><span t-out="r['name']"/><t t-if="r['provisional']"> <em>(سعر مؤقت تحت الاتفاق)</em></t></td>
+                                <td t-out="r['uom']"/>
+                                <td class="text-end"><span t-out="r['qty']" t-options="Q"/></td>
+                                <td class="text-end"><span t-out="r['price']" t-options="Q"/></td>
+                                <td class="text-end"><span t-out="r['amount']" t-options="M"/></td>
+                            </tr>
+                        </t>
+                    </tbody>
+                    <tfoot>
+                        <tr class="fw-bold"><td colspan="6">الإجمالي قبل الضريبة</td><td class="text-end"><span t-out="c['untaxed']" t-options="M"/></td></tr>
+                        <tr><td colspan="6">ضريبة القيمة المضافة</td><td class="text-end"><span t-out="c['tax']" t-options="M"/></td></tr>
+                        <tr class="fw-bold"><td colspan="6">الإجمالي</td><td class="text-end"><span t-out="c['total']" t-options="M"/></td></tr>
+                    </tfoot>
+                </table>
+
+                <p class="mt-4">حُرر هذا العقد من نسختين بيد كل طرف نسخة للعمل بموجبها.</p>
+                <table class="table table-borderless zc-sign">
+                    <tr>
+                        <td><strong>الطرف الأول (صاحب العمل)</strong><br/><span t-out="o.partner_id.commercial_partner_id.name"/><br/>الاسم: ................ التوقيع: ................</td>
+                        <td><strong>الطرف الثاني (المقاول)</strong><br/><span t-out="o.company_id.name"/><br/>الاسم: ................ التوقيع: ................</td>
+                    </tr>
+                </table>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_owner_contract">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="zc_commercial_plus.report_owner_contract_document" t-lang="o.partner_id.lang"/>
+            </t>
+        </t>
+    </template>
+
+    <!-- ================================================================== -->
+    <!-- Subcontract agreement                                                -->
+    <!-- ================================================================== -->
+    <record id="action_report_subcontract" model="ir.actions.report">
+        <field name="name">Subcontract Agreement (عقد مقاولة من الباطن)</field>
+        <field name="model">purchase.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">zc_commercial_plus.report_subcontract</field>
+        <field name="print_report_name">'عقد مقاولة من الباطن - %s' % (object.name)</field>
+        <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_subcontract_document">
+        <t t-call="web.external_layout">
+            <t t-set="c" t-value="o._zc_subcontract_print()"/>
+            <t t-set="M" t-value="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
+            <t t-set="Q" t-value="{'widget': 'float', 'precision': 2}"/>
+            <t t-call="zc_commercial_plus.zc_contract_styles"/>
+            <div class="page zc-c" dir="rtl" style="text-align:right">
+                <h2>عقد مقاولة من الباطن</h2>
+                <div class="zc-sub">
+                    رقم العقد <strong t-out="o.name"/>
+                    <t t-if="o.partner_ref"> · مرجع المقاول <span t-out="o.partner_ref"/></t>
+                    · بتاريخ <span t-out="o.date_approve or o.date_order" t-options="{'widget': 'date'}"/>
+                </div>
+
+                <p>إنه في التاريخ المذكور أعلاه تحرّر هذا العقد بين كل من:</p>
+                <div class="zc-box">
+                    <strong>الطرف الأول (المقاول الرئيسي):</strong> <span t-out="o.company_id.name"/>
+                    <t t-if="o.company_id.partner_id.contact_address"> · العنوان: <span t-out="o.company_id.partner_id.contact_address.replace('\n', ' - ')"/></t>
+                    <t t-if="o.company_id.vat"> · رقم التسجيل الضريبي: <span t-out="o.company_id.vat"/></t>
+                </div>
+                <div class="zc-box">
+                    <strong>الطرف الثاني (مقاول الباطن):</strong> <span t-out="o.partner_id.commercial_partner_id.name"/>
+                    <t t-if="o.partner_id.contact_address"> · العنوان: <span t-out="o.partner_id.contact_address.replace('\n', ' - ')"/></t>
+                    <t t-if="o.partner_id.vat"> · رقم التسجيل الضريبي: <span t-out="o.partner_id.vat"/></t>
+                </div>
+                <p>وقد اتفق الطرفان، وهما بكامل أهليتهما القانونية للتعاقد، على ما يلي:</p>
+
+                <h5>البند الأول: موضوع العقد</h5>
+                <p>يتعهد الطرف الثاني بتنفيذ الأعمال الموضحة بجدول الكميات المرفق (الملحق رقم 1، عدد <span t-out="c['items']"/> بند)
+                    <t t-if="c['project']">بمشروع <strong t-out="c['project'].name"/></t>
+                    <t t-if="c['contract']">، والمتعاقد عليه الطرف الأول مع
+                        <strong t-out="c['contract'].partner_id.commercial_partner_id.name"/> بالعقد رقم <strong t-out="c['contract'].name"/></t>،
+                    طبقًا للمواصفات والرسومات المعتمدة وتعليمات مهندس الطرف الأول والاستشاري.
+                    <t t-if="c['package']"> وقد تمت الترسية بموجب حزمة العروض <span t-out="c['package'].display_name"/>.</t></p>
+
+                <h5>البند الثاني: مدة التنفيذ</h5>
+                <p t-if="c['start'] and c['end']">يلتزم الطرف الثاني بتنفيذ الأعمال طبقًا للبرنامج الزمني للمشروع
+                    (من <strong t-out="c['start']" t-options="{'widget': 'date'}"/> إلى
+                    <strong t-out="c['end']" t-options="{'widget': 'date'}"/>) وأي برنامج تفصيلي يصدره الطرف الأول.</p>
+                <p t-else="">يلتزم الطرف الثاني بالبرنامج الزمني الذي يصدره الطرف الأول.</p>
+
+                <h5>البند الثالث: قيمة العقد</h5>
+                <table class="table table-sm" style="width:75%">
+                    <tr><td>قيمة الأعمال (قبل الضريبة)</td><td class="text-end"><span t-out="c['untaxed']" t-options="M"/></td></tr>
+                    <tr><td>ضريبة القيمة المضافة</td><td class="text-end"><span t-out="c['tax']" t-options="M"/></td></tr>
+                    <tr class="fw-bold"><td>إجمالي قيمة العقد</td><td class="text-end"><span t-out="c['total']" t-options="M"/></td></tr>
+                </table>
+                <p>فقط <strong t-out="c['words']"/> لا غير. والكميات تقديرية، وتتم المحاسبة على الكميات المنفذة فعليًا.</p>
+
+                <h5>البند الرابع: المحاسبة على الكميات (Back-to-Back)</h5>
+                <p>يُحاسب الطرف الثاني على الكميات المنفذة والمقاسة بالموقع والمعتمدة من الاستشاري بمستخلصات المالك، ولا تُصرف
+                    للطرف الثاني كمية لم يعتمدها الاستشاري، وما يخصمه الاستشاري من كميات أعمال الطرف الثاني يُخصم منه بنفس القدر.
+                    ويراجع المكتب الفني للطرف الأول كل مستخلص قبل اعتماده.</p>
+
+                <h5>البند الخامس: الدفعة المقدمة</h5>
+                <p t-if="c['advance']">يصرف الطرف الأول دفعة مقدمة بمبلغ <strong t-out="c['advance']" t-options="M"/>،
+                    تُسترد بنسبة <strong t-out="c['recovery']"/>% من قيمة كل مستخلص حتى استردادها بالكامل.</p>
+                <p t-elif="c['recovery']">في حالة صرف دفعة مقدمة، تُسترد بنسبة <strong t-out="c['recovery']"/>% من قيمة كل مستخلص.</p>
+                <p t-else="">لا توجد دفعة مقدمة في هذا العقد.</p>
+
+                <h5>البند السادس: التأمين المحتجز</h5>
+                <p>يُحتجز <strong t-out="o.hom_retention_pct"/>% من قيمة كل مستخلص، ويُرد للطرف الثاني عند رد محتجز المالك للطرف
+                    الأول بعد الاستلام النهائي وانتهاء فترة الضمان (<span t-out="c['dlp']"/> شهرًا)، وبشرط إصلاح أي ملاحظات تخص أعماله.</p>
+
+                <h5>البند السابع: الخصومات</h5>
+                <table class="table table-sm table-bordered" t-if="c['deductions']">
+                    <thead><tr><th>البيان</th><th>القيمة</th><th>التوقيت</th><th>ملاحظات</th></tr></thead>
+                    <tbody>
+                        <tr t-foreach="c['deductions']" t-as="d">
+                            <td t-out="d['name']"/><td t-out="d['value']"/><td t-out="d['timing']"/><td t-out="d['note']"/>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>كما يُخصم من مستخلصات الطرف الثاني قيمة أي خامات يصرفها له الطرف الأول من المخزن، وتكلفة إصلاح أي أعمال
+                    مرفوضة أو ملاحظات لم يقم بإصلاحها في الموعد المحدد.</p>
+
+                <h5>البند الثامن: الضمانات</h5>
+                <table class="table table-sm table-bordered" t-if="c['guarantees']">
+                    <thead><tr><th>رقم الخطاب</th><th>النوع</th><th>البنك</th><th class="text-end">القيمة</th><th>تاريخ الانتهاء</th></tr></thead>
+                    <tbody>
+                        <tr t-foreach="c['guarantees']" t-as="g">
+                            <td t-out="g['name']"/><td t-out="g['type']"/><td t-out="g['bank']"/>
+                            <td class="text-end"><span t-out="g['amount']" t-options="M"/></td>
+                            <td><span t-out="g['expiry']" t-options="{'widget': 'date'}"/></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p t-else="">يكتفي الطرف الأول بالتأمين المحتجز ضمانًا لحسن التنفيذ، ما لم يُطلب خطاب ضمان كتابةً.</p>
+
+                <h5>البند التاسع: السلامة والأعمال الإضافية</h5>
+                <p>يلتزم الطرف الثاني بقواعد الأمن والسلامة بالموقع وبتوفير معدات الوقاية لعماله، ولا ينفذ أي أعمال إضافية إلا
+                    بأمر كتابي من الطرف الأول، وأي مطالبة منه تُقدم كتابةً خلال المدة المحددة وتُعرض على المالك بنظام Back-to-Back.</p>
+
+                <h5>البند العاشر: أحكام عامة</h5>
+                <p>لا يحق للطرف الثاني التنازل عن العقد أو التعاقد من الباطن على أي جزء منه دون موافقة كتابية من الطرف الأول،
+                    ويُعتبر جدول الكميات المرفق جزءًا لا يتجزأ من هذا العقد.</p>
+                <div t-if="not is_html_empty(o.note)" t-out="o.note"/>
+
+                <p style="page-break-before: always"/>
+                <h5>الملحق رقم 1: جدول الكميات والأسعار</h5>
+                <table class="table table-sm table-bordered zc-boq">
+                    <thead><tr>
+                        <th>م</th><th>بند المالك</th><th style="width:40%">البيان</th><th>الوحدة</th>
+                        <th class="text-end">الكمية</th><th class="text-end">الفئة</th><th class="text-end">الإجمالي</th>
+                    </tr></thead>
+                    <tbody>
+                        <t t-foreach="c['rows']" t-as="r">
+                            <tr t-if="r.get('section')" class="zc-sec"><td colspan="7" t-out="r['section']"/></tr>
+                            <tr t-elif="r.get('note')"><td colspan="7"><em t-out="r['note']"/></td></tr>
+                            <tr t-else="">
+                                <td t-out="r['n']"/><td t-out="r['code']"/>
+                                <td><span t-out="r['name']"/><t t-if="r['boq']"><br/><small class="text-muted" t-out="r['boq']"/></t></td>
+                                <td t-out="r['uom']"/>
+                                <td class="text-end"><span t-out="r['qty']" t-options="Q"/></td>
+                                <td class="text-end"><span t-out="r['price']" t-options="Q"/></td>
+                                <td class="text-end"><span t-out="r['amount']" t-options="M"/></td>
+                            </tr>
+                        </t>
+                    </tbody>
+                    <tfoot>
+                        <tr class="fw-bold"><td colspan="6">الإجمالي قبل الضريبة</td><td class="text-end"><span t-out="c['untaxed']" t-options="M"/></td></tr>
+                        <tr><td colspan="6">ضريبة القيمة المضافة</td><td class="text-end"><span t-out="c['tax']" t-options="M"/></td></tr>
+                        <tr class="fw-bold"><td colspan="6">الإجمالي</td><td class="text-end"><span t-out="c['total']" t-options="M"/></td></tr>
+                    </tfoot>
+                </table>
+
+                <p class="mt-4">حُرر هذا العقد من نسختين بيد كل طرف نسخة للعمل بموجبها.</p>
+                <table class="table table-borderless zc-sign">
+                    <tr>
+                        <td><strong>الطرف الأول (المقاول الرئيسي)</strong><br/><span t-out="o.company_id.name"/><br/>الاسم: ................ التوقيع: ................</td>
+                        <td><strong>الطرف الثاني (مقاول الباطن)</strong><br/><span t-out="o.partner_id.commercial_partner_id.name"/><br/>الاسم: ................ التوقيع: ................</td>
+                    </tr>
+                </table>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_subcontract">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="zc_commercial_plus.report_subcontract_document" t-lang="o.partner_id.lang"/>
+            </t>
+        </t>
+    </template>
+</odoo>

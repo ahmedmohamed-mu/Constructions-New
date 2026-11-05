@@ -7,3 +7,4 @@ from . import control_tower
 from . import automation
 from . import guarantee
 from . import project_plan
+from . import contract_print

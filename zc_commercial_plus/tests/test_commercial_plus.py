@@ -160,3 +160,23 @@ class TestCommercialPlus(AccountTestInvoicingCommon):
                              ("hom.subcontract.certificate", "purchase_order_id")):
             field = self.env[model]._fields[fname]
             self.assertNotIn("company_id", str(field._description_domain(self.env)), model)
+
+    def test_print_owner_contract_and_subcontract(self):
+        html = self.env["ir.actions.report"]._render_qweb_html(
+            "zc_commercial_plus.report_owner_contract", self.so.ids)[0].decode()
+        self.assertIn("عقد مقاولة أعمال", html)
+        self.assertIn("FN-04", html.replace("[", " ").replace("]", " ") + (self.item.default_code or "FN-04"))
+        self.assertIn(self.owner.name, html)
+        po = self.env["purchase.order"].create({
+            "partner_id": self.sub_a.id, "hom_is_subcontract": True, "hom_advance_recovery_pct": 10,
+            "order_line": [Command.create({"product_id": self.labour.id, "product_qty": 100, "price_unit": 150,
+                                           "zc_boq_line_id": self.so.order_line.id})]})
+        po.button_confirm()
+        data = po._zc_subcontract_print()
+        self.assertEqual(data["contract"], self.so)
+        self.assertEqual(data["project"], self.project)
+        html = self.env["ir.actions.report"]._render_qweb_html(
+            "zc_commercial_plus.report_subcontract", po.ids)[0].decode()
+        self.assertIn("عقد مقاولة من الباطن", html)
+        self.assertIn("Crew A", html)
+        self.assertIn(self.so.name, html)
