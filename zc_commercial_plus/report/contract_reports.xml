@@ -38,7 +38,7 @@
                 <div class="zc-sub">
                     رقم العقد <strong t-out="o.name"/>
                     <t t-if="o.client_order_ref"> · مرجع المالك <span t-out="o.client_order_ref"/></t>
-                    · بتاريخ <span t-out="o.date_order" t-options="{'widget': 'date'}"/>
+                    · بتاريخ <span t-out="(o.date_order) and (o.date_order).strftime('%d/%m/%Y')"/>
                 </div>
 
                 <p>إنه في التاريخ المذكور أعلاه تحرّر هذا العقد بين كل من:</p>
@@ -66,8 +66,8 @@
 
                 <h5>البند الثاني: مدة التنفيذ</h5>
                 <p t-if="c['start'] and c['end']">مدة تنفيذ الأعمال <strong t-out="c['days']"/> يومًا تبدأ من
-                    <strong t-out="c['start']" t-options="{'widget': 'date'}"/> وتنتهي في
-                    <strong t-out="c['end']" t-options="{'widget': 'date'}"/>، ولا تُمد إلا بأمر تغيير أو مطالبة زمنية
+                    <strong t-out="(c['start']) and (c['start']).strftime('%d/%m/%Y')"/> وتنتهي في
+                    <strong t-out="(c['end']) and (c['end']).strftime('%d/%m/%Y')"/>، ولا تُمد إلا بأمر تغيير أو مطالبة زمنية
                     معتمدة كتابةً من صاحب العمل.</p>
                 <p t-else="">تُحدد مدة التنفيذ بالبرنامج الزمني المعتمد من الاستشاري.</p>
 
@@ -117,7 +117,7 @@
                         <tr t-foreach="c['guarantees']" t-as="g">
                             <td t-out="g['name']"/><td t-out="g['type']"/><td t-out="g['bank']"/>
                             <td class="text-end"><span t-out="g['amount']" t-options="M"/></td>
-                            <td><span t-out="g['expiry']" t-options="{'widget': 'date'}"/></td>
+                            <td><span t-out="(g['expiry']) and (g['expiry']).strftime('%d/%m/%Y')"/></td>
                         </tr>
                     </tbody>
                 </table>
@@ -139,10 +139,13 @@
 
                 <t t-if="c['escalation']">
                     <h5>البند العاشر: فروق الأسعار</h5>
-                    <p>تُحسب فروق الأسعار من تاريخ الأساس <strong t-out="c['escalation']['base']" t-options="{'widget': 'date'}"/>
+                    <p>تُحسب فروق الأسعار من تاريخ الأساس <strong t-out="(c['escalation']['base']) and (c['escalation']['base']).strftime('%d/%m/%Y')"/>
                         عند تجاوز التغير <strong t-out="c['escalation']['threshold']"/>%، طبقًا للمعادلة التالية
                         (الجزء الثابت <span t-out="round(c['escalation']['fixed'], 2)"/>%):</p>
-                    <ul><li t-foreach="c['escalation']['formula']" t-as="f"><span t-out="f['name']"/>: <span t-out="f['weight']"/>%</li></ul>
+                    <table class="table table-sm table-bordered" style="width:60%">
+                        <thead><tr><th>المؤشر</th><th class="text-end">الوزن %</th></tr></thead>
+                        <tbody><tr t-foreach="c['escalation']['formula']" t-as="f"><td t-out="f['name']"/><td class="text-end" t-out="f['weight']"/></tr></tbody>
+                    </table>
                 </t>
 
                 <h5>البند <t t-if="c['escalation']">الحادي عشر</t><t t-else="">العاشر</t>: الاستلام وفترة الضمان</h5>
@@ -226,7 +229,7 @@
                 <div class="zc-sub">
                     رقم العقد <strong t-out="o.name"/>
                     <t t-if="o.partner_ref"> · مرجع المقاول <span t-out="o.partner_ref"/></t>
-                    · بتاريخ <span t-out="o.date_approve or o.date_order" t-options="{'widget': 'date'}"/>
+                    · بتاريخ <span t-out="(o.date_approve or o.date_order) and (o.date_approve or o.date_order).strftime('%d/%m/%Y')"/>
                 </div>
 
                 <p>إنه في التاريخ المذكور أعلاه تحرّر هذا العقد بين كل من:</p>
@@ -252,8 +255,8 @@
 
                 <h5>البند الثاني: مدة التنفيذ</h5>
                 <p t-if="c['start'] and c['end']">يلتزم الطرف الثاني بتنفيذ الأعمال طبقًا للبرنامج الزمني للمشروع
-                    (من <strong t-out="c['start']" t-options="{'widget': 'date'}"/> إلى
-                    <strong t-out="c['end']" t-options="{'widget': 'date'}"/>) وأي برنامج تفصيلي يصدره الطرف الأول.</p>
+                    (من <strong t-out="(c['start']) and (c['start']).strftime('%d/%m/%Y')"/> إلى
+                    <strong t-out="(c['end']) and (c['end']).strftime('%d/%m/%Y')"/>) وأي برنامج تفصيلي يصدره الطرف الأول.</p>
                 <p t-else="">يلتزم الطرف الثاني بالبرنامج الزمني الذي يصدره الطرف الأول.</p>
 
                 <h5>البند الثالث: قيمة العقد</h5>
@@ -298,7 +301,7 @@
                         <tr t-foreach="c['guarantees']" t-as="g">
                             <td t-out="g['name']"/><td t-out="g['type']"/><td t-out="g['bank']"/>
                             <td class="text-end"><span t-out="g['amount']" t-options="M"/></td>
-                            <td><span t-out="g['expiry']" t-options="{'widget': 'date'}"/></td>
+                            <td><span t-out="(g['expiry']) and (g['expiry']).strftime('%d/%m/%Y')"/></td>
                         </tr>
                     </tbody>
                 </table>
