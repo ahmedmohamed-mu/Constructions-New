@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="plan_template_finishing" model="zc.project.plan.template">
+        <field name="name">خطة مشروع تشطيبات (قياسية)</field>
+        <field name="is_default" eval="True"/>
+        <field name="note">التواريخ بنسبة من مدة المشروع: 0% = تاريخ البداية، 100% = تاريخ النهاية.</field>
+    </record>
+    <record id="plan_line_10" model="zc.project.plan.template.line">
+        <field name="template_id" ref="plan_template_finishing"/>
+        <field name="sequence" eval="10"/>
+        <field name="phase">mobilization</field>
+        <field name="kind">task</field>
+        <field name="role">pm</field>
+        <field name="start_pct" eval="0"/>
+        <field name="end_pct" eval="2"/>
+        <field name="name">استلام الموقع من المالك (محضر تسليم موقع)</field>
+        <field name="chain" eval="False"/>
+    </record>
+    <record id="plan_line_20" model="zc.project.plan.template.line">
+        <field name="template_id" ref="plan_template_finishing"/>
+        <field name="sequence" eval="20"/>
+        <field name="phase">mobilization</field>
+        <field name="kind">task</field>
+        <field name="role">site</field>
+        <field name="start_pct" eval="1"/>
+        <field name="end_pct" eval="5"/>
+        <field name="name">تجهيز الموقع: مخزن ومكاتب وسور ولافتة</field>
+    </record>
+    <record id="plan_line_30" model="zc.project.plan.template.line">
+        <field name="template_id" ref="plan_template_finishing"/>
+        <field name="sequence" eval="30"/>
+        <field name="phase">mobilization</field>
+        <field name="kind">task</field>
+        <field name="role">pm</field>
+        <field name="start_pct" eval="0"/>
+        <field name="end_pct" eval="5"/>
+        <field name="name">البرنامج الزمني المعتمد (Baseline Programme)</field>
+        <field name="chain" eval="False"/>
+    </record>
+    <record id="plan_line_35" model="zc.project.plan.template.line">
+        <field name="template_id" ref="plan_template_finishing"/>
+        <field name="sequence" eval="35"/>
+        <field name="phase">mobilization</field>
+        <field name="kind">milestone</field>
+        <field name="role">pm</field>
+        <field name="end_pct" eval="5"/>
+        <field name="name">انتهاء التعبئة وتجهيز الموقع</field>
+    </record>
+    <record id="plan_line_40" model="zc.project.plan.template.line">
+        <field name="template_id" ref="plan_template_finishing"/>
+        <field name="sequence" eval="40"/>
+        <field name="phase">engineering</field>
+        <field name="kind">task</field>
+        <field name="role">qs</field>
+        <field name="start_pct" eval="2"/>
+        <field name="end_pct" eval="15"/>
+        <field name="name">تقديم واعتماد الرسومات التنفيذية (Shop Drawings)</field>
+        <field name="chain" eval="False"/>
+    </record>
+    <record id="plan_line_50" model="zc.project.plan.template.line">
+        <field name="template_id" ref="plan_template_finishing"/>
+        <field name="sequence" eval="50"/>
+        <field name="phase">engineering</field>
+        <field name="kind">task</field>
+        <field name="role">qs</field>
+        <field name="start_pct" eval="3"/>
+        <field name="end_pct" eval="15"/>
+        <field name="name">اعتماد عينات وكتالوجات الخامات (Material Submittals)</field>
+        <field name="chain" eval="False"/>
+    </record>
+    <record id="plan_line_60" model="zc.project.plan.template.line">
+        <field name="template_id" ref="plan_template_finishing"/>
+        <field name="sequence" eval="60"/>
+        <field name="phase">engineering</field>
+        <field name="kind">task</field>
+        <field name="role">procurement</field>
+        <field name="start_pct" eval="5"/>
+        <field name="end_pct" eval="20"/>
+        <field name="name">ترسية عقود مقاولي الباطن</field>
+        <field name="chain" eval="False"/>
+    </record>
+    <record id="plan_line_70" model="zc.project.plan.template.line">
+        <field name="template_id" ref="plan_template_finishing"/>
+        <field name="sequence" eval="70"/>
+        <field name="phase">procurement</field>
+        <field name="kind">task</field>
+        <field name="role">procurement</field>
+        <field name="start_pct" eval="8"/>
+        <field name="end_pct" eval="35"/>
+        <field name="name">شراء وتوريد الخامات طويلة التوريد</field>
+        <field name="chain" eval="False"/>
+    </record>
+    <record id="plan_line_80" model="zc.project.plan.template.line">
+        <field name="template_id" ref="plan_template_finishing"/>
+        <field name="sequence" eval="80"/>
+        <field name="phase">execution</field>
+        <field name="kind">boq</field>
+        <field name="role">site</field>
+        <field name="start_pct" eval="20"/>
+        <field name="end_pct" eval="85"/>
+        <field name="name">تنفيذ</field>
+        <field name="chain" eval="False"/>
+    </record>
+    <record id="plan_line_85" model="zc.project.plan.template.line">
+        <field name="template_id" ref="plan_template_finishing"/>
+        <field name="sequence" eval="85"/>
+        <field name="phase">execution</field>
+        <field name="kind">milestone</field>
+        <field name="role">pm</field>
+        <field name="end_pct" eval="50"/>
+        <field name="name">إنجاز 50% من الأعمال</field>
+    </record>
+    <record id="plan_line_90" model="zc.project.plan.template.line">
+        <field name="template_id" ref="plan_template_finishing"/>
+        <field name="sequence" eval="90"/>
+        <field name="phase">billing</field>
+        <field name="kind">monthly</field>
+        <field name="role">qs</field>
+        <field name="name">مستخلص المالك</field>
+        <field name="chain" eval="False"/>
+    </record>
+    <record id="plan_line_100" model="zc.project.plan.template.line">
+        <field name="template_id" ref="plan_template_finishing"/>
+        <field name="sequence" eval="100"/>
+        <field name="phase">closeout</field>
+        <field name="kind">task</field>
+        <field name="role">site</field>
+        <field name="start_pct" eval="85"/>
+        <field name="end_pct" eval="93"/>
+        <field name="name">الاختبارات والتشغيل التجريبي</field>
+        <field name="chain" eval="False"/>
+    </record>
+    <record id="plan_line_110" model="zc.project.plan.template.line">
+        <field name="template_id" ref="plan_template_finishing"/>
+        <field name="sequence" eval="110"/>
+        <field name="phase">closeout</field>
+        <field name="kind">task</field>
+        <field name="role">site</field>
+        <field name="start_pct" eval="88"/>
+        <field name="end_pct" eval="97"/>
+        <field name="name">حصر الملاحظات (Snag List) وإصلاحها</field>
+    </record>
+    <record id="plan_line_120" model="zc.project.plan.template.line">
+        <field name="template_id" ref="plan_template_finishing"/>
+        <field name="sequence" eval="120"/>
+        <field name="phase">closeout</field>
+        <field name="kind">task</field>
+        <field name="role">qs</field>
+        <field name="start_pct" eval="85"/>
+        <field name="end_pct" eval="97"/>
+        <field name="name">الرسومات حسب التنفيذ (As-built) وكتيبات التشغيل والضمانات</field>
+        <field name="chain" eval="False"/>
+    </record>
+    <record id="plan_line_130" model="zc.project.plan.template.line">
+        <field name="template_id" ref="plan_template_finishing"/>
+        <field name="sequence" eval="130"/>
+        <field name="phase">closeout</field>
+        <field name="kind">task</field>
+        <field name="role">pm</field>
+        <field name="start_pct" eval="97"/>
+        <field name="end_pct" eval="100"/>
+        <field name="name">التسليم الابتدائي (محضر استلام ابتدائي)</field>
+    </record>
+    <record id="plan_line_135" model="zc.project.plan.template.line">
+        <field name="template_id" ref="plan_template_finishing"/>
+        <field name="sequence" eval="135"/>
+        <field name="phase">closeout</field>
+        <field name="kind">milestone</field>
+        <field name="role">pm</field>
+        <field name="end_pct" eval="100"/>
+        <field name="name">التسليم الابتدائي</field>
+    </record>
+    <record id="plan_line_140" model="zc.project.plan.template.line">
+        <field name="template_id" ref="plan_template_finishing"/>
+        <field name="sequence" eval="140"/>
+        <field name="phase">closeout</field>
+        <field name="kind">task</field>
+        <field name="role">accounts</field>
+        <field name="start_pct" eval="100"/>
+        <field name="end_pct" eval="100"/>
+        <field name="extra_months" eval="12"/>
+        <field name="name">التسليم النهائي والحساب الختامي ورد المحتجز</field>
+        <field name="chain" eval="False"/>
+    </record>
+    <record id="plan_line_150" model="zc.project.plan.template.line">
+        <field name="template_id" ref="plan_template_finishing"/>
+        <field name="sequence" eval="150"/>
+        <field name="phase">closeout</field>
+        <field name="kind">milestone</field>
+        <field name="role">pm</field>
+        <field name="end_pct" eval="100"/>
+        <field name="extra_months" eval="12"/>
+        <field name="name">التسليم النهائي (نهاية فترة الضمان)</field>
+    </record>
+</odoo>

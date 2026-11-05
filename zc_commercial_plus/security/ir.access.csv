@@ -3,3 +3,7 @@ access_zc_cashflow_line_user,cashflow line user,zc.cashflow.line,base.group_user
 access_zc_sub_package_user,sub package user,zc.sub.package,base.group_user,crud,
 access_zc_handover_document_user,handover document user,zc.handover.document,base.group_user,crud,
 access_zc_boq_cost_template_user,boq cost template user,zc.boq.cost.template,base.group_user,crud,
+access_zc_project_plan_template_user,project plan template user,zc.project.plan.template,base.group_user,r,
+access_zc_project_plan_template_manager,project plan template manager,zc.project.plan.template,project.group_project_manager,crud,
+access_zc_project_plan_template_line_user,project plan template line user,zc.project.plan.template.line,base.group_user,r,
+access_zc_project_plan_template_line_manager,project plan template line manager,zc.project.plan.template.line,project.group_project_manager,crud,

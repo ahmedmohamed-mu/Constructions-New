@@ -17,6 +17,12 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/project_plan.py:0
+msgid "%s already has tasks: the plan is loaded on an empty project only."
+msgstr "%s فيه مهام بالفعل: الخطة بتتحمل على مشروع فاضي بس."
+
+#. module: zc_commercial_plus
 #: model_terms:ir.ui.view,arch_db:zc_commercial_plus.view_zc_sub_package_form
 msgid "<span class=\"o_stat_text\">Offers</span>"
 msgstr "<span class=\"o_stat_text\">العروض</span>"
@@ -33,8 +39,18 @@ msgid "Accessories"
 msgstr "إكسسوارات"
 
 #. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_project_plan_template_line__role__accounts
+msgid "Accounts"
+msgstr "الحسابات"
+
+#. module: zc_commercial_plus
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__message_needaction
 msgid "Action Needed"
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_project_plan_template__active
+msgid "Active"
 msgstr ""
 
 #. module: zc_commercial_plus
@@ -63,6 +79,13 @@ msgid "Activity Type Icon"
 msgstr ""
 
 #. module: zc_commercial_plus
+#: model:ir.model.fields,help:zc_commercial_plus.field_zc_project_plan_template_line__extra_months
+msgid ""
+"Added after the end date, e.g. 12 for the final handover after the defects "
+"liability period."
+msgstr ""
+
+#. module: zc_commercial_plus
 #: model:ir.model.fields,help:zc_commercial_plus.field_zc_deduction_type__zc_auto_apply
 msgid ""
 "Added by itself to every new owner contract (owner deductions) or "
@@ -70,6 +93,11 @@ msgid ""
 msgstr ""
 "يُضاف تلقائيًا لكل عقد مالك جديد (خصومات المالك) أو عقد باطن (خصومات "
 "الباطن)، مثل ضريبة الخصم والتحصيل."
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_project_plan_template_line__chain
+msgid "After the previous task"
+msgstr "بعد المهمة السابقة"
 
 #. module: zc_commercial_plus
 #. odoo-python
@@ -226,6 +254,11 @@ msgid "Certificate Deduction Type"
 msgstr "نوع خصم المستخلص"
 
 #. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_project_plan_template_line__phase__billing
+msgid "Certificates"
+msgstr "المستخلصات"
+
+#. module: zc_commercial_plus
 #. odoo-python
 #: code:addons/zc_commercial_plus/models/sub_package.py:0
 msgid "Choose the BOQ items and the subcontractors to invite."
@@ -254,6 +287,11 @@ msgstr "صاحب المطالبة"
 #: model_terms:ir.ui.view,arch_db:zc_commercial_plus.edit_project_zc_site
 msgid "Claims"
 msgstr "المطالبات"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_project_plan_template_line__phase__closeout
+msgid "Close-out"
+msgstr "الإغلاق والتسليم"
 
 #. module: zc_commercial_plus
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_hom_bank_guarantee__zc_commission_amount
@@ -310,6 +348,12 @@ msgid "Cost per BOQ Unit"
 msgstr "التكلفة لكل وحدة بند"
 
 #. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/project_plan.py:0
+msgid "Create a project plan template first (Project > Configuration)."
+msgstr "اعمل قالب خطة مشروع الأول (المشاريع > الإعدادات)."
+
+#. module: zc_commercial_plus
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_sale_order__zc_create_site_store
 msgid "Create a site store at the handover"
 msgstr "إنشاء مخزن موقع عند التسليم للتنفيذ"
@@ -318,6 +362,8 @@ msgstr "إنشاء مخزن موقع عند التسليم للتنفيذ"
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_boq_cost_template__create_uid
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_cashflow_line__create_uid
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_handover_document__create_uid
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_project_plan_template__create_uid
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_project_plan_template_line__create_uid
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__create_uid
 msgid "Created by"
 msgstr ""
@@ -326,6 +372,8 @@ msgstr ""
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_boq_cost_template__create_date
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_cashflow_line__create_date
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_handover_document__create_date
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_project_plan_template__create_date
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_project_plan_template_line__create_date
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__create_date
 msgid "Created on"
 msgstr ""
@@ -347,6 +395,29 @@ msgid "Daily Reports"
 msgstr "التقارير اليومية"
 
 #. module: zc_commercial_plus
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.zc_project_plan_template_form
+msgid ""
+"Dates are a % of the project duration: 0% is the start date, 100%\n"
+"                        the end date. Execution tasks are made per BOQ item and follow the quantities measured on site."
+msgstr ""
+"التواريخ نسبة من مدة المشروع: 0% تاريخ البداية و100%\n"
+"                        تاريخ النهاية. مهام التنفيذ بتتعمل لكل بند مقايسة وبتمشي مع الكميات المقاسة في الموقع."
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,help:zc_commercial_plus.field_zc_project_plan_template_line__end_pct
+msgid ""
+"Deadline, in % of the project duration. Above 100 is after the end date "
+"(e.g. the final handover)."
+msgstr ""
+"الموعد النهائي كنسبة من مدة المشروع. أكتر من 100 يعني بعد تاريخ النهاية (زي "
+"التسليم النهائي)."
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_project_plan_template__is_default
+msgid "Default"
+msgstr "افتراضي"
+
+#. module: zc_commercial_plus
 #. odoo-python
 #: code:addons/zc_commercial_plus/models/safety.py:0
 msgid "Describe the incident and the actions taken."
@@ -354,6 +425,7 @@ msgstr "اكتب الحادثة والإجراءات اللي اتعملت."
 
 #. module: zc_commercial_plus
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_boq_cost_template__name
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_project_plan_template_line__description
 msgid "Description"
 msgstr "الوصف"
 
@@ -379,6 +451,8 @@ msgstr "الاتجاه"
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_deduction_type__display_name
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_handover__display_name
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_handover_document__display_name
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_project_plan_template__display_name
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_project_plan_template_line__display_name
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__display_name
 msgid "Display Name"
 msgstr "اسم العرض"
@@ -394,15 +468,47 @@ msgid "Document"
 msgstr "المستند"
 
 #. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/project_plan.py:0
+msgid "Done"
+msgstr "منتهي"
+
+#. module: zc_commercial_plus
 #: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_sub_package__state__draft
 msgid "Draft"
 msgstr "مسودة"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_project_plan_template_line__end_pct
+msgid "End %"
+msgstr "النهاية %"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_project_plan_template_line__phase__engineering
+msgid "Engineering"
+msgstr "المكتب الفني"
 
 #. module: zc_commercial_plus
 #. odoo-python
 #: code:addons/zc_commercial_plus/models/sub_package.py:0
 msgid "Enter the prices of the offers first."
 msgstr "دخّل أسعار العروض الأول."
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_project_plan_template_line__kind__monthly
+msgid "Every month"
+msgstr "كل شهر"
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/project_plan.py:0
+msgid "Executed %(d)s of %(q)s %(u)s (%(p)s%%)."
+msgstr "اتنفذ %(d)s من %(q)s %(u)s (%(p)s%%)."
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_project_plan_template_line__phase__execution
+msgid "Execution"
+msgstr "التنفيذ"
 
 #. module: zc_commercial_plus
 #: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_daily_report__incident__first_aid
@@ -488,6 +594,8 @@ msgstr "أعمال ساخنة، عمل على ارتفاع، حفر..."
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_deduction_type__id
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_handover__id
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_handover_document__id
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_project_plan_template__id
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_project_plan_template_line__id
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__id
 msgid "ID"
 msgstr "المُعرف"
@@ -512,6 +620,12 @@ msgstr ""
 #: model:ir.model.fields,help:zc_commercial_plus.field_zc_sub_package__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr ""
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/project_plan.py:0
+msgid "In Progress"
+msgstr "قيد التنفيذ"
 
 #. module: zc_commercial_plus
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_daily_report__incident
@@ -567,6 +681,7 @@ msgstr "البنود"
 
 #. module: zc_commercial_plus
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_cashflow_line__kind
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_project_plan_template_line__kind
 msgid "Kind"
 msgstr "النوع"
 
@@ -579,6 +694,8 @@ msgstr "ميزانية مصنعية البنود"
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_boq_cost_template__write_uid
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_cashflow_line__write_uid
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_handover_document__write_uid
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_project_plan_template__write_uid
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_project_plan_template_line__write_uid
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__write_uid
 msgid "Last Updated by"
 msgstr ""
@@ -587,6 +704,8 @@ msgstr ""
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_boq_cost_template__write_date
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_cashflow_line__write_date
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_handover_document__write_date
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_project_plan_template__write_date
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_project_plan_template_line__write_date
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__write_date
 msgid "Last Updated on"
 msgstr ""
@@ -615,9 +734,19 @@ msgid "Letters of Guarantee"
 msgstr "خطابات الضمان"
 
 #. module: zc_commercial_plus
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.edit_project_zc_plan
+msgid "Load project plan"
+msgstr "تحميل خطة المشروع"
+
+#. module: zc_commercial_plus
 #: model_terms:ir.ui.view,arch_db:zc_commercial_plus.zc_handover_form_docs
 msgid "Load the standard checklist"
 msgstr "تحميل قائمة المستندات القياسية"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,help:zc_commercial_plus.field_zc_project_plan_template__is_default
+msgid "Loaded by itself on every new contract at the handover to execution."
+msgstr "بيتحمل لوحده على كل عقد جديد عند التسليم للتنفيذ."
 
 #. module: zc_commercial_plus
 #: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_daily_report__incident__lost_time
@@ -673,10 +802,25 @@ msgid "Messages"
 msgstr ""
 
 #. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_project_plan_template_line__kind__milestone
+msgid "Milestone"
+msgstr "مرحلة رئيسية"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_project_plan_template_line__phase__mobilization
+msgid "Mobilization"
+msgstr "التعبئة والتجهيز"
+
+#. module: zc_commercial_plus
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_cashflow_line__month
 #: model_terms:ir.ui.view,arch_db:zc_commercial_plus.view_zc_cashflow_search
 msgid "Month"
 msgstr "الشهر"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_project_plan_template_line__extra_months
+msgid "Months after the end"
+msgstr "شهور بعد النهاية"
 
 #. module: zc_commercial_plus
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__my_activity_date_deadline
@@ -684,6 +828,8 @@ msgid "My Activity Deadline"
 msgstr ""
 
 #. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_project_plan_template__name
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_project_plan_template_line__name
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__name
 msgid "Name"
 msgstr "الاسم"
@@ -705,6 +851,7 @@ msgstr "صافي النقدية"
 
 #. module: zc_commercial_plus
 #. odoo-python
+#: code:addons/zc_commercial_plus/models/project_plan.py:0
 #: code:addons/zc_commercial_plus/models/sub_package.py:0
 msgid "New"
 msgstr "جديد"
@@ -739,6 +886,16 @@ msgstr "بدون حوادث"
 #: code:addons/zc_commercial_plus/models/automation.py:0
 msgid "No priced item to save."
 msgstr "لا يوجد بند مسعّر للحفظ."
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_project_plan_template__note
+msgid "Note"
+msgstr ""
+
+#. module: zc_commercial_plus
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.zc_project_plan_template_form
+msgid "Notes..."
+msgstr "ملاحظات..."
 
 #. module: zc_commercial_plus
 #. odoo-python
@@ -792,6 +949,20 @@ msgstr "في"
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_deduction_type__zc_auto_apply
 msgid "On every new contract"
 msgstr "على كل عقد جديد"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_project_plan_template_line__kind__boq
+msgid "One task per BOQ item"
+msgstr "مهمة لكل بند مقايسة"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,help:zc_commercial_plus.field_zc_project_plan_template_line__kind
+msgid ""
+"One task per BOQ item: the execution of each contract item, timed by its trade and following the quantities measured on site.\n"
+"Every month: one task a month for the whole duration (e.g. the owner certificate)."
+msgstr ""
+"مهمة لكل بند مقايسة: تنفيذ كل بند في العقد، بمواعيد حسب نوع الشغل وبتمشي مع الكميات المقاسة في الموقع.\n"
+"كل شهر: مهمة كل شهر طول مدة المشروع (زي مستخلص المالك)."
 
 #. module: zc_commercial_plus
 #. odoo-python
@@ -875,6 +1046,21 @@ msgid "Period"
 msgstr "الفترة"
 
 #. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_project_plan_template_line__phase
+msgid "Phase"
+msgstr "المرحلة"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_project_plan_template__line_ids
+msgid "Plan"
+msgstr "الخطة"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_project_project__zc_plan_template_id
+msgid "Plan template"
+msgstr "قالب الخطة"
+
+#. module: zc_commercial_plus
 #: model:ir.model.fields,help:zc_commercial_plus.field_zc_cashflow_line__amount
 msgid "Positive = collected, negative = paid."
 msgstr "موجب = متحصل، سالب = مدفوع."
@@ -913,6 +1099,12 @@ msgstr ""
 "عرضه (زرار العروض)، وبعدين رسّي."
 
 #. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_project_plan_template_line__phase__procurement
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_project_plan_template_line__role__procurement
+msgid "Procurement"
+msgstr "المشتريات"
+
+#. module: zc_commercial_plus
 #: model:ir.model,name:zc_commercial_plus.model_product_template
 msgid "Product"
 msgstr "المنتج"
@@ -922,6 +1114,34 @@ msgstr "المنتج"
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_cashflow_line__project_id
 msgid "Project"
 msgstr "المشروع"
+
+#. module: zc_commercial_plus
+#: model:ir.model,name:zc_commercial_plus.model_zc_project_plan_template
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.zc_project_plan_template_form
+msgid "Project Plan Template"
+msgstr "قالب خطة مشروع"
+
+#. module: zc_commercial_plus
+#: model:ir.model,name:zc_commercial_plus.model_zc_project_plan_template_line
+msgid "Project Plan Template Line"
+msgstr "سطر قالب خطة مشروع"
+
+#. module: zc_commercial_plus
+#: model:ir.actions.act_window,name:zc_commercial_plus.action_zc_project_plan_template
+#: model:ir.ui.menu,name:zc_commercial_plus.menu_zc_project_plan_template
+msgid "Project Plan Templates"
+msgstr "قوالب خطط المشاريع"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_project_plan_template_line__role__pm
+msgid "Project manager"
+msgstr "مدير المشروع"
+
+#. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/project_plan.py:0
+msgid "Project plan loaded from %(t)s: %(n)s tasks, %(m)s milestones."
+msgstr "اتحملت خطة المشروع من %(t)s: %(n)s مهمة، و%(m)s مرحلة رئيسية."
 
 #. module: zc_commercial_plus
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_handover_document__partner_id
@@ -990,6 +1210,11 @@ msgid "Retention release"
 msgstr "رد المحتجز"
 
 #. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_project_plan_template_line__role
+msgid "Role"
+msgstr "الدور"
+
+#. module: zc_commercial_plus
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__message_has_sms_error
 msgid "SMS Delivery error"
 msgstr ""
@@ -1055,6 +1280,8 @@ msgstr "تم حساب أسعار البيع من ميزانية البنود ب�
 #. module: zc_commercial_plus
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_boq_cost_template__sequence
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_handover_document__sequence
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_project_plan_template__sequence
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_project_plan_template_line__sequence
 msgid "Sequence"
 msgstr "الترتيب"
 
@@ -1069,9 +1296,20 @@ msgid "Set prices from the markup"
 msgstr "احسب الأسعار من نسبة الإضافة"
 
 #. module: zc_commercial_plus
+#. odoo-python
+#: code:addons/zc_commercial_plus/models/project_plan.py:0
+msgid "Set the start and end dates of %s first."
+msgstr "حط تاريخ بداية ونهاية %s الأول."
+
+#. module: zc_commercial_plus
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_claim__bill_id
 msgid "Settlement bill"
 msgstr "فاتورة التسوية"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_project_plan_template_line__role__site
+msgid "Site"
+msgstr "الموقع"
 
 #. module: zc_commercial_plus
 #. odoo-python
@@ -1127,6 +1365,16 @@ msgstr "التكلفة القياسية للوحدة"
 #: code:addons/zc_commercial_plus/models/automation.py:0
 msgid "Standard price analysis saved for: %s"
 msgstr "تم حفظ تحليل السعر القياسي لـ: %s"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_project_plan_template_line__start_pct
+msgid "Start %"
+msgstr "البداية %"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,help:zc_commercial_plus.field_zc_project_plan_template_line__start_pct
+msgid "Start, in % of the project duration."
+msgstr "البداية كنسبة من مدة المشروع."
 
 #. module: zc_commercial_plus
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__state
@@ -1213,9 +1461,24 @@ msgid "Supplier warranties"
 msgstr "ضمانات الموردين"
 
 #. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_project_plan_template_line__kind__task
+msgid "Task"
+msgstr "مهمة"
+
+#. module: zc_commercial_plus
 #: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_boq_cost_template__cost_type__other
 msgid "Taxes, insurance & other"
 msgstr "ضرائب وتأمينات وأخرى"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_project_plan_template_line__role__qs
+msgid "Technical office"
+msgstr "المكتب الفني"
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_project_plan_template_line__template_id
+msgid "Template"
+msgstr ""
 
 #. module: zc_commercial_plus
 #: model:ir.model.fields.selection,name:zc_commercial_plus.selection__zc_handover_document__doc_type__test
@@ -1226,6 +1489,12 @@ msgstr "شهادات الاختبار والتشغيل"
 #: model:ir.model.fields,help:zc_commercial_plus.field_sale_order__zc_create_site_store
 msgid "The project gets its own warehouse (receipts, transfers, issues)."
 msgstr "المشروع يأخذ مخزنه الخاص (استلام، تحويل، صرف)."
+
+#. module: zc_commercial_plus
+#: model:ir.model.fields,help:zc_commercial_plus.field_zc_project_plan_template_line__chain
+msgid ""
+"The task waits for the previous task of the same phase (Gantt dependency)."
+msgstr "المهمة بتستنى المهمة اللي قبلها في نفس المرحلة (ربط في الجانت)."
 
 #. module: zc_commercial_plus
 #: model:ir.model.fields,field_description:zc_commercial_plus.field_zc_sub_package__title
@@ -1316,6 +1585,11 @@ msgstr ""
 #: model:ir.module.module,shortdesc:base.module_zc_commercial_plus
 msgid "Ziij Construction - Commercial & Close-out Plus"
 msgstr "Ziij Construction - التجاري والإقفال (إضافات)"
+
+#. module: zc_commercial_plus
+#: model_terms:ir.ui.view,arch_db:zc_commercial_plus.zc_project_plan_template_form
+msgid "e.g. Finishing project"
+msgstr "مثلاً: مشروع تشطيبات"
 
 #. module: zc_commercial_plus
 #: model_terms:ir.ui.view,arch_db:zc_commercial_plus.view_zc_sub_package_form

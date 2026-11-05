@@ -6,3 +6,4 @@ from . import safety
 from . import control_tower
 from . import automation
 from . import guarantee
+from . import project_plan
