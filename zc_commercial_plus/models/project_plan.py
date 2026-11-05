@@ -184,7 +184,8 @@ class ProjectProject(models.Model):
                     certified = order and order.hom_certificate_ids.filtered(
                         lambda c, d=day: c.state in ("approved", "invoiced") and c.date
                         and c.date.year == d.year and c.date.month == d.month) if "hom_certificate_ids" in order._fields else False
-                    state = "done" if (certified or closed == "closed") else (
+                    handed_over = closed in ("closed", "dlp", "dlp_over") and day < today
+                    state = "done" if (certified or handed_over or closed == "closed") else (
                         "doing" if day - timedelta(days=10) <= today else "new")
                     make(line, "%s %s - %s" % (line.name, n, day.strftime("%m/%Y")), day - timedelta(days=10), day,
                          state)
