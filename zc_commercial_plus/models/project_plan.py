@@ -146,15 +146,14 @@ class ProjectProject(models.Model):
                 "date_deadline": fields.Datetime.to_datetime(end).replace(hour=15) if end else False,
                 "description": description or line.description or False,
                 "tag_ids": [Command.set(self._zc_role_tag(line.role).ids)],
-                "user_ids": [Command.set(self.user_id.ids)] if line.role == "pm" and self.user_id else False,
+                # the project manager owns the plan (never the user running the upgrade, e.g. OdooBot)
+                "user_ids": [Command.set(self.user_id.ids)],
             }
             if has_planning and begin:
                 task_vals["planned_date_begin"] = fields.Datetime.to_datetime(begin).replace(hour=8)
             if "sale_line_id" in Task._fields:
                 # only the execution tasks belong to a BOQ item (the others would inherit the project's line)
                 task_vals["sale_line_id"] = sale_line.id if sale_line else False
-            if not task_vals["user_ids"]:
-                task_vals.pop("user_ids")
             task = Task.create(task_vals)
             if state == "done" and "state" in task._fields:
                 task.state = "1_done"
